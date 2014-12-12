@@ -29,7 +29,7 @@ Set colors
 
 /*Nav bar home text color*/
 .navbar-inverse .navbar-brand {
-  color: #9C9C9C;
+  color: #000;
 }
 
 /*Nav bar bottom line color - fully extended*/
