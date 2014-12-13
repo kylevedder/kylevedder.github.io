@@ -240,7 +240,7 @@ footer {
 
 @media(max-width:640px) {
     .headline {
-        padding: 75px 0 25px 0;
+        padding: 25px 0 25px 0;
     }
 
     .headline h1 {
