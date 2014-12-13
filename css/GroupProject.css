@@ -95,12 +95,12 @@ Set colors
 
 .header-image {
     display: block;
-    width: 100%;
+    width: 110%;
     text-align: center;
     background: no-repeat center center fixed;
     background-repeat:no-repeat;
     background-size: cover;
-    background: url(../images/Usdollar100frontScaled.png) no-repeat center center fixed;
+    background: url(../images/Usdollar100frontZoomed.png) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -112,12 +112,14 @@ Set colors
 }
 
 .headline h1 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 130px;
     background: #fff;
     background: rgba(167,173,166,0.9);
 }
 
 .headline h2 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 77px;
     background: #fff;
     background: rgba(167,173,166,0.9);
