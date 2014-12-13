@@ -93,6 +93,11 @@ Set colors
 
 
 
+.wrapperAcc{
+    width: 50%;
+    padding-right: 0px;
+}
+
 .header-image {
     display: block;
     width: 100%;
@@ -196,6 +201,10 @@ footer {
         max-width: 50%;
     }
 
+    .wrapperAcc{
+        width: 50%;
+        padding-right: 20px;
+    }
 
     .featurette-image.pull-left {
         margin-right: 10px;
@@ -227,10 +236,20 @@ footer {
     .featurette-heading {
         font-size: 25px;        
     }
+
+    .wrapperAcc{
+        width: 50%;
+        padding-right: 0px;
+    }
 }
 
 @media(max-width:668px) {
-    
+
+    .wrapperAcc{
+        width: 50%;
+        padding-right: 0px;
+    }
+
     .headline h1 {
         font-size: 70px;
     }
@@ -245,6 +264,11 @@ footer {
 }
 
 @media(max-width:640px) {
+    .wrapperAcc{
+        width: 50%;
+        padding-right: 0px;
+    }
+
     .headline {
         padding: 25px 0 25px 0;
     }
@@ -255,6 +279,12 @@ footer {
 
     .headline h2 {
         font-size: 30px;
+    }
+}
+
+@media(max-width:600px) {
+    .wrapperAcc{
+        width: 100%;
     }
 }
 
@@ -272,7 +302,7 @@ footer {
         height: auto;        
         /*max-width: 100%;
         max-height: 100%;*/
-    }
+    }    
 
 
     .featurette-image.pull-left {
