@@ -91,18 +91,16 @@ Set colors
     height: 100%;
 }
 
-.bg-image{
-    background: url(../images/Usdollar100frontScaled.png) no-repeat center center fixed;    
-    height:100;
-    width:auto;
-    /*background: url(../images/Usdollar100frontScaled.png) no-repeat center center fixed;*/
-}
+
 
 .header-image {
     display: block;
     width: 100%;
     text-align: center;
-    /*background: url(../images/Usdollar100frontScaled.png) no-repeat center center fixed;*/
+    background: no-repeat center center fixed;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background: url(../images/Usdollar100frontScaled.png) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;

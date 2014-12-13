@@ -29,7 +29,7 @@ Set colors
 
 /*Nav bar home text color*/
 .navbar-inverse .navbar-brand {
-  color: #000;
+  color: #9C9C9C;
 }
 
 /*Nav bar bottom line color - fully extended*/
@@ -91,11 +91,16 @@ Set colors
     height: 100%;
 }
 
+
+
 .header-image {
     display: block;
     width: 100%;
     text-align: center;
-    background: url('http://placehold.it/1900x500') no-repeat center center scroll;
+    background: no-repeat center center fixed;
+    background-repeat:no-repeat;
+    background-size: cover;
+    /*background: url(../images/Usdollar100frontScaled.png) no-repeat center center fixed;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;

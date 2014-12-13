@@ -87,10 +87,12 @@
 
         <!-- Full Width Image Header -->
         <header class="header-image">            
-            <div class="headline">
-                <div class="container">
-                    <h1>The Wage Gap in America</h1>
-                    <h2>Will Knock Your Socks Off</h2>
+            <header class="bg-image"> 
+                <div class="headline">
+                    <div class="container">
+                        <h1>The Wage Gap in America</h1>
+                        <h2>Will Knock Your Socks Off</h2>
+                    </div>
                 </div>
             </div>
         </header>
