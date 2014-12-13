@@ -225,6 +225,10 @@ footer {
 }
 
 @media(max-width:668px) {
+
+    .headline {
+        padding: 20px 0;    
+    }
     .headline h1 {
         font-size: 70px;
     }
