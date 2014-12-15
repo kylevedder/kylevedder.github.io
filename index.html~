@@ -21,6 +21,10 @@
     <link rel="apple-touch-icon" sizes="152x152" href="favicons/favicon-152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="favicons/favicon-180.png">
 
+    <link rel="stylesheet" href="css/jquery/jquery-ui.css">
+    <link rel="stylesheet" href="css/jquery/jquery-ui.structure.css">
+    <link rel="stylesheet" href="css/jquery/jquery-ui.theme.css">
+
     <meta name="msapplication-TileColor" content="#FFFFFF">
     <meta name="msapplication-TileImage" content="favicons/favicon-144.png">
     <meta name="msapplication-config" content="favicons/browserconfig.xml">
@@ -87,12 +91,10 @@
 
         <!-- Full Width Image Header -->
         <header class="header-image">            
-            <header class="bg-image"> 
-                <div class="headline">
-                    <div class="container">
-                        <h1>The Wage Gap in America</h1>
-                        <h2>Will Knock Your Socks Off</h2>
-                    </div>
+            <div class="headline">
+                <div class="container">
+                    <h1>The Wage Gap in America</h1>
+                    <h2>Will Knock Your Socks Off</h2>
                 </div>
             </div>
         </header>
@@ -105,67 +107,112 @@
 
                 <!-- First Featurette -->
                 <div class="featurette">  
-                    <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">                   
+                    <img class="featurette-image img-circle img-responsive pull-right" src="/images/gender-pay-gap.jpg">                   
                     <h2 class="featurette-heading">This First Heading
                         <span class="text-muted">Will Catch Your Eye</span>
                     </h2>
                     <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                </div>
-
-                <hr class="featurette-divider" id="anchorTwo">
-
-                <!-- Second Featurette -->
-                <div class="featurette">
-                    <img class="featurette-image img-circle img-responsive pull-left" src="http://placehold.it/500x500">
-                    <h2 class="featurette-heading">The Second Heading
-                        <span class="text-muted">Is Pretty Cool Too.</span>
-                    </h2>
-                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                </div>
-
-                <hr class="featurette-divider" id="anchorThree">
-
-                <!-- Third Featurette -->
-                <div class="featurette" id="contact">
-                    <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
-                    <h2 class="featurette-heading">The Third Heading
-                        <span class="text-muted">Will Seal the Deal.</span>
-                    </h2>
-                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                </div>
-
-                <hr class="featurette-divider" id="anchorFour">
-
-                <!-- Fourth Featurette -->
-                <div class="featurette">
-                    <img class="featurette-image img-circle img-responsive pull-left" src="http://placehold.it/500x500">
-                    <h2 class="featurette-heading">The Fourth Heading
-                        <span class="text-muted">Is Pretty Cool Too.</span>
-                    </h2>
-                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                </div>
-
-                <hr class="featurette-divider">
-
-                <!-- Footer -->
-                <footer>
-                    <div class="row">
-                        <div class="footerTag">
-                            <p>Copyright &copy; Your Website 2014</p>
+                    <div class="wrapperAcc">
+                        <div id="accordion" class = "accordionContent">
+                          <h3>Section 1</h3>
+                          <div>
+                            <p>
+                                This is section 1's text!
+                            </p>
                         </div>
+                        <h3>Section 2</h3>
+                        <div>
+                            <p>
+                                This is section 2's text!
+                            </p>
+                        </div>
+                        <h3>Section 3</h3>
+                        <div>
+                            <p>
+                                This is section 3's text! Look at this list:
+                            </p>
+                            <ul>
+                              <li>List item one</li>
+                              <li>List item two</li>
+                              <li>List item three</li>
+                          </ul>
+                      </div>
+                      <h3>Section 4</h3>
+                      <div>
+                        <p>
+                            This is section 4's text!
+                        </p>
+                        <p>
+                            New Paragraph!
+                        </p>
                     </div>
-                </footer>
-
-            </div>
+                </div>
+            </div>                      
         </div>
-        <!-- /.container -->
 
-        <!-- jQuery Version 1.11.0 -->
-        <script src="js/jquery-1.11.0.js"></script>
+        <hr class="featurette-divider" id="anchorTwo">
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="js/bootstrap.min.js"></script>    
+        <!-- Second Featurette -->
+        <div class="featurette">
+            <img class="featurette-image img-circle img-responsive pull-left" src="http://placehold.it/500x500">
+            <h2 class="featurette-heading">The Second Heading
+                <span class="text-muted">Is Pretty Cool Too.</span>
+            </h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
 
-    </body>
+        <hr class="featurette-divider" id="anchorThree">
 
-    </html>
+        <!-- Third Featurette -->
+        <div class="featurette" id="contact">
+            <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
+            <h2 class="featurette-heading">The Third Heading
+                <span class="text-muted">Will Seal the Deal.</span>
+            </h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+
+        <hr class="featurette-divider" id="anchorFour">
+
+        <!-- Fourth Featurette -->
+        <div class="featurette">
+            <img class="featurette-image img-circle img-responsive pull-left" src="http://placehold.it/500x500">
+            <h2 class="featurette-heading">The Fourth Heading
+                <span class="text-muted">Is Pretty Cool Too.</span>
+            </h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="footerTag">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</div>
+<!-- /.container -->
+
+<!-- jQuery Version 1.11.0 -->
+<script src="js/jquery-1.11.0.js"></script>
+
+<!-- jQuery UI Version 1.11.2 -->
+<script src="js/jquery-ui.js"></script> 
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script> 
+
+<!-- Custom JS functions -->
+<script src="js/setup.js"></script> 
+
+
+
+
+</body>
+
+</html>
