@@ -110,39 +110,19 @@
                     </h2>
                     <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
                     <div class="wrapperAcc">
-                        <div id="accordion" class = "accordionContent">
+                        <div id="accordion1" class = "accordionContent">
                           <h3>Section 1</h3>
                           <div>
                             <p>
-                                This is section 1's text!
+				<img class="img-responsive" src="./images/charts/for1.png";
                             </p>
                         </div>
                         <h3>Section 2</h3>
                         <div>
                             <p>
-                                This is section 2's text!
+				<img class="img-responsive" src="./images/charts/for2.jpg";
                             </p>
                         </div>
-                        <h3>Section 3</h3>
-                        <div>
-                            <p>
-                                This is section 3's text! Look at this list:
-                            </p>
-                            <ul>
-                              <li>List item one</li>
-                              <li>List item two</li>
-                              <li>List item three</li>
-                          </ul>
-                      </div>
-                      <h3>Section 4</h3>
-                      <div>
-                        <p>
-                            This is section 4's text!
-                        </p>
-                        <p>
-                            New Paragraph!
-                        </p>
-                    </div>
                 </div>
             </div>                      
         </div>
@@ -156,7 +136,21 @@
                 <span class="text-muted">Is Pretty Cool Too.</span>
             </h2>
             <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-
+	<div class="wrapperAcc">
+                        <div id="accordion2" class = "accordionContent">
+                          <h3>Section 1</h3>
+                          <div>
+                            <p>
+				<img class="img-responsive" src="./images/charts/for1.png";
+                            </p>
+                        </div>
+                        <h3>Section 2</h3>
+                        <div>
+                            <p>
+				<img class="img-responsive" src="./images/charts/for2.jpg";
+                            </p>
+                        </div>
+                </div>
         </div>
 
         <hr class="featurette-divider" id="anchorThree">
@@ -176,7 +170,7 @@
         <footer>
             <div class="row">
                 <div class="footerTag">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Website by Kyle, Jake, and Alex</p>
                 </div>
             </div>
         </footer>
