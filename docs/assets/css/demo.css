@@ -99,8 +99,33 @@ ol.linenums {
     border-radius: 50%;
 }
 
+.contact-glyph{
+  font-size: 40px;
+}
+
+.float-left{
+  float: left;
+}
+
+
+.float-right{
+  float: right;
+}
+
+.pdf-viewer{
+  margin-top: 60px;
+  margin-left:auto;
+  margin-right:auto;
+  width:8.5in;
+  height:11in;
+}
+
+.pdf{
+  width:100%;
+  height:100%;
+}
 .demo-headline {
-  padding: 73px 0 110px;
+  padding: 25px 0 26px;
   text-align: center;
 }
 .demo-logo {
@@ -156,6 +181,7 @@ ol.linenums {
 }
 .demo-section-title {
   font: 900 32px/40px "Helvetica Neue", Helvetica, Arial, sans-serif;
+
   margin: 10px 0;
 }
 .demo-panel-title {
