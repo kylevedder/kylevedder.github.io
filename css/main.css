@@ -1,0 +1,168 @@
+/*
+ * Author: Kyle Vedder
+ * URL: vedder.io
+ *
+ */
+
+body {
+    padding-top: 100px;
+    background: url(../img/space.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: black;
+}
+
+
+.centered {
+    margin: 0 auto;
+}
+
+.circular {
+    width: 200px;
+    height: 200px;
+
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+
+    background: url(../img/me.jpg) no-repeat;
+    background-size: 200px 200px;
+
+}
+
+.circular img {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+
+.links {
+    text-align: center;
+    padding: 5px 0px;
+    color: #ffffff;
+}
+
+.links a {
+    color: inherit;
+}
+
+.links span {
+    color: inherit;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+}
+
+.links i {
+    padding: 0px 10px; 
+}
+
+.links i:hover {
+    color: gray;
+}
+
+/* media */
+
+.media {
+    text-align: center;
+    padding: 5px 0px;
+    color: #ffffff;
+}
+
+.media a {
+    color: inherit;
+}
+
+.media span {
+    color: inherit;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.media i {
+    padding: 0px 10px; 
+}
+
+.media a:hover {
+    color: gray;
+}
+
+/* Name */
+
+.name {
+    padding: 10px 0px ;
+    text-align: center;
+}
+
+.text {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    padding-top: 10px;
+    margin-bottom: 0px;
+    color: #ffffff;
+    padding: 10px 0px ;
+    text-align: left;
+}
+
+.letter {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+    color: #ffffff;
+}
+
+.text h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    padding-top: 10px;
+    margin-bottom: 0px;
+    color: #ffffff;
+    padding: 10px 0px ;
+    text-align: left;
+    font-size: 30px;
+}
+
+.text h2 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    padding-top: 10px;
+    margin-bottom: 0px;
+    color: #ffffff;
+    padding: 10px 0px ;
+    text-align: left;
+    font-size: 25px;
+}
+
+.text p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    padding-top: 10px;
+    margin-bottom: 0px;
+    color: #ffffff;
+}
+
+
+.text p a:hover {
+    color: gray;
+}
+
+.name p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    padding-top: 10px;
+    margin-bottom: 0px;
+    color: #ffffff;
+}
+
+
+.name p a:hover {
+    color: gray;
+}
