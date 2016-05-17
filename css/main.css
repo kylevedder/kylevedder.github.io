@@ -40,32 +40,6 @@ body {
     filter: alpha(opacity=0);
 }
 
-
-.links {
-    text-align: center;
-    padding: 5px 0px;
-    color: #ffffff;
-}
-
-.links a {
-    color: inherit;
-}
-
-.links span {
-    color: inherit;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 300;
-    font-size: 30px;
-}
-
-.links i {
-    padding: 0px 10px; 
-}
-
-.links i:hover {
-    color: gray;
-}
-
 /* media */
 
 .media {
