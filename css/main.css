@@ -54,7 +54,6 @@ body {
 }
 
 /* media */
-
 .media {
     text-align: center;
     padding: 5px 0px;
@@ -158,4 +157,9 @@ body {
 
 .name p a:hover {
     color: gray;
+}
+
+.blog {
+    color: #ffffff;
+    text-decoration: underline;
 }

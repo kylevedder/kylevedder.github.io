@@ -68,41 +68,51 @@
   -moz-transform: scale(1, 1);
   -ms-transform: scale(1, 1);
   -webkit-transform: scale(1, 1);
-  transform: scale(1, 1);  
+  transform: scale(1, 1);
   background: url(../img/astronaut.png)
 }
 
 @-webkit-keyframes astroids {
   0% {
-    left: -100%;
+      left: -100%;
   }
   100% {
-    left: 120%;
+      left: 120%;
   }
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
 }
 @-moz-keyframes astroids {
   0% {
-    left: -100%;
+      left: -100%;
   }
   100% {
-    left: 120%;
+      left: 120%;
   }
+  from { -moz-transform: rotate(0deg); }
+  to { -moz-transform: rotate(360deg); }
 }
 @-ms-keyframes astroids {
   0% {
-    left: -100%;
+      left: -100%;
   }
   100% {
-    left: 120%;
+      left: 120%;
   }
+  from { -ms-transform: rotate(0deg); }
+  to { -ms-transform: rotate(360deg); }
 }
 @keyframes astroids {
   0% {
-    left: -100%;
+      left: -100%;
+      -moz-transform: rotate(0deg);
   }
   100% {
-    left: 120%;
+      left: 120%;
+      -moz-transform: rotate(360deg);
   }
+  from { transform:rotate(0deg); }
+  to { transform:rotate(360deg); }
 }
 
 .astroid-1 {
@@ -111,16 +121,16 @@
   -ms-animation-duration: 63s;
   -o-animation-duration: 63s;
   animation-duration: 63s;
-  margin-left: 20%;
+  margin-left: 0%;
 }
 
 .astroid-2 {
-  -webkit-animation-duration: 99s;
-  -moz-animation-duration: 99s;
-  -ms-animation-duration: 99s;
-  -o-animation-duration: 99s;
-  animation-duration: 99s;
-  margin-left: 90%;
+  -webkit-animation-duration: 9s;
+  -moz-animation-duration: 9s;
+  -ms-animation-duration: 9s;
+  -o-animation-duration: 9s;
+  animation-duration: 9s;
+  margin-left: 0%;
 }
 
 .astroid-3 {
@@ -214,11 +224,11 @@
 }
 
 .astroid-13 {
-  -webkit-animation-duration: 72s;
-  -moz-animation-duration: 72s;
-  -ms-animation-duration: 72s;
-  -o-animation-duration: 72s;
-  animation-duration: 72s;
+  -webkit-animation-duration: 12s;
+  -moz-animation-duration: 12s;
+  -ms-animation-duration: 12s;
+  -o-animation-duration: 12s;
+  animation-duration: 12s;
   margin-left: 84%;
 }
 
