@@ -20,18 +20,18 @@ body {
 }
 
 .circular {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
 
-    border-radius: 100px;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
 
     -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
     -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 
-    background: url(../img/me.jpg) no-repeat;
-    background-size: 200px 200px;
+    background: url(../img/me_dog.png) no-repeat;
+    background-size: 300px 300px;
 
 }
 
