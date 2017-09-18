@@ -55,7 +55,7 @@ body {
 
 /* media */
 .media {
-    font-family: monospace, sans-serif;
+    font-family: monospace, serif;
     text-align: center;
     padding: 5px 0px;
     color: #ffffff;
@@ -95,7 +95,7 @@ li div {
 }
 
 .text {
-    font-family: monospace, sans-serif;
+    font-family: monospace, serif;
     font-weight: 300;
     padding-top: 10px;
     margin-bottom: 0px;
@@ -105,9 +105,16 @@ li div {
 }
 
 .letter {
-    font-family: monospace, sans-serif;
+    font-family: monospace, serif;
     font-size: 100px;
     color: #ffffff;
+}
+
+@media screen and (max-width: 900px) {
+    .letter {
+        font-size: 40px;
+    }
+
 }
 
 .vert-align {
@@ -117,7 +124,7 @@ li div {
 }
 
 .text {
-    font-family: monospace, sans-serif;
+    font-family: monospace, serif;
     font-weight: 300;
     padding-top: 10px;
     margin-bottom: 0px;
@@ -131,7 +138,7 @@ li div {
 }
 
 h1 {
-    font-family: monospace, sans-serif;
+    font-family: monospace, serif;
     font-weight: 300;
     padding-top: 10px;
     margin-bottom: 0px;
@@ -141,7 +148,7 @@ h1 {
 }
 
 .text h2 {
-    font-family: monospace, sans-serif;
+    font-family: monospace, serif;
     font-weight: 300;
     padding-top: 10px;
     margin-bottom: 0px;
@@ -156,7 +163,7 @@ h1 {
 }
 
 .name p {
-    font-family: monospace, sans-serif;
+    font-family: monospace, serif;
     font-weight: 300;
     font-size: 25px;
     padding-top: 10px;
