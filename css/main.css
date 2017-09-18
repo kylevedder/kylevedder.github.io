@@ -55,7 +55,7 @@ body {
 
 /* media */
 .media {
-    font-family: monospace, serif;
+    font-family: courier, monospace, serif;
     text-align: center;
     padding: 5px 0px;
     color: #ffffff;
