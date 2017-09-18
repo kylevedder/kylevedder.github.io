@@ -6,7 +6,7 @@
 
 body {
     padding-top: 100px;
-    background: url(../img/space.png) no-repeat center center fixed;
+    background: url(../img/grid.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -55,20 +55,28 @@ body {
 
 /* media */
 .media {
+    font-family: monospace, sans-serif;
     text-align: center;
     padding: 5px 0px;
     color: #ffffff;
+    font-weight: 300;
+    font-size: 25px;
 }
 
 .media a {
-    color: inherit;
+    color: #6feae6
 }
 
-.media span {
-    color: inherit;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 300;
-    font-size: 15px;
+div a {
+    color: #6feae6
+}
+
+div a:hover {
+    color: #ff2aed;
+}
+
+li div {
+    font-size: 25px;
 }
 
 .media i {
@@ -76,7 +84,7 @@ body {
 }
 
 .media a:hover {
-    color: gray;
+    color: #ff2aed;
 }
 
 /* Name */
@@ -87,7 +95,7 @@ body {
 }
 
 .text {
-    font-family: "Montserrat", sans-serif;
+    font-family: monospace, sans-serif;
     font-weight: 300;
     padding-top: 10px;
     margin-bottom: 0px;
@@ -97,9 +105,8 @@ body {
 }
 
 .letter {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 300;
-    font-size: 40px;
+    font-family: monospace, sans-serif;
+    font-size: 100px;
     color: #ffffff;
 }
 
@@ -109,19 +116,32 @@ body {
     top: 3px;
 }
 
-.text h1 {
-    font-family: "Montserrat", sans-serif;
+.text {
+    font-family: monospace, sans-serif;
     font-weight: 300;
     padding-top: 10px;
     margin-bottom: 0px;
     color: #ffffff;
     padding: 10px 0px ;
     text-align: left;
+}
+
+.text h1 {
     font-size: 30px;
 }
 
+h1 {
+    font-family: monospace, sans-serif;
+    font-weight: 300;
+    padding-top: 10px;
+    margin-bottom: 0px;
+    color: #ffffff;
+    padding: 10px 0px ;
+    text-align: left;
+}
+
 .text h2 {
-    font-family: "Montserrat", sans-serif;
+    font-family: monospace, sans-serif;
     font-weight: 300;
     padding-top: 10px;
     margin-bottom: 0px;
@@ -131,24 +151,14 @@ body {
     font-size: 25px;
 }
 
-.text p {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 300;
-    font-size: 15px;
-    padding-top: 10px;
-    margin-bottom: 0px;
-    color: #ffffff;
-}
-
-
 .text p a:hover {
     color: gray;
 }
 
 .name p {
-    font-family: "Montserrat", sans-serif;
+    font-family: monospace, sans-serif;
     font-weight: 300;
-    font-size: 15px;
+    font-size: 25px;
     padding-top: 10px;
     margin-bottom: 0px;
     color: #ffffff;
