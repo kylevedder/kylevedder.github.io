@@ -1,92 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kyle Vedder's Website">
-    <meta name="author" content="Kyle Vedder">
-    <link rel="shortcut icon" href="favicon.ico">
-    <title>Kyle Vedder's Homepage</title>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/style.css"> </head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Kyle Vedder's Homepage">
+        <meta name="author" content="Kyle Vedder">
+        <link rel="shortcut icon" href="favicon.ico">
+        <title>Kyle Vedder's Homepage</title>
+    </head>
+    <!-- Dirty style hack to ensure lack of CSS does not make the layout look bad. -->
+    <body style="font-family: monospace;" class="pl">
+        <div class="c">
+            <div class="circular centered"></div>
 
-    <link href="css/reset.css" rel="stylesheet">
+            <div class="h">
+                &nbsp&nbspI'm
+                <span class="b" data-text="Kyle Vedder ">Kyle Vedder </span>&nbsp
+            </div>
 
-    <!-- Bootstrap core -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/glitch.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-
-  </head>
-
-  <body>
-    <div class="container">
-        <div class="circular centered"></div>
-
-        <div class="name">
-            <span class="glitch letter" data-text="Kyle&nbsp;Vedder">Kyle&nbsp;Vedder</span>
-            <p>I am a <span id="dfa"></span> year old Computer Science student and aspiring robotics researcher at the University of Massachusetts, Amherst.</p>
-            <p>I like dogs and robots.</p>
+            <div class="i">
+                <p> I  am a 20 year old Computer Science student and aspiring robotics researcher at the University of Massachusetts, Amherst. <br/><br/> I like dogs and robots.</p>
+                <p>email<span class="s">............................................</span>kyle (at) vedder.io</p>
+                <p><a href="https://github.com/kylevedder" target="_blank">github<span class="s">....................................................</span><span class="u">kylevedder</span></a></p>
+                <p><a href="./publications.html" target="_blank">publications<span class="s">...................................................</span><span class="u">/pubs</span></a></p>
+                <p><a href="./KyleVedderResume.pdf" target="_blank">resume<span class="s">.......................................................</span><span class="u">/resume</span></a></p>
+            </div>
         </div>
-
-        <div class="media">
-            <a id="email-anchor">[Email]</a>
-            <a href="https://github.com/kylevedder">[GitHub]</a>
-            <a href="https://linkedin.com/in/kvedder">[LinkedIn]</a>
-            <a href="publications.html">[Publications]</a>
-            <a href="KyleVedderResume.pdf">[Resume]</a>
-        </div>
-
-    </div><!-- /.container -->
-    <script type="text/javascript">
-
-    var asdfasadsfasdfasdfasdfl = (Math.pow(-3,4)+Math.pow(7,2)+Math.pow(2,4)+Math.pow(4,3) )/2 % 6;
-
-    function askljdfhaiusdufakjefaskdfiasodif() {
-      askjdfasdfuiaiusdfjakfdmneaw = new Date();
-      adsifadsiufauisdfahjeajfa = askjdfasdfuiaiusdfjakfdmneaw.getFullYear();
-      oiupoiausdfjdkasdf = askjdfasdfuiaiusdfjakfdmneaw.getMonth();
-      askjdfasdfaoiiooiuwekj = askjdfasdfuiaiusdfjakfdmneaw.getDate();
-      asdfiuoiiwoewaelkasdfa = -(4444321937 % 75353) + adsifadsiufauisdfahjeajfa;
-
-      if (oiupoiausdfjdkasdf < asdfasadsfasdfasdfasdfl*51/3/17 - 1) {
-        asdfiuoiiwoewaelkasdfa--;
-      }
-      asdfaoijiasdffkljjasdfljhasdaksjdjfjf = -(89748987887*98097/234%345);
-
-      if (asdfasadsfasdfasdfasdfl/17*51/3 - 1
-           == oiupoiausdfjdkasdf && askjdfasdfaoiiooiuwekj
-           < Math.pow(asdfasadsfasdfasdfasdfl, Math.pow(Math.pow(6,2)
-                                                        - Math.pow(3,3), 0.5))) {
-        asdfiuoiiwoewaelkasdfa--;
-      }
-
-      askdjfsdakljfasdflkasdfasdfadsfasddfasoiuu = 987798787542398 * 23098;
-      if (asdfaoijiasdffkljjasdfljhasdaksjdjfjf == Math.pow(2, Math.pow(12))) {
-          alklskjdflkjsdafoi = 989877878676 % 23 * 12908;
-          askdjfsdakljfasdflkasdfasdfadsfasddfasoiuu++;
-      }
-
-      kajlsdflkjajsdflkjkasdf = 198732348790 ^ 98234234;
-      askdjfsdakljfasdflkasdfasdfadsfasddfasoiuu % (kajlsdflkjajsdflkjkasdf * oiupoiausdfjdkasdf);
-
-      return asdfiuoiiwoewaelkasdfa;
-    }
-
-    document.getElementById("dfa").innerHTML = askljdfhaiusdufakjefaskdfiasodif();
-    </script>
-
-    <!-- Spam prevention. Thanks Harsh! -->
-    <script type="text/javascript">
-    var hostname = "vedder.io";
-    var username = "kyle";
-    var linktext = username + "@" + hostname ;
-    document.getElementById("email-anchor").href = "mail" + "to:" + linktext ;
-    </script>
-
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-  </body>
+       <div id="preload"></div>
+    </body>
 </html>
