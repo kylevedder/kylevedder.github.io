@@ -75,13 +75,37 @@ a:link {
     transition: all 700ms cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
+.s {
+    display: inline-block;
+}
+.s2 {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    .i {
+        width: 95%;
+    }
+
+    .i p.dots {
+        text-align: left;
+    }
+
+    .s {
+        display: none;
+    }
+    .s2 {
+        display: inline-block;
+    }
+}
+
 @media screen and (max-height: 700px) {
     .c {
       margin: 0.3cm auto 20px auto;
     }
 
     .i {
-         margin: 0.3cm auto 10px auto;     
+        margin: 0.3cm auto 10px auto;
     }
 
     .circular {
