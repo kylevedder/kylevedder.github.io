@@ -1,7 +1,7 @@
 body {
   background-color: black;
   font-family: monospace;
-  font-size: 14px;
+  font-size: 0.9vw;
 }
 
 #preload {
@@ -25,7 +25,7 @@ a:link {
 
 .i {
   letter-spacing: 1px;
-  width: 700px;
+  width: 45%;
   margin: 30px auto 10px auto;   
   text-align: center;
 }
