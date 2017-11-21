@@ -216,9 +216,8 @@ function init() {
 }
 
 function onMouseMove(e) {
-
-    var mouse_x = event.clientX;
-    var mouse_y = event.clientY;
+    var mouse_x = e.clientX;
+    var mouse_y = e.clientY;
     var rotation_amount = 0.003;
     for (m of meshes) {
         m.rotation.x = mouse_y * rotation_amount;
