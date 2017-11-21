@@ -114,10 +114,11 @@ function readTextFile() {
 
                 cylinder = make_cylinder(delta_x, delta_y);
 
-                time += Math.sqrt(Math.pow(delta_x, 2) + Math.pow(delta_y, 2));
+                var time_delta = Math.sqrt(Math.pow(delta_x, 2) + Math.pow(delta_y, 2));
+                time += time_delta;
 
                 var position = new THREE.Vector3(center_x,
-                                                 time,
+                                                 time - (time_delta / 2),
                                                  center_y);
                 var rotation = new THREE.Euler(0, 0, 0, "XYZ");
                 var scale = new THREE.Vector3(1, 1, 1);
