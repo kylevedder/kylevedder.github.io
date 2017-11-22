@@ -231,7 +231,7 @@ function onMouseMove(e) {
 function onMouseScroll(e) {
 
     var e = window.event || e;
-    var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+    var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail || -e.deltaY)));
     var scale_amount = 0.1;
     for (m of meshes) {
         m.scale.x *= (1 + scale_amount * delta);
