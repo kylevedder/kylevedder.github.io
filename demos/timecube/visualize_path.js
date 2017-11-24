@@ -57,6 +57,17 @@ function init_lighting() {
     scene.add(light);   
 }
 
+function hashCode (str){
+    var hash = 0;
+    if (str.length == 0) return hash;
+    for (i = 0; i < str.length; i++) {
+        char = str.charCodeAt(i);
+        hash = ((hash<<5 + 1)-hash)+char;
+        hash = hash & hash; // Convert to 32bit integer
+    }
+    return hash;
+}
+
 function readTextFile() {
     document.getElementById('file').addEventListener('change', readFile, false);
 
@@ -99,7 +110,7 @@ function readTextFile() {
             var matrix = new THREE.Matrix4();
             var quaternion = new THREE.Quaternion();
             var color = new THREE.Color();
-            var random_color = Math.random() * 0xffffff;
+            var random_color = hashCode(file.name.toString()) * 0xffffff;
 
             var time = 0;
 
