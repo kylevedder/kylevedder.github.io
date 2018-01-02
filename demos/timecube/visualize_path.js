@@ -68,6 +68,11 @@ function hashCode (str){
     return hash;
 }
 
+var kGridSize = 200;  // mm
+var kMaxRobotVelociy = 3000;  // mm/s
+var kGridProgressionTime = kGridSize / kMaxRobotVelociy;  // s
+var kTimeScale = 1000;  // s => millis
+
 function readTextFile() {
     document.getElementById('file').addEventListener('change', readFile, false);
 
@@ -88,7 +93,7 @@ function readTextFile() {
             var initial_mesh_scales = meshes.map(function(m) { return [m.scale.x, m.scale.y, m.scale.z]; });
             meshes.forEach(function(m) { m.scale.x = 1; m.scale.y = 1; m.scale.z = 1; });
 
-            var cylinder_height = 200;
+            var cylinder_height = kGridProgressionTime * kTimeScale;
 
             function make_cylinder(dx, dy) {
                 if (dy!= 0 && dx != 0) {
@@ -120,12 +125,14 @@ function readTextFile() {
 
                 var center_x = (top_pair[0] + bottom_pair[0]) / 2;
                 var center_y = (top_pair[1] + bottom_pair[1]) / 2;
-                var delta_x = (top_pair[0] - bottom_pair[0]);
-                var delta_y = (top_pair[1] - bottom_pair[1]);
+                var delta_x = (top_pair[0] - bottom_pair[0]);  // mm
+                var delta_y = (top_pair[1] - bottom_pair[1]);  // mm
+                var delta_x_time = delta_x / kMaxRobotVelociy * kTimeScale;  // millis
+                var delta_y_time = delta_y / kMaxRobotVelociy * kTimeScale;  // millis
 
                 cylinder = make_cylinder(delta_x, delta_y);
 
-                var time_delta = Math.sqrt(Math.pow(delta_x, 2) + Math.pow(delta_y, 2));
+                var time_delta = Math.sqrt(Math.pow(delta_x_time, 2) + Math.pow(delta_y_time, 2));
                 time += time_delta;
 
                 var position = new THREE.Vector3(center_x,
