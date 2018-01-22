@@ -86,7 +86,9 @@ function readTextFile() {
                 var xy_line = l.split('}')[0].trim();
                 var x_and_y = xy_line.split('\n').map(function(x) { return (x.split(':')[1]); }).map(function(x) { return parseInt(x); });
                 if (!isNaN(x_and_y[0]) && !isNaN(x_and_y[1])) {
-                    path_coords.push(x_and_y);
+                    var swapped_x_and_y = x_and_y;
+                    swapped_x_and_y[1] *= -1;
+                    path_coords.push(swapped_x_and_y);
                 }
             }
 
