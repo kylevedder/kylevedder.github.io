@@ -68,6 +68,18 @@ function hashCode (str){
     return hash;
 }
 
+function getColor(str) {
+    var prefix = str.split(".")[0];
+    var exists = new RegExp("[0-9]$").test(prefix);
+    if (exists) {
+        var color_array = [0xff3300, 0x33cc33, 0x0066ff, 0xffff66, 0x9966ff];
+        var last_value = parseInt(prefix[prefix.length - 1]);
+        return color_array[last_value % color_array.length]
+    } else {
+        return hashCode(file.name.toString()) * 0xffffff;
+    }
+}
+
 var kGridSize = 200;  // mm
 var kMaxRobotVelociy = 3000;  // mm/s
 var kGridProgressionTime = kGridSize / kMaxRobotVelociy;  // s
@@ -117,7 +129,7 @@ function readTextFile() {
             var matrix = new THREE.Matrix4();
             var quaternion = new THREE.Quaternion();
             var color = new THREE.Color();
-            var random_color = hashCode(file.name.toString()) * 0xffffff;
+            var random_color = getColor(file.name.toString());
 
             var time = 0;
 
