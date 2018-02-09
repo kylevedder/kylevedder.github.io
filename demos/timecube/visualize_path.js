@@ -147,6 +147,9 @@ function readTextFile() {
                 cylinder = make_cylinder(delta_x, delta_y);
 
                 var time_delta = Math.sqrt(Math.pow(delta_x_time, 2) + Math.pow(delta_y_time, 2));
+                if (time_delta == 0.0) {
+                    time_delta = kGridSize / kMaxRobotVelociy * kTimeScale;
+                }
                 time += time_delta;
 
                 var position = new THREE.Vector3(center_x,
