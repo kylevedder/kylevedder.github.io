@@ -5,7 +5,7 @@ body {
 }
 
 #preload {
-  background: url(../img/me_head.jpeg);
+  background: url(../img/me_dog.png);
 }
 
 a:link {
@@ -61,7 +61,7 @@ a:link {
     -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
     -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 
-    background: url(../img/me_head.jpeg) no-repeat;
+    background: url(../img/me_dog.png) no-repeat;
     background-size: 300px 300px;
     margin-bottom: 0.3cm;
 }
@@ -111,7 +111,7 @@ a:link {
     }
 
     .circular:hover {
-      background: url(../img/me_head.jpeg) no-repeat;
+      background: url(../img/me_dog.png) no-repeat;
       background-size: 120px 120px;
       border-radius: 3px;
       -webkit-border-radius: 3px;
