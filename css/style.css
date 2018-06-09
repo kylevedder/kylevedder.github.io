@@ -120,12 +120,6 @@ a:link {
     }
 }
 
-.i p.hoverable:hover,
-.i p.hoverable:hover .s,
-.i p.hoverable:hover a {
-  color: blue !important;
-}
-
 .i p {
   margin-bottom: 20px;
 }
