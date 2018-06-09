@@ -10,6 +10,8 @@ var kStartGoalRadius = 10;
 var kDeltaQ = 20.0;
 var kGoalBias = 0.1;
 var kGoalTestDistance = 21.0;
+var kNormalTimeout = 100;
+var kGoalTimeout = 2000;
 
 function RandomStart() {
   let width = c.width;
@@ -145,9 +147,9 @@ function MainLoop() {
 
   if (GoalTest(line_end)) {
     UnwindPath(line_end);
-    setTimeout(MainLoop, 2000);
+    setTimeout(MainLoop, kGoalTimeout);
   } else {
-    setTimeout(MainLoop, 100);
+    setTimeout(MainLoop, kNormalTimeout);
   }
 }
 
