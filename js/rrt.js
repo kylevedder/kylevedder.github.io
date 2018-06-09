@@ -42,10 +42,10 @@ function DrawLine(p1, p2, color) {
   ctx.stroke();
 }
 
-function DrawCircle(point, radius, color) {
+function DrawCircle(p, radius, color) {
   ctx.strokeStyle = color;
   ctx.beginPath();
-  ctx.arc(point[0], point[1], radius, 0, 2 * Math.PI);
+  ctx.arc(p[0], p[1], radius, 0, 2 * Math.PI);
   ctx.stroke();
 }
 
@@ -76,16 +76,16 @@ function SubVecs(v1, v2) {
   return [v1[0] - v2[0], v1[1] - v2[1]];
 }
 
-function ScaleVec(vec, scale) {
-  return [vec[0] * scale, vec[1] * scale];
+function ScaleVec(v, scale) {
+  return [v[0] * scale, v[1] * scale];
 }
 
 function Sq(x) {
   return (x * x);
 }
 
-function Dist(a, b) {  
-  return Math.sqrt(Sq(a[0] - b[0]) + Sq(a[1] - b[1]));
+function Dist(p1, p2) {  
+  return Math.sqrt(Sq(p1[0] - p2[0]) + Sq(p1[1] - p2[1]));
 }
 
 function GoalTest(point) {
