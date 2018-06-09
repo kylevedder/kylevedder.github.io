@@ -14,18 +14,14 @@ var kNormalTimeout = 100;
 var kGoalTimeout = 2000;
 
 function RandomStart() {
-  let width = c.width;
-  let height = c.height;
-  let sx = Math.random() * width / 4 + 3 * width / 4;
-  let sy = Math.random() * height / 4 + 3 * height / 4;
+  let sx = Math.random() * c.width / 4 + 3 * c.width / 4;
+  let sy = Math.random() * c.height / 4 + 3 * c.height / 4;
   start = [sx, sy];
 }
 
 function RandomGoal() {
-  let width = c.width;
-  let height = c.height;
-  let sx = Math.random() * width / 4;
-  let sy = Math.random() * height / 4;
+  let sx = Math.random() * c.width / 4;
+  let sy = Math.random() * c.height / 4;
   goal = [sx, sy];
 }
 
@@ -33,10 +29,8 @@ function RandomPoint() {
   if (Math.random() <= kGoalBias) {
     return goal;
   }
-  let width = c.width;
-  let height = c.height;
-  let sx = Math.random() * width;
-  let sy = Math.random() * height;
+  let sx = Math.random() * c.width;
+  let sy = Math.random() * c.height;
   return [sx, sy];
 }
 
