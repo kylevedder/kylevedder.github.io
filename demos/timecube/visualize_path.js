@@ -152,7 +152,7 @@ function addSearchBox(box_array, step_height) {
         color: 0xFF0000,
         wireframe: false,
 	transparent: true,
-	opacity: 0.5,
+	opacity: 0.2,
         side: THREE.DoubleSide
     });
 
