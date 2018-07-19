@@ -1,24 +1,27 @@
 var container, stats;
 var camera, controls, scene, renderer;
 var meshes = [];
+var initial_mesh_scales = [];
+
+var print = console.log.bind( console );
+Array.prototype.max = function() {
+  return Math.max.apply(null, this);
+};
+
+Array.prototype.min = function() {
+  return Math.min.apply(null, this);
+};
 
 init();
 animate();
 
 function applyVertexColors(g, c) {
-
     g.faces.forEach(function(f) {
-
         var n = (f instanceof THREE.Face3) ? 3 : 4;
-
         for (var j = 0; j < n; j++) {
-
             f.vertexColors[j] = c;
-
         }
-
     });
-
 }
 
 function init_container() {
@@ -41,7 +44,7 @@ function init_stats() {
 
 function init_scene() {
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x000000);
+    scene.background = new THREE.Color(0xFFFFFF);
 }
 
 function init_camera() {
@@ -62,7 +65,7 @@ function hashCode (str){
     if (str.length == 0) return hash;
     for (i = 0; i < str.length; i++) {
         char = str.charCodeAt(i);
-        hash = ((hash<<5 + 1)-hash)+char;
+        hash = ((hash<<5 + 1)-hash) + char;
         hash = hash & hash; // Convert to 32bit integer
     }
     return hash;
@@ -84,9 +87,214 @@ var kGridSize = 200;  // mm
 var kMaxRobotVelociy = 3000;  // mm/s
 var kGridProgressionTime = kGridSize / kMaxRobotVelociy;  // s
 var kTimeScale = 1000;  // s => millis
+var kDebugParsing = false;
+var kStepTimeHeight = 200;  // mm/step
+
+function parsePoint(point_proto) {
+    lines = point_proto.split('\n');
+    x = parseFloat(lines.filter(l => l.includes("x:"))[0].replace("x:", ""))
+    y = parseFloat(lines.filter(l => l.includes("y:"))[0].replace("y:", ""))
+    return [x, y]
+}
+
+function parseBoxProto(box_proto) {
+        // Removes extra { at the start.
+    box_proto = box_proto.split('\n').slice(1).join('\n');
+    if (kDebugParsing) {
+	print("Parsing box proto:");
+	print(box_proto);
+    }
+    upper_left_point = parsePoint(box_proto.split("upper_left ")[1].split("lower_right")[0]);
+    lower_right_point = parsePoint(box_proto.split("lower_right")[1]);
+    return [upper_left_point, lower_right_point];
+}
+
+function parsePathProtos(path_protos) {
+    if (kDebugParsing) {
+	print("Parsing path protos:");
+	for (proto of path_protos) {
+	    print(proto);
+	}
+    }
+    return path_protos.map(p => p.split("vertices {").slice(1).map(s => parsePoint(s)));
+}
+
+function initShapeAdd() {
+    // Resets the shapes to 1.0 scale, and saves their scaling for later retrevial.
+    initial_mesh_scales = meshes.map(function(m) {
+	return [m.scale.x, m.scale.y, m.scale.z];
+    });
+    meshes.forEach(function(m) { m.scale.x = 1; m.scale.y = 1; m.scale.z = 1; });
+}
+
+function finishShapeAdd() {
+    for (var i = 0; i < meshes.length; ++i) {
+	meshes[i].scale.x = initial_mesh_scales[0][0];
+	meshes[i].scale.y = initial_mesh_scales[0][1];
+	meshes[i].scale.z = initial_mesh_scales[0][2];
+    }    
+}
+
+function addSearchBox(box_array, step_height) {
+    var matrix = new THREE.Matrix4();
+    var quaternion = new THREE.Quaternion();
+
+    var center_x = (box_array[0][0] + box_array[1][0]) / 2.0;
+    var center_y = (box_array[0][1] + box_array[1][1]) / 2.0;
+    var center_z = (step_height * kStepTimeHeight) / 2.0;
+
+    var delta_x = box_array[0][0] - box_array[1][0];
+    var delta_y = box_array[1][1] - box_array[0][1];
+    var delta_z = (step_height * kStepTimeHeight);
+
+    var wireframe_geometry = new THREE.Geometry();
+    var wireframe_material = new THREE.MeshBasicMaterial({
+        color: 0xFF0000,
+        wireframe: false,
+	transparent: true,
+	opacity: 0.5,
+        side: THREE.DoubleSide
+    });
+
+    var wireframe_box1 = new THREE.PlaneGeometry(delta_x, delta_z);
+    quaternion.setFromEuler(new THREE.Euler(0, 0, 0, "XYZ"), false);
+    matrix.compose(new THREE.Vector3(center_x, center_z, -(center_y + delta_y / 2)),
+		   quaternion,
+		   new THREE.Vector3(1, 1, 1));
+    wireframe_geometry.merge(wireframe_box1, matrix);
+
+    var wireframe_box2 = new THREE.PlaneGeometry(delta_x, delta_z);
+    quaternion.setFromEuler(new THREE.Euler(0, 0, 0, "XYZ"), false);
+    matrix.compose(new THREE.Vector3(center_x, center_z, -(center_y - delta_y / 2)),
+		   quaternion,
+		   new THREE.Vector3(1, 1, 1));
+    wireframe_geometry.merge(wireframe_box2, matrix);
+
+    var wireframe_box3 = new THREE.PlaneGeometry(delta_y, delta_z);
+    quaternion.setFromEuler(new THREE.Euler(0, 1.57, 0, "XYZ"), false);
+    matrix.compose(new THREE.Vector3(center_x + delta_x / 2, center_z, -center_y),
+		   quaternion,
+		   new THREE.Vector3(1, 1, 1));
+    wireframe_geometry.merge(wireframe_box3, matrix);
+    
+    var wireframe_box4 = new THREE.PlaneGeometry(delta_y, delta_z);
+    quaternion.setFromEuler(new THREE.Euler(0, 1.57, 0, "XYZ"), false);
+    matrix.compose(new THREE.Vector3(center_x - delta_x / 2, center_z, -center_y),
+		   quaternion,
+		   new THREE.Vector3(1, 1, 1));
+    wireframe_geometry.merge(wireframe_box4, matrix);
+    
+    var box_mesh = new THREE.Mesh(wireframe_geometry, wireframe_material);
+    meshes.push(box_mesh);
+    scene.add(box_mesh);
+}
+
+function makeShear(dx, dy) {
+    var shear_x = dx / kStepTimeHeight;
+    var shear_y = dy / kStepTimeHeight;
+    if (dx != 0 && dy != 0) {
+        shear_x *= 1 / 1.414213562;
+        shear_y *= 1 / 1.414213562;
+    }
+
+    var Syx = shear_x,
+        Szx = 0,
+        Sxy = 0,
+        Szy = 0,
+        Sxz = 0,
+        Syz = shear_y;
+
+    var shear = new THREE.Matrix4();
+
+    shear.set(1, Syx, Szx, 0,
+              Sxy, 1, Szy, 0,
+              Sxz, Syz, 1, 0,
+              0, 0, 0, 1);
+
+    return shear;
+}
+
+function addPath(path) {
+    var wireframe_geometry = new THREE.Geometry();
+    var wireframe_material = new THREE.MeshBasicMaterial({
+        color: hashCode(path.toString()) * 0xffffff,
+        wireframe: false,
+        side: THREE.DoubleSide
+    });
+    
+    for (i = 0; i < path.length - 1; ++i) {
+	let start_pos = path[i];
+	let end_pos = path[i + 1];
+
+	var matrix = new THREE.Matrix4();
+	var quaternion = new THREE.Quaternion();
+	
+	var center_x = (start_pos[0] + end_pos[0]) / 2.0;
+	var center_y = (start_pos[1] + end_pos[1]) / 2.0;
+	var center_z = (i + 0.5) * kStepTimeHeight;
+
+	var delta_x = (end_pos[0] - start_pos[0]);
+	var delta_y = -(end_pos[1] - start_pos[1]);
+
+	var wireframe_cylinder = new THREE.CylinderGeometry(90, 90, kStepTimeHeight, 20);
+	quaternion.setFromEuler(new THREE.Euler(0, 0, 0, "XYZ"), false);
+	matrix.compose(new THREE.Vector3(center_x, center_z, -center_y),
+		       quaternion,
+		       new THREE.Vector3(1, 1, 1));
+	matrix.multiply(makeShear(delta_x, delta_y));
+	wireframe_geometry.merge(wireframe_cylinder, matrix);
+	
+    }
+
+    var path_mesh = new THREE.Mesh(wireframe_geometry, wireframe_material);
+    meshes.push(path_mesh);
+    scene.add(path_mesh);
+    
+    return;
+
+    var center_x = (box_array[0][0] + box_array[1][0]) / 2.0;
+    var center_y = (box_array[0][1] + box_array[1][1]) / 2.0;
+    var center_z = (step_height * kStepTimeHeight) / 2.0;
+
+    var delta_x = box_array[0][0] - box_array[1][0];
+    var delta_y = box_array[1][1] - box_array[0][1];
+    var delta_z = (step_height * kStepTimeHeight);
+
+    
+}
+
+function parseSingleFile(event) {
+    var fileText = event.target.result;
+    // Seperates each proto of the repeated field.
+    for (window_proto of fileText.split("box").slice(1)) {
+	var box_proto = window_proto.split("relevant_paths")[0];
+	var path_protos = window_proto.split("relevant_paths").slice(1)
+	var box = parseBoxProto(box_proto)
+	var paths = parsePathProtos(path_protos)
+	initShapeAdd();
+	addSearchBox(box, paths.map(e => e.length).max());
+	for (path of paths) {
+	    addPath(path);
+	}
+	finishShapeAdd();
+    }
+}
+
+function loadFilesCallback(evt) {
+    var files = evt.target.files;
+    for (i = 0; i < files.length; ++i) {
+	var reader = new FileReader();
+	reader.onload = parseSingleFile;
+	reader.readAsText(files[i]);
+    }
+}
+
+function prepFileLoader() {
+    document.getElementById('file').addEventListener('change', loadFilesCallback, false);
+}
 
 function readTextFile() {
-    document.getElementById('file').addEventListener('change', readFile, false);
+    document.getElementById('file').addEventListener('change', loadFileCallback, false);
 
     function readFile (evt) {
         var files = evt.target.files;
@@ -96,7 +304,10 @@ function readTextFile() {
             var path_coords = [];
             for (l of event.target.result.split('{')) {
                 var xy_line = l.split('}')[0].trim();
-                var x_and_y = xy_line.split('\n').map(function(x) { return (x.split(':')[1]); }).map(function(x) { return parseInt(x); });
+                var x_and_y = xy_line.split('\n').map(function(x) {
+		    return (x.split(':')[1]); }).map(function(x) {
+			return parseInt(x);
+		    });
                 if (!isNaN(x_and_y[0]) && !isNaN(x_and_y[1])) {
                     var swapped_x_and_y = x_and_y;
                     swapped_x_and_y[1] *= -1;
@@ -104,7 +315,9 @@ function readTextFile() {
                 }
             }
 
-            var initial_mesh_scales = meshes.map(function(m) { return [m.scale.x, m.scale.y, m.scale.z]; });
+            var initial_mesh_scales = meshes.map(function(m) {
+		return [m.scale.x, m.scale.y, m.scale.z];
+	    });
             meshes.forEach(function(m) { m.scale.x = 1; m.scale.y = 1; m.scale.z = 1; });
 
             var cylinder_height = kGridProgressionTime * kTimeScale;
@@ -221,12 +434,12 @@ function init() {
     init_camera();
     init_lighting();
 
-    readTextFile();
+    prepFileLoader();
 
     var matrix = new THREE.Matrix4();
     var quaternion = new THREE.Quaternion();
 
-    var wireframe_box = new THREE.PlaneGeometry(6000, 9000);
+    var wireframe_box = new THREE.PlaneGeometry(9000, 12000);
     var wireframe_geometry = new THREE.Geometry();
     var wireframe_material = new THREE.MeshBasicMaterial({
         color: 0x006400,
@@ -253,8 +466,8 @@ function init() {
 
 function onMouseMove(e) {
     var mouse_x = e.clientX;
-    var mouse_y = e.clientY;
-    var rotation_amount = 0.003;
+    var mouse_y = Math.max(e.clientY - 60, 0);
+    var rotation_amount = 0.004;
     for (m of meshes) {
         m.rotation.x = mouse_y * rotation_amount;
         m.rotation.y = mouse_x * rotation_amount;
@@ -287,7 +500,6 @@ function animate() {
 }
 
 function render() {
-
     renderer.render(scene, camera);
 
 }
