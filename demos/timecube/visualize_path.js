@@ -209,10 +209,10 @@ function makeShear(dx, dy) {
 
 function addPath(path, idx) {
     var wireframe_geometry = new THREE.Geometry();
-    var wireframe_material = new THREE.MeshBasicMaterial({
-        color: getColor(idx),
-        wireframe: false,
-        side: THREE.DoubleSide
+    var wireframe_material = new THREE.MeshPhongMaterial( { 
+	color: getColor(idx), 
+	specular: 0x050505,
+	shininess: 100
     });
     
     for (i = 0; i < path.length - 1; ++i) {
