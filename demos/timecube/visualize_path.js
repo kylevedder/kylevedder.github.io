@@ -72,15 +72,7 @@ function hashCode (str){
 }
 
 function getColor(str) {
-    var prefix = str.split(".")[0];
-    var exists = new RegExp("[0-9]$").test(prefix);
-    if (exists) {
-        var color_array = [0xff3300, 0x33cc33, 0x0066ff, 0xffff66, 0x9966ff];
-        var last_value = parseInt(prefix[prefix.length - 1]);
-        return color_array[last_value % color_array.length]
-    } else {
-        return hashCode(file.name.toString()) * 0xffffff;
-    }
+    return [0xff3300, 0x33cc33, 0x0066ff, 0xffff66, 0x9966ff][parseInt(str)];
 }
 
 var kGridSize = 200;  // mm
@@ -89,6 +81,7 @@ var kGridProgressionTime = kGridSize / kMaxRobotVelociy;  // s
 var kTimeScale = 1000;  // s => millis
 var kDebugParsing = false;
 var kStepTimeHeight = 200;  // mm/step
+var kDoNotDrawPosition = [2147483647, 2147483647]
 
 function parsePoint(point_proto) {
     lines = point_proto.split('\n');
@@ -214,16 +207,19 @@ function makeShear(dx, dy) {
     return shear;
 }
 
-function addPath(path) {
+function addPath(path, idx) {
     var wireframe_geometry = new THREE.Geometry();
     var wireframe_material = new THREE.MeshBasicMaterial({
-        color: hashCode(path.toString()) * 0xffffff,
+        color: getColor(idx),
         wireframe: false,
         side: THREE.DoubleSide
     });
     
     for (i = 0; i < path.length - 1; ++i) {
 	let start_pos = path[i];
+	if (start_pos === kDoNotDrawPosition) {
+	    continue;
+	}
 	let end_pos = path[i + 1];
 
 	var matrix = new THREE.Matrix4();
@@ -236,7 +232,7 @@ function addPath(path) {
 	var delta_x = (end_pos[0] - start_pos[0]);
 	var delta_y = -(end_pos[1] - start_pos[1]);
 
-	var wireframe_cylinder = new THREE.CylinderGeometry(90, 90, kStepTimeHeight, 20);
+	var wireframe_cylinder = new THREE.CylinderGeometry(10, 10, kStepTimeHeight, 20);
 	quaternion.setFromEuler(new THREE.Euler(0, 0, 0, "XYZ"), false);
 	matrix.compose(new THREE.Vector3(center_x, center_z, -center_y),
 		       quaternion,
@@ -273,8 +269,8 @@ function parseSingleFile(event) {
 	var paths = parsePathProtos(path_protos)
 	initShapeAdd();
 	addSearchBox(box, paths.map(e => e.length).max());
-	for (path of paths) {
-	    addPath(path);
+	for (var i = 0; i < paths.length; ++i) {
+	    addPath(paths[i], i);
 	}
 	finishShapeAdd();
     }
