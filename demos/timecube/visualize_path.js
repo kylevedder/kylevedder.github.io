@@ -2,6 +2,7 @@ var container, stats;
 var camera, controls, scene, renderer;
 var meshes = [];
 var initial_mesh_scales = [];
+var is_ortho_mode = false;
 
 var print = console.log.bind( console );
 Array.prototype.max = function() {
@@ -47,10 +48,18 @@ function init_scene() {
     scene.background = new THREE.Color(0xFFFFFF);
 }
 
-function init_camera() {
-    camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 10000);
+function init_perspective_camera() {
+    camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 10000)
     camera.position.set(0, 6, 1000);
+    camera.lookAt(new THREE.Vector3(0, 200, 0));
+    is_ortho_mode = false;
+}
+
+function init_ortho_camera() {
+    camera = new THREE.OrthographicCamera(500 * window.innerWidth / window.innerHeight, -500 * window.innerWidth / window.innerHeight, 500, -500, 1, 10000 )
+    camera.position.set(0, 5000, 0);
     camera.lookAt(scene.position);
+    is_ortho_mode = true;
 }
 
 function init_lighting() {
@@ -58,6 +67,22 @@ function init_lighting() {
     var light = new THREE.SpotLight(0xffffff, 1.5);
     light.position.set(0, 500, 2000);
     scene.add(light);   
+}
+
+function swap_camera() {
+    is_ortho_mode = !is_ortho_mode;
+    if (is_ortho_mode) {
+	resetRotation();
+	init_ortho_camera();
+	document.getElementById("cameraswap").innerHTML = "Perspective";
+    } else {
+	init_perspective_camera();
+	document.getElementById("cameraswap").innerHTML = "Top View";
+    }
+}
+
+function init_callbacks() {
+    document.getElementById("cameraswap").addEventListener("click", swap_camera);
 }
 
 function hashCode (str){
@@ -294,8 +319,9 @@ function init() {
     init_renderer();
     init_stats();
     init_scene();
-    init_camera();
+    init_perspective_camera();
     init_lighting();
+    init_callbacks();
 
     prepFileLoader();
 
@@ -327,7 +353,18 @@ function init() {
 
 }
 
+function resetRotation() {
+    for (m of meshes) {
+        m.rotation.x = 0;
+        m.rotation.y = 0;
+    }
+    renderer.render(scene, camera);
+}
+
 function onMouseMove(e) {
+    if (is_ortho_mode) {
+	return;
+    }
     var mouse_x = e.clientX;
     var mouse_y = Math.max(e.clientY - 60, 0);
     var rotation_amount = 0.004;
