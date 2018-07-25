@@ -2,7 +2,14 @@ var container, stats;
 var camera, controls, scene, renderer;
 var meshes = [];
 var initial_mesh_scales = [];
-var is_ortho_mode = false;
+const ViewMode = {
+    TOP: 'Top',
+    PERSPECTIVE: 'Perspective',
+    CORNER: 'Corner'
+};
+
+var view_mode;
+var mode_text;
 
 var print = console.log.bind( console );
 Array.prototype.max = function() {
@@ -15,6 +22,18 @@ Array.prototype.min = function() {
 
 init();
 animate();
+
+function init_mode_text() {
+    mode_text = document.createElement('div');
+    mode_text.style.position = 'absolute';
+    mode_text.style.width = 100;
+    mode_text.style.height = 100;
+    mode_text.style.backgroundColor = "white";
+    mode_text.style.top = 40 + 'px';
+    mode_text.style.right = 20 + 'px';
+    document.body.appendChild(mode_text);
+    update_mode_text();
+}
 
 function applyVertexColors(g, c) {
     g.faces.forEach(function(f) {
@@ -31,7 +50,8 @@ function init_container() {
 
 function init_renderer() {
     renderer = new THREE.WebGLRenderer({
-        antialias: true
+        antialias: true,
+	preserveDrawingBuffer: true
     });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -52,14 +72,21 @@ function init_perspective_camera() {
     camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 10000)
     camera.position.set(0, 6, 1000);
     camera.lookAt(new THREE.Vector3(0, 200, 0));
-    is_ortho_mode = false;
+    view_mode = ViewMode.PERSPECTIVE;
+}
+
+function init_corner_camera() {
+    camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 20000)
+    camera.position.set(3000, 3000, 3000);
+    camera.lookAt(new THREE.Vector3(0, 1000, 0));
+    view_mode = ViewMode.CORNER;
 }
 
 function init_ortho_camera() {
     camera = new THREE.OrthographicCamera(500 * window.innerWidth / window.innerHeight, -500 * window.innerWidth / window.innerHeight, 500, -500, 1, 10000 )
     camera.position.set(0, 5000, 0);
     camera.lookAt(scene.position);
-    is_ortho_mode = true;
+    view_mode = ViewMode.TOP;
 }
 
 function init_lighting() {
@@ -69,20 +96,78 @@ function init_lighting() {
     scene.add(light);   
 }
 
+function update_mode_text() {
+    mode_text.innerHTML = "Current Mode: " + view_mode + "<br/>Zoom: " + getZoom();
+}
+
+function next_mode(view_mode) {
+    switch(view_mode) {
+    case ViewMode.PERSPECTIVE:	
+	return ViewMode.TOP;
+    case ViewMode.TOP:
+	return ViewMode.CORNER;
+    case ViewMode.CORNER:
+	return ViewMode.PERSPECTIVE;
+    }
+    
+}
+
 function swap_camera() {
-    is_ortho_mode = !is_ortho_mode;
-    if (is_ortho_mode) {
-	resetRotation();
-	init_ortho_camera();
-	document.getElementById("cameraswap").innerHTML = "Perspective";
-    } else {
-	init_perspective_camera();
-	document.getElementById("cameraswap").innerHTML = "Top View";
+    view_mode = next_mode(view_mode);
+    switch(view_mode) {
+    case ViewMode.PERSPECTIVE:
+	{
+	    console.log("In perspective view");
+	    init_perspective_camera();
+	    break;
+	}
+    case ViewMode.TOP:
+	{
+	    resetRotation();
+	    resetScale();
+	    init_ortho_camera();
+	    break;
+	}
+    case ViewMode.CORNER:
+	{
+	    resetRotation();
+	    resetScale();
+	    init_corner_camera();
+	    break;
+	}
+    }
+    update_mode_text();
+}
+
+function saveAsImage() {
+    var imgData, imgNode;
+    var saveFile = function (strData, filename) {
+        var link = document.createElement('a');
+        if (typeof link.download === 'string') {
+            document.body.appendChild(link); //Firefox requires the link to be in the body
+            link.download = filename;
+            link.href = strData;
+            link.click();
+            document.body.removeChild(link); //remove the link when done
+        } else {
+            location.replace(uri);
+        }
+    }
+    try {
+        var strMime = "image/jpeg";
+	var strDownloadMime = "image/octet-stream";
+        imgData = renderer.domElement.toDataURL(strMime);
+        saveFile(imgData.replace(strMime, strDownloadMime), "Screenshot" + view_mode + ".jpg");
+    } catch (e) {
+        console.log(e);
+        return;
     }
 }
 
+
 function init_callbacks() {
     document.getElementById("cameraswap").addEventListener("click", swap_camera);
+    document.getElementById("screenshot").addEventListener("click", saveAsImage);
 }
 
 function hashCode (str){
@@ -322,7 +407,7 @@ function init() {
     init_perspective_camera();
     init_lighting();
     init_callbacks();
-
+    
     prepFileLoader();
 
     var matrix = new THREE.Matrix4();
@@ -350,7 +435,8 @@ function init() {
     renderer.domElement.addEventListener('mousemove', onMouseMove);
     renderer.domElement.addEventListener('wheel', onMouseScroll);
     document.addEventListener("keydown", onDocumentKeyDown, false);
-
+    
+    init_mode_text();
 }
 
 function resetRotation() {
@@ -362,7 +448,7 @@ function resetRotation() {
 }
 
 function onMouseMove(e) {
-    if (is_ortho_mode) {
+    if (view_mode != ViewMode.PERSPECTIVE) {
 	return;
     }
     var mouse_x = e.clientX;
@@ -376,6 +462,19 @@ function onMouseMove(e) {
 
 }
 
+function resetScale() {
+    for (m of meshes) {
+        m.scale.x *= 0.8 / m.scale.x;
+        m.scale.y *= 0.8 / m.scale.y;
+        m.scale.z *= 0.8 / m.scale.z;
+    }
+    renderer.render(scene, camera);
+}
+
+function getZoom() {
+    return meshes[0].scale.x;
+}
+
 function onMouseScroll(e) {
 
     var e = window.event || e;
@@ -386,6 +485,7 @@ function onMouseScroll(e) {
         m.scale.y *= (1 + scale_amount * delta);
         m.scale.z *= (1 + scale_amount * delta);
     }
+    update_mode_text();
 };
 
 function onDocumentKeyDown(e) {};
