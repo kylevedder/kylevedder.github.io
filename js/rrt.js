@@ -1,4 +1,4 @@
-var c = document.getElementById("myCanvas");
+var c = document.getElementById("rrtcanvas");
 var ctx = c.getContext("2d");
 
 // Configuration.

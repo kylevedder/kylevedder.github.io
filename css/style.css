@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
 body {
   background-color: white;
-  font-family: monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: 14px;
 }
 
@@ -9,7 +11,7 @@ canvas {
 }
 
 
-#myContent {
+#content {
     position: relative;
     margin: 0 auto;
     z-index: 2;
@@ -20,7 +22,7 @@ a:link {
 }
 
 .c {
-  margin: 100px auto 20px auto;
+  margin: 70px auto 20px auto;
   text-align: center;
 }
 
@@ -32,12 +34,12 @@ a:link {
 
 .i {
   letter-spacing: 1px;
-  width: 700px;
+  width: 640px;
   margin: 30px auto 10px auto;   
   text-align: center;
 }
 
-.i.left {
+.left {
     text-align: left;    
 }
 
