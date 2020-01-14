@@ -13,9 +13,9 @@
       
       var rotateDirection = 1;
 
-      const kMinAngle = -0.8;
-      const kMaxAngle = 1.2;
-      const kRotateSpeed = 0.005;
+      const kMinAngle = -1.0;
+      const kMaxAngle = 1.0;
+      const kRotateSpeed = 0.0005;
       const kScaleFactor = 200;
 
 			init();
