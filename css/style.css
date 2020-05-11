@@ -72,7 +72,7 @@ a:link {
     -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
     -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 
-    background: url(../img/me_dog.png) no-repeat;
+    background: url(../img/me_dog_standing_small.jpg) no-repeat;
     background-size: 300px 300px;
     margin-bottom: 0.3cm;
 }
