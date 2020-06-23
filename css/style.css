@@ -22,7 +22,7 @@ a:link {
 }
 
 .c {
-  margin: 70px auto 20px auto;
+  margin: 20px auto 20px auto;
   text-align: center;
 }
 
@@ -35,7 +35,7 @@ a:link {
 .i {
   letter-spacing: 1px;
   width: 640px;
-  margin: 30px auto 10px auto;   
+  margin: 10px auto 10px auto;   
   text-align: center;
 }
 
@@ -61,7 +61,7 @@ a:link {
     margin: 0 auto;
 }
 
-.circular {
+.myface {
     width: 300px;
     height: 300px;
 
@@ -74,7 +74,7 @@ a:link {
 
     background: url(../img/me_dog.png) no-repeat;
     background-size: 300px 300px;
-    margin-bottom: 0.3cm;
+    margin-bottom: 10px;
 }
 
 .s {
