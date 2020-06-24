@@ -15,7 +15,7 @@
 
       const kMinAngle = -1.0;
       const kMaxAngle = 1.0;
-      const kRotateSpeed = 0.0005;
+      const kRotateSpeed = 0.0007;
       const kScaleFactor = 200;
 
 			init();
