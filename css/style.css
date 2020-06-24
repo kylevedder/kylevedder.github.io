@@ -34,7 +34,7 @@ a:link {
 
 .i {
   letter-spacing: 1px;
-  width: 640px;
+  width: 800px;
   margin: 10px auto 10px auto;   
   text-align: center;
 }
@@ -81,7 +81,7 @@ a:link {
     display: none;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 840px) {
     .i {
         width: 95%;
     }
@@ -98,7 +98,7 @@ a:link {
     }
 }
 
-@media screen and (max-height: 700px) {
+@media screen and (max-height: 810px) {
     .c {
       margin: 0.3cm auto 20px auto;
     }
@@ -107,7 +107,7 @@ a:link {
         margin: 0.3cm auto 10px auto;
     }
 
-    .circular {
+    .myface {
        width: 120px;
        height: 120px;
 
