@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 
 body {
-  background-color: white;
+  background-color: black;
   font-family: 'Roboto Mono', monospace;
   font-size: 14px;
 }
@@ -45,7 +45,7 @@ a:link {
 
 /* Non dot text color */
 .i, .i a {
-  color: #111;
+  color: #EEE;
 }
 
 /* Dot color */
@@ -65,9 +65,9 @@ a:link {
     width: 290px;
     height: 290px;
 
-     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
+     border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
 
     -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
     -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);

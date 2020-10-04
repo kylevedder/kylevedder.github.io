@@ -26,7 +26,7 @@
 				container = document.getElementById( 'pccanvas' );
 
 				scene = new THREE.Scene();
-				scene.background = new THREE.Color( 0xFFFFFF );
+				scene.background = new THREE.Color( 0x000000 );
 
 				camera = new THREE.PerspectiveCamera( 50, document.body.clientWidth / document.body.clientHeight, 1, 5000 );
 				camera.position.set( 0, 150, 500 );
@@ -51,7 +51,7 @@
 
 				for ( var i = 0; i < pts.length; i ++ ) pts[ i ].multiplyScalar( kScaleFactor );
 
-				addLineShape( pts, 0xdddddd, 0, 0, 0, 0, 0, 0, 1 );
+				addLineShape( pts, 0x222222, 0, 0, 0, 0, 0, 0, 1 );
 
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
