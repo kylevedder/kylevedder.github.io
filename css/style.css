@@ -27,7 +27,7 @@ a:link {
 }
 
 .c .h {
-  color: #000;
+  color: #FFF;
   font-size: 2em;
   font-weight: normal;
 }
@@ -44,7 +44,7 @@ a:link {
 }
 
 /* Non dot text color */
-.i, .i a {
+.i, .i a, .h {
   color: #EEE;
 }
 
