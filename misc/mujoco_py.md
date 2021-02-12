@@ -7,10 +7,10 @@
 <meta name="description" content="Setting up mujoco-py for on-screen and off-screen rendering via GLEW and EGL library configuration.">
 <meta name="author" content="Kyle Vedder">
 <link rel="shortcut icon" href="../favicon.ico">
-<title>Setting up `mujoco-py` for on-screen and off-screen rendering via GLEW and EGL library configuration</title>
+<title>Setting up mujoco-py for on-screen and off-screen rendering via GLEW and EGL library configuration</title>
 </head>
 
-# Setting up mujoco-py for use with on-screen and off-screen rendering
+# Setting up `mujoco-py` for use with on-screen and off-screen rendering
 
 Setting up [`mujoco-py`](https://github.com/openai/mujoco-py) for on-screen and off-screen rendering on Ubuntu 18.04
 
