@@ -1,6 +1,18 @@
-# Setting up mujoco-py 
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143379317-1"></script>
+<script type="text/javascript" src="js/googleanalytics.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Setting up mujoco-py for on-screen and off-screen rendering via GLEW and EGL library configuration.">
+<meta name="author" content="Kyle Vedder">
+<link rel="shortcut icon" href="../favicon.ico">
+<title>Setting up `mujoco-py` for on-screen and off-screen rendering via GLEW and EGL library configuration</title>
+</head>
 
-Setting up [`mujoco-py`](https://github.com/openai/mujoco-py) for running on Ubuntu 18.04
+# Setting up mujoco-py for use with on-screen and off-screen rendering
+
+Setting up [`mujoco-py`](https://github.com/openai/mujoco-py) for on-screen and off-screen rendering on Ubuntu 18.04
 
 ## System packages
 
