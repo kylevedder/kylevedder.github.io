@@ -18,13 +18,13 @@
 
 ## Research
 
-I am a PhD student under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) in the [Lifelong Machine Learning Lab](https://www.grasp.upenn.edu/labs/lifelong-machine-learning). My research interests lie in the intersection of:
+I am a PhD student at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) in the [Lifelong Machine Learning Lab](https://www.grasp.upenn.edu/labs/lifelong-machine-learning). My research interests lie in the intersection of:
 
  - Mobile robotics
  - Vision-based object detection
  - Self-supervised continual learning
 
-In undergrad I did research under [Joydeep Biswas](https://www.joydeepb.com/) in the [Autonomous Mobile Robotics Lab](https://amrl.cs.umass.edu/). My research was in
+In my undergrad at UMass Amherst I did research under [Joydeep Biswas](https://www.joydeepb.com/) in the [Autonomous Mobile Robotics Lab](https://amrl.cs.umass.edu/). My research was in
 
  - [Single-Agent Path Finding](http://vedder.io/publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf)
  - [Multi-Agent Path Finding](http://vedder.io/publications/expanding_astar_aij.pdf)
