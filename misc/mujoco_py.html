@@ -17,7 +17,7 @@ Setting up mujoco-py for on-screen and off-screen rendering via GLEW and EGL lib
 ├── mjkey.txt
 └── mujoco200/</code></pre>
 <p>Additionally, so that code can compile and link against MuJoCo, you need to add it to your library path; this can be done by adding</p>
-<pre><code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/k/.mujoco/mujoco200/bin</code></pre>
+<pre><code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.mujoco/mujoco200/bin</code></pre>
 <p>to your <code>~/.bashrc</code> and <code>source</code>ing it.</p>
 <h2 id="installing-mujoco-py">Installing mujoco-py</h2>
 <p>This can either be installed via pip with</p>

@@ -33,7 +33,7 @@ Download MuJoCo, create the `~/.mujoco/` directory. Place your MuJoCo key inside
 Additionally, so that code can compile and link against MuJoCo, you need to add it to your library path; this can be done by adding 
 
 ```
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/k/.mujoco/mujoco200/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.mujoco/mujoco200/bin
 ```
 
 to your `~/.bashrc` and `source`ing it.
