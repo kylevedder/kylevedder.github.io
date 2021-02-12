@@ -28,7 +28,7 @@ In undergrad I did research under [Joydeep Biswas](https://www.joydeepb.com/) in
 
  - [Single-Agent Path Finding](http://vedder.io/publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf)
  - [Multi-Agent Path Finding](http://vedder.io/publications/expanding_astar_aij.pdf)
- - Our [RoboCup Small Size League team](https://amrl.cs.umass.edu/minutebots.html) where I worked on the [core infrastructure](http://vedder.io/publications/MinutebotsRoboCupTDP2017.pdf) and the [low level safety system](http://vedder.io/publications/MinutebotsRoboCupTDP2018.pdf)
+ - [Core infrastructure](http://vedder.io/publications/MinutebotsRoboCupTDP2017.pdf) and [low level safety system](http://vedder.io/publications/MinutebotsRoboCupTDP2018.pdf) of our [RoboCup Small Size League team](https://amrl.cs.umass.edu/minutebots.html)
 
 ## More Information
 
