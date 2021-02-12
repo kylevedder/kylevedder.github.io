@@ -24,7 +24,7 @@ I am a PhD student at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton
  - Vision-based object detection
  - Self-supervised continual learning
 
-In my undergrad at UMass Amherst I did research under [Joydeep Biswas](https://www.joydeepb.com/) in the [Autonomous Mobile Robotics Lab](https://amrl.cs.umass.edu/). My research was in
+In my undergrad at UMass Amherst I did research under [Joydeep Biswas](https://www.joydeepb.com/) in the [Autonomous Mobile Robotics Lab](https://amrl.cs.umass.edu/). My research was in:
 
  - [Single-Agent Path Finding](http://vedder.io/publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf)
  - [Multi-Agent Path Finding](http://vedder.io/publications/expanding_astar_aij.pdf)
