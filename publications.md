@@ -14,15 +14,15 @@
 
 ## Refereed
 
- - X*: Anytime Multi-Agent Path Finding For Sparse Domains Using Window-Based Iterative Repairs.
+ - _X_*_: Anytime Multi-Agent Path Finding For Sparse Domains Using Window-Based Iterative Repairs._
 Kyle Vedder and Joydeep Biswas.
 In Artificial Intelligence, Volume 291, 2021. [[pdf]](publications/expanding_astar_aij.pdf)
 
- - X*: Anytime Multiagent Path Planning With Bounded Search.
+ - _X_*_: Anytime Multiagent Path Planning With Bounded Search._
 Kyle Vedder and Joydeep Biswas.
 In Proceedings of the 18th International Conference on Autonomous Agents and MultiAgent Systems, Montreal, Quebec, CA. July 2019. [[pdf]](publications/expanding_astar_aamas_extended_abstract.pdf)
 
- - Augmenting Planning Graphs in 2-Dimensional Dynamic Environments With Obstacle Scaffolds.
+ - _Augmenting Planning Graphs in 2-Dimensional Dynamic Environments With Obstacle Scaffolds._
 Spencer Lane, Kyle Vedder, and Joydeep Biswas.
 In Proceedings of the 5th Workshop on Planning and Robotics (PlanRob), Pittsburgh, PA, USA. June 2017. [[pdf]](publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf)
 
@@ -30,11 +30,11 @@ In Proceedings of the 5th Workshop on Planning and Robotics (PlanRob), Pittsburg
 
 ## Other
 
- - An Overview of SHAP-based Feature Importance Measures and Their Applications To Classification.
+ - _An Overview of SHAP-based Feature Importance Measures and Their Applications To Classification._
 Kyle Vedder. 2020. [[pdf]](misc/shap_for_classification.pdf)
 
- - UMass MinuteBots 2018 Team Description Paper.
+ - _UMass MinuteBots 2018 Team Description Paper._
 Kyle Vedder, Edward Schneeweiss, Sadegh Rabiee, Samer Nashed, Spencer Lane, Jarrett Holtz, Joydeep Biswas, David Balaban. 2018. [[pdf]](publications/MinutebotsRoboCupTDP2018.pdf)
 
- - UMass MinuteBots 2017 Team Description Paper.
+ - _UMass MinuteBots 2017 Team Description Paper._
 Kyle Vedder, Edward Schneeweiss, Sadegh Rabiee, Samer Nashed, Spencer Lane, Jarrett Holtz, Joydeep Biswas, David Balaban. 2017. [[pdf]](publications/MinutebotsRoboCupTDP2017.pdf)
