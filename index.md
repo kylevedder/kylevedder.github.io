@@ -38,9 +38,8 @@ In my undergrad at UMass Amherst I did research under [Joydeep Biswas](https://w
  - GitHub: [kylevedder](https://github.com/kylevedder)
 
 ## Writings/Talks/Videos
-
+ - Apr 14th, 2021: [My WPEII Document: _Current Approaches and Future Directions for Point Cloud Object Detection in Intelligent Agents_](misc/KyleVedderWPEII2021.pdf)
  - Feb 11th, 2021: [Setting up `mujoco-py` for use with on-screen and off-screen rendering](misc/mujoco_py.html)
  - Jul 23, 2020: [From Shapley Values to Explainable AI](https://www.youtube.com/watch?v=4RkhsIz14Yc)
  - Jun 29, 2020: [Penn Service Robots navigating around Levine](https://www.youtube.com/watch?v=o7WW2cu1h7c)
- - May 8th, 2020: [An Overview of SHAP-based Feature Importance Measures and
-Their Applications To Classification](misc/shap_for_classification.pdf)
+ - May 8th, 2020: [CIS700 Explainable AI Final Paper: _An Overview of SHAP-based Feature Importance Measures and Their Applications To Classification_](misc/shap_for_classification.pdf)
