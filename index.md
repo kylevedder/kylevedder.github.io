@@ -38,6 +38,7 @@ In my undergrad at UMass Amherst I did research under [Joydeep Biswas](https://w
  - GitHub: [kylevedder](https://github.com/kylevedder)
 
 ## Updates
+ - Apr 27th, 2021: [My WPEII Presentation: _Current Approaches and Future Directions for Point Cloud Object Detection in Intelligent Agents_](https://www.youtube.com/watch?v=xFFCQVwYeec)
  - Apr 14th, 2021: [My WPEII Document: _Current Approaches and Future Directions for Point Cloud Object Detection in Intelligent Agents_](misc/KyleVedderWPEII2021.pdf)
  - Feb 11th, 2021: [Setting up `mujoco-py` for use with on-screen and off-screen rendering](misc/mujoco_py.html)
  - Nov 4th, 2020: [Paper accepted to Artificial Intelligence: _X*: Anytime Multi-Agent Path Finding for Sparse Domains using Window-Based Iterative Repairs_](http://vedder.io/publications/expanding_astar_aij.pdf)
