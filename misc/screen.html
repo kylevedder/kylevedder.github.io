@@ -1,0 +1,15 @@
+<h1 id="running-a-program-beyond-a-single-ssh-session">Running a program beyond a single SSH session</h1>
+<p>If you want to run a program on a remote server, you can use SSH. However, if your session were to quit, the program will be terminated. In order to run a program longer than your session, you need to use a multiplexer, such as GNU's <a href="https://linux.die.net/man/1/screen"><code>screen</code></a>.</p>
+<p><code>screen</code> is not installed by default on Ubuntu, so you will need to first install it via <code>sudo apt install screen</code></p>
+<p>To start, run <code>screen</code>, and you will see a copyright page. Press <code>Enter</code> to continue, and you will then see a standard bash prompt. You can do whatever you would like inside this prompt, but with the one restriction that scrolling up does not work normally. To scroll up and down, you need to press <code>Ctrl-A</code>, and then <code>Esc</code>. This will put you in &quot;Copy Mode&quot;, which you can then use the arrow keys to go up and down with. When you're done and want to leave &quot;Copy Mode&quot;, you press <code>Esc</code> and it will bring you back to the prompt.</p>
+<p>To then leave your <code>screen</code> session without killing any running process, you press <code>Ctrl-A</code> and then <code>d</code>. This will disconnect you from the <code>screen</code> instance and bring you back to the prompt that you ran <code>screen</code> in to get started.</p>
+<p>To reconnect to a previous <code>screen</code> instance, run <code>screen -r</code>. If there is only one <code>screen</code> instance running, it will reconnect to that. If there are multiple, it will show you the names of them like so:</p>
+<pre><code>$ screen -r
+There are several suitable screens on:
+    1066.pts-8.bensalem (04/11/2019 08:46:05 PM)    (Detached)
+    1037.pts-8.bensalem (04/11/2019 08:45:58 PM)    (Detached)
+Type &quot;screen [-d] -r [pid.]tty.host&quot; to resume one of them.</code></pre>
+<p>to reconnect, you specficy the specific <code>screen</code> via <code>screen -r 1066.pts-8.bensalem</code>. To terminate a <code>screen</code>, enter it and then quit the prompt by typing <code>exit</code> or via <code>Ctrl-D</code>.</p>
+<p>To list all running <code>screen</code> instances, you can list them with <code>screen -ls</code>.</p>
+<p>You can also name a <code>screen</code> when creating it for easy reference, e.g. <code>screen -S MyScreen</code>. To reconnect to that <code>screen</code> later, you can use <code>-rS</code>, e.g. <code>screen -rS MyScreen</code>. It also supports unique partial matches, e.g. <code>screen -rS MyScreen</code>.</p>
+<p>Finally, you can spawn a <code>screen</code> in detached mode via <code>-m &lt;command&gt;</code>. This is very useful for spawning a service, e.g. <code>screen -mdS &lt;screen name&gt; &lt;command&gt;</code>.</p>
