@@ -8,6 +8,11 @@
 <meta name="author" content="Kyle Vedder">
 <link rel="shortcut icon" href="favicon.ico">
 <title>Kyle Vedder's Homepage</title>
+<style>
+     .updates li {
+          margin-bottom:5px;
+     }
+</style>
 </head>
 
 # I'm Kyle Vedder
@@ -20,14 +25,14 @@
 
 I am a PhD student at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) in the [Lifelong Machine Learning Lab](https://www.grasp.upenn.edu/labs/lifelong-machine-learning). My research interests lie in the intersection of:
 
- - Mobile robotics
- - Vision-based object detection
+ - [Mobile robotics](https://www.youtube.com/watch?v=o7WW2cu1h7c)
+ - [Vision-based object detection](publications/sparse_point_pillars_snn_workshop.pdf)
  - Self-supervised continual learning
 
 In my undergrad at UMass Amherst I did research under [Joydeep Biswas](https://www.joydeepb.com/) in the [Autonomous Mobile Robotics Lab](https://amrl.cs.umass.edu/). My research was in:
 
- - [Single-Agent Path Finding](http://vedder.io/publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf)
- - [Multi-Agent Path Finding](http://vedder.io/publications/expanding_astar_aij.pdf)
+ - [Single-Agent Path Finding (SAPF)](http://vedder.io/publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf) for sampling based planners
+ - [Anytime Multi-Agent Path Finding (MAPF)](http://vedder.io/publications/expanding_astar_aij.pdf) for efficient first solution generation
  - [Core infrastructure](http://vedder.io/publications/MinutebotsRoboCupTDP2017.pdf) and [low level safety system](http://vedder.io/publications/MinutebotsRoboCupTDP2018.pdf) of our [RoboCup Small Size League team](https://amrl.cs.umass.edu/minutebots.html)
 
 ## More Information
@@ -38,10 +43,13 @@ In my undergrad at UMass Amherst I did research under [Joydeep Biswas](https://w
  - GitHub: [kylevedder](https://github.com/kylevedder)
 
 ## Updates
+<div class="updates">
+ - Jun 14th, 2021: [Workshop paper: _Sparse PointPillars: Exploiting Sparsity on Birds-Eye-View Object Detection_](publications/sparse_point_pillars_snn_workshop.pdf)
  - Apr 27th, 2021: [My WPEII Presentation: _Current Approaches and Future Directions for Point Cloud Object Detection in Intelligent Agents_](https://www.youtube.com/watch?v=xFFCQVwYeec)
  - Apr 14th, 2021: [My WPEII Document: _Current Approaches and Future Directions for Point Cloud Object Detection in Intelligent Agents_](misc/KyleVedderWPEII2021.pdf)
- - Feb 11th, 2021: [Setting up `mujoco-py` for use with on-screen and off-screen rendering](misc/mujoco_py.html)
- - Nov 4th, 2020: [Paper accepted to Artificial Intelligence: _X*: Anytime Multi-Agent Path Finding for Sparse Domains using Window-Based Iterative Repairs_](http://vedder.io/publications/expanding_astar_aij.pdf)
- - Jul 23, 2020: [From Shapley Values to Explainable AI](https://www.youtube.com/watch?v=4RkhsIz14Yc)
- - Jun 29, 2020: [Penn Service Robots navigating around Levine](https://www.youtube.com/watch?v=o7WW2cu1h7c)
- - May 8th, 2020: [CIS700 Explainable AI Final Paper: _An Overview of SHAP-based Feature Importance Measures and Their Applications To Classification_](misc/shap_for_classification.pdf)
+ - Feb 11th, 2021: [Blog post: Setting up `mujoco-py` for use with on-screen and off-screen rendering](misc/mujoco_py.html)
+ - Nov 4th, 2020: [Paper accepted to Artificial Intelligence: _X\*: Anytime Multi-Agent Path Finding for Sparse Domains using Window-Based Iterative Repairs_](http://vedder.io/publications/expanding_astar_aij.pdf)
+ - Jul 23rd, 2020: [Presentation: _From Shapley Values to Explainable AI_](https://www.youtube.com/watch?v=4RkhsIz14Yc)
+ - Jun 29rd, 2020: [Demo: _Penn Service Robots navigating around Levine_](https://www.youtube.com/watch?v=o7WW2cu1h7c)
+ - May 8th, 2020: [Term paper: _An Overview of SHAP-based Feature Importance Measures and Their Applications To Classification_](misc/shap_for_classification.pdf)
+ </div>

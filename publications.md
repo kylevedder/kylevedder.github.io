@@ -30,6 +30,8 @@ In Proceedings of the 5th Workshop on Planning and Robotics (PlanRob), Pittsburg
 
 ## Other
 
+- _Sparse PointPillars: Exploiting Sparsity on Birds-Eye-View Object Detection._ Kyle Vedder, Eric Eaton. 2021. [[pdf]](publications/sparse_point_pillars_snn_workshop.pdf)
+
 - _Current Approaches and Future Directions for Point Cloud Object Detection in Intelligent Agents._
 Kyle Vedder. 2021. [[pdf]](misc/KyleVedderWPEII2021.pdf)
 
