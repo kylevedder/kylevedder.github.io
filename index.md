@@ -21,9 +21,11 @@
      alt="Me!"
      width="200" />
 
+In 20 years I want there to be robots that can effectively provide a full range of quality care to the elderly. The US is on the verge of a [large retirement of baby boomers](img/static/usa_age_demo.png) and [China faces a deeply troubling demographic cliff in 20 years](img/static/china_age_demo.png), motivating the need for new methods of automated, high quality elder care not reliant upon human labor.
+
 ## Research
 
-I am a PhD student at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) in the [Lifelong Machine Learning Lab](https://www.grasp.upenn.edu/labs/lifelong-machine-learning). My research interests lie in the intersection of:
+I am a PhD student at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) in the [Lifelong Machine Learning Lab](https://www.grasp.upenn.edu/labs/lifelong-machine-learning). Motivated by my goal of developing elder care robots, my research interests lie in the intersection of:
 
  - [Mobile robotics](https://www.youtube.com/watch?v=o7WW2cu1h7c)
  - [Vision-based object detection](publications/sparse_point_pillars_snn_workshop.pdf)
