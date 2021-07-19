@@ -44,7 +44,8 @@ In my undergrad at UMass Amherst I did research under [Joydeep Biswas](https://w
 
 ## Updates
 <div class="updates">
- - Jun 14th, 2021: [Workshop paper accepted to Sparse Neural Networks: _Sparse PointPillars: Exploiting Sparsity on Birds-Eye-View Object Detection_](publications/sparse_point_pillars_snn_workshop.pdf)
+ - Jul 8th, 2021: [Poster presented at Sparse Neural Networks on _Sparse PointPillars_](misc/SparsePointPillarsSNNPoster.pdf)
+ - Jun 14th, 2021: [Workshop paper accepted as poster to Sparse Neural Networks: _Sparse PointPillars: Exploiting Sparsity on Birds-Eye-View Object Detection_](publications/sparse_point_pillars_snn_workshop.pdf)
  - Apr 27th, 2021: [My WPEII Presentation: _Current Approaches and Future Directions for Point Cloud Object Detection in Intelligent Agents_](https://www.youtube.com/watch?v=xFFCQVwYeec)
  - Apr 14th, 2021: [My WPEII Document: _Current Approaches and Future Directions for Point Cloud Object Detection in Intelligent Agents_](misc/KyleVedderWPEII2021.pdf)
  - Feb 11th, 2021: [Blog post: Setting up `mujoco-py` for use with on-screen and off-screen rendering](misc/mujoco_py.html)
