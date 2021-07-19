@@ -17,9 +17,7 @@
 
 # I'm Kyle Vedder
 
-<img src="img/me_dog.png"
-     alt="Me!"
-     width="200" />
+<img src="img/me_dog.png" width="200" />
 
 In 20 years I want there to be robots that can effectively provide a full range of quality care to the elderly. The US is on the verge of a [large retirement of baby boomers](img/static/usa_age_demo.png) and [China faces a deeply troubling demographic cliff in 20 years](img/static/china_age_demo.png), motivating the need for new methods of automated, high quality elder care not reliant upon human labor.
 
@@ -46,11 +44,11 @@ In my undergrad at UMass Amherst I did research under [Joydeep Biswas](https://w
 
 ## Updates
 <div class="updates">
- - Jun 14th, 2021: [Workshop paper: _Sparse PointPillars: Exploiting Sparsity on Birds-Eye-View Object Detection_](publications/sparse_point_pillars_snn_workshop.pdf)
+ - Jun 14th, 2021: [Workshop paper accepted to Sparse Neural Networks: _Sparse PointPillars: Exploiting Sparsity on Birds-Eye-View Object Detection_](publications/sparse_point_pillars_snn_workshop.pdf)
  - Apr 27th, 2021: [My WPEII Presentation: _Current Approaches and Future Directions for Point Cloud Object Detection in Intelligent Agents_](https://www.youtube.com/watch?v=xFFCQVwYeec)
  - Apr 14th, 2021: [My WPEII Document: _Current Approaches and Future Directions for Point Cloud Object Detection in Intelligent Agents_](misc/KyleVedderWPEII2021.pdf)
  - Feb 11th, 2021: [Blog post: Setting up `mujoco-py` for use with on-screen and off-screen rendering](misc/mujoco_py.html)
- - Nov 4th, 2020: [Paper accepted to Artificial Intelligence: _X\*: Anytime Multi-Agent Path Finding for Sparse Domains using Window-Based Iterative Repairs_](http://vedder.io/publications/expanding_astar_aij.pdf)
+ - Nov 4th, 2020: [Journal paper accepted to Artificial Intelligence: _X\*: Anytime Multi-Agent Path Finding for Sparse Domains using Window-Based Iterative Repairs_](http://vedder.io/publications/expanding_astar_aij.pdf)
  - Jul 23rd, 2020: [Presentation: _From Shapley Values to Explainable AI_](https://www.youtube.com/watch?v=4RkhsIz14Yc)
  - Jun 29rd, 2020: [Demo: _Penn Service Robots navigating around Levine_](https://www.youtube.com/watch?v=o7WW2cu1h7c)
  - May 8th, 2020: [Term paper: _An Overview of SHAP-based Feature Importance Measures and Their Applications To Classification_](misc/shap_for_classification.pdf)
