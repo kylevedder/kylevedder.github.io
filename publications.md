@@ -36,7 +36,7 @@ In Proceedings of the 5th Workshop on Planning and Robotics (PlanRob), Pittsburg
 Kyle Vedder. 2021. [[pdf]](misc/KyleVedderWPEII2021.pdf)
 
  - _An Overview of SHAP-based Feature Importance Measures and Their Applications To Classification._
-Kyle Vedder. 2020. [[pdf]](misc/shap_for_classification.pdf)[[video]](https://www.youtube.com/watch?v=xFFCQVwYeec)
+Kyle Vedder. 2020. [[pdf]](misc/shap_for_classification.pdf)[[video]](https://www.youtube.com/watch?v=xFFCQVwYeec)[[slides]](misc/FromShapleyValuesToExplainableAISlides.pdf)
 
  - _UMass MinuteBots 2018 Team Description Paper._
 Kyle Vedder, Edward Schneeweiss, Sadegh Rabiee, Samer Nashed, Spencer Lane, Jarrett Holtz, Joydeep Biswas, David Balaban. 2018. [[pdf]](publications/MinutebotsRoboCupTDP2018.pdf)
