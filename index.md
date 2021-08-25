@@ -17,11 +17,11 @@
 
 # I'm Kyle Vedder
 
-<img src="img/me_sit_cropped.jpg" height="200" />
+<img src="img/me_sit_head.jpg" height="200" />
 
 In 20 years I want there to be robots that can effectively provide a full range of quality care to the elderly. The US is on the verge of a [large retirement of baby boomers](img/static/usa_age_demo.png) and [China faces a deeply troubling demographic cliff in 20 years](img/static/china_age_demo.png), motivating the need for new methods of automated, high quality elder care not reliant upon human labor.
 
-## Research
+## Background
 
 I am a PhD student at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) in the [Lifelong Machine Learning Lab](https://www.grasp.upenn.edu/labs/lifelong-machine-learning). Motivated by my goal of developing elder care robots, my research interests lie in the intersection of:
 
@@ -34,6 +34,8 @@ In my undergrad at UMass Amherst I did research under [Joydeep Biswas](https://w
  - [Single-Agent Path Finding (SAPF)](http://vedder.io/publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf) for sampling based planners
  - [Anytime Multi-Agent Path Finding (MAPF)](http://vedder.io/publications/expanding_astar_aij.pdf) for efficient first solution generation
  - [Core infrastructure](http://vedder.io/publications/MinutebotsRoboCupTDP2017.pdf) and [low level safety system](http://vedder.io/publications/MinutebotsRoboCupTDP2018.pdf) of our [RoboCup Small Size League team](https://amrl.cs.umass.edu/minutebots.html)
+
+ I have also done a number of industry internships; I interned twice at Unidesk (a startup since aquired by Citrix), twice at Google, and once at Amazon's R&D lab, Lab126.
 
 ## More Information
 
