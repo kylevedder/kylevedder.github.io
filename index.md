@@ -35,7 +35,7 @@ In my undergrad at UMass Amherst I did research under [Joydeep Biswas](https://w
  - [Anytime Multi-Agent Path Finding (MAPF)](http://vedder.io/publications/expanding_astar_aij.pdf) for efficient first solution generation
  - [Core infrastructure](http://vedder.io/publications/MinutebotsRoboCupTDP2017.pdf) and [low level safety system](http://vedder.io/publications/MinutebotsRoboCupTDP2018.pdf) of our [RoboCup Small Size League team](https://amrl.cs.umass.edu/minutebots.html)
 
- I have also done a number of industry internships; I interned twice at Unidesk (a startup since aquired by Citrix), twice at Google, and once at Amazon's R&D lab, Lab126.
+ I have also done a number of industry internships; I have interned twice at Unidesk (a startup since aquired by Citrix), twice at Google, and once at Amazon's R&D lab, Lab126.
 
 ## More Information
 
