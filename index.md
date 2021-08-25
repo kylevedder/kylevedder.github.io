@@ -23,13 +23,13 @@ In 20 years I want there to be robots that can effectively provide a full range 
 
 ## Background
 
-I am a PhD student at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) in the [Lifelong Machine Learning Lab](https://www.grasp.upenn.edu/labs/lifelong-machine-learning). Motivated by my goal of developing elder care robots, my research interests lie in the intersection of:
+I am a CS PhD student at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) in the [Lifelong Machine Learning Lab](https://www.grasp.upenn.edu/labs/lifelong-machine-learning). Motivated by my goal of developing elder care robots, my research interests lie in the intersection of:
 
  - [Mobile robotics](https://www.youtube.com/watch?v=o7WW2cu1h7c)
  - [Vision-based object detection](publications/sparse_point_pillars_snn_workshop.pdf)
  - Self-supervised continual learning
 
-In my undergrad at UMass Amherst I did research under [Joydeep Biswas](https://www.joydeepb.com/) in the [Autonomous Mobile Robotics Lab](https://amrl.cs.umass.edu/). My research was in:
+During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas](https://www.joydeepb.com/) in the [Autonomous Mobile Robotics Lab](https://amrl.cs.umass.edu/). My research was in:
 
  - [Single-Agent Path Finding (SAPF)](http://vedder.io/publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf) for sampling based planners
  - [Anytime Multi-Agent Path Finding (MAPF)](http://vedder.io/publications/expanding_astar_aij.pdf) for efficient first solution generation
