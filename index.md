@@ -17,7 +17,7 @@
 
 # I'm Kyle Vedder
 
-<img src="img/me_dog.png" width="200" />
+<img src="img/me_sit_cropped.jpg" height="200" />
 
 In 20 years I want there to be robots that can effectively provide a full range of quality care to the elderly. The US is on the verge of a [large retirement of baby boomers](img/static/usa_age_demo.png) and [China faces a deeply troubling demographic cliff in 20 years](img/static/china_age_demo.png), motivating the need for new methods of automated, high quality elder care not reliant upon human labor.
 
