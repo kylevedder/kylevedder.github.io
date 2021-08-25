@@ -12,7 +12,7 @@
 
 # Publications
 
-## Refereed
+## Conferences/Journals
 
  - _X_*_: Anytime Multi-Agent Path Finding For Sparse Domains Using Window-Based Iterative Repairs._
 Kyle Vedder and Joydeep Biswas.
@@ -22,7 +22,11 @@ In Artificial Intelligence, Volume 291, 2021. [[pdf]](publications/expanding_ast
 Kyle Vedder and Joydeep Biswas.
 In Proceedings of the 18th International Conference on Autonomous Agents and MultiAgent Systems, Montreal, Quebec, CA. July 2019. [[pdf]](publications/expanding_astar_aamas_extended_abstract.pdf)
 
- - _Augmenting Planning Graphs in 2-Dimensional Dynamic Environments With Obstacle Scaffolds._
+## Workshops
+
+- _Sparse PointPillars: Exploiting Sparsity on Birds-Eye-View Object Detection._ Kyle Vedder, Eric Eaton. Sparsity in Neural Networks Workshop. 2021. [[pdf]](publications/sparse_point_pillars_snn_workshop.pdf) [[arxiv]](https://arxiv.org/abs/2106.06882)
+
+- _Augmenting Planning Graphs in 2-Dimensional Dynamic Environments With Obstacle Scaffolds._
 Spencer Lane, Kyle Vedder, and Joydeep Biswas.
 In Proceedings of the 5th Workshop on Planning and Robotics (PlanRob), Pittsburgh, PA, USA. June 2017. [[pdf]](publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf)
 
@@ -30,10 +34,8 @@ In Proceedings of the 5th Workshop on Planning and Robotics (PlanRob), Pittsburg
 
 ## Other
 
-- _Sparse PointPillars: Exploiting Sparsity on Birds-Eye-View Object Detection._ Kyle Vedder, Eric Eaton. 2021. [[pdf]](publications/sparse_point_pillars_snn_workshop.pdf) [[arxiv]](https://arxiv.org/abs/2106.06882)
-
 - _Current Approaches and Future Directions for Point Cloud Object Detection in Intelligent Agents._
-Kyle Vedder. 2021. [[pdf]](misc/KyleVedderWPEII2021.pdf)
+Kyle Vedder. 2021. [[pdf]](misc/KyleVedderWPEII2021.pdf)[[video]](https://www.youtube.com/watch?v=xFFCQVwYeec)[[slides]](https://docs.google.com/presentation/d/1-tvZP_1UkgX-zU0ytV_TEiGaOjezcXT9W77x9sHk5Y0/edit?usp=sharing)
 
  - _An Overview of SHAP-based Feature Importance Measures and Their Applications To Classification._
 Kyle Vedder. 2020. [[pdf]](misc/shap_for_classification.pdf)[[video]](https://www.youtube.com/watch?v=xFFCQVwYeec)[[slides]](misc/FromShapleyValuesToExplainableAISlides.pdf)
