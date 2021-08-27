@@ -16,7 +16,7 @@
 
  - _X_*_: Anytime Multi-Agent Path Finding For Sparse Domains Using Window-Based Iterative Repairs._
 Kyle Vedder and Joydeep Biswas.
-In Artificial Intelligence, Volume 291, 2021. [[pdf]](publications/expanding_astar_aij.pdf)
+In Artificial Intelligence, Volume 291, 2021. [[pdf]](publications/expanding_astar_aij.pdf) [[website]](./xstar.html)
 
  - _X_*_: Anytime Multiagent Path Planning With Bounded Search._
 Kyle Vedder and Joydeep Biswas.
