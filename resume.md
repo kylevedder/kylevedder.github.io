@@ -136,7 +136,7 @@ In Proceedings of the 5th Workshop on Planning and Robotics (ICAPS PlanRob), Pit
     - Worked on Ads Quality Metrics team to deliver statistics about bad ads. Developed information theoretic optimization approach to aquire maximally diverse training data for automated detectors
 - _Google -- Software Engineering Intern_ \ra{(Summer 2016)}
     - Worked on AdWords Next Overview, the homepage of redesigned AdWords. Developed offline pipelines to do statistical analysis over entire customer dataset to provide automated insights
-- _Unidesk Corporation -- C++ Developer_ \ra{(Summer 2015)}
+- _Unidesk Corporation -- C++ Development Intern_ \ra{(Summer 2015)}
     - Designed and implemented testing framework for proprietary Windows registry manipulation APIs, ensuring bug-for-bug compatability with Windows' implementation of fixed width UTF-16
 - _Unidesk Corporation -- Robotics Intern_ \ra{(Summer 2014)}
     - Worked with CTO and CMO to implement a trade show display using a 6DOF robot arm controlled via high level pick-and-place commands. Wrote Java backend to maintain world state and dynamically generate FORTH written over a serial bus to execute robot trajectories requested from high level RESTful API
