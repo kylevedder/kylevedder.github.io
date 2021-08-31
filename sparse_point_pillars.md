@@ -1,0 +1,28 @@
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143379317-1"></script>
+<script type="text/javascript" src="js/googleanalytics.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sparse PointPillars: Maintain and Exploit InputSparsity to Improve Embedded System Runtime">
+<meta name="author" content="Kyle Vedder">
+<link rel="shortcut icon" href="favicon.ico">
+<title>X*</title>
+<style>
+     .updates li {
+          margin-bottom:5px;
+     }
+</style>
+</head>
+
+# Sparse PointPillars: Maintain and Exploit InputSparsity to Improve Embedded System Runtime
+
+### [Kyle Vedder](http://vedder.io) and [Eric Eaton](https://www.seas.upenn.edu/~eeaton/)
+
+### Links: [[workshop pdf]](publications/SparsePointPillarsSNN.pdf) [[KITTI code]](https://github.com/kylevedder/SparsePointPillarsKITTI)
+
+
+#### Abstract
+
+Bird's Eye View (BEV) is a popular representation for processing 3D point clouds, and by its nature is  fundamentally sparse. Motivated by the computational limitations of mobile robot platforms, we take a fast, high-performance BEV 3D object detector - PointPillars - and modify its backbone to maintain *and* exploit this input sparsity, leading to decreased runtimes. We present results on KITTI, a canonical 3D detection dataset, and Matterport3D, a dataset of indoor 3D scans of real homes, using desktop GPUs, embedded ML accelerators, and robot CPUs, demonstrating our method results in significantly decreased runtimes for embedded systems with only a modest decrease in detection quality. Our work represents a new approach for practitioners to optimize models for embedded systems by maintaining and exploiting input sparsity throughout their entire pipeline to reduce runtime and resource usage while maintaining good detection performance. 
+
