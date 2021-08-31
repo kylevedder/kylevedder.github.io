@@ -19,7 +19,7 @@
 
 ### [Kyle Vedder](http://vedder.io) and [Eric Eaton](https://www.seas.upenn.edu/~eeaton/)
 
-### Links: [[workshop pdf]](publications/SparsePointPillarsSNN.pdf) [[KITTI code]](https://github.com/kylevedder/SparsePointPillarsKITTI)
+### Links: [[workshop pdf]](publications/sparse_point_pillars_snn_workshop.pdf) [[KITTI code]](https://github.com/kylevedder/SparsePointPillarsKITTI)
 
 
 #### Abstract
