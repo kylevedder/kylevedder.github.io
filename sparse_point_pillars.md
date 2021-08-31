@@ -7,12 +7,7 @@
 <meta name="description" content="Sparse PointPillars: Maintain and Exploit InputSparsity to Improve Embedded System Runtime">
 <meta name="author" content="Kyle Vedder">
 <link rel="shortcut icon" href="favicon.ico">
-<title>X*</title>
-<style>
-     .updates li {
-          margin-bottom:5px;
-     }
-</style>
+<title>Sparse Point Pillars</title>
 </head>
 
 # Sparse PointPillars: Maintain and Exploit InputSparsity to Improve Embedded System Runtime

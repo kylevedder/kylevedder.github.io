@@ -8,11 +8,6 @@
 <meta name="author" content="Kyle Vedder">
 <link rel="shortcut icon" href="favicon.ico">
 <title>X*</title>
-<style>
-     .updates li {
-          margin-bottom:5px;
-     }
-</style>
 </head>
 
 # X*: Anytime Multi-Agent Path Finding for Sparse Domains using Window-Based Iterative Repairs
