@@ -8,6 +8,10 @@ header-includes:
 output:
     pdf_document
 ---
+\hypersetup{
+    pdftitle = {Kyle Vedder's Resume},
+    pdfauthor = {Kyle Vedder},
+}
 
 \newcommand{\name}[1]{\begin{center} \huge{\textbf{#1}} \end{center}}
 \newcommand{\page}[1]{\begin{center} \texttt{\url{#1}} \end{center}}
