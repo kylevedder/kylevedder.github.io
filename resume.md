@@ -40,7 +40,11 @@ output:
 
 # Research Interests
 
+\vspaceafter{}
+
 In 20 years I want there to be robots that can effectively provide a full range of quality care to the elderly and disabled. In service of this goal, I am interested in improving continual learning for visual and behavioral tasks, as these abilities are required to robustly perform even basic care tasks in real world settings.
+
+\vspacebefore{}
 
 # Technical Skills
 
@@ -124,11 +128,11 @@ In Proceedings of the 5th Workshop on Planning and Robotics (ICAPS PlanRob), Pit
     - Core Team Lead for Phase 2 of DARPA Lifelong Learning Machines (L2M) program
         - Led multi-University team to develop core infrastructure for RL and Perception subgroups atop the AIHabitat sim using Matterport3D, a dataset of 3D indoor scans of real houses
         - Worked with DARPA SETAs and other performers to refine fundamental cross-domain definition of lifelong learning systems along with domain agnostic evaluation approaches
-        - Worked with subcontractors to develop concrete tasks for lifelong learning in Matterport3D
+        - Worked with subcontractors to develop concrete tasks for lifelong learning for an embodied agent in Matterport3D
         - Coordinated RL and Perception subgroups to provide system diagrams and metrics for evaluation by JHU APL, DARPA's independent evaluator, using APL's metrics definitions
         - Worked on adapting and tuning our group's Lifelong RL algorithm, LPG-FTW, for AIHabitat
     - Developed from scratch open-source control stack for LML Service Robots in C++14 [[code]](https://github.com/kylevedder/ServiceRobotControlStack)
-        - Provides efficient implementation of particle filter-based localization on vector maps, velocity space obstacle avoidance, and hierarchical path planning for real-time performance
+        - Provides efficient implementation of particle filter-based localization on vector maps, velocity space obstacle avoidance, hierarchical path planning for real-time performance, visualization support via ROS, and integration with a multi-agent robot simulator
         - Basis for getting started homework assignment and several final group projects in CIS700 Integrated Intelligence, Fall 2020
 - _Research Assistant -- Autonomous Mobile Robotics Lab (AMRL), UMass_ \ra{(2016 -- 2019)}
     - Developed _X\*_, an anytime multiagent planner for realtime systems
