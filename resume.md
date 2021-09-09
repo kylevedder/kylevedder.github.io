@@ -97,10 +97,10 @@ In Proceedings of the 5th Workshop on Planning and Robotics (ICAPS PlanRob), Pit
 **Kyle Vedder**. 2020. [[pdf]](http://vedder.io/misc/shap_for_classification.pdf) [[video]](https://www.youtube.com/watch?v=xFFCQVwYeec) [[slides]](misc/FromShapleyValuesToExplainableAISlides.pdf)
 
  7. _UMass MinuteBots 2018 Team Description Paper._\newl{}
-**Kyle Vedder**, Edward Schneeweiss, Sadegh Rabiee, Samer Nashed, Spencer Lane, Jarrett Holtz, Joydeep Biswas, David Balaban. 2018. [[pdf]](http://vedder.io/publications/MinutebotsRoboCupTDP2018.pdf)
+**Kyle Vedder**, Edward Schneeweiss, Sadegh Rabiee, Samer Nashed, Spencer Lane, Jarrett Holtz, Joydeep Biswas, David Balaban. 2018. [[pdf]](http://vedder.io/publications/MinutebotsRoboCupTDP2018.pdf) [[website]](https://amrl.cs.umass.edu/minutebots.html)
 
  8. _UMass MinuteBots 2017 Team Description Paper._\newl{}
-**Kyle Vedder**, Edward Schneeweiss, Sadegh Rabiee, Samer Nashed, Spencer Lane, Jarrett Holtz, Joydeep Biswas, David Balaban. 2017. [[pdf]](http://vedder.io/publications/MinutebotsRoboCupTDP2017.pdf)
+**Kyle Vedder**, Edward Schneeweiss, Sadegh Rabiee, Samer Nashed, Spencer Lane, Jarrett Holtz, Joydeep Biswas, David Balaban. 2017. [[pdf]](http://vedder.io/publications/MinutebotsRoboCupTDP2017.pdf) [[website]](https://amrl.cs.umass.edu/minutebots.html)
 
 \vspacebefore{}
 
