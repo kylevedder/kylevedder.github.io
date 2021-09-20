@@ -2,13 +2,30 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143379317-1"></script>
 <script type="text/javascript" src="js/googleanalytics.js"></script>
-<meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="description" content="Sparse PointPillars: Maintain and Exploit InputSparsity to Improve Embedded System Runtime"> <meta name="author" content="Kyle Vedder"> <link rel="shortcut icon" href="favicon.ico">
+<meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="description" content="Project page for 'Sparse PointPillars: Maintaining and Exploiting Input Sparsity to Improve Runtime on Embedded Systems'"> <meta name="author" content="Kyle Vedder"> <link rel="shortcut icon" href="favicon.ico">
 <title>
 Sparse Point Pillars
 </title>
 </head>
-<h1 id="sparse-pointpillars-maintain-and-exploit-input-sparsity-to-improve-embedded-system-runtime">Sparse PointPillars: Maintain and Exploit Input Sparsity to Improve Embedded System Runtime</h1>
+<h1 id="sparse-pointpillars-maintaining-and-exploiting-input-sparsity-to-improve-runtime-on-embedded-systems">Sparse PointPillars: Maintaining and Exploiting Input Sparsity to Improve Runtime on Embedded Systems</h1>
 <h3 id="kyle-vedder-and-eric-eaton"><a href="http://vedder.io">Kyle Vedder</a> and <a href="https://www.seas.upenn.edu/~eeaton/">Eric Eaton</a></h3>
-<h3 id="links-workshop-pdf-code-model-weights">Links: <a href="publications/sparse_point_pillars_icra_2022.pdf">[workshop pdf]</a> <a href="https://github.com/kylevedder/SparsePointPillars">[code]</a> <a href="https://drive.google.com/drive/folders/1rMMblFl73qQnFbqcsK9hgnsTd5K58tJS?usp=sharing">[model weights]</a></h3>
 <h4 id="abstract">Abstract</h4>
 <p>Bird's Eye View (BEV) is a popular representation for processing 3D point clouds, and by its nature is fundamentally sparse. Motivated by the computational limitations of mobile robot platforms, we take a fast, high-performance BEV 3D object detector - PointPillars - and modify its backbone to maintain <em>and</em> exploit this input sparsity, leading to decreased runtimes. We present results on KITTI, a canonical 3D detection dataset, and Matterport-Chair, a novel Matterport3D-derived chair detection from scenes in real furnished homes, and we evaluate runtime characteristics using a desktop GPU, an embedded ML accelerator, and a robot CPU, demonstrating our method results in significant runtime decreases (2X or more) for embedded systems with only a modest decrease in detection quality. Our work represents a new approach for practitioners to optimize models for embedded systems by maintaining <em>and</em> exploiting input sparsity throughout their entire pipeline to reduce runtime and resource usage while preserving detection performance. All models, their weights, their experimental configurations, and the training data used is publicly available from this webpage.</p>
+<h4 id="papers">Papers:</h4>
+<p><a href="publications/sparse_point_pillars_icra_2022.pdf">[In Submission ICRA 2022 Paper PDF]</a></p>
+<p><a href="publications/sparse_point_pillars_snn_workshop.pdf">[SNN 2021 Workshop Paper PDF]</a></p>
+<h4 id="downloads">Downloads</h4>
+<p>Code: <a href="https://github.com/kylevedder/SparsePointPillars" class="uri">https://github.com/kylevedder/SparsePointPillars</a></p>
+<p>Model weights:</p>
+<ul>
+<li><a href="https://drive.google.com/file/d/1f5qGC3NiokMBIrW40_0QJE0PuqWJ9VvK/view?usp=sharing">[matterport_chair_sparse]</a></li>
+<li><a href="https://drive.google.com/file/d/13tB9siL1-kTWDNuES79oRVkNdQQukFWD/view?usp=sharing">[matterport_chair_dense]</a></li>
+<li><a href="https://drive.google.com/file/d/1zUYiaWDTY0V_kR7xtvGxNK0BE005PSh_/view?usp=sharing">[kitti_sparse]</a></li>
+<li><a href="https://drive.google.com/file/d/1TArZ3dx_rydSsgnNMq3UBs6-7k3B2vhD/view?usp=sharing">[kitti_dense]</a></li>
+<li><a href="https://drive.google.com/file/d/1eCvUPQLki7C5nfBa6H0MCg--G8Pqhqbz/view?usp=sharing">[kitti_sparse1_dense23]</a></li>
+<li><a href="https://drive.google.com/file/d/1SJnSuYAvwXE2kBburyp1L30GzEGmY0hu/view?usp=sharing">[kitti_sparse12_dense3]</a></li>
+<li><a href="https://drive.google.com/file/d/1Fc7_DDrYlHKXoCwpVeaSOuMv7QgXPVZ6/view?usp=sharing">[kitti_sparse_wide]</a></li>
+</ul>
+<h4 id="video">Video</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zuLboHg3GLA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
