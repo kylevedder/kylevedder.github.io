@@ -33,7 +33,7 @@ In Proceedings of the 5th Workshop on Planning and Robotics (PlanRob), Pittsburg
 
 ## In Submission
 
-- _Sparse PointPillars: Maintaining and Exploiting Input Sparsity to Improve Runtime on Embedded Systems_ Kyle Vedder, Eric Eaton. In Submission to ICRA 2022. [[pdf]](publications/sparse_point_pillars_icra_2022.pdf)[[video]](https://www.youtube.com/watch?v=zuLboHg3GLA)
+- _Sparse PointPillars: Maintaining and Exploiting Input Sparsity to Improve Runtime on Embedded Systems_. Kyle Vedder, Eric Eaton. In Submission to ICRA 2022. [[pdf]](publications/sparse_point_pillars_icra_2022.pdf)[[website]](http://vedder.io/sparse_point_pillars.html)[[video]](https://www.youtube.com/watch?v=zuLboHg3GLA)
 
 
 ## Other
