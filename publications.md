@@ -31,6 +31,10 @@ Spencer Lane, Kyle Vedder, and Joydeep Biswas.
 In Proceedings of the 5th Workshop on Planning and Robotics (PlanRob), Pittsburgh, PA, USA. June 2017. [[pdf]](publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf)
 
 
+## In Submission
+
+- _Sparse PointPillars: Maintaining and Exploiting Input Sparsity to Improve Runtime on Embedded Systems_ Kyle Vedder, Eric Eaton. In Submission to ICRA 2022. [[pdf]](publications/sparse_point_pillars_icra_2022.pdf)[[video]](https://www.youtube.com/watch?v=zuLboHg3GLA)
+
 
 ## Other
 
