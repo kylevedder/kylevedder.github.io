@@ -12,23 +12,25 @@
 
 # Sparse PointPillars: Maintaining and Exploiting Input Sparsity to Improve Runtime on Embedded Systems
 
-### [Kyle Vedder](http://vedder.io) and [Eric Eaton](https://www.seas.upenn.edu/~eeaton/)
+## [Kyle Vedder](http://vedder.io) and [Eric Eaton](https://www.seas.upenn.edu/~eeaton/)
 
-#### Abstract
+## Abstract:
 
 Bird's Eye View (BEV) is a popular representation for processing 3D point clouds, and by its nature is  fundamentally sparse. Motivated by the computational limitations of mobile robot platforms, we take a fast, high-performance BEV 3D object detector  - PointPillars - and modify its backbone to maintain _and_ exploit this input sparsity, leading to decreased runtimes. We present results on KITTI, a canonical 3D detection dataset, and Matterport-Chair, a novel Matterport3D-derived chair detection from scenes in real furnished homes, and we evaluate runtime characteristics using a desktop GPU, an embedded ML accelerator, and a robot CPU, demonstrating our method results in significant runtime decreases (2X or more) for embedded systems with only a modest decrease in detection quality. Our work represents a new approach for practitioners to optimize models for embedded systems by maintaining _and_ exploiting input sparsity throughout their entire pipeline to reduce runtime and resource usage while preserving detection performance. All models, their weights, their experimental configurations, and the training data used is publicly available from this webpage.
 
-#### Papers: 
+## Papers: 
 
 [[In Submission ICRA 2022 Paper PDF]](publications/sparse_point_pillars_icra_2022.pdf)
 
 [[SNN 2021 Workshop Paper PDF]](publications/sparse_point_pillars_snn_workshop.pdf)
 
-#### Downloads  
+## Downloads:
   
-Code: [https://github.com/kylevedder/SparsePointPillars](https://github.com/kylevedder/SparsePointPillars) 
+#### Code: 
 
-Model weights:
+[https://github.com/kylevedder/SparsePointPillars](https://github.com/kylevedder/SparsePointPillars) 
+
+#### Model weights:
 
  - [[matterport_chair_sparse]](https://drive.google.com/file/d/1f5qGC3NiokMBIrW40_0QJE0PuqWJ9VvK/view?usp=sharing)
  - [[matterport_chair_dense]](https://drive.google.com/file/d/13tB9siL1-kTWDNuES79oRVkNdQQukFWD/view?usp=sharing)
@@ -38,6 +40,13 @@ Model weights:
  - [[kitti_sparse12_dense3]](https://drive.google.com/file/d/1SJnSuYAvwXE2kBburyp1L30GzEGmY0hu/view?usp=sharing)
  - [[kitti_sparse_wide]](https://drive.google.com/file/d/1Fc7_DDrYlHKXoCwpVeaSOuMv7QgXPVZ6/view?usp=sharing)
 
-#### Video
+#### _Matterport-Chair_ dataset:
+  
+  - [[Train split]](https://drive.google.com/file/d/1klZencIH6NiDc6yqlpuD9z5KL8HYfy09/view?usp=sharing)
+  - [[Test split]](https://drive.google.com/file/d/1xkJWe5PQi-F6LMHNOuK3TeKrnvqtPc0P/view?usp=sharing)
+
+_Matterport-Chair_ was generated using [MatterportDataSampling](https://github.com/kylevedder/MatterportDataSampling), our utility for generating supervised object detection datasets from Matterport3D.
+
+## Video:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/zuLboHg3GLA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
