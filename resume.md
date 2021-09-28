@@ -169,7 +169,7 @@ In Proceedings of the 5th Workshop on Planning and Robotics (ICAPS PlanRob), Pit
 \vspaceafter{}
 
 - _Amazon Lab126 -- Software Development Intern_ \ra{(Summer 2019)}
-    - Worked on Amazon Astro, a small mobile service robot, doing novel classical multi-modal RF camera and ToF sensor fusion for detecting small obstacles such as wires or boxes to avoid collisions
+    - Worked on Amazon Astro, a small mobile service robot, doing novel classical multi-modal IR camera and ToF sensor fusion for detecting small obstacles such as wires or boxes to avoid collisions
 - _Google -- Software Engineering Intern_ \ra{(Summer 2017)}
     - Worked on Ads Quality Metrics team to deliver statistics about bad ads. Developed information theoretic optimization approach to aquire maximally diverse training data for automated detectors
 - _Google -- Software Engineering Intern_ \ra{(Summer 2016)}
