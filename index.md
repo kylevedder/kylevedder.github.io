@@ -26,7 +26,7 @@ In 20 years I want there to be robots that can effectively provide a full range 
 I am a CS PhD student at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) in the [Lifelong Machine Learning group](https://lifelong-ml.github.io/) of [GRASP Lab](https://www.grasp.upenn.edu/). Motivated by my goal of developing elder care robots, my research interests lie in the intersection of:
 
  - [Mobile robotics](https://www.youtube.com/watch?v=o7WW2cu1h7c)
- - [Vision-based object detection](publications/sparse_point_pillars_snn_workshop.pdf)
+ - [Vision-based object detection](publications/sparse_point_pillars_icra_2022.pdf)
  - Self-supervised continual learning
 
 During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas](https://www.joydeepb.com/) in the [Autonomous Mobile Robotics Lab](https://amrl.cs.umass.edu/). My research was in:

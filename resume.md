@@ -34,7 +34,9 @@ output:
 \vspaceafter{}
 
  - PhD in Computer Science, University of Pennsylvania (in progress) \ra{(2019 --     Present)}
+     - Advisor: Eric Eaton, _Lifelong Machine Learning group (LML), GRASP Lab_
  - BS in Computer Science, University of Massachusetts \ra{(2015 -- 2019)}
+     - Advisor: Joydeep Biswas, _Autonomous Mobile Robotics Lab (AMRL)_
 
 \vspacebefore{}
 
