@@ -133,7 +133,7 @@ In Proceedings of the 5th Workshop on Planning and Robotics (ICAPS PlanRob), Pit
     - Developed _Sparse PointPillars_, a point cloud 3D object detector for embedded systems
         - Based on popular detector _PointPillars_, with modified backbone to maintain and exploit input sparsity using end-to-end submanifold convolutions, significantly reducing model FLOPs
         - Contributed bugfixes and improvements to Open3D implementation of _PointPillars_ [[commits]](https://github.com/isl-org/Open3D-ML/commits?author=kylevedder)
-        - Presented in workshop form at Sparse Neural Networks Workshop, currently in preparation for conference submission
+        - Workshop paper at Sparse Neural Networks Workshop; in submission to ICRA 2022
 
     - Core Team Lead for Phase 2 of DARPA Lifelong Learning Machines (L2M) program
         - Led multi-University team to develop core infrastructure for RL and Perception subgroups atop the AIHabitat sim using Matterport3D, a dataset of 3D indoor scans of real houses
@@ -148,7 +148,7 @@ In Proceedings of the 5th Workshop on Planning and Robotics (ICAPS PlanRob), Pit
     - Developed _X\*_, an anytime multiagent planner for realtime systems
         - Designed, proved correct, implemented, and evaluated all novel algorithms
         - Performed literature review and wrote paper with high level editing input from coauthor
-    - Developed _Obstacle Scaffolds_, an extension to roadmap based planners that allow for finer path generation near dynamic obstacles
+    - Developed _Obstacle Scaffolds_, an extension to roadmap planners for finer near-obstacle navigation
         - Implemented baseline and experimental planners
         - Evaluated planner characteristics across multiple scenarios
     - Founding member of the UMass Minutebots, the RoboCup Small Size League team that serves as AMRL's research platform for autonomous multiagent systems
