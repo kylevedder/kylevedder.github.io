@@ -46,7 +46,7 @@ During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas]
 
 ## Updates
 <div class="updates">
- - Sep 15th, 2021: [Submitted Sparse PointPillars to ICRA 2021](./sparse_point_pillars.html)
+ - Sep 15th, 2021: [Submitted Sparse PointPillars to ICRA 2022](./sparse_point_pillars.html)
  - Jul 20th, 2021: [Added project webpage for X\*](./xstar.html)
  - Jul 8th, 2021: [Poster presented at Sparse Neural Networks on _Sparse PointPillars_](misc/SparsePointPillarsSNNPoster.pdf)
  - Jun 14th, 2021: [Workshop paper accepted as poster to Sparse Neural Networks: _Sparse PointPillars: Exploiting Sparsity on Birds-Eye-View Object Detection_](publications/sparse_point_pillars_snn_workshop.pdf)
