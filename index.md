@@ -27,7 +27,7 @@ I am a CS PhD student at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eea
 
  - [Mobile robotics](https://www.youtube.com/watch?v=o7WW2cu1h7c)
  - [Vision-based object detection](publications/sparse_point_pillars_icra_2022.pdf)
- - Self-supervised continual learning
+ - Self-supervised/unsupervised continual learning
 
 During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas](https://www.joydeepb.com/) in the [Autonomous Mobile Robotics Lab](https://amrl.cs.umass.edu/). My research was in:
 
