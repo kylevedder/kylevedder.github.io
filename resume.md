@@ -155,7 +155,7 @@ In Proceedings of the 5th Workshop on Planning and Robotics (ICAPS PlanRob), Pit
         - Architected and implemented majority of the core software infrastructure for the control stack
         - Implemented state-of-the-art realtime path planning, low level collision avoidance, and portions of the motion planning system
 - _Academic Reviewer_ \ra{(2019 -- Present)}
-    - AAAI 2020 -- 2022, AAMAS 2021, JMLR (Secondary) 2021
+    - AAAI 2020 -- 2022, AAMAS 2021, JMLR (Secondary) 2021, ICRA 2022
     - Reviewed articles on topics across robotics, vision, machine learning, and classical AI
 - _Teaching Assistant -- CIS 519 Applied Machine Learning, UPenn_ \ra{(Spring 2021)}
     - Head TA managing 14 TAs doing homework assignment creation, running office hours, and performing small group cohort sessions
