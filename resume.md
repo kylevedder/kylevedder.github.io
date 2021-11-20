@@ -53,7 +53,7 @@ In 20 years I want there to be robots that can effectively provide a full range 
 \vspaceafter{}
 
 - Proficient with C++1X, Python 3, PyTorch, ROS 1, git, Debian Linux, \LaTeX
-- Knowledgeable in Robotics and Machine Learning, including 3D Object Detection ([[3]](http://vedder.io/publications/sparse_point_pillars_snn_workshop.pdf) [[5]](http://vedder.io/misc/KyleVedderWPEII2021.pdf)), Single/Multi-Agent Path Planning ([[1]](http://vedder.io/publications/expanding_astar_aij.pdf) [[2]](http://vedder.io/publications/expanding_astar_aamas_extended_abstract.pdf) [[4]](http://vedder.io/publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf)), Shapley Values for Explainable AI ([[6]](http://vedder.io/misc/shap_for_classification.pdf)), Motion Control ([[7]](http://vedder.io/publications/MinutebotsRoboCupTDP2018.pdf) [[8]](http://vedder.io/publications/MinutebotsRoboCupTDP2017.pdf))
+- Knowledgeable in Robotics and Machine Learning, including 3D Object Detection ([[3]](http://vedder.io/publications/sparse_point_pillars_snn_workshop.pdf) [[5]](http://vedder.io/misc/KyleVedderWPEII2021.pdf) [[9]](http://vedder.io/sparse_point_pillars.html)), Single/Multi-Agent Path Finding ([[1]](http://vedder.io/publications/expanding_astar_aij.pdf) [[2]](http://vedder.io/publications/expanding_astar_aamas_extended_abstract.pdf) [[4]](http://vedder.io/publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf)), Motion Control ([[7]](http://vedder.io/publications/MinutebotsRoboCupTDP2018.pdf) [[8]](http://vedder.io/publications/MinutebotsRoboCupTDP2017.pdf))
 
 \vspacebefore{}
 
