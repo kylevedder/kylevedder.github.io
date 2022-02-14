@@ -20,7 +20,7 @@ Bird's Eye View (BEV) is a popular representation for processing 3D point clouds
 
 ## Papers: 
 
-[[In Submission ICRA 2022 Paper PDF]](publications/sparse_point_pillars_icra_2022.pdf)
+[[Submitted ICRA 2022 Paper PDF]](publications/sparse_point_pillars_icra_2022.pdf)
 
 [[SNN 2021 Workshop Paper PDF]](publications/sparse_point_pillars_snn_workshop.pdf)
 
@@ -48,5 +48,7 @@ Bird's Eye View (BEV) is a popular representation for processing 3D point clouds
 _Matterport-Chair_ was generated using [MatterportDataSampling](https://github.com/kylevedder/MatterportDataSampling), our utility for generating supervised object detection datasets from Matterport3D.
 
 ## Video:
+
+Three Minute Overview Video:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/zuLboHg3GLA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
