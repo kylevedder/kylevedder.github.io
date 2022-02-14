@@ -19,7 +19,7 @@
 
 <img src="img/me_outside.jpg" height="400" />
 
-In 20 years I want there to be robots that can effectively provide a full range of quality care to the elderly. The US is on the verge of a [large retirement of baby boomers](img/static/usa_age_demo.png) and [China faces a deeply troubling demographic cliff in 20 years](img/static/china_age_demo.png), motivating the need for new methods of automated, high quality elder care not reliant upon human labor.
+In 20 years I want there to be robots that can effectively automate the mechanical aspects of high-quality elder care (e.g. fetching objects, changing sheets, cleaning the room). The US is on the verge of a [large retirement of baby boomers](img/static/usa_age_demo.png) and [China faces a deeply troubling demographic cliff in 20 years](img/static/china_age_demo.png), motivating the need for new, more scalable and cost-effective methods of providing high-quality elder care that does not compromise on outcomes for patients.
 
 ## Background
 
@@ -46,7 +46,8 @@ During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas]
 
 ## Updates
 <div class="updates">
- - Sep 15th, 2021: [Submitted Sparse PointPillars to ICRA 2022](./sparse_point_pillars.html)
+ - Jan 31st, 2022: [Reviews from _Sparse PointPillars_ ICRA 2022](misc/SparsePointPillars_ICRA_2022_reviews.pdf)
+ - Sep 15th, 2021: [Submitted _Sparse PointPillars_ to ICRA 2022](./sparse_point_pillars.html)
  - Jul 20th, 2021: [Added project webpage for X\*](./xstar.html)
  - Jul 8th, 2021: [Poster presented at Sparse Neural Networks on _Sparse PointPillars_](misc/SparsePointPillarsSNNPoster.pdf)
  - Jun 14th, 2021: [Workshop paper accepted as poster to Sparse Neural Networks: _Sparse PointPillars: Exploiting Sparsity on Birds-Eye-View Object Detection_](publications/sparse_point_pillars_snn_workshop.pdf)
