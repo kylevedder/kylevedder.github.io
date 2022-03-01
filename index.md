@@ -26,7 +26,7 @@ In 20 years I want there to be robots that can effectively automate the mechanic
 I am a CS PhD [candidate](img/static/candidate.png) at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) in the [Lifelong Machine Learning group](https://lifelong-ml.github.io/) of [GRASP Lab](https://www.grasp.upenn.edu/). Motivated by my goal of developing elder care robots, my research interests lie in the intersection of:
 
  - [Mobile robotics](https://www.youtube.com/watch?v=2Q4LCoJDOyY&t=2284s)
- - [Vision-based object detection](publications/sparse_point_pillars_icra_2022.pdf)
+ - [Vision-based object detection](publications/sparse_point_pillars_iros_2022.pdf)
  - Self-supervised/unsupervised continual learning
 
 During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas](https://www.joydeepb.com/) in the [Autonomous Mobile Robotics Lab](https://amrl.cs.umass.edu/). My research was in:
@@ -46,6 +46,7 @@ During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas]
 
 ## Updates
 <div class="updates">
+ - Mar 1st, 2022: [Submitted _Sparse PointPillars_ to IROS 2022](./sparse_point_pillars.html)
  - Jan 31st, 2022: [Reviews from _Sparse PointPillars_ ICRA 2022](misc/SparsePointPillars_ICRA_2022_reviews.pdf)
  - Sep 15th, 2021: [Submitted _Sparse PointPillars_ to ICRA 2022](./sparse_point_pillars.html)
  - Jul 20th, 2021: [Added project webpage for X\*](./xstar.html)
