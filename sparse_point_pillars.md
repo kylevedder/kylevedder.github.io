@@ -49,7 +49,7 @@ _Matterport-Chair_ was generated using [MatterportDataSampling](https://github.c
 
 ## Video:
 
-On Minute Overview Video:
+One Minute Overview Video:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3OlLm8FZxDY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
