@@ -43,13 +43,20 @@ All of this comes at the cost of 6% AP on the BEV benchmark and 4% AP on the 3D 
 
 Full experimental details, plus comparisons on KITTI, are available in the paper.
 
-## Full Paper: 
+## Full Paper and Downloadables: 
 
 [[In Submission IROS 2022 Paper PDF]](publications/sparse_point_pillars_iros_2022.pdf)
 
-<!-- [[SNN 2021 Workshop Paper PDF]](publications/sparse_point_pillars_snn_workshop.pdf) -->
+### Citation:
 
-## Downloads:
+```
+@article{Vedder2021,
+    author    = {Kyle Vedder and Eric Eaton},
+    title     = {{Sparse PointPillars: Maintaining and Exploiting Input Sparsity to Improve Runtime on Embedded Systems}},
+    journal   = {arXiv:2106.06882},
+    year      = {2021},
+}
+```
   
 #### Code: 
 
