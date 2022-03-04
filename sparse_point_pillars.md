@@ -16,13 +16,38 @@
 
 ## Abstract:
 
-Bird's Eye View (BEV) is a popular representation for processing 3D point clouds, and by its nature is  fundamentally sparse. Motivated by the computational limitations of mobile robot platforms, we take a fast, high-performance BEV 3D object detector  - PointPillars - and modify its backbone to maintain _and_ exploit this input sparsity, leading to decreased runtimes. We present results on KITTI, a canonical 3D detection dataset, and Matterport-Chair, a novel Matterport3D-derived chair detection from scenes in real furnished homes, and we evaluate runtime characteristics using a desktop GPU, an embedded ML accelerator, and a robot CPU, demonstrating our method results in significant runtime decreases (2X or more) for embedded systems with only a modest decrease in detection quality. Our work represents a new approach for practitioners to optimize models for embedded systems by maintaining _and_ exploiting input sparsity throughout their entire pipeline to reduce runtime and resource usage while preserving detection performance. All models, their weights, their experimental configurations, and the training data used is publicly available from this webpage.
+Bird's Eye View (BEV) is a popular representation for processing 3D point clouds, and by its nature is fundamentally sparse. Motivated by the computational limitations of mobile robot platforms, we create a fast, high-performance BEV 3D object detector that maintains and exploits this input sparsity to decrease runtimes over non-sparse baselines and avoids the tradeoff between pseudoimage area and runtime. We present results on KITTI, a canonical 3D detection dataset, and Matterport-Chair, a novel Matterport3D-derived chair detection dataset from scenes in real furnished homes. We evaluate runtime characteristics using a desktop GPU, an embedded ML accelerator, and a robot CPU, demonstrating that our method results in significant detection speedups (2X or more) for embedded systems with only a modest decrease in detection quality. Our work represents a new approach for practitioners to optimize models for embedded systems by maintaining and exploiting input sparsity throughout their entire pipeline to reduce runtime and resource usage while preserving detection performance.
 
-## Papers: 
+## Key Insights:
+
+PointPillars, a popular 3D object detector, consumes a pointcloud, converts its sparse set of non-empty pillars into a sparse COO matrix format, vectorizes these pillars, then converts back to a dense matrix to run its dense convolutional Backbone. In improving runtimes for Sparse PointPillars, our first key insight is we can leave the vectorized matrix in its sparse format and _exploit_ this sparsity in our Backbone, allowing us to skip computation in empty regions of the pseudoimage.
+
+<img src="img/static/sparse_pointpillars/architecture_no_cap.png" style="max-width:1080px; width:100%"/>
+
+Our second key insight is that we want to _maintain_ this sparsity to ensure successive layers of the Backbone are also efficient. We do this via our new Backbone which utilizes carefully placed sparse and submanifold convolutions. Left image shows the PointPillars' dense Backbone pseudoimage smearing, right shows our sparse Backbone's sparsity preservation.
+
+<img src="img/static/sparse_pointpillars/pseudoimages_no_cap.png" style="max-width:1080px; width:100%"/>
+
+Full details on the Backbone design plus ablative studies are available in the paper.
+
+## Results Overview:
+
+On our custom realistic service robot object detection benchmark, Matterport-Chair, we found that
+
+ - Sparse PointPillars outperforms PointPillars on a Jetson Xavier on max power mode by ~2X
+ - Sparse PointPillars outperforms PointPillars on a Jetson Xavier on min power mode by ~3X
+ - Sparse PointPillars on a Jetson Xavier on min power mode is slightly faster than PointPillars on a Jetson Xavier on max power (saves 3X as much power!)
+ - Sparse PointPillars outperforms PointPillars on a robot CPU by >4x
+
+All of this comes at the cost of 6% AP on the BEV benchmark and 4% AP on the 3D box benchmark.
+
+Full experimental details, plus comparisons on KITTI, are available in the paper.
+
+## Full Paper: 
 
 [[In Submission IROS 2022 Paper PDF]](publications/sparse_point_pillars_iros_2022.pdf)
 
-[[SNN 2021 Workshop Paper PDF]](publications/sparse_point_pillars_snn_workshop.pdf)
+<!-- [[SNN 2021 Workshop Paper PDF]](publications/sparse_point_pillars_snn_workshop.pdf) -->
 
 ## Downloads:
   
@@ -47,7 +72,7 @@ Bird's Eye View (BEV) is a popular representation for processing 3D point clouds
 
 _Matterport-Chair_ was generated using [MatterportDataSampling](https://github.com/kylevedder/MatterportDataSampling), our utility for generating supervised object detection datasets from Matterport3D.
 
-## Video:
+## Videos:
 
 One Minute Overview Video:
 
