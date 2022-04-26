@@ -5,6 +5,7 @@ pandoc xstar.md -o xstar.html
 pandoc sparse_point_pillars.md -o sparse_point_pillars.html
 pandoc misc/mujoco_py.md -o misc/mujoco_py.html
 pandoc misc/screen.md -o misc/screen.html
+pandoc bio.md -o bio.html
 
 resume_hash=$(md5sum resume.md | awk '{print $1}');
 existing_resume_hash=$(exiftool KyleVedderResume.pdf | awk '/^Subject/' | awk '{print $3}');
