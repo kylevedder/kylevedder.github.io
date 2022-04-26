@@ -133,7 +133,7 @@ In Proceedings of the 5th Workshop on Planning and Robotics (ICAPS PlanRob), Pit
     - Developed _Sparse PointPillars_, a point cloud 3D object detector for embedded systems
         - Based on popular detector _PointPillars_, with modified backbone to maintain and exploit input sparsity using end-to-end submanifold convolutions, significantly reducing model FLOPs
         - Contributed bugfixes and improvements to Open3D implementation of _PointPillars_ [[commits]](https://github.com/isl-org/Open3D-ML/commits?author=kylevedder)
-        - Workshop paper at Sparse Neural Networks Workshop; in submission to ICRA 2022
+        - Workshop paper at Sparse Neural Networks Workshop; in submission to IROS 2022
 
     - Core Team Lead for Phase 2 of DARPA Lifelong Learning Machines (L2M) program
         - Led multi-University team to develop core infrastructure for RL and Perception subgroups atop the AIHabitat sim using Matterport3D, a dataset of 3D indoor scans of real houses
