@@ -35,7 +35,7 @@ During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas]
  - [Anytime Multi-Agent Path Finding (MAPF)](http://vedder.io/publications/expanding_astar_aij.pdf) for efficient first solution generation
  - [Core infrastructure](http://vedder.io/publications/MinutebotsRoboCupTDP2017.pdf) and [low level safety system](http://vedder.io/publications/MinutebotsRoboCupTDP2018.pdf) of our [RoboCup Small Size League team](https://amrl.cs.umass.edu/minutebots.html)
 
- I have also done a number of industry internships; I have interned twice at Unidesk (a startup since aquired by Citrix), twice at Google, and once at Amazon's R&D lab, Lab126 (where I worked on their home robot [Astro](https://www.aboutamazon.com/news/devices/meet-astro-a-home-robot-unlike-any-other)). This summer I will be joining [Argo AI](https://www.argo.ai/) as a Research Intern under [James Hays](https://faculty.cc.gatech.edu/~hays/).
+ I have also done a number of industry internships; I have interned twice at Unidesk (a startup since aquired by Citrix), twice at Google, and once at Amazon's R&D lab, Lab126 (where I worked on their home robot [Astro](https://www.aboutamazon.com/news/devices/meet-astro-a-home-robot-unlike-any-other)). This summer I am joining [Argo AI](https://www.argo.ai/) as a Research Intern under [James Hays](https://faculty.cc.gatech.edu/~hays/).
 
 ## More Information
 
