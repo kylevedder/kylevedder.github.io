@@ -10,4 +10,6 @@
 <title>Kyle Vedder's Academic Bio</title>
 </head>
 
-Kyle Vedder is a PhD candidate at the University of Pennsylvania where he is advised by Eric Eaton. Motivated by his goal of developing elder care robots, his research focuses on self-supervised methods for object understanding on mobile platforms.
+<img src="img/me_outside_head.jpg"/>
+
+Kyle Vedder is a PhD candidate at the University of Pennsylvania where he is advised by Eric Eaton. Motivated by his goal of developing elder care robots, his research focuses on 3D object detection and self-supervised methods for object understanding on mobile platforms.
