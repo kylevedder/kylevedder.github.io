@@ -34,7 +34,7 @@ output:
 \vspaceafter{}
 
  - PhD in Computer Science, University of Pennsylvania (in progress) \ra{(2019 --     Present)}
-     - Advisor: Eric Eaton, _Lifelong Machine Learning group (LML), GRASP Lab_
+     - Advisors: Eric Eaton, Dinesh Jayaraman, _GRASP Lab_
  - BS in Computer Science, University of Massachusetts \ra{(2015 -- 2019)}
      - Advisor: Joydeep Biswas, _Autonomous Mobile Robotics Lab (AMRL)_
 
@@ -110,7 +110,7 @@ In Proceedings of the 5th Workshop on Planning and Robotics (ICAPS PlanRob), Pit
 
 \vspaceafter{}
 
- 9. _Sparse PointPillars: Maintaining and Exploiting Input Sparsity to Improve Runtime on Embedded Systems_. Kyle Vedder, Eric Eaton. In Submission to ICRA 2022. [[pdf]](http://vedder.io/publications/sparse_point_pillars_icra_2022.pdf) [[website]](http://vedder.io/sparse_point_pillars.html) [[video]](https://www.youtube.com/watch?v=zuLboHg3GLA)
+ 9. _Sparse PointPillars: Maintaining and Exploiting Input Sparsity to Improve Runtime on Embedded Systems_. Kyle Vedder, Eric Eaton. In Submission to IROS 2022. [[pdf]](http://vedder.io/publications/sparse_point_pillars_iros_2022.pdf) [[website]](http://vedder.io/sparse_point_pillars.html) [[video]](https://www.youtube.com/watch?v=JgcR6cFXR5w)
 
 \vspacebefore{}
 
@@ -170,6 +170,8 @@ In Proceedings of the 5th Workshop on Planning and Robotics (ICAPS PlanRob), Pit
 
 \vspaceafter{}
 
+- _Argo AI -- Research Intern_ \ra{(Summer 2022)}
+    - Ongoing
 - _Amazon Lab126 -- Software Development Intern_ \ra{(Summer 2019)}
     - Worked on Amazon Astro, a small mobile service robot, doing novel classical multi-modal IR camera and ToF sensor fusion for detecting small obstacles such as wires or boxes to avoid collisions
 - _Google -- Software Engineering Intern_ \ra{(Summer 2017)}
