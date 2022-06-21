@@ -81,6 +81,10 @@ _Matterport-Chair_ was generated using [MatterportDataSampling](https://github.c
 
 ## Videos:
 
+Invited talk at the [3D-Deep Learning for Automated Driving](https://sites.google.com/view/3d-dlad-v4-iv2022/home) workshop of IEEE Intelligent Vehicles Symposium 2022:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JgcR6cFXR5w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 One Minute Overview Video:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3OlLm8FZxDY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
