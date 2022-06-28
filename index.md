@@ -23,7 +23,7 @@ In 20 years I want there to be robots that can effectively automate the mechanic
 
 ## Background
 
-I am a CS PhD [candidate](img/static/candidate.png) at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) and Dinesh Jayaraman in the [GRASP Lab](https://www.grasp.upenn.edu/). Motivated by my goal of developing elder care robots, my research interests lie in the intersection of:
+I am a CS PhD [candidate](img/static/candidate.png) at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) and [Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/) in the [GRASP Lab](https://www.grasp.upenn.edu/). Motivated by my goal of developing elder care robots, my research interests lie in the intersection of:
 
  - [Mobile robotics](https://www.youtube.com/watch?v=2Q4LCoJDOyY&t=2284s)
  - [Vision-based object detection](publications/sparse_point_pillars_iros_2022.pdf)
