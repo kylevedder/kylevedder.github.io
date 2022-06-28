@@ -5,6 +5,7 @@ pandoc xstar.md -o xstar.html
 pandoc sparse_point_pillars.md -o sparse_point_pillars.html
 pandoc misc/mujoco_py.md -o misc/mujoco_py.html
 pandoc misc/screen.md -o misc/screen.html
+pandoc misc/writings/next_5_to_10_years_2022.md -o misc/writings/next_5_to_10_years_2022.html
 pandoc bio.md -o bio.html
 
 resume_hash=$(md5sum resume.md | awk '{print $1}');
