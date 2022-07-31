@@ -1,0 +1,139 @@
+
+Comments to author (Associate Editor)
+=====================================
+
+The authors present technique for accelerating
+point-pillars. The method shows a significant amount of
+run-time reduction making it suitable for application on
+embedded devices. This optimization is very crucial for
+robotic and especially mobile applications. 
+
+
+----------------------------------------
+Comments on Video Attachment:
+
+[None found]
+
+
+
+Reviewer 6 of IROS 2022 submission 978
+
+Comments to the author
+======================
+
+The authors propose a modified version of the PointPillars
+neural network model which is more suitable for use in
+resource-constrained robotics hardware. The primary
+modifications are found in the 2D backbone which replaces
+convolutional layers with sparse equivalents and also makes
+use of submanifold convolutions to maintain sparsity. The
+result is a system with worst case computational cost
+similar to PointPillars, and a much lower expected cost
+given the sparsity of realistic data. They find that their
+system has a much reduced execution time on low power
+hardware at the cost of an approximately 5% regression in
+task performance.
+
+This paper is on a fairly niche topic (trading task
+performance for computational efficiency for a single
+popular algorithm) but I believe will be of significant
+benefit to the section of the community to whom it is
+relevant, particularly as the authors have released code
+and data. The lower computational requirements should
+increase robot response time or allow the use of more
+complementary computation in the time freed up by the use
+of Sparse PointPillars. 
+
+The changes to PointPillars proposed by the authors are
+well justified, and are supported by a good theoretical and
+empirical analysis of time complexity. The paper is also
+extremely clear and well written, and uses effective
+figures and diagrams. I think that this paper is above the
+threshold for acceptance to IROS but that there are a
+several weaknesses and potential improvements.
+
+Firstly, the complexity analysis of the paper is framed
+exclusively in terms of time complexity and does not
+mention memory complexity. Memory constraints can be
+significant in robot hardware and it would benefit the
+reader to have access to an examination of the effect of
+the sparse computation on memory consumption. It is a
+strange omission as I would expect the sparse computation
+to provide significant advantages here.
+
+The authors give the impression that a lot of hand-design
+was applied to Sparse PointPillars by using phrases such as
+"carefully placed sparse convolutions and submanifold
+convolutions" but do not describe their network
+sparsification methodology. If the authors have any
+insights on how to perform the sparsification process in
+general these would benefit a reader interested in applying
+these techniques to different network architectures.
+Insights as to how the submanifold convolutions affect the
+connectivity/receptive field would also be useful,
+particularly in the context of architectures which use
+multiple sequential stride-1 convolutional layers where a
+naive replacement with submanifold convolutions may
+prevent access to medium-to-long-distance information.
+
+The authors perform evaluation on two datasets: KITTI, and
+a chair detection dataset which they have created. However,
+the analyses performed on these two datasets differ and it
+is unclear why this is necessary. For example, evaluation
+on the chair dataset includes a performance comparison on
+low power robotic hardware, but the evaluation on KITTI
+only includes performance on desktop hardware. Given that
+the pillar size and image size differ for the two datasets
+it is not obvious that performance on KITTI would follow
+that of the chair dataset, and so a performance analysis on
+KITTI for different hardware would be useful.
+
+It is also not clear why the authors created their own
+chair detection dataset instead of using existing datasets
+such as SceneNN
+(https://ieeexplore.ieee.org/document/7785081) or ScanNet
+(https://openaccess.thecvf.com/content_cvpr_2017/html/Dai_S
+canNet_Richly-Annotated_3D_CVPR_2017_paper.html). The
+motivation for this decision should be explained to dispel
+any concern that the dataset has been designed to benefit
+Sparse PointPillars.
+
+Comments on the Video Attachment
+================================
+
+The video is generally good. My only comments would be that
+the presentation visual design could be polished, and that
+the keyboard of the presenter is clearly audible in the
+recording.
+
+
+
+Reviewer 10 of IROS 2022 submission 978
+
+Comments to the author
+======================
+
+Authors of this paper present a great technique for
+accelerating point-pillars through Submanifold Convolutions
+and note a significant amount of run-time reduction. This
+is critical in running point-pillars based object detectors
+on embedded devices and very valuable in research.
+
+This paper also provides noteworthy analysis and compares
+the new SubM convolutions with the convolutional operations
+used within the original Point-Pillars. This analysis
+clearly shows how SubM conv can preserve sparsity in
+point-cloud representation, and localize objects more
+precisely.
+
+It is however shown that this method results in 5% worse AP
+on BEV and 7.5% worse on 3D while achieving 0.18ms faster
+runtime than Point-Pillars. It is an open question how
+valuable this trade-off in reality is. Furthermore, the
+authors do not show quantitative results on KITTI test
+dataset (can be obtained by submitting results to the test
+server), which would have been another key insight into the
+effectiveness of Sparse Point-Pillars.
+
+Overall, the paper is well written and presents valuable
+techniques to push the research further.
