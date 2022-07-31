@@ -50,11 +50,11 @@ Full experimental details, plus comparisons on KITTI, are available in the paper
 ### Citation:
 
 ```
-@article{Vedder2021,
+@article{Vedder2022,
     author    = {Kyle Vedder and Eric Eaton},
     title     = {{Sparse PointPillars: Maintaining and Exploiting Input Sparsity to Improve Runtime on Embedded Systems}},
-    journal   = {arXiv:2106.06882},
-    year      = {2021},
+    journal   = {International Conference on Intelligent Robots and Systems (IROS)},
+    year      = {2022},
 }
 ```
   
