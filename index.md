@@ -19,7 +19,8 @@
 
 <img src="img/me_outside.jpg" height="400" />
 
-In 20 years I want there to be robots that can effectively automate the mechanical aspects of high-quality elder care (e.g. fetching objects, changing sheets, cleaning the room). The US is on the verge of a [large retirement of baby boomers](img/static/usa_age_demo.png) and [China faces a deeply troubling demographic cliff in 20 years](img/static/china_age_demo.png), motivating the need for new, more scalable and cost-effective methods of providing high-quality elder care that does not compromise on outcomes for patients.
+I believe the shortest path to getting generally capable robots in the real world is via [systems whose performance scales with compute and data without requiring human annotations](http://www.incompleteideas.net/IncIdeas/BitterLesson.html). The world is fundamentally 3D but currently most vision systems focus on 2D data due to general availability of RGB images; I am interested in building such scalable vision systems on top of 3D sensor data (e.g. LiDAR, Stereo) that reason natively in 3D, in the hope that these representations are more useful for quickly and robustly learning downstream behavioral tasks compared to their 2D relatives.
+
 
 ## Background
 
@@ -27,7 +28,6 @@ I am a CS PhD [candidate](img/static/candidate.png) at Penn under [Eric Eaton](h
 
  - [Mobile robotics](https://www.youtube.com/watch?v=2Q4LCoJDOyY&t=2284s)
  - [Vision-based object detection](publications/sparse_point_pillars_iros_2022.pdf)
- - Self-supervised/unsupervised continual learning
 
 During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas](https://www.joydeepb.com/) in the [Autonomous Mobile Robotics Lab](https://amrl.cs.umass.edu/). My research was in:
 
@@ -35,7 +35,7 @@ During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas]
  - [Anytime Multi-Agent Path Finding (MAPF)](http://vedder.io/publications/expanding_astar_aij.pdf) for efficient first solution generation
  - [Core infrastructure](http://vedder.io/publications/MinutebotsRoboCupTDP2017.pdf) and [low level safety system](http://vedder.io/publications/MinutebotsRoboCupTDP2018.pdf) of our [RoboCup Small Size League team](https://amrl.cs.umass.edu/minutebots.html)
 
- I have also done a number of industry internships; I have interned twice at Unidesk (a startup since aquired by Citrix), twice at Google, and once at Amazon's R&D lab, Lab126 (where I worked on their home robot [Astro](https://www.aboutamazon.com/news/devices/meet-astro-a-home-robot-unlike-any-other)). This summer I am joining [Argo AI](https://www.argo.ai/) as a Research Intern under [James Hays](https://faculty.cc.gatech.edu/~hays/).
+ I have also done a number of industry internships; I have interned twice at Unidesk (a startup since aquired by Citrix), twice at Google, once at Amazon's R&D lab, Lab126 (where I worked on their home robot [Astro](https://www.aboutamazon.com/news/devices/meet-astro-a-home-robot-unlike-any-other)), and at [Argo AI](https://www.argo.ai/) as a Research Intern under [James Hays](https://faculty.cc.gatech.edu/~hays/).
 
 ## More Information
 
