@@ -2,7 +2,11 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143379317-1"></script>
 <script type="text/javascript" src="js/googleanalytics.js"></script>
-<meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="description" content="Setting up mujoco-py for on-screen and off-screen rendering via GLEW and EGL library configuration."> <meta name="author" content="Kyle Vedder"> <link rel="shortcut icon" href="../favicon.ico">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Setting up mujoco-py for on-screen and off-screen rendering via GLEW and EGL library configuration.">
+<meta name="author" content="Kyle Vedder">
+<link rel="shortcut icon" href="../favicon.ico">
 <title>
 Setting up mujoco-py for on-screen and off-screen rendering via GLEW and EGL library configuration
 </title>
@@ -27,16 +31,16 @@ Setting up mujoco-py for on-screen and off-screen rendering via GLEW and EGL lib
 pip install -e .</code></pre>
 <p>inside it to compile from source. We recommend cloning the repo and building from source, as this gives you access to <code>examples/</code> that will be useful below.</p>
 <h2 id="selecting-the-proper-graphics-library">Selecting the proper graphics library</h2>
-<p>Due to the nature of the graphics libraries that MuJoCo uses, it's not possible to render to the viewer and programatically render images for a MuJoCo camera without causing errors. This is because rendering off-screen and rendering with the viewer require two different graphics libraries (EGL vs GLEW respectively).</p>
+<p>Due to the nature of the graphics libraries that MuJoCo uses, it’s not possible to render to the viewer and programatically render images for a MuJoCo camera without causing errors. This is because rendering off-screen and rendering with the viewer require two different graphics libraries (EGL vs GLEW respectively).</p>
 <h3 id="graphics-library-for-running-viewer">Graphics library for running viewer</h3>
-<p>If we try to run one of the <code>mujoco-py</code> examples (e.g. <code>examples/body_interaction.py</code>), we get the following error:</p>
+<p>If we try to run one of the <code>mujoco-py</code> examples (e.g. <code>examples/body_interaction.py</code>), we get the following error:</p>
 <pre><code>Creating window glfw
 ERROR: GLEW initalization error: Missing GL version</code></pre>
-<p>To remedy this, we need to set the <code>LD_PRELOAD</code> environment variable to point to the <code>libGLEW.so</code>; on my system, this is <code>/usr/lib/x86_64-linux-gnu/libGLEW.so</code>, but you can confirm this on your system by running <code>locate libGLEW.so</code>; multiple copies may appear (e.g. in <code>snap</code> packages or <code>conda</code> environments) but at least one should exist at the above path. As a permanant fix, we recommend adding</p>
+<p>To remedy this, we need to set the <code>LD_PRELOAD</code> environment variable to point to the <code>libGLEW.so</code>; on my system, this is <code>/usr/lib/x86_64-linux-gnu/libGLEW.so</code>, but you can confirm this on your system by running <code>locate libGLEW.so</code>; multiple copies may appear (e.g. in <code>snap</code> packages or <code>conda</code> environments) but at least one should exist at the above path. As a permanant fix, we recommend adding</p>
 <pre><code>export LD_PRELOAD=$LD_PRELOAD:/usr/lib/x86_64-linux-gnu/libGLEW.so</code></pre>
 <p>to your <code>~/.bashrc</code> and <code>source</code>ing it. The <code>examples/body_interaction.py</code> should now render.</p>
 <h3 id="graphics-library-for-rendering-off-screen">Graphics library for rendering off-screen</h3>
-<p>In order to render off-screen, e.g. by saving images from MuJoCo <code>camera</code> objects while running headless, we must use EGL instead of GLEW. To do this <strong>comment out</strong> any <code>LD_PRELOAD=</code> command in your <code>~/.bashrc</code> and remove any <code>MjViewer</code> creation in your code.</p>
+<p>In order to render off-screen, e.g. by saving images from MuJoCo <code>camera</code> objects while running headless, we must use EGL instead of GLEW. To do this <strong>comment out</strong> any <code>LD_PRELOAD=</code> command in your <code>~/.bashrc</code> and remove any <code>MjViewer</code> creation in your code.</p>
 <p>To demo this, modify <code>examples/body_interaction.py</code> as follows</p>
 <pre><code>model = load_model_from_xml(MODEL_XML)
 sim = MjSim(model)

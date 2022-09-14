@@ -14,6 +14,8 @@
 
 ## Conferences/Journals
 
+ - _Sparse PointPillars: Maintaining and Exploiting Input Sparsity to Improve Runtime on Embedded Systems_. Kyle Vedder, Eric Eaton. IROS 2022. [[pdf]](publications/sparse_point_pillars_iros_2022.pdf)[[website]](http://vedder.io/sparse_point_pillars.html)[[video]](https://www.youtube.com/watch?v=zuLboHg3GLA)
+
  - _X_*_: Anytime Multi-Agent Path Finding For Sparse Domains Using Window-Based Iterative Repairs._
 Kyle Vedder and Joydeep Biswas.
 In Artificial Intelligence, Volume 291, 2021. [[pdf]](publications/expanding_astar_aij.pdf) [[website]](./xstar.html)
@@ -29,11 +31,6 @@ In Proceedings of the 18th International Conference on Autonomous Agents and Mul
 - _Augmenting Planning Graphs in 2-Dimensional Dynamic Environments With Obstacle Scaffolds._
 Spencer Lane, Kyle Vedder, and Joydeep Biswas.
 In Proceedings of the 5th Workshop on Planning and Robotics (PlanRob), Pittsburgh, PA, USA. June 2017. [[pdf]](publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf)
-
-
-## In Submission
-
-- _Sparse PointPillars: Maintaining and Exploiting Input Sparsity to Improve Runtime on Embedded Systems_. Kyle Vedder, Eric Eaton. In Submission to IROS 2022. [[pdf]](publications/sparse_point_pillars_iros_2022.pdf)[[website]](http://vedder.io/sparse_point_pillars.html)[[video]](https://www.youtube.com/watch?v=zuLboHg3GLA)
 
 
 ## Other

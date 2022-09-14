@@ -16,8 +16,8 @@ output:
 \newcommand{\name}[1]{\begin{center} \huge{\textbf{#1}} \end{center}}
 \newcommand{\page}[1]{\begin{center} \texttt{\url{#1}} \end{center}}
 \newcommand{\ra}[1]{\hspace*{0pt}\hfill #1}
-\newcommand{\vspacebefore}{\vspace{-0.25in}}
-\newcommand{\vspaceafter}{\vspace{-0.15in}}
+\newcommand{\vspacebefore}{\vspace{-0.1in}}
+\newcommand{\vspaceafter}{\vspace{-0.1in}}
 \newcommand{\newl}{\\}
 
 \vspacebefore{}
@@ -44,16 +44,11 @@ output:
 
 \vspaceafter{}
 
-In 20 years I want there to be robots that can effectively provide a full range of quality care to the elderly and disabled. In service of this goal, I am interested in improving continual learning for visual and behavioral tasks, as these abilities are required to robustly perform even basic care tasks in real world settings.
+I believe the shortest path to getting robust, generally capable robots in the real world is via systems whose performance scales with compute and data without requiring human annotations. The world is fundamentally 3D but currently most vision systems focus on 2D data due to general availability of RGB images; I am interested in building such scalable vision systems on top of 3D sensor data (e.g. LiDAR, Stereo) that reason natively in 3D, in the hope that these representations are more useful for quickly and robustly learning downstream behavioral tasks compared to their 2D relatives.
 
-\vspacebefore{}
+<!-- The path to generally capable agents is  -->
 
-# Technical Skills
-
-\vspaceafter{}
-
-- Proficient with C++1X, Python 3, PyTorch, ROS 1, git, Debian Linux, \LaTeX
-- Knowledgeable in Robotics and Machine Learning, including 3D Object Detection ([[3]](http://vedder.io/publications/sparse_point_pillars_snn_workshop.pdf) [[5]](http://vedder.io/misc/KyleVedderWPEII2021.pdf) [[9]](http://vedder.io/sparse_point_pillars.html)), Single/Multi-Agent Path Finding ([[1]](http://vedder.io/publications/expanding_astar_aij.pdf) [[2]](http://vedder.io/publications/expanding_astar_aamas_extended_abstract.pdf) [[4]](http://vedder.io/publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf)), Motion Control ([[7]](http://vedder.io/publications/MinutebotsRoboCupTDP2018.pdf) [[8]](http://vedder.io/publications/MinutebotsRoboCupTDP2017.pdf))
+<!-- In 20 years I want there to be robots that can effectively provide a full range of quality care to the elderly and disabled. In service of this goal, I am interested in improving continual learning for visual and behavioral tasks, as these abilities are required to robustly perform even basic care tasks in real world settings. -->
 
 \vspacebefore{}
 
@@ -65,11 +60,13 @@ In 20 years I want there to be robots that can effectively provide a full range 
 
  \vspaceafter{}
 
- 1. _X_*_: Anytime Multi-Agent Path Finding For Sparse Domains Using Window-Based Iterative Repairs._ \newl{}
+ 1. _Sparse PointPillars: Maintaining and Exploiting Input Sparsity to Improve Runtime on Embedded Systems_. **Kyle Vedder**, Eric Eaton. In Proceedings of the International Conference on Intelligent Robots and Systems (IROS), 2022. [[pdf]](http://vedder.io/publications/sparse_point_pillars_iros_2022.pdf) [[website]](http://vedder.io/sparse_point_pillars.html)
+
+ 2. _X_*_: Anytime Multi-Agent Path Finding For Sparse Domains Using Window-Based Iterative Repairs._ \newl{}
 **Kyle Vedder**, Joydeep Biswas.
 In Artificial Intelligence (AIJ), Volume 291, 2021. [[pdf]](http://vedder.io/publications/expanding_astar_aij.pdf)  [[website]](http://vedder.io/xstar.html)
 
- 2. _X_*_: Anytime Multiagent Path Planning With Bounded Search._ \newl{}
+ 3. _X_*_: Anytime Multiagent Path Planning With Bounded Search._ \newl{}
 **Kyle Vedder**, Joydeep Biswas.
 In Proceedings of the 18th International Conference on Autonomous Agents and MultiAgent Systems (AAMAS), Montreal, Quebec, CA. July 2019. [[pdf]](http://vedder.io/publications/expanding_astar_aamas_extended_abstract.pdf)
 
@@ -79,10 +76,10 @@ In Proceedings of the 18th International Conference on Autonomous Agents and Mul
 
 \vspaceafter{}
 
- 3. _Sparse PointPillars: Exploiting Sparsity on Birds-Eye-View Object Detection._ \newl{}
+ 4. _Sparse PointPillars: Exploiting Sparsity on Birds-Eye-View Object Detection._ \newl{}
 **Kyle Vedder**, Eric Eaton. Sparsity in Neural Networks Workshop (SNN). 2021. [[pdf]](http://vedder.io/publications/sparse_point_pillars_snn_workshop.pdf) [[arxiv]](https://arxiv.org/abs/2106.06882) [[poster]](http://vedder.io/misc/SparsePointPillarsSNNPoster.pdf)
 
- 4. _Augmenting Planning Graphs in 2-Dimensional Dynamic Environments With Obstacle Scaffolds._ \newl{}
+ 5. _Augmenting Planning Graphs in 2-Dimensional Dynamic Environments With Obstacle Scaffolds._ \newl{}
 Spencer Lane, **Kyle Vedder**, Joydeep Biswas.
 In Proceedings of the 5th Workshop on Planning and Robotics (ICAPS PlanRob), Pittsburgh, PA, USA. June 2017. [[pdf]](http://vedder.io/publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf)
 
@@ -92,27 +89,27 @@ In Proceedings of the 5th Workshop on Planning and Robotics (ICAPS PlanRob), Pit
 
 \vspaceafter{}
 
- 5. _Current Approaches and Future Directions for Point Cloud Object Detection in Intelligent Agents._\newl{}
+ 6. _Current Approaches and Future Directions for Point Cloud Object Detection in Intelligent Agents._\newl{}
 **Kyle Vedder**. UPenn WPEII. 2021. [[pdf]](http://vedder.io/misc/KyleVedderWPEII2021.pdf) [[video]](https://www.youtube.com/watch?v=xFFCQVwYeec) [[slides]](https://docs.google.com/presentation/d/1-tvZP_1UkgX-zU0ytV_TEiGaOjezcXT9W77x9sHk5Y0/edit?usp=sharing)
 
- 6. _An Overview of SHAP-based Feature Importance Measures and Their Applications To Classification._\newl{}
+ 7. _An Overview of SHAP-based Feature Importance Measures and Their Applications To Classification._\newl{}
 **Kyle Vedder**. 2020. [[pdf]](http://vedder.io/misc/shap_for_classification.pdf) [[video]](https://www.youtube.com/watch?v=xFFCQVwYeec) [[slides]](misc/FromShapleyValuesToExplainableAISlides.pdf)
 
- 7. _UMass MinuteBots 2018 Team Description Paper._\newl{}
+ 8. _UMass MinuteBots 2018 Team Description Paper._\newl{}
 **Kyle Vedder**, Edward Schneeweiss, Sadegh Rabiee, Samer Nashed, Spencer Lane, Jarrett Holtz, Joydeep Biswas, David Balaban. 2018. [[pdf]](http://vedder.io/publications/MinutebotsRoboCupTDP2018.pdf) [[website]](https://amrl.cs.umass.edu/minutebots.html)
 
- 8. _UMass MinuteBots 2017 Team Description Paper._\newl{}
+ 9. _UMass MinuteBots 2017 Team Description Paper._\newl{}
 **Kyle Vedder**, Edward Schneeweiss, Sadegh Rabiee, Samer Nashed, Spencer Lane, Jarrett Holtz, Joydeep Biswas, David Balaban. 2017. [[pdf]](http://vedder.io/publications/MinutebotsRoboCupTDP2017.pdf) [[website]](https://amrl.cs.umass.edu/minutebots.html)
 
 \vspacebefore{}
 
-## In Submission
+<!-- ## In Submission
 
 \vspaceafter{}
 
- 9. _Sparse PointPillars: Maintaining and Exploiting Input Sparsity to Improve Runtime on Embedded Systems_. Kyle Vedder, Eric Eaton. In Submission to IROS 2022. [[pdf]](http://vedder.io/publications/sparse_point_pillars_iros_2022.pdf) [[website]](http://vedder.io/sparse_point_pillars.html) [[video]](https://www.youtube.com/watch?v=JgcR6cFXR5w)
+ 
 
-\vspacebefore{}
+\vspacebefore{} -->
 
 # Honors and Awards
 
@@ -170,8 +167,8 @@ In Proceedings of the 5th Workshop on Planning and Robotics (ICAPS PlanRob), Pit
 
 \vspaceafter{}
 
-- _Argo AI -- Research Intern_ \ra{(Summer 2022)}
-    - Ongoing
+- _Argo AI -- Research Intern_ \ra{(Summer / Fall 2022)}
+    - Exploring 2D and 3D methods for generalizing to the long tail of objects
 - _Amazon Lab126 -- Software Development Intern_ \ra{(Summer 2019)}
     - Worked on Amazon Astro, a small mobile service robot, doing novel classical multi-modal IR camera and ToF sensor fusion for detecting small obstacles such as wires or boxes to avoid collisions
 - _Google -- Software Engineering Intern_ \ra{(Summer 2017)}
