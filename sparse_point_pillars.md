@@ -45,7 +45,7 @@ Full experimental details, plus comparisons on KITTI, are available in the paper
 
 ## Full Paper and Downloadables: 
 
-[[In Submission IROS 2022 Paper PDF]](publications/sparse_point_pillars_iros_2022.pdf)
+[[Accepted IROS 2022 Paper PDF]](publications/sparse_point_pillars_iros_2022.pdf)
 
 ### Citation:
 
