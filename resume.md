@@ -33,7 +33,7 @@ output:
 
 \vspaceafter{}
 
- - PhD in Computer Science, University of Pennsylvania (in progress) \ra{(2019 --     Present)}
+ - PhD in Computer Science, University of Pennsylvania (in progress) \ra{(2019 -- Present)}
      - Advisors: Eric Eaton, Dinesh Jayaraman, _GRASP Lab_
  - BS in Computer Science, University of Massachusetts \ra{(2015 -- 2019)}
      - Advisor: Joydeep Biswas, _Autonomous Mobile Robotics Lab (AMRL)_
@@ -44,7 +44,7 @@ output:
 
 \vspaceafter{}
 
-I believe the shortest path to getting robust, generally capable robots in the real world is via systems whose performance scales with compute and data without requiring human annotations. The world is fundamentally 3D but currently most vision systems focus on 2D data due to general availability of RGB images; I am interested in building such scalable vision systems on top of 3D sensor data (e.g. LiDAR, Stereo) that reason natively in 3D, in the hope that these representations are more useful for quickly and robustly learning downstream behavioral tasks compared to their 2D relatives.
+I believe the shortest path to getting robust, generally capable robots in the real world is though the construction of systems whose performance scales with compute and data, *without* requiring human annotations. The world is fundamentally 3D, but currently most vision systems focus on 2D data simply due to general availability of RGB images and strong hardware acceleration for standard processing methods (e.g. 2D convolutions). I am interested in building such scalable vision systems on top of 3D sensor data (e.g. LiDAR, Stereo) that reasons natively in 3D, in the hope that these 3D representations are more useful for quickly and robustly learning downstream behavioral tasks compared to their 2D counterparts.
 
 <!-- The path to generally capable agents is  -->
 
