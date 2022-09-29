@@ -126,7 +126,7 @@ In Proceedings of the 5th Workshop on Planning and Robotics (ICAPS PlanRob), Pit
 
 \vspaceafter{}
 
-- _PhD Student -- Lifelong Machine Learning group (LML), UPenn_ \ra{(2019 -- Present)}
+- _PhD Candidate -- Lifelong Machine Learning group (LML), UPenn_ \ra{(2019 -- Present)}
     - Developed _Sparse PointPillars_, a point cloud 3D object detector for embedded systems
         - Based on popular detector _PointPillars_, with modified backbone to maintain and exploit input sparsity using end-to-end submanifold convolutions, significantly reducing model FLOPs
         - Contributed bugfixes and improvements to Open3D implementation of _PointPillars_ [[commits]](https://github.com/isl-org/Open3D-ML/commits?author=kylevedder)
@@ -168,7 +168,7 @@ In Proceedings of the 5th Workshop on Planning and Robotics (ICAPS PlanRob), Pit
 \vspaceafter{}
 
 - _Argo AI -- Research Intern_ \ra{(Summer / Fall 2022)}
-    - Exploring 2D and 3D methods for generalizing to the long tail of objects
+    - Exploring 2D and 3D methods for generalizing object detectors to the long tail of objects
 - _Amazon Lab126 -- Software Development Intern_ \ra{(Summer 2019)}
     - Worked on Amazon Astro, a small mobile service robot, doing novel classical multi-modal IR camera and ToF sensor fusion for detecting small obstacles such as wires or boxes to avoid collisions
 - _Google -- Software Engineering Intern_ \ra{(Summer 2017)}
@@ -176,6 +176,6 @@ In Proceedings of the 5th Workshop on Planning and Robotics (ICAPS PlanRob), Pit
 - _Google -- Software Engineering Intern_ \ra{(Summer 2016)}
     - Worked on AdWords Next Overview, the homepage of redesigned AdWords. Developed offline pipelines to do statistical analysis over entire customer dataset to provide automated insights
 - _Unidesk Corporation -- C++ Development Intern_ \ra{(Summer 2015)}
-    - Designed and implemented testing framework for proprietary Windows registry manipulation APIs, ensuring bug-for-bug compatability with Windows' implementation of fixed width UTF-16
+    - Designed and implemented testing framework for proprietary Windows registry manipulation APIs, ensuring bug-for-bug compatibility with Windows' implementation of fixed width UTF-16
 - _Unidesk Corporation -- Robotics Intern_ \ra{(Summer 2014)}
     - Worked with CTO and CMO to implement a trade show display using a 6DOF robot arm controlled via high level pick-and-place commands. Wrote Java backend to maintain world state and dynamically generate FORTH written over a serial bus to execute robot trajectories requested from high level RESTful API
