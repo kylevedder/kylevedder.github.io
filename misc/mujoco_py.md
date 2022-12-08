@@ -1,7 +1,12 @@
 <head>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143379317-1"></script>
-<script type="text/javascript" src="js/googleanalytics.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9NWBV84HB2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9NWBV84HB2');
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Setting up mujoco-py for on-screen and off-screen rendering via GLEW and EGL library configuration.">
