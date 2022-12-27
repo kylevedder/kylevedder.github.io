@@ -1,3 +1,23 @@
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9NWBV84HB2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9NWBV84HB2');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Intro to screen">
+<meta name="author" content="Kyle Vedder">
+<link rel="shortcut icon" href="../favicon.ico">
+<title>
+Intro to screen
+</title>
+<!-- css-->
+<link href="../css/style.css" rel="stylesheet">
+</head>
 <h1 id="running-a-program-beyond-a-single-ssh-session">Running a program beyond a single SSH session</h1>
 <p>If you want to run a program on a remote server, you can use SSH. However, if your session were to quit, the program will be terminated. In order to run a program longer than your session, you need to use a multiplexer, such as GNU’s <a href="https://linux.die.net/man/1/screen"><code>screen</code></a>.</p>
 <p><code>screen</code> is not installed by default on Ubuntu, so you will need to first install it via <code>sudo apt install screen</code></p>

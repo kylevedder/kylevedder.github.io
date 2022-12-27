@@ -1,28 +1,8 @@
-<head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9NWBV84HB2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-9NWBV84HB2');
-</script>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kyle Vedder's Homepage">
-<meta name="author" content="Kyle Vedder">
-<link rel="shortcut icon" href="favicon.ico">
-<title>Kyle Vedder's Homepage</title>
-<style>
-     .updates li {
-          margin-bottom:5px;
-     }
-</style>
-</head>
+// Kyle Vedder's Homepage
 
-# I'm Kyle Vedder
+<h1 class="centered">I'm Kyle Vedder</h1>
 
-<img src="img/me_outside.jpg" height="400" />
+<img class="centered" src="img/me_outside.jpg" height="400" />
 
 I believe the shortest path to getting robust, generally capable robots in the real world is though the construction of [systems whose performance scales with compute and data, *without* requiring human annotations](http://www.incompleteideas.net/IncIdeas/BitterLesson.html). The world is fundamentally 3D, but currently most vision systems focus on 2D data simply due to general availability of RGB images and strong hardware acceleration for standard processing methods (e.g. 2D convolutions). I am interested in building such scalable vision systems on top of 3D sensor data (e.g. LiDAR, Stereo) that reasons natively in 3D, in the hope that these 3D representations are more useful for quickly and robustly learning downstream behavioral tasks compared to their 2D counterparts.
 
@@ -50,10 +30,10 @@ During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas]
 
 ## Updates
 <div class="updates">
- - Jun 30th, 2022: _Sparse PointPillars_ was accepted to IROS 2022! [(Reviews)](./misc/SparsePointPillars_IROS_2022_reviews.txt)
+ - Jun 30th, 2022: [_Sparse PointPillars_](./sparse_point_pillars.html) was accepted to IROS 2022. [(Reviews)](./misc/SparsePointPillars_IROS_2022_reviews.txt)
  - Jun 7th, 2022: [Invited talk for _Sparse PointPillars_ at 3D-DLAD](https://www.youtube.com/watch?v=JgcR6cFXR5w)
  - Mar 1st, 2022: [Submitted _Sparse PointPillars_ to IROS 2022](./sparse_point_pillars.html)
- - Jan 31st, 2022: _Sparse PointPillars_ was rejected from ICRA 2022. [(Reviews)](./misc/SparsePointPillars_ICRA_2022_reviews.pdf)
+ - Jan 31st, 2022: [_Sparse PointPillars_](./sparse_point_pillars.html) was rejected from ICRA 2022. [(Reviews)](./misc/SparsePointPillars_ICRA_2022_reviews.pdf)
  - Sep 15th, 2021: [Submitted _Sparse PointPillars_ to ICRA 2022](./sparse_point_pillars.html)
  - Jul 20th, 2021: [Added project webpage for X\*](./xstar.html)
  - Jul 8th, 2021: [Poster presented at Sparse Neural Networks on _Sparse PointPillars_](misc/SparsePointPillarsSNNPoster.pdf)
