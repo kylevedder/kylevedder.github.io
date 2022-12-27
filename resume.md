@@ -44,11 +44,7 @@ output:
 
 \vspaceafter{}
 
-I believe the shortest path to getting robust, generally capable robots in the real world is though the construction of systems whose performance scales with compute and data, *without* requiring human annotations. The world is fundamentally 3D, but currently most vision systems focus on 2D data simply due to general availability of RGB images and strong hardware acceleration for standard processing methods (e.g. 2D convolutions). I am interested in building such scalable vision systems on top of 3D sensor data (e.g. LiDAR, Stereo) that reasons natively in 3D, in the hope that these 3D representations are more useful for quickly and robustly learning downstream behavioral tasks compared to their 2D counterparts.
-
-<!-- The path to generally capable agents is  -->
-
-<!-- In 20 years I want there to be robots that can effectively provide a full range of quality care to the elderly and disabled. In service of this goal, I am interested in improving continual learning for visual and behavioral tasks, as these abilities are required to robustly perform even basic care tasks in real world settings. -->
+STATEMENT_OF_PURPOSE
 
 \vspacebefore{}
 
@@ -59,9 +55,6 @@ I believe the shortest path to getting robust, generally capable robots in the r
 ## Conferences/Journals
 
  \vspaceafter{}
-
-
-# Peer-reviewed papers
 
 PUBS bibs/conferences.bib
 
