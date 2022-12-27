@@ -91,55 +91,12 @@ PUBS bibs/tech_reports.bib
 
 \vspacebefore{} -->
 
-# Honors and Awards
-
-\vspaceafter{}
-
-- _Goldwater Scholarship Honorable Mention_ \ra{(2018)}
-    - One of 281 Honorable Mentions selected from a pool of 1280 national nominees 
-- _Outstanding Undergraduate Course Assistant (CS220 Programming Methodologies)_ \ra{(Fall 2017)}
-    - Received award for contributions to course development
-
-\vspacebefore{}
-
 # Academic Experience
 
 \vspaceafter{}
 
-- _PhD Candidate -- Lifelong Machine Learning group (LML), UPenn_ \ra{(2019 -- Present)}
-    - Developed _Sparse PointPillars_, a point cloud 3D object detector for embedded systems
-        - Based on popular detector _PointPillars_, with modified backbone to maintain and exploit input sparsity using end-to-end submanifold convolutions, significantly reducing model FLOPs
-        - Contributed bugfixes and improvements to Open3D implementation of _PointPillars_ [[commits]](https://github.com/isl-org/Open3D-ML/commits?author=kylevedder)
-        - Workshop paper at Sparse Neural Networks Workshop; in submission to IROS 2022
-
-    - Core Team Lead for Phase 2 of DARPA Lifelong Learning Machines (L2M) program
-        - Led multi-University team to develop core infrastructure for RL and Perception subgroups atop the AIHabitat sim using Matterport3D, a dataset of 3D indoor scans of real houses
-        - Worked with DARPA SETAs and other performers to refine fundamental cross-domain definition of lifelong learning systems along with domain agnostic evaluation approaches
-        - Worked with subcontractors to develop concrete tasks for lifelong learning for an embodied agent in Matterport3D
-        - Coordinated RL and Perception subgroups to provide system diagrams and metrics for evaluation by JHU APL, DARPA's independent evaluator, using APL's metrics definitions
-        - Worked on adapting and tuning our group's Lifelong RL algorithm, LPG-FTW, for AIHabitat
-    - Developed from scratch open-source control stack for LML Service Robots in C++14 [[code]](https://github.com/kylevedder/ServiceRobotControlStack)
-        - Provides efficient implementation of particle filter-based localization on vector maps, velocity space obstacle avoidance, hierarchical path planning for real-time performance, visualization support via ROS, and integration with a multi-agent robot simulator
-        - Basis for getting started homework assignment and several final group projects in CIS700 Integrated Intelligence, Fall 2020
-- _Research Assistant -- Autonomous Mobile Robotics Lab (AMRL), UMass_ \ra{(2016 -- 2019)}
-    - Developed _X\*_, an anytime multiagent planner for realtime systems
-        - Designed, proved correct, implemented, and evaluated all novel algorithms
-        - Performed literature review and wrote paper with high level editing input from coauthor
-    - Developed _Obstacle Scaffolds_, an extension to roadmap planners for finer near-obstacle navigation
-        - Implemented baseline and experimental planners
-        - Evaluated planner characteristics across multiple scenarios
-    - Founding member of the UMass Minutebots, the RoboCup Small Size League team that serves as AMRL's research platform for autonomous multiagent systems
-        - Architected and implemented majority of the core software infrastructure for the control stack
-        - Implemented state-of-the-art realtime path planning, low level collision avoidance, and portions of the motion planning system
 - _Academic Reviewer_ \ra{(2019 -- Present)}
-    - AAAI 2020 -- 2022, AAMAS 2021, JMLR (Secondary) 2021, ICRA 2022
-    - Reviewed articles on topics across robotics, vision, machine learning, and classical AI
-- _Teaching Assistant -- CIS 519 Applied Machine Learning, UPenn_ \ra{(Spring 2021)}
-    - Head TA managing 14 TAs doing homework assignment creation, running office hours, and performing small group cohort sessions
-- _Teaching Assistant -- CIS 700 Integrated Intelligence, UPenn_ \ra{(Fall 2020)}
-    - Developed assignments, led paper discussions, led technical lessons on ROS and C++1X, and helped students with ideation and execution of final project
-- _Undergraduate Course Assistant -- CIS 220 Programming Methodologies, UMass_ \ra{(2016 -- 2017)}
-    - Led discussion sections, held office hours, answered Q&A forum questions, overhauled course material, and restructured discussion sections to better suit student needs
+    - AAAI 2020 -- 2022, AAMAS 2021, JMLR (Secondary) 2021, ICRA 2022, JSA 2022, ICLR 2023
 
 \vspacebefore{}
 
