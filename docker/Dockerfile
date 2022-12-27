@@ -4,5 +4,7 @@ SHELL ["/bin/bash", "-c"]
 # flow and ignores the non-interactive frontend command 🤬🤬🤬
 RUN ln -snf /usr/share/zoneinfo/America/New_York /etc/localtime && echo "/usr/share/zoneinfo/America/New_York" > /etc/timezone
 RUN apt update -y
-RUN apt install pandoc exiftool texlive-latex-extra -y
+RUN apt install pandoc pandoc-citeproc exiftool texlive-latex-extra -y
+RUN apt install python3-pip -y
+RUN pip3 install bibtexparser
 WORKDIR /project

@@ -1,4 +1,4 @@
-// X*
+HEADER X*
 
 # X*: Anytime Multi-Agent Path Finding for Sparse Domains using Window-Based Iterative Repairs
 

@@ -1,4 +1,4 @@
-// Setting up mujoco-py for on-screen and off-screen rendering via GLEW and EGL library configuration
+HEADER Setting up mujoco-py for on-screen and off-screen rendering via GLEW and EGL library configuration
 
 # Setting up `mujoco-py` for use with on-screen and off-screen rendering
 
