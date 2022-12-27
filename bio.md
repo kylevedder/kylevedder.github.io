@@ -1,4 +1,4 @@
-// Kyle Vedder's Academic Bio
+HEADER Kyle Vedder's Academic Bio
 
 <img src="img/me_outside_head.jpg"/>
 

@@ -1,4 +1,4 @@
-// Sparse Point Pillars
+HEADER Sparse Point Pillars
 
 # Sparse PointPillars: Maintaining and Exploiting Input Sparsity to Improve Runtime on Embedded Systems
 

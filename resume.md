@@ -60,15 +60,10 @@ I believe the shortest path to getting robust, generally capable robots in the r
 
  \vspaceafter{}
 
- 1. _Sparse PointPillars: Maintaining and Exploiting Input Sparsity to Improve Runtime on Embedded Systems_. **Kyle Vedder**, Eric Eaton. In Proceedings of the International Conference on Intelligent Robots and Systems (IROS), 2022. [[pdf]](http://vedder.io/publications/sparse_point_pillars_iros_2022.pdf) [[website]](http://vedder.io/sparse_point_pillars.html)
 
- 2. _X_*_: Anytime Multi-Agent Path Finding For Sparse Domains Using Window-Based Iterative Repairs._ \newl{}
-**Kyle Vedder**, Joydeep Biswas.
-In Artificial Intelligence (AIJ), Volume 291, 2021. [[pdf]](http://vedder.io/publications/expanding_astar_aij.pdf)  [[website]](http://vedder.io/xstar.html)
+# Peer-reviewed papers
 
- 3. _X_*_: Anytime Multiagent Path Planning With Bounded Search._ \newl{}
-**Kyle Vedder**, Joydeep Biswas.
-In Proceedings of the 18th International Conference on Autonomous Agents and MultiAgent Systems (AAMAS), Montreal, Quebec, CA. July 2019. [[pdf]](http://vedder.io/publications/expanding_astar_aamas_extended_abstract.pdf)
+PUBS bibs/conferences.bib
 
 \vspacebefore{}
 
@@ -76,12 +71,7 @@ In Proceedings of the 18th International Conference on Autonomous Agents and Mul
 
 \vspaceafter{}
 
- 4. _Sparse PointPillars: Exploiting Sparsity on Birds-Eye-View Object Detection._ \newl{}
-**Kyle Vedder**, Eric Eaton. Sparsity in Neural Networks Workshop (SNN). 2021. [[pdf]](http://vedder.io/publications/sparse_point_pillars_snn_workshop.pdf) [[arxiv]](https://arxiv.org/abs/2106.06882) [[poster]](http://vedder.io/misc/SparsePointPillarsSNNPoster.pdf)
-
- 5. _Augmenting Planning Graphs in 2-Dimensional Dynamic Environments With Obstacle Scaffolds._ \newl{}
-Spencer Lane, **Kyle Vedder**, Joydeep Biswas.
-In Proceedings of the 5th Workshop on Planning and Robotics (ICAPS PlanRob), Pittsburgh, PA, USA. June 2017. [[pdf]](http://vedder.io/publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf)
+PUBS bibs/workshops.bib
 
 \vspacebefore{}
 
@@ -89,17 +79,7 @@ In Proceedings of the 5th Workshop on Planning and Robotics (ICAPS PlanRob), Pit
 
 \vspaceafter{}
 
- 6. _Current Approaches and Future Directions for Point Cloud Object Detection in Intelligent Agents._\newl{}
-**Kyle Vedder**. UPenn WPEII. 2021. [[pdf]](http://vedder.io/misc/KyleVedderWPEII2021.pdf) [[video]](https://www.youtube.com/watch?v=xFFCQVwYeec) [[slides]](https://docs.google.com/presentation/d/1-tvZP_1UkgX-zU0ytV_TEiGaOjezcXT9W77x9sHk5Y0/edit?usp=sharing)
-
- 7. _An Overview of SHAP-based Feature Importance Measures and Their Applications To Classification._\newl{}
-**Kyle Vedder**. 2020. [[pdf]](http://vedder.io/misc/shap_for_classification.pdf) [[video]](https://www.youtube.com/watch?v=xFFCQVwYeec) [[slides]](misc/FromShapleyValuesToExplainableAISlides.pdf)
-
- 8. _UMass MinuteBots 2018 Team Description Paper._\newl{}
-**Kyle Vedder**, Edward Schneeweiss, Sadegh Rabiee, Samer Nashed, Spencer Lane, Jarrett Holtz, Joydeep Biswas, David Balaban. 2018. [[pdf]](http://vedder.io/publications/MinutebotsRoboCupTDP2018.pdf) [[website]](https://amrl.cs.umass.edu/minutebots.html)
-
- 9. _UMass MinuteBots 2017 Team Description Paper._\newl{}
-**Kyle Vedder**, Edward Schneeweiss, Sadegh Rabiee, Samer Nashed, Spencer Lane, Jarrett Holtz, Joydeep Biswas, David Balaban. 2017. [[pdf]](http://vedder.io/publications/MinutebotsRoboCupTDP2017.pdf) [[website]](https://amrl.cs.umass.edu/minutebots.html)
+PUBS bibs/tech_reports.bib
 
 \vspacebefore{}
 
