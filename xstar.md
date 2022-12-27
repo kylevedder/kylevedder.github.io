@@ -1,19 +1,4 @@
-<head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9NWBV84HB2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-9NWBV84HB2');
-</script>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="X*: Anytime Multi-Agent Path Finding for Sparse Domains using Window-Based Iterative Repairs">
-<meta name="author" content="Kyle Vedder">
-<link rel="shortcut icon" href="favicon.ico">
-<title>X*</title>
-</head>
+// X*
 
 # X*: Anytime Multi-Agent Path Finding for Sparse Domains using Window-Based Iterative Repairs
 

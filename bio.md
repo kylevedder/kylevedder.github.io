@@ -1,19 +1,4 @@
-<head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9NWBV84HB2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-9NWBV84HB2');
-</script>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kyle Vedder's Academic Bio">
-<meta name="author" content="Kyle Vedder">
-<link rel="shortcut icon" href="favicon.ico">
-<title>Kyle Vedder's Academic Bio</title>
-</head>
+// Kyle Vedder's Academic Bio
 
 <img src="img/me_outside_head.jpg"/>
 
