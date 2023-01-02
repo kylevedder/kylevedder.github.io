@@ -80,14 +80,35 @@ PUBS bibs/tech_reports.bib
 
 \vspaceafter{}
 
- 
+
 
 \vspacebefore{} -->
+
+# Honors and Awards
+
+\vspaceafter{}
+
+- _Goldwater Scholarship Honorable Mention_ \ra{(2018)}
+- _Outstanding Undergraduate Course Assistant (CS220 Programming Methodologies)_ \ra{(Fall 2017)}
 
 # Academic Experience
 
 \vspaceafter{}
 
+- _PhD Student -- Lifelong Machine Learning Group (LML), UPenn_ \ra{(2019 -- Present)}
+   - Intersection of computer vision and machine learning for robots
+- _Research Assistant -- Autonomous Mobile Robotics Lab (AMRL), UMass_ \ra{(2016 -- 2019)}
+    - Single / Multi Agent Path Finding Research
+        - _X\*_, an anytime multiagent planner for realtime systems
+        - _Obstacle Scaffolds_, an extension to roadmap planners for finer near-obstacle navigation
+    - Software lead for the RoboCup Small Size League team UMass Minutebots
+        - Realtime path planning, collision avoidance, motion planning
+- _Academic Reviewer_ \ra{(2019 -- Present)}
+    - AAAI 2020 -- 2022, AAMAS 2021, JMLR (Secondary) 2021, ICRA 2022
+    - Reviewed articles on topics across robotics, vision, machine learning, and classical AI
+- _Teaching Assistant -- CIS 519 Applied Machine Learning, UPenn_ \ra{(Spring 2021)}
+- _Teaching Assistant -- CIS 700 Integrated Intelligence, UPenn_ \ra{(Fall 2020)}
+- _Undergraduate Course Assistant -- CIS 220 Programming Methodologies, UMass_ \ra{(2016 -- 2017)}
 - _Academic Reviewer_ \ra{(2019 -- Present)}
     - AAAI 2020 -- 2022, AAMAS 2021, JMLR (Secondary) 2021, ICRA 2022, JSA 2022, ICLR 2023
 
@@ -98,14 +119,14 @@ PUBS bibs/tech_reports.bib
 \vspaceafter{}
 
 - _Argo AI -- Research Intern_ \ra{(Summer / Fall 2022)}
-    - Exploring 2D and 3D methods for generalizing object detectors to the long tail of objects
+    - Exploring 2D and 3D methods for generalizing to the long tail of objects. In-progress ICCV 2023 submission.
 - _Amazon Lab126 -- Software Development Intern_ \ra{(Summer 2019)}
-    - Worked on Amazon Astro, a small mobile service robot, doing novel classical multi-modal IR camera and ToF sensor fusion for detecting small obstacles such as wires or boxes to avoid collisions
+    - Small object detection on Amazon Astro
 - _Google -- Software Engineering Intern_ \ra{(Summer 2017)}
-    - Worked on Ads Quality Metrics team to deliver statistics about bad ads. Developed information theoretic optimization approach to aquire maximally diverse training data for automated detectors
+    - Automated training data sampling on Ads Quality Metrics
 - _Google -- Software Engineering Intern_ \ra{(Summer 2016)}
-    - Worked on AdWords Next Overview, the homepage of redesigned AdWords. Developed offline pipelines to do statistical analysis over entire customer dataset to provide automated insights
+    - Statistical processing for AdWords redesign
 - _Unidesk Corporation -- C++ Development Intern_ \ra{(Summer 2015)}
-    - Designed and implemented testing framework for proprietary Windows registry manipulation APIs, ensuring bug-for-bug compatibility with Windows' implementation of fixed width UTF-16
+    - Windows registry hive manipulation unit testing framework
 - _Unidesk Corporation -- Robotics Intern_ \ra{(Summer 2014)}
-    - Worked with CTO and CMO to implement a trade show display using a 6DOF robot arm controlled via high level pick-and-place commands. Wrote Java backend to maintain world state and dynamically generate FORTH written over a serial bus to execute robot trajectories requested from high level RESTful API
+    - Pick and place robot arm control stack for trade show
