@@ -19,13 +19,18 @@ def extract_names(names_str):
     names = [name.split(", ") for name in names]
     names = [f"{name[1]} {name[0]}" for name in names]
     names = [n if n != "Kyle Vedder" else "**Kyle Vedder**" for n in names]
+    if len(names) > 10:
+        names = [names[0] + " et al"]
     return names
 
 
 def entry_to_markdown(entry):
     authors_lst = extract_names(entry["author"])
 
-    authors = ", ".join(authors_lst)
+    if len(authors_lst) == 1:
+        authors = authors_lst[0]
+    else:
+        authors = ", ".join(authors_lst)
     title = entry["title"].replace("{", "").replace("}", "").replace("*", "\*")
 
 
