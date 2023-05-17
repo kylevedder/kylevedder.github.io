@@ -1,0 +1,44 @@
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9NWBV84HB2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9NWBV84HB2');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ZeroFlow">
+<meta name="author" content="Kyle Vedder">
+<link rel="shortcut icon" href="./favicon.ico">
+<title>
+ZeroFlow
+</title>
+<!-- css-->
+<link href="./css/style.css" rel="stylesheet">
+</head>
+<h1 id="zeroflow-fast-zero-label-scene-flow-via-distillation">ZeroFlow: Fast Zero Label Scene Flow via Distillation</h1>
+<h2 id="kyle-vedder-neehar-peri-nathaniel-chodosh-ishan-khatri-eric-eaton-dinesh-jayaraman-yang-liu-deva-ramanan-and-james-hays"><a href="http://vedder.io">Kyle Vedder</a>, <a href="http://www.neeharperi.com/">Neehar Peri</a>, <a href="https://scholar.google.com/citations?user=b4qKr7gAAAAJ&amp;hl=en">Nathaniel Chodosh</a>, <a href="https://ishan.khatri.io/">Ishan Khatri</a>, <a href="https://www.seas.upenn.edu/~eeaton/">Eric Eaton</a>, <a href="https://www.seas.upenn.edu/~dineshj/">Dinesh Jayaraman</a>, <a href="https://youngleox.github.io/">Yang Liu</a>, <a href="https://www.cs.cmu.edu/~deva/">Deva Ramanan</a>, and <a href="https://faculty.cc.gatech.edu/~hays/">James Hays</a></h2>
+<h2 id="abstract">Abstract:</h2>
+<p>Scene flow estimation is the task of describing the 3D motion field between temporally successive point clouds. State-of-the-art methods use strong priors and test-time optimization techniques, but require on the order of tens of seconds for large-scale point clouds, making them unusable as computer vision primitives for real-time applications such as open world object detection. Feed forward methods are considerably faster, running on the order of tens to hundreds of milliseconds for large-scale point clouds, but require expensive human supervision. To address both limitations, we propose Scene Flow via Distillation, a simple distillation framework that uses a label-free optimization method to produce pseudo-labels to supervise a feed forward model. Our instantiation of this framework, ZeroFlow, produces scene flow estimates in real-time on large-scale point clouds at quality competitive with state-of-the-art methods while using zero human labels. Notably, at test-time ZeroFlow is over 1000x faster than label-free state-of-the-art optimization-based methods on large-scale point clouds and over 1000x cheaper to train on unlabeled data compared to the cost of human annotation of that data. To facilitate research reuse, we release our code, trained model weights, and high quality pseudo-labels for the Argoverse 2 and Waymo Open datasets.</p>
+<h2 id="key-insights">Key Insights:</h2>
+<p>Existing scene flow estimation methods are either slow but label free test-time optimization methods, or fast but human supervised feed forward networks. We construct the <em>Scene Flow via Distillation</em> framework to break this tradeoff:</p>
+<p><img src="img/static/zeroflow/scene_flow_via_distillation.png" style="max-width:1080px; width:100%"/></p>
+<p>We instantiate this framework in <em>ZeroFlow</em>, a scene flow method that scales to real world point clouds. ZeroFlow uses Neural Scene Flow Prior, a high quality label-free optimization method, to generate pseudolabels to train FastFlow3D, a fast, scalable feed forward scene flow network. The resulting method is real-time and produces competitive quality flows with <em>zero</em> human labels.</p>
+<p><img src="img/static/zeroflow/perf_curve.png" style="max-width:1080px; width:100%"/></p>
+<h2 id="full-paper-and-downloadables">Full Paper and Downloadables:</h2>
+<p><a href="./publications/zeroflow_preprint.pdf">[Preprint PDF]</a></p>
+<h3 id="citation">Citation:</h3>
+<pre><code>@article{Vedder2023,
+    author    = {Kyle Vedder and Neehar Peri and Nathaniel Chodosh and Ishan Khatri and Eric Eaton and Dinesh Jayaraman and Yang Liu Deva Ramanan and James Hays},
+    title     = {{ZeroFlow: Fast Zero Label Scene Flow via Distillation}},
+    journal   = {arXiv},
+    year      = {2023},
+}</code></pre>
+<h4 id="code">Code:</h4>
+<p>Forthcoming</p>
+<h4 id="model-weights">Model weights:</h4>
+<p>Forthcoming</p>
+<h2 id="videos">Videos:</h2>
+<p>Forthcoming</p>
