@@ -1,4 +1,4 @@
-HEADER ZeroFlow
+HEADER ZeroFlow: Fast Zero Label Scene Flow via Distillation
 
 # ZeroFlow: Fast Zero Label Scene Flow via Distillation
 
