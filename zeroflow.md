@@ -22,7 +22,7 @@ We instantiate this framework in _ZeroFlow_, a scene flow method that scales to 
 
 ## Full Paper and Downloadables: 
 
-[[Preprint PDF]](./publications/zeroflow_preprint.pdf)
+[[Preprint PDF]](https://arxiv.org/abs/2305.10424)
 
 ### Citation:
 
