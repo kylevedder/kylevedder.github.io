@@ -1,0 +1,31 @@
+<p>I want to build a prediction engine that takes as input <em>raw</em> percepts and predicts future “state” of the world. I believe a high quality prediction engine will serve as the backbone for the planning stack of generally capable embodied agents, from autonomous vehicles to service robots.</p>
+<p>I believe that in order for this prediction engine to be effective, it needs to be <em>highly</em> data-driven, an approach we’ve seen to be massively successful in the language domain. In service of this, I am searching for the learning problem formulation that produces a prediction engine where its quality scales with <a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">compute and data used to train it, <em>without</em> requiring human annotations</a>. This means filling in important low level details: what are these raw percepts? What is this future “state”? Where are we going to get all this data?</p>
+<p>My work is trying to answer these important questions. To my mind, it is clear that autonomous vehicles are the right application domain to start in (unlike language, data from deployed robots is not readily available, publicly or privately, outside of AVs) and we should use 3D sensors and explicit 3D representations to best capture the fundamentally 3D structure of the world (traditional 2D image processing models must learn to implicitly represent this 3D structure). However, I am unclear on the</p>
+<!--
+# Illustrative Example: `N` Queens
+
+The `N` Queens Problem asks how to place `N` Queens on an `N x N` chessboard such that no two queens are capturing each other. Naively, a solution can be found via search over an `N x N` array of text characters; each character represents a piece with its unicode representation, or a space character for an empty piece. Search can be done in this representation by repeatedly flipping characters between the ♕ and space, either randomly or via a heuristic, until a satisfying board configuration can be found. However, this representation admits many invalid board configurations: the search process itself must enforce all constraints, e.g. there being only queens on the board, exactly `N` queens on the board, and the queens being in a satisfying position.
+
+A more tailored representation is an `N` row array of entries `1` to `N`; the index of an entry represents the row its queen will sit on, and each entry value represents the column its queen will sit on. This representation bakes in many of the constraints of the problem itself: by construction there must be exactly `N` queens on the board and each row can only have a single queen on it (two queens on the same row would be capturing and thus invalid). Search can be done on this representation by repeatedly generating entries and verifying that there are not duplicate entries (meaning two queens are on the same column and thus invalid) and then simply checking for diagonal captures.
+
+One could imagine the existence of an even more tailored representation: a random `N` dimensional vector space (and an injective map to only valid `N` Queens solutions). Search with this representation is trivial --- generate _any_ random finite `N` dimensional vector, give it to the map, and receive a satisfying solution.
+
+This problem illustrates the tradeoff between representation and search for problem solving --- on the one extreme you have an _uncompressed_ representation that requires a significant amount of clever search to pick through the state space in order to solve the problem; on the other extreme you have a highly _compressed_ representation that discards all irrelevant information and preserves all relevant information, allowing search to collapse to a single trivial sampling step. 
+
+But it also illustrates the tradeoff between reduced search and reduced "generalization" --- the second and third representations are clearly better for solving the `N` Queens problem, but if you also want to _play_ chess, only the first representation is capable of doing so; neither the second nor third representations can represent a _single_ legal board position. Note of course that "generalization" is only a relative term, e.g. none of the representations can play [four-handed chess](https://en.wikipedia.org/wiki/Four-player_chess) (in general, for any finite sized representation, you can construct a problem that requires more information to solve than can be fit into this representation).
+
+# (Visual) Representation Learning and Reinforcement Learning
+
+In RL theory, the state space is assumed to be given as part of the problem definition --- if the state has all of the "relevant" information, then it's an MDP, and if not, it's a POMDP. In RL practice, the state space is very important to the quality of the final learned policy --- 
+
+Reinforcement Learning is a prime example of the interaction between representation and planning in a learning context. The state space is assumed to be given as part of the MDP; if the state does not contain all relevant problem information, it becomes a  part of the definition of an MDP, a state space is given, with the goal of learning a policy that maximizes a given reward to an agent following the policy.
+
+
+I believe the shortest path to getting robust, generally capable robots in the real world is through the construction of a high quality prediction engine that serves as the core for a planning system.
+
+The key open question: what is the learning problem formulation that allows us to build this prediction engine using only [compute and data, *without* requiring human annotations](http://www.incompleteideas.net/IncIdeas/BitterLesson.html).
+
+The key open question: what is the problem formulation that allows us to scale 
+
+The world is fundamentally 3D, but currently most vision systems focus on 2D data simply due to general availability of RGB images and strong hardware acceleration for standard processing methods (e.g. 2D convolutions). I am interested in building such scalable vision systems on top of 3D sensor data (e.g. LiDAR, Stereo) that reasons natively in 3D, in the hope that these 3D representations are more useful for quickly and robustly learning downstream behavioral tasks compared to their 2D counterparts.
+-->
