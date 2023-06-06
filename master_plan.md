@@ -8,7 +8,7 @@ My work is trying to answer these important questions. To my mind, a few answers
 
  - Autonomous Vehicles are the right application domain to start in. Unlike language, data from deployed robots is not readily available, publicly or privately, outside of AVs. 
  - We should use 3D sensors and explicit 3D representations to best capture the fundamentally 3D structure of the world. Traditional 2D image processing models must learn to implicitly represent this 3D structure.
- - We should start by trying to build a non-causal model (one with access to historical _and_ future percepts) in order to characterize best case performance, a
+ - We should start by building a non-causal prediction models (one with access to historical _and_ future percepts) in order to characterize best case performance, and then move to causal models.
  
  However, important questions remain:
 
