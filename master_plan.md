@@ -1,8 +1,21 @@
-I want to build a prediction engine that takes as input _raw_ percepts and predicts future "state" of the world. I believe a high quality prediction engine will serve as the backbone for the planning stack of generally capable embodied agents, from autonomous vehicles to service robots.
+# Executive Summary
 
-I believe that in order for this prediction engine to be effective, it needs to be _highly_ data-driven, an approach we've seen to be massively successful in the language domain. In service of this, I am searching for the learning problem formulation that produces a prediction engine where its quality scales with [compute and data used to train it, *without* requiring human annotations](http://www.incompleteideas.net/IncIdeas/BitterLesson.html). This means filling in important low level details: what are these raw percepts? What is this future "state"? Where are we going to get all this data?
+I want to build a prediction engine that takes as input _raw_ percepts and predicts future "state" of the world. I believe being able to make high quality statements across _time_ is the critical component to understanding _action_ in the world, and a high quality prediction engine is a useful backbone for the planning stack of generally capable embodied agents, from autonomous vehicles to service robots.
 
-My work is trying to answer these important questions. To my mind, it is clear that autonomous vehicles are the right application domain to start in (unlike language, data from deployed robots is not readily available, publicly or privately, outside of AVs) and we should use 3D sensors and explicit 3D representations to best capture the fundamentally 3D structure of the world (traditional 2D image processing models must learn to implicitly represent this 3D structure). However, I am unclear on the 
+I believe that in order for this prediction engine to be effective, it needs to be _highly_ data-driven, an approach that's been massively successful in the language domain. In service of this, I am searching for the learning problem formulation that produces a prediction engine where its prediction quality scales with [compute and data used to train it, *without* requiring human annotations](http://www.incompleteideas.net/IncIdeas/BitterLesson.html). This means filling in important low level details: what are these raw percepts? What is this future "state"? Where are we going to get all this data?
+
+My work is trying to answer these important questions. To my mind, a few answer are clear: 
+
+ - Autonomous Vehicles are the right application domain to start in. Unlike language, data from deployed robots is not readily available, publicly or privately, outside of AVs. 
+ - We should use 3D sensors and explicit 3D representations to best capture the fundamentally 3D structure of the world. Traditional 2D image processing models must learn to implicitly represent this 3D structure.
+ 
+ However, important questions remain:
+
+- What is the right prediction problem? Having [worked with the traditional LiDAR scene flow formulation of predicting motion from time `t` to `t+1`, given point cloud `t` and `t+1`](./zeroflow.html), this problem is clearly impoverished; at the very least, a larger input history is required to distinguish sensor noise from motion and new evaluation protocols are needed to measure performance on the thin tail. I've not written off scene flow as a problem, but its reliance upon human annotations for evaluation is concerning; I am interested in voxel occupancy prediction or other prediction tasks that require zero human labels for training _and_ evaluation.
+ - What are the right input modalities? Having worked with current generation commercial LiDAR point clouds (VLP 32, 64, 128), they are very sparse; I think the density + RGB information from RGB cameras is an important input to such a model. I think recent work (e.g. [Simple BEV](https://simple-bev.github.io/)) and continued work on this front will prove important.
+ - What are the right internal representations? I think 3D voxel representations are promising, but they have drawbacks such as limited range, limited resolution, etc. These may be fine with the appropriate voxel resolutions, or continuous space representations may be important.
+ 
+
 
 <!--
 # Illustrative Example: `N` Queens
