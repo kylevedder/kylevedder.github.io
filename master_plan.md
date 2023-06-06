@@ -8,15 +8,20 @@ My work is trying to answer these important questions. To my mind, a few answer 
 
  - Autonomous Vehicles are the right application domain to start in. Unlike language, data from deployed robots is not readily available, publicly or privately, outside of AVs. 
  - We should use 3D sensors and explicit 3D representations to best capture the fundamentally 3D structure of the world. Traditional 2D image processing models must learn to implicitly represent this 3D structure.
+ - We should start by trying to build a non-causal model (one with access to historical _and_ future percepts) in order to characterize best case performance, a
  
  However, important questions remain:
 
 - What is the right prediction problem? Having [worked with the traditional LiDAR scene flow formulation of predicting motion from time `t` to `t+1`, given point cloud `t` and `t+1`](./zeroflow.html), this problem is clearly impoverished; at the very least, a larger input history is required to distinguish sensor noise from motion and new evaluation protocols are needed to measure performance on the thin tail. I've not written off scene flow as a problem, but its reliance upon human annotations for evaluation is concerning; I am interested in voxel occupancy prediction or other prediction tasks that require zero human labels for training _and_ evaluation.
  - What are the right input modalities? Having worked with current generation commercial LiDAR point clouds (VLP 32, 64, 128), they are very sparse; I think the density + RGB information from RGB cameras is an important input to such a model. I think recent work (e.g. [Simple BEV](https://simple-bev.github.io/)) and continued work on this front will prove important.
  - What are the right internal representations? I think 3D voxel representations are promising, but they have drawbacks such as limited range, limited resolution, etc. These may be fine with the appropriate voxel resolutions, or continuous space representations may be important.
+ - How do we represent uncertainty? Currently, models tend to regress a single expected value output; however, distribution aware methods seem to outperform their unaware peers (e.g. [CODAC](https://www.seas.upenn.edu/~dineshj/publication/ma-2021-conservative/) vs [CQL](https://sites.google.com/view/cql-offline-rl))
  
+There is useful prior art in this general direction:
 
-
+ - [Open AI's Video Pre-Training (VPT)](https://openai.com/research/vpt). This lays out a blueprint for taking a small amount of labeled data plus large amount of unlabeled data and learn a visual RL policy to play Minecraft.
+ - Offline RL at large. One can reframe the above as a visual approach to learning a (valued) state neighbor function.
+ 
 <!--
 # Illustrative Example: `N` Queens
 
