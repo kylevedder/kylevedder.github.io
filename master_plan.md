@@ -4,7 +4,7 @@ I want to build a prediction engine that takes as input _raw_ percepts and predi
 
 I believe that in order for this prediction engine to be effective, it needs to be _highly_ data-driven, an approach that's been massively successful in the language domain. In service of this, I am searching for the learning problem formulation that produces a prediction engine where its prediction quality scales with [compute and data used to train it, *without* requiring human annotations](http://www.incompleteideas.net/IncIdeas/BitterLesson.html). This means filling in important low level details: what are these raw percepts? What is this future "state"? Where are we going to get all this data?
 
-My work is trying to answer these important questions. To my mind, a few answer are clear: 
+My work is trying to answer these important questions. To my mind, a few answers are clear: 
 
  - Autonomous Vehicles are the right application domain to start in. Unlike language, data from deployed robots is not readily available, publicly or privately, outside of AVs. 
  - We should use 3D sensors and explicit 3D representations to best capture the fundamentally 3D structure of the world. Traditional 2D image processing models must learn to implicitly represent this 3D structure.
@@ -21,7 +21,7 @@ There is useful prior art in this general direction:
 
  - [Open AI's Video Pre-Training (VPT)](https://openai.com/research/vpt). This lays out a blueprint for taking a small amount of labeled data plus large amount of unlabeled data and learn a visual RL policy to play Minecraft.
  - Offline RL at large. One can reframe the above as a visual approach to learning a (valued) state neighbor function.
- 
+
 <!--
 # Illustrative Example: `N` Queens
 
