@@ -20,9 +20,15 @@ We instantiate this framework in _ZeroFlow_, a scene flow method that scales to 
 
 
 
-## Full Paper and Downloadables: 
+## Full Paper and Downloads: 
 
 [[Preprint PDF]](https://arxiv.org/abs/2305.10424)
+
+[[Official Code]](https://github.com/kylevedder/zeroflow)
+
+[Model Weights]: Forthcoming
+
+[Videos]: Forthcoming
 
 ### Citation:
 
@@ -34,16 +40,4 @@ We instantiate this framework in _ZeroFlow_, a scene flow method that scales to 
     year      = {2023},
 }
 ```
-  
-#### Code: 
 
-Forthcoming
-
-#### Model weights:
-
-Forthcoming
-
-
-## Videos:
-
-Forthcoming
