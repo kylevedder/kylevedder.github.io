@@ -7,8 +7,11 @@ SENTINAL = "PUBS"
 def load_bibtex(file: Path):
     file = Path(file)
     assert file.exists(), f"File {file} does not exist"
-    with open(file, "r") as f:
-        bib = bibtexparser.load(f)
+    bib = bibtexparser.parse_file(file)
+    if len(bib.failed_blocks) > 0:
+        print("Some blocks failed to parse.")
+        print(bib.failed_blocks)
+        raise Exception("Failed to parse bibtex file")
     return bib
 
 
@@ -24,55 +27,62 @@ def extract_names(names_str):
     return names
 
 
-def entry_to_markdown(entry):
-    authors_lst = extract_names(entry["author"])
+def entry_to_markdown(entries_wrapper):
+
+    entries = {e.key: e.value for e in entries_wrapper.fields}
+
+    authors_lst = extract_names(entries["author"])
 
     if len(authors_lst) == 1:
         authors = authors_lst[0]
     else:
         authors = ", ".join(authors_lst)
-    title = entry["title"].replace("{", "").replace("}", "").replace("*", "\*")
-
+    title = entries["title"].replace("{", "").replace("}",
+                                                      "").replace("*", "\*")
 
     markdown = f"- {authors}. _{title}_. "
 
-    if "booktitle" in entry:
-        booktitle = entry["booktitle"].replace("{", "").replace("}", "")
+    if "booktitle" in entries:
+        booktitle = entries["booktitle"].replace("{", "").replace("}", "")
         markdown += f"{booktitle}, "
-    elif "journal" in entry:
-        booktitle = entry["journal"].replace("{", "").replace("}", "")
+    elif "journal" in entries:
+        booktitle = entries["journal"].replace("{", "").replace("}", "")
         markdown += f"{booktitle}, "
-    year = entry["year"]
+    year = entries["year"]
 
     markdown += f"{year}."
 
-    if "website" in entry:
-        url = entry["website"]
+    if "website" in entries:
+        url = entries["website"]
         markdown += f" [[website]]({url})"
-    if "pdf" in entry:
-        pdf = entry["pdf"]
+    if "pdf" in entries:
+        pdf = entries["pdf"]
         markdown += f" [[pdf]]({pdf})"
-    if "code" in entry:
-        code = entry["code"]
+    if "code" in entries:
+        code = entries["code"]
         markdown += f" [[code]]({code})"
-    if "slides" in entry:
-        slides = entry["slides"]
+    if "slides" in entries:
+        slides = entries["slides"]
         markdown += f" [[slides]]({slides})"
-    if "video" in entry:
-        video = entry["video"]
+    if "video" in entries:
+        video = entries["video"]
         markdown += f" [[video]]({video})"
-    if "poster" in entry:
-        poster = entry["poster"]
+    if "poster" in entries:
+        poster = entries["poster"]
         markdown += f" [[poster]]({poster})"
-    if "bibtex" in entry:
-        bibtex = entry["bibtex"]
+    if "bibtex" in entries:
+        bibtex = entries["bibtex"]
         markdown += f" [[bibtex]]({bibtex})"
 
     return markdown
 
 
 def process_pub_line(line: str, file: Path, root_dir: Path) -> str:
-    bib = load_bibtex(root_dir / line.strip())
+    line = line.strip()
+    arguments = [e.strip() for e in line.split(" ")]
+    bib = load_bibtex(root_dir / arguments[0])
     entries = bib.entries
+    if len(arguments) == 2:
+        entries = [entry for entry in entries if entry["ID"] == arguments[1]]
     entries = [entry_to_markdown(entry) for entry in entries]
     return "\n".join(entries)

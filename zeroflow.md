@@ -32,12 +32,9 @@ We instantiate this framework in _ZeroFlow_, a scene flow method that scales to 
 
 ### Citation:
 
+
+
 ```
-@article{Vedder2023zeroflow,
-    author    = {Kyle Vedder and Neehar Peri and Nathaniel Chodosh and Ishan Khatri and Eric Eaton and Dinesh Jayaraman and Yang Liu Deva Ramanan and James Hays},
-    title     = {{ZeroFlow: Fast Zero Label Scene Flow via Distillation}},
-    journal   = {arXiv},
-    year      = {2023},
-}
+BIB bibs/conferences.bib vedder2023zeroflow
 ```
 
