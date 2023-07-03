@@ -1,0 +1,78 @@
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9NWBV84HB2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9NWBV84HB2');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="My research development environment">
+<meta name="author" content="Kyle Vedder">
+<link rel="shortcut icon" href="../favicon.ico">
+<title>
+My research development environment
+</title>
+<!-- css-->
+<link href="../css/style.css" rel="stylesheet">
+</head>
+<h1 id="my-research-development-environment">My research development environment</h1>
+<p>As a CS PhD student doing machine learning research, I usually have multiple projects going at once. These projects require different versions of libraries (e.g. PyTorch) or system setups (e.g. CUDA versions), so they cannot conflict with each other. I do development locally, but run most train and test jobs on the compute cluster, so I need consistency between the two, with different dataset locations handled at the environment level, not the client code level. These environments are also regularly subject to change; a package needs to be easy to add or update without being left in a broken state (e.g. due to bad uninstall routine), and if the env is broken, it’s easy to roll back to a working one. Once changed, they need to be easy to synchronize with other systems without a painful rebuild process or the possibility of one system being left in a broken state. I also want the environments to be scrutable; the descriptions of how they were constructed need to be human readable and tracked by source control.</p>
+<p>I need environments that are:</p>
+<ol type="1">
+<li>Self-contained – no implicit system dependencies</li>
+<li>Easy to distribute – pull a binary image from an authoritative source</li>
+<li>Self-describing – script under source control to recreate the image from scratch or modify it for future needs</li>
+<li>Checkpointed – no doing a from scratch rebuild of the env because of a single bad command</li>
+<li>File-system mappable – inside the environment, everything needs to appear in a standard location on disk, even if the underlying filesystem stores the data in different folders</li>
+</ol>
+<p>For these reasons, I do all of my development work inside Docker containers.</p>
+<h2 id="intro-to-docker">Intro to Docker</h2>
+<p>Docker is a system for building and running <em>containers</em>. Each container holds a full system image – you start with a base system image (e.g. <a href="https://hub.docker.com/r/nvidia/cudagl">an Ubuntu image with CUDA and OpenGL preinstalled</a>), and then you modify it via a series of <code>bash</code> commands laid out in a <code>Dockerfile</code>. Once the container image is built, you can interactively run programs (such as your code) inside using the installed libraries. Your code and other folders such as data folders can be dynamically mounted into the container, allowing for live editing of your code from either inside the container, or outside on the base system (e.g. from an open text editor). Built images can be uploaded to <a href="https://hub.docker.com/">Docker Hub</a>, where they can be pulled down to another machine (e.g. the compute cluster), ensuring binary identical environments.</p>
+<h3 id="the-dockerfile">The <code>Dockerfile</code></h3>
+<p>Below is the <code>Dockerfile</code> I base my environments upon — it uses an NVidia base image with CUDA 11.3 and OpenGL on Ubuntu 20.04. The <code>Dockerfile</code> performs some system setup, then installs <code>miniconda</code> (a minimal installer for the commonly used <code>conda</code> package manager), which it uses to install other standard packages: Python 3.10, PyTorch 1.12.1, and Open3D 0.17.</p>
+<pre><code>FROM nvidia/cudagl:11.3.0-devel-ubuntu20.04
+SHELL [&quot;/bin/bash&quot;, &quot;-c&quot;]
+# Set the timezone info because otherwise tzinfo blocks install 
+# flow and ignores the non-interactive frontend command 🤬🤬🤬
+RUN ln -snf /usr/share/zoneinfo/America/New_York /etc/localtime &amp;&amp; echo &quot;/usr/share/zoneinfo/America/New_York&quot; &gt; /etc/timezone
+
+# Core system packages
+RUN apt update --fix-missing
+RUN apt install -y software-properties-common wget curl gpg gcc git make apt-utils
+
+# Install miniconda to /miniconda
+RUN curl -LO http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+RUN bash Miniconda3-latest-Linux-x86_64.sh -p /miniconda -b
+RUN rm Miniconda3-latest-Linux-x86_64.sh
+ENV PATH=/miniconda/bin:${PATH}
+
+# Set standard environment variables so any libraries with CUDA support build with CUDA 
+# support for all the common NVidia architectures
+ENV TORCH_CUDA_ARCH_LIST=&quot;Ampere;Turing;Pascal&quot;
+ENV FORCE_CUDA=&quot;1&quot;
+RUN conda update -y conda
+RUN conda install numpy python=3.10 pytorch==1.12.1 torchvision torchaudio cudatoolkit=11.3 -c pytorch -y
+RUN pip install open3d==0.17
+
+# Add the project to the PYTHONPATH so that we can import modules from it
+ENV PYTHONPATH=/project:${PYTHONPATH}
+# Add the modified bashrc to the container so we get a nice prompt and persistent history
+COPY bashrc /root/.bashrc
+# Set the working directory to the project directory, where we will mount the repo
+WORKDIR /project</code></pre>
+<pre><code>#!/bin/bash
+xhost +
+touch `pwd`/docker_history.txt
+docker run --gpus=all --rm -it \
+ --shm-size=16gb \
+ -v `pwd`:/project \
+ -v /tmp/.X11-unix:/tmp/.X11-unix \
+ -v `pwd`/docker_history.txt:/root/.bash_history \
+ -e DISPLAY=$DISPLAY \
+ -h $HOSTNAME \
+ --privileged \
+ kylevedder/research_dev_env:latest
+</code></pre>

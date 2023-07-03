@@ -3,11 +3,13 @@
     font-weight: 400;
     src: url('../fonts/AppleGaramond.woff2');
 }
+
 @font-face {
     font-family: 'Apple Garamond';
     font-weight: 700;
     src: url('../fonts/AppleGaramond-Bold.woff2');
 }
+
 @font-face {
     font-family: 'Apple Garamond';
     font-weight: 400;
@@ -20,17 +22,20 @@
     font-weight: 400;
     src: url('../fonts/computer-modern/cmunrm.ttf');
 }
+
 @font-face {
     font-family: 'cmu';
     font-weight: 700;
     src: url('../fonts/computer-modern/cmunbx.ttf');
 }
+
 @font-face {
     font-family: 'cmu';
     font-weight: 400;
     font-style: italic;
     src: url('../fonts/computer-modern/cmunci.ttf');
 }
+
 @font-face {
     font-family: 'cmu_code';
     src: url('../fonts/computer-modern/cmuntt.ttf');
@@ -40,15 +45,35 @@
     font-family: 'cmu', serif;
     background-color: #ffffff;
 }
+
 .updates li {
-    margin-bottom:5px;
+    margin-bottom: 5px;
+}
+
+pre {
+    overflow: auto;
+    word-wrap: normal;
+    white-space: pre;
 }
 
 code {
     font-family: 'cmu_code', monospace;
 }
 
-p, li {
+pre > code {
+    overflow: auto;
+    word-wrap: normal;
+    white-space: pre;
+    display: block;
+    background: #F6F6F6;
+    
+    max-width: 100%;
+    min-width: 100px;
+    padding: 0;
+}
+
+p,
+li {
     font-size: 1.0em;
     line-height: 1.15em;
 }
@@ -66,4 +91,4 @@ p, li {
         margin-left: auto;
         margin-right: auto;
     }
-  }
+}
