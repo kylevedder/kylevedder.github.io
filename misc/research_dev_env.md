@@ -101,7 +101,7 @@ which will produce a `kylevedder+research_dev_env+latest.sqsh` file in the direc
 The `pyxis` plugin allows for `.sqsh` files to be used as containers. An example `srun` job using this container
 
 ```
-srun --container-image=/home/kvedder/kylevedder+offline_sceneflow_waymo+latest.sqsh --container-mounts=/home/kvedder/my_dataset:/dataset/,/home/kvedder/code/my_project:/project  bash -c "python my_job.py"
+srun --container-image=/home/kvedder/kylevedder+research_dev_env+latest.sqsh --container-mounts=/home/kvedder/my_dataset:/dataset/,/home/kvedder/code/my_project:/project  bash -c "python my_job.py"
 ```
 
 This will run `python my_job.py` in the container using the codebase `/home/kvedder/code/my_project` mounted to `/project`, and have access to `/home/kvedder/my_dataset` mounted at `/dataset`. Further mounts can be added with the same comma separated syntax.
