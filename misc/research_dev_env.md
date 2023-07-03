@@ -75,7 +75,7 @@ INCLUDE ./research_dev_env/launch.sh
 
 this script enables everything we want inside the container, including interactive sessions (`-it`), access to all system GPUS (`--gpus=all`), mounting our codebase as `/project` inside the container, setting the persistent bash history file, and preparing X11 for headed viewing (a shockingly non-trivial endeavor to setup).
 
-Upon launch, you're given a bash session located in `/project` that lets you run your code; the demo program `visualize.py` maps a random unit sphere point cloud through a randomly initialized two layer MLP, producing a mapped sphere; the results are interactively visualized in 3D with Open3d, with the input shown in read and the result shown in blue.
+Upon launch, you're given a bash session located in `/project` that lets you run your code; the demo program `visualize.py` maps a random unit sphere point cloud through a randomly initialized two layer MLP, producing a mapped sphere; the results are interactively visualized in 3D with Open3d, with the input shown in red and the result shown in blue.
 
  <img src="./research_dev_env/visualize_result.png" style="max-width:1080px; width:25%; display: block; margin-left: auto;margin-right: auto;"/>
 
