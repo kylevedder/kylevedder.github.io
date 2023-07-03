@@ -95,7 +95,7 @@ docker run --gpus=all --rm -it \
  kylevedder/research_dev_env:latest
 </code></pre>
 <p>this script enables everything we want inside the container, including interactive sessions (<code>-it</code>), access to all system GPUS (<code>--gpus=all</code>), mounting our codebase as <code>/project</code> inside the container, setting the persistent bash history file, and preparing X11 for headed viewing (a shockingly non-trivial endeavor to setup).</p>
-<p>Upon launch, you’re given a bash session located in <code>/project</code> that lets you run your code; the demo program <code>visualize.py</code> maps a random unit sphere point cloud through a randomly initialized two layer MLP, producing a mapped sphere; the results are interactively visualized in 3D with Open3d, with the input shown in read and the result shown in blue.</p>
+<p>Upon launch, you’re given a bash session located in <code>/project</code> that lets you run your code; the demo program <code>visualize.py</code> maps a random unit sphere point cloud through a randomly initialized two layer MLP, producing a mapped sphere; the results are interactively visualized in 3D with Open3d, with the input shown in red and the result shown in blue.</p>
 <p><img src="./research_dev_env/visualize_result.png" style="max-width:1080px; width:25%; display: block; margin-left: auto;margin-right: auto;"/></p>
 <h3 id="running-the-container-on-a-cluster">Running the container on a cluster</h3>
 <p>Docker requires root access to run and makes changes on the mounted file system as root. This is fine for your local development machine, but is dangerous in a shared cluster.</p>
