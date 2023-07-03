@@ -106,7 +106,7 @@ docker run --gpus=all --rm -it \
 <p>which will produce a <code>kylevedder+research_dev_env+latest.sqsh</code> file in the directory the <code>srun</code> command was launched in</p>
 <h4 id="running-a-job-using-a-.sqsh-file">Running a job using a <code>.sqsh</code> file</h4>
 <p>The <code>pyxis</code> plugin allows for <code>.sqsh</code> files to be used as containers. An example <code>srun</code> job using this container</p>
-<pre><code>srun --container-image=/home/kvedder/kylevedder+offline_sceneflow_waymo+latest.sqsh --container-mounts=/home/kvedder/my_dataset:/dataset/,/home/kvedder/code/my_project:/project  bash -c &quot;python my_job.py&quot;</code></pre>
+<pre><code>srun --container-image=/home/kvedder/kylevedder+research_dev_env+latest.sqsh --container-mounts=/home/kvedder/my_dataset:/dataset/,/home/kvedder/code/my_project:/project  bash -c &quot;python my_job.py&quot;</code></pre>
 <p>This will run <code>python my_job.py</code> in the container using the codebase <code>/home/kvedder/code/my_project</code> mounted to <code>/project</code>, and have access to <code>/home/kvedder/my_dataset</code> mounted at <code>/dataset</code>. Further mounts can be added with the same comma separated syntax.</p>
 <h2 id="faq">FAQ</h2>
 <h3 id="why-not-just-use-conda-environment-files">Why not just use <code>conda</code> environment files?</h3>
