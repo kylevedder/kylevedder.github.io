@@ -26,7 +26,7 @@ We instantiate this framework in _ZeroFlow_, a scene flow method that scales to 
 
 [[Official Code]](https://github.com/kylevedder/zeroflow)
 
-[Model Weights]: Forthcoming
+[[Model Weights]](https://github.com/kylevedder/zeroflow_weights)
 
 [Videos]: Forthcoming
 
