@@ -1,6 +1,6 @@
-HEADER My research development environment
+HEADER My ML research development environment workflow
 
-# My research development environment
+# My ML research development environment workflow
 
 _TL;DR: Build a docker image, mount your code as a volume, live a happy life._
 
