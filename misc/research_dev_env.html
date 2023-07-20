@@ -9,16 +9,16 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="My research development environment">
+<meta name="description" content="My ML research development environment workflow">
 <meta name="author" content="Kyle Vedder">
 <link rel="shortcut icon" href="../favicon.ico">
 <title>
-My research development environment
+My ML research development environment workflow
 </title>
 <!-- css-->
 <link href="../css/style.css" rel="stylesheet">
 </head>
-<h1 id="my-research-development-environment">My research development environment</h1>
+<h1 id="my-ml-research-development-environment-workflow">My ML research development environment workflow</h1>
 <p><em>TL;DR: Build a docker image, mount your code as a volume, live a happy life.</em></p>
 <p>As a CS PhD student doing machine learning research, I usually have multiple projects going at once. These projects require different versions of libraries (e.g. PyTorch) or system setups (e.g. CUDA versions), so they cannot conflict with each other. I do development locally, but run most train and test jobs on the compute cluster, so I need consistency between the two, with different dataset locations handled at the environment level, not the client code level. These environments are also regularly subject to change; a package needs to be easy to add or update without being left in a broken state (e.g. due to bad uninstall routine), and if the env is broken, it’s easy to roll back to a working one. Once changed, they need to be easy to synchronize with other systems without a painful rebuild process or the possibility of one system being left in a broken state. I also want the environments to be scrutable; the descriptions of how they were constructed need to be human readable and tracked by source control.</p>
 <p>I need environments that are:</p>
