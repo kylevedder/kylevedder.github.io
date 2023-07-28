@@ -4,6 +4,8 @@ HEADER ZeroFlow: Fast Zero Label Scene Flow via Distillation
 
 ## [Kyle Vedder](http://vedder.io), [Neehar Peri](http://www.neeharperi.com/), [Nathaniel Chodosh](https://scholar.google.com/citations?user=b4qKr7gAAAAJ&hl=en), [Ishan Khatri](https://ishan.khatri.io/), [Eric Eaton](https://www.seas.upenn.edu/~eeaton/), [Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/), [Yang Liu](https://youngleox.github.io/), [Deva Ramanan](https://www.cs.cmu.edu/~deva/), and [James Hays](https://faculty.cc.gatech.edu/~hays/)
 
+ZeroFlow was selected as a **highlighted method** in the CVPR 2023 _Workshop on Autonomous Driving_ [Scene Flow Challenge](https://eval.ai/web/challenges/challenge-page/2010/overview)!
+
 ## Abstract:
 
 Scene flow estimation is the task of describing the 3D motion field between temporally successive point clouds. State-of-the-art methods use strong priors and test-time optimization techniques, but require on the order of tens of seconds for large-scale point clouds, making them unusable as computer vision primitives for real-time applications such as open world object detection. Feed forward methods are considerably faster, running on the order of tens to hundreds of milliseconds for large-scale point clouds, but require expensive human supervision. To address both limitations, we propose Scene Flow via Distillation, a simple distillation framework that uses a label-free optimization method to produce pseudo-labels to supervise a feed forward model. Our instantiation of this framework, ZeroFlow, produces scene flow estimates in real-time on large-scale point clouds at quality competitive with state-of-the-art methods while using zero human labels. Notably, at test-time ZeroFlow is over 1000x faster than label-free state-of-the-art optimization-based methods on large-scale point clouds and over 1000x cheaper to train on unlabeled data compared to the cost of human annotation of that data. To facilitate research reuse, we release our code, trained model weights, and high quality pseudo-labels for the Argoverse 2 and Waymo Open datasets.
@@ -18,8 +20,6 @@ We instantiate this framework in _ZeroFlow_, a scene flow method that scales to 
 
 <img src="img/static/zeroflow/perf_curve.png" style="max-width:1080px; width:100%"/>
 
-
-
 ## Full Paper and Downloads: 
 
 [[Preprint PDF]](https://arxiv.org/abs/2305.10424)
@@ -31,8 +31,6 @@ We instantiate this framework in _ZeroFlow_, a scene flow method that scales to 
 [Videos]: Forthcoming
 
 ### Citation:
-
-
 
 ```
 BIB bibs/conferences.bib vedder2023zeroflow
