@@ -8,15 +8,16 @@ STATEMENT_OF_PURPOSE
 
 ## Background
 
-I am a CS PhD [candidate](img/static/candidate.png) at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) and [Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/) in the [GRASP Lab](https://www.grasp.upenn.edu/). Motivated by my goal of developing elder care robots, my research interests lie in the intersection of:
+I am a CS PhD [candidate](img/static/candidate.png) at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) and [Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/) in the [GRASP Lab](https://www.grasp.upenn.edu/). My current work lies in:
 
- - [Mobile robotics](https://www.youtube.com/watch?v=2Q4LCoJDOyY&t=2284s)
- - [Vision-based object detection](publications/sparse_point_pillars_iros_2022.pdf)
+ - [Finding label-free, scalable 3D problem formulations](./zeroflow.html) 
+ - [Designing efficient 3D perception systems](./sparse_point_pillars.html)
+ 
 
 During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas](https://www.joydeepb.com/) in the [Autonomous Mobile Robotics Lab](https://amrl.cs.umass.edu/). My research was in:
 
  - [Single-Agent Path Finding (SAPF)](http://vedder.io/publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf) for sampling based planners
- - [Anytime Multi-Agent Path Finding (MAPF)](http://vedder.io/publications/expanding_astar_aij.pdf) for efficient first solution generation
+ - [Anytime Multi-Agent Path Finding (MAPF)](./xstar.html) for efficient first solution generation
  - [Core infrastructure](http://vedder.io/publications/MinutebotsRoboCupTDP2017.pdf) and [low level safety system](http://vedder.io/publications/MinutebotsRoboCupTDP2018.pdf) of our [RoboCup Small Size League team](https://amrl.cs.umass.edu/minutebots.html)
 
  I have also done a number of industry internships; I have interned twice at Unidesk (a startup since aquired by Citrix), twice at Google, once at Amazon's R&D lab, Lab126 (where I worked on their home robot [Astro](https://www.aboutamazon.com/news/devices/meet-astro-a-home-robot-unlike-any-other)), and at [Argo AI](https://www.argo.ai/) as a Research Intern under [James Hays](https://faculty.cc.gatech.edu/~hays/).
