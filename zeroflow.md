@@ -4,7 +4,11 @@ HEADER ZeroFlow: Fast Zero Label Scene Flow via Distillation
 
 ## [Kyle Vedder](http://vedder.io), [Neehar Peri](http://www.neeharperi.com/), [Nathaniel Chodosh](https://scholar.google.com/citations?user=b4qKr7gAAAAJ&hl=en), [Ishan Khatri](https://ishan.khatri.io/), [Eric Eaton](https://www.seas.upenn.edu/~eeaton/), [Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/), [Yang Liu](https://youngleox.github.io/), [Deva Ramanan](https://www.cs.cmu.edu/~deva/), and [James Hays](https://faculty.cc.gatech.edu/~hays/)
 
-ZeroFlow was selected as a **highlighted method** in the CVPR 2023 _Workshop on Autonomous Driving_ [Scene Flow Challenge](https://eval.ai/web/challenges/challenge-page/2010/overview)!
+## News:
+
+_Jul 28th, 2023_: We scaled up the ZeroFlow pipeline on additional point clouds from the unlabeled Argoverse 2 LiDAR dataset. With 2x the data, we beat the supervised baseline and teacher performance; with 2x the data and a bigger backbone, we are **state-of-the-art** on the [Argoverse 2 Self-Supervised Scene Flow Leaderboard](https://eval.ai/web/challenges/challenge-page/2010/leaderboard/4759)! Scaling ZeroFlow on raw data logs is all you need to build state-of-the-art scene flow methods --- **AV companies should try this on their internal logs!** More details coming in an updated preprint.
+
+_Jun 18th, 2023_: ZeroFlow was selected as a **highlighted method** in the CVPR 2023 _Workshop on Autonomous Driving_ [Scene Flow Challenge](https://eval.ai/web/challenges/challenge-page/2010/overview)!
 
 ## Abstract:
 
