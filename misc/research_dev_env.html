@@ -102,7 +102,7 @@ docker run --gpus=all --rm -it \
 <p>Penn’s SLURM cluster supports running inside containers by converting them from traditional container/OS images into unprivileged sandboxes (using NVidia’s <a href="https://github.com/NVIDIA/enroot"><code>enroot</code></a>) and then running those sandboxes (using NVidia’s <a href="https://github.com/NVIDIA/pyxis"><code>pyxis</code></a>).</p>
 <h4 id="creating-a-.sqsh-file-with-enroot">Creating a <code>.sqsh</code> file with <code>enroot</code></h4>
 <p><code>enroot</code> creates a <code>.sqsh</code> file, a self-contained sandbox image of your docker container. To do this on a SLURM cluster using <code>srun</code>, run</p>
-<pre><code>srun enroot import docker://kylevedder/research_dev_env:latest:latest</code></pre>
+<pre><code>srun enroot import docker://kylevedder/research_dev_env:latest</code></pre>
 <p>which will produce a <code>kylevedder+research_dev_env+latest.sqsh</code> file in the directory the <code>srun</code> command was launched in</p>
 <h4 id="running-a-job-using-a-.sqsh-file">Running a job using a <code>.sqsh</code> file</h4>
 <p>The <code>pyxis</code> plugin allows for <code>.sqsh</code> files to be used as containers. An example <code>srun</code> job using this container</p>

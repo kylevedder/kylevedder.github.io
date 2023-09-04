@@ -91,7 +91,7 @@ Penn's SLURM cluster supports running inside containers by converting them from 
 `enroot` creates a `.sqsh` file, a self-contained sandbox image of your docker container. To do this on a SLURM cluster using `srun`, run
 
 ```
-srun enroot import docker://kylevedder/research_dev_env:latest:latest
+srun enroot import docker://kylevedder/research_dev_env:latest
 ```
 
 which will produce a `kylevedder+research_dev_env+latest.sqsh` file in the directory the `srun` command was launched in
