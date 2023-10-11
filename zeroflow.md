@@ -25,9 +25,9 @@ Our straight-forward instantiation of this in ZeroFlow shows that simply trainin
 
 We instantiate this framework in _ZeroFlow_, a scene flow method that scales to real world point clouds. ZeroFlow uses Neural Scene Flow Prior, a high quality label-free optimization method, to generate pseudolabels to train FastFlow3D, a fast, scalable feed forward scene flow network. The resulting method is real-time and produces state-of-the-art quality flows with _zero_ human labels.
 
-<img src="img/static/zeroflow/perf_curve.png" style="max-width:1080px; width:100%"/>
+<img src="img/static/zeroflow/perf_curve_5x.png" style="max-width:1080px; width:100%"/>
 
-<img src="img/static/zeroflow/scaling_law.png" style="max-width:1080px; width:100%"/>
+<img src="img/static/zeroflow/scaling_law_5x.png" style="max-width:1080px; width:100%"/>
 
 ## Full Paper and Downloads: 
 
