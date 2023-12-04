@@ -92,3 +92,28 @@ li {
         margin-right: auto;
     }
 }
+
+.footnote-ref {
+    position: relative;
+}
+
+.custom-tooltip {
+    visibility: hidden;
+    width: 500px;
+    background-color: rgb(255, 255, 255);
+    color: #000;
+    text-align: left;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    border: 1px solid #000;
+    padding-left: 10px;
+  }
+  
+  a:hover .custom-tooltip {
+    visibility: visible;
+  }
+  
