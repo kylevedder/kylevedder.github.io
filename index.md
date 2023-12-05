@@ -32,6 +32,8 @@ During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas]
 
 ## Updates
 <div class="updates">
+ - Dec 4th, 2023: [Book Review: Eric Jang’s book "_AI is Good for You_"](./misc/review_ai_is_good_for_you.html)
+ - Nov 21st, 2023: I will be joining Nvidia's AV team as a Research Intern starting in January! I will be extending [ZeroFlow](http://vedder.io/zeroflow) in an exciting new way (more to come!)
  - Aug 3rd, 2023: [Blog post: Applying to CS PhD programs for Machine Learning: what I wish I knew](https://vedder.io/misc/applying_to_ml_phd.html)
  - Jul 28th, 2023: [ZeroFlow XL](./zeroflow.html) is now **state-of-the-art** on the [Argoverse 2 Self-Supervised Scene Flow Leaderboard](https://eval.ai/web/challenges/challenge-page/2010/leaderboard/4759)! And we've only begun to scale our method --- there is plenty of performance left on the table!
  - Jul 3rd, 2023: [Blog post: My ML research development environment workflow](misc/research_dev_env.html)
@@ -40,6 +42,7 @@ During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas]
  - Jan 12th, 2023: [_A Domain-Agnostic Approach for Characterization of Lifelong Learning Systems_](./publications/L2M_eval_preprint.pdf) was accepted to Neural Networks.
  - Jun 30th, 2022: [_Sparse PointPillars_](./sparse_point_pillars.html) was accepted to IROS 2022. [(Reviews)](./misc/SparsePointPillars_IROS_2022_reviews.txt)
  - Jun 7th, 2022: [Invited talk for _Sparse PointPillars_ at 3D-DLAD](https://www.youtube.com/watch?v=JgcR6cFXR5w)
+ - May 15th, 2022: Joined Argo as a Research Intern!
  - Mar 1st, 2022: [Submitted _Sparse PointPillars_ to IROS 2022](./sparse_point_pillars.html)
  - Jul 20th, 2021: [Added project webpage for X\*](./xstar.html)
  - Jul 8th, 2021: [Poster presented at Sparse Neural Networks on _Sparse PointPillars_](misc/SparsePointPillarsSNNPoster.pdf)
