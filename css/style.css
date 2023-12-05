@@ -99,20 +99,32 @@ li {
 
 .custom-tooltip {
     visibility: hidden;
-    width: 400px;
-    background-color: rgb(255, 255, 255);
-    color: #000;
-    text-align: left;
-    border-radius: 6px;
-    padding: 5px 10px;
-    position: absolute;
-    z-index: 1;
-    bottom: 100%;
-    left: 0px;
-    border: 1px solid #000;
-    box-sizing: border-box;
+    width: 0px;
+    display: none;
 }
 
-a:hover .custom-tooltip {
-    visibility: visible;
+@media (min-width: 800px) {
+    
+
+    .custom-tooltip {
+        visibility: hidden;
+        width: 400px;
+        background-color: rgb(255, 255, 255);
+        color: #000;
+        text-align: left;
+        border-radius: 6px;
+        padding: 5px 10px;
+        position: absolute;
+        z-index: 1;
+        bottom: 100%;
+        left: 0px;
+        border: 1px solid #000;
+        box-sizing: border-box;
+        display: block;
+    }
+
+    a:hover .custom-tooltip {
+        visibility: visible;
+    }
+
 }
