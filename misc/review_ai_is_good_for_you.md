@@ -36,7 +36,7 @@ Eric then proposes his most concrete, forward looking research agenda: what he c
 
 The book then somewhat abruptly pivots to talking about the real world practicalities of the act of "doing AI for robots": physical robots are hard, building a good team is important and requires good cohesion, and there's a bunch of social implications at play. There's a lot of (in my opinion) scattered points made, but to me the most interesting ones were Eric's opinions informed by his prior experiences:
 
- - Single arm on robot base is actually challenging to deploy in environments built for humans; humanoid robots are actually better (1x, which Eric is the CTO of, makes humanoid robots, while his previous job at Google Research used a single arm connected to a wheeled base)
+ - Single arm on robot base is actually challenging to deploy in environments built for humans; humanoid robots are actually better (1x, which Eric is the VP of AI of, makes humanoid robots, while his previous job at Google Research used a single arm connected to a wheeled base)
  - Avoid all the failure modes of Google Research when building your systems; keep a team small with a shared opinionated vision for how to solve the problem, and do not over-engineer your systems.
  - Good, tiered evaluation systems are needed to guide your from the space of almost all possible solutions down to the exact model with the exact hyperparameters
  - AI assistants are going to be personalized, HR-ified RLHF'd models from your model overlords are not going to make people as satisfied as ones that optimize for their personal preferences
