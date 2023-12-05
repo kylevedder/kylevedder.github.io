@@ -38,7 +38,7 @@ The book then somewhat abruptly pivots to talking about the real world practical
 
  - Single arm on robot base is actually challenging to deploy in environments built for humans; humanoid robots are actually better (1x, which Eric is the VP of AI of, makes humanoid robots, while his previous job at Google Research used a single arm connected to a wheeled base)
  - Avoid all the failure modes of Google Research when building your systems; keep a team small with a shared opinionated vision for how to solve the problem, and do not over-engineer your systems.
- - Good, tiered evaluation systems are needed to guide your from the space of almost all possible solutions down to the exact model with the exact hyperparameters
+ - Good, tiered evaluation systems are needed to guide your policy (and hardware) search from the space of almost all possible solutions down to the exact model with the exact hyperparameters
  - AI assistants are going to be personalized, HR-ified RLHF'd models from your model overlords are not going to make people as satisfied as ones that optimize for their personal preferences
 
 The book ends talking social implications, deep fakes, UBI vs costless utopia, and AI systems that understand beauty, but these topics felt too uninteresting to mention (maybe because I read about them every day on Twitter).
