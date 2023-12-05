@@ -18,6 +18,8 @@ You should read this book if
 
 I think the book is particularly useful for SWEs, management consultants, finance analysts, or business strategists who want to gather a technology focused perspective of what's beyond the horizon of a fancier LLM or a new image generation model. If you are a robot learning research scientist and believe in The Bitter Lesson, these ideas probably sound familiar and I suggest reading [Eric's blog](https://evjang.com/) instead for more technical details.
 
+Information about where to buy the book can be found at [evjang.com/book/](https://evjang.com/book/)
+
 ## Book Summary
 
 <hr/>
