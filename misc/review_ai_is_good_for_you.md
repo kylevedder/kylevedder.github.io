@@ -87,6 +87,8 @@ The ideas in this book are gold. The writing is plain. The organization needs so
 
 I think this is unfortunate because the kinds of people who would benefit from this semi-technical presentation of ideas (management consultants, finance analysts, business strategists) are the exact kind of people who are turned off by bad organization, typos, section headers at the end of pages, and tables that have one word randomly floating on the next page (this happened twice). Science communication is _hard_ and unfortunately it selects more for the "communication" than it does the "science". I think this book, if seriously cleaned up, has the opportunity to speak to an important intellectual class who drive business and policy decisions that impact our lives but are woefully under-informed by smooth talking technical hacks or ideologues who have an axe to grind.
 
+Update Dec 4th 2023: I have been informed that these editing issues are going to be fixed! I think this is very exciting, as I think it will significantly grow the audience reach for the _content_, which is golden.
+
 [^1]: I tried to title my recent unsupervised scene flow learning pipeline paper ["ZeroFlow: The Bitter Lesson meets Scene Flow"](https://vedder.io/zeroflow.html) but I got shutdown.
 [^2]: June 14, 2022, I tweeted ["For the record: attention, scale, and a sufficiently hard problem is all you need"](https://twitter.com/KyleVedder/status/1536587805308112896).
 [^3]: I pitched to my labmates a version of _Overcooked_, played in first person VR, where you have to put the ingredients in the proper place by manipulating them with your tracked hands. We agreed this would be a fun game and a useful data collection rig, but none of us were enthusiastic about the idea of doing game development.
