@@ -94,7 +94,7 @@ li {
 }
 
 .footnote-ref {
-    position: absolute;
+    position: relative;
 }
 
 .custom-tooltip {
