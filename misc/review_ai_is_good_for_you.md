@@ -47,7 +47,7 @@ The book ends talking social implications, deep fakes, UBI vs costless utopia, a
 
 <hr/>
 
-There's a lot of ink spilled about AI. Pretty much all of it is garbage, ignorant of the past and untethered from present state of research. _This book is an exception_. I think this book does a great job at articulating the perspective of the portion of the robot learning community that believes in The Bitter Lesson (of which I consider myself a member[^1]).
+There's a lot of ink spilled about AI. Pretty much all of it is garbage, ignorant of the past and untethered from present state of research. _This book is an exception_. I think this book does a great job of articulating the perspective of the portion of the robot learning community that believes in The Bitter Lesson (of which I consider myself a member[^1]).
 
 I am totally sold that we need our agents to solve sufficiently hard problems if we want them to learn higher level reasoning abilities[^2]; I don't believe that "intelligent design" of every low level component manually glued together is how we get to AGI (this is the "Boomer Robotics" way that Waymo, Cruise, Motional, Argo, etc follow, although they have safety regulatory concerns that home robots do not). But I also agree that full-sending training end-to-end optimization on Jungle Basketball (an example I love) is obviously intractable. We need a "Weak" Bitter Lesson.
 
