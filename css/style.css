@@ -60,13 +60,13 @@ code {
     font-family: 'cmu_code', monospace;
 }
 
-pre > code {
+pre>code {
     overflow: auto;
     word-wrap: normal;
     white-space: pre;
     display: block;
     background: #F6F6F6;
-    
+
     max-width: 100%;
     min-width: 100px;
     padding: 0;
@@ -94,26 +94,25 @@ li {
 }
 
 .footnote-ref {
-    position: relative;
+    position: absolute;
 }
 
 .custom-tooltip {
     visibility: hidden;
-    width: 500px;
+    width: 400px;
     background-color: rgb(255, 255, 255);
     color: #000;
     text-align: left;
     border-radius: 6px;
-    padding: 5px 0;
+    padding: 5px 10px;
     position: absolute;
     z-index: 1;
     bottom: 100%;
-    left: 50%;
+    left: 0px;
     border: 1px solid #000;
-    padding-left: 10px;
-  }
-  
-  a:hover .custom-tooltip {
+    box-sizing: border-box;
+}
+
+a:hover .custom-tooltip {
     visibility: visible;
-  }
-  
+}
