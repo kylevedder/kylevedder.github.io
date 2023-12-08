@@ -11,13 +11,10 @@ def load_json(path):
         return json.load(f)
 
 
-example_json_file = subfolders[0] / "category_count.json"
-example_json = load_json(example_json_file)
-category_names = sorted(example_json.keys())
-
-
-def print_legend_entry(category, color):
-    print(f"""<tr><td><div class="color-box" style="background-color: rgb({color[0] * 255}, {color[1]* 255}, {color[2]* 255});"></div></td><td>{category}</td></tr>""")
+def print_legend_entry(category, color, count):
+    print(
+        f"""<tr><td><div class="color-box" style="background-color: rgb({color[0] * 255}, {color[1]* 255}, {color[2]* 255});"></div></td><td>{category}</td><td style="text-align: right;">{count}</td></tr>"""
+    )
 
 
 print("<div class=\"entries\">", end="\n\n")
@@ -28,17 +25,22 @@ for subfolder in subfolders:
     print(f"<div id='{subfolder.stem}'>", end="\n\n")
     print(f"<h2>{subfolder.stem}</h2>")
 
-
     image_path = Path(".") / "val_data" / subfolder.stem / "bev.png"
     print("<div class=\"content_wrapper\">")
-    print(f"<a href=\"{image_path}\"><img src=\"{image_path}\" class=\"left_image\"></a>")
-    print("""<table class="legend-table"><tr><th>Color</th><th>Description</th></tr>""")
-    
+    print(
+        f"<a href=\"{image_path}\"><img src=\"{image_path}\" class=\"left_image\"></a>"
+    )
+    print(
+        """<table class="legend-table"><tr><th>Color</th><th>Description</th><th>Count</th></tr>"""
+    )
+
     color_json = load_json(subfolder / "category_color.json")
+    count_json = load_json(subfolder / "category_count.json")
     for (category, color) in sorted(color_json.items()):
         if color is None:
             continue
-        print_legend_entry(category, color)
+        count = sum(count_json[category].values())
+        print_legend_entry(category, color, count)
     print("""</table>""")
     print("</div><!-- end content_wrapper -->")
     print("</div>", end="\n\n")
