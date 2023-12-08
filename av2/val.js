@@ -31,7 +31,6 @@ function MySearch() {
             category_dictionary = fetchCategory(json_blob, category);
         }
 
-        console.log("Category dictionary:", category_dictionary);
         var points_in_range = categoryDictionaryInSpeedRange(category_dictionary, minSpeed, maxSpeed);
         if (points_in_range > 0) {
             document.getElementById(alphabetical_ids[i]).style.display = "block";
@@ -156,9 +155,9 @@ function setupMinMaxSliders(json_blob) {
     // Fixed values for the sliders are the keys of the first entry in the JSON blob
     var fixedValues = Object.keys(first_key_values);
     // Convert the fixed values to floating point numbers
-    fixedValues = fixedValues.map(Number);
+    fixedValues = fixedValues.map( function(x) { return parseFloat(x); } );
     // Sort the fixed values in ascending order
-    fixedValues.sort();
+    fixedValues.sort((a, b) => a - b);
     // Append to "fixedValues" the value of positive infinity
     fixedValues.push(Infinity);
 
