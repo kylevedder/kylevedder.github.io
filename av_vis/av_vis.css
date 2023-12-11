@@ -1,0 +1,27 @@
+
+.content_wrapper {
+    width: 100%;
+    overflow: auto; /* This ensures the container encompasses floated elements */
+}
+.left_image {
+    float: left;
+    width: 50%;
+}
+.legend-table {
+    width: 40%;
+    float: right;
+    border-collapse: collapse;
+}
+.legend-table td, 
+.legend-table th {
+    border: 1px solid black;
+    padding: 8px;
+}
+.legend-table th {
+    text-align: left;
+}
+.color-box {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
