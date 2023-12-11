@@ -1,9 +1,9 @@
-HEADER Argoverse 2 Validation split 75m visualization
+HEADER Waymop Open Validation split 75m visualization
 
 <!-- Include the `val.css` -->
 <link rel="stylesheet" href="../av_vis.css">
 
-# Argoverse 2 Validation split 75m visualization
+# Waymo Open Validation split 75m visualization
 
 <form>
 <select name="category_menu">
