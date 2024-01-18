@@ -32,6 +32,7 @@ During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas]
 
 ## Updates
 <div class="updates">
+ - Jan 16th, 2024: [_ZeroFlow_](./zeroflow.html) was accepted to ICLR 2024!
  - Dec 4th, 2023: [Book Review: Eric Jang’s book "_AI is Good for You_"](./misc/review_ai_is_good_for_you.html)
  - Nov 21st, 2023: I will be joining Nvidia's AV team as a Research Intern starting in January! I will be extending [ZeroFlow](http://vedder.io/zeroflow) in an exciting new way (more to come!)
  - Aug 3rd, 2023: [Blog post: Applying to CS PhD programs for Machine Learning: what I wish I knew](https://vedder.io/misc/applying_to_ml_phd.html)

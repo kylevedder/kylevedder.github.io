@@ -42,6 +42,6 @@ We instantiate this framework in _ZeroFlow_, a scene flow method that scales to 
 ### Citation:
 
 ```
-BIB bibs/conferences.bib vedder2023zeroflow
+BIB bibs/conferences.bib vedder2024zeroflow
 ```
 
