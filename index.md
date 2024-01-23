@@ -39,7 +39,7 @@ During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas]
  - Jul 28th, 2023: [ZeroFlow XL](./zeroflow.html) is now **state-of-the-art** on the [Argoverse 2 Self-Supervised Scene Flow Leaderboard](https://eval.ai/web/challenges/challenge-page/2010/leaderboard/4759)! And we've only begun to scale our method --- there is plenty of performance left on the table!
  - Jul 3rd, 2023: [Blog post: My ML research development environment workflow](misc/research_dev_env.html)
  - Jun 18th, 2023: [ZeroFlow](./zeroflow.html) was selected as a **highlighted method** in the CVPR 2023 _Workshop on Autonomous Driving_ Scene Flow Challenge!
- - May 18th, 2023: [_ZeroFlow: Fast Zero Label Scene Flow via Distillation_](./zeroflow.html) was submitted.
+ - May 18th, 2023: [_ZeroFlow: Scalable Scene Flow via Distillation_](./zeroflow.html) was submitted.
  - Jan 12th, 2023: [_A Domain-Agnostic Approach for Characterization of Lifelong Learning Systems_](./publications/L2M_eval_preprint.pdf) was accepted to Neural Networks.
  - Jun 30th, 2022: [_Sparse PointPillars_](./sparse_point_pillars.html) was accepted to IROS 2022. [(Reviews)](./misc/SparsePointPillars_IROS_2022_reviews.txt)
  - Jun 7th, 2022: [Invited talk for _Sparse PointPillars_ at 3D-DLAD](https://www.youtube.com/watch?v=JgcR6cFXR5w)
