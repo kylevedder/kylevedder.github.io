@@ -13,22 +13,32 @@
 <meta name="author" content="Kyle Vedder">
 <link rel="shortcut icon" href="../favicon.ico">
 <title>
-Setting up mujoco-py for on-screen and off-screen rendering via GLEW and EGL library configuration
+Setting up mujoco-py for on-screen and off-screen rendering via GLEW and
+EGL library configuration
 </title>
 <!-- css -->
 <link href="../css/style.css" rel="stylesheet"> <!-- JavaScript -->
 <script type="text/javascript" src="../js/utils.js"></script>
 </head>
-<h1 id="setting-up-mujoco-py-for-use-with-on-screen-and-off-screen-rendering">Setting up <code>mujoco-py</code> for use with on-screen and off-screen rendering</h1>
-<p>Setting up <a href="https://github.com/openai/mujoco-py"><code>mujoco-py</code></a> for on-screen and off-screen rendering on Ubuntu 18.04</p>
+<h1
+id="setting-up-mujoco-py-for-use-with-on-screen-and-off-screen-rendering">Setting
+up <code>mujoco-py</code> for use with on-screen and off-screen
+rendering</h1>
+<p>Setting up <a
+href="https://github.com/openai/mujoco-py"><code>mujoco-py</code></a>
+for on-screen and off-screen rendering on Ubuntu 18.04</p>
 <h2 id="system-packages">System packages</h2>
 <pre><code>sudo apt install patchelf libosmesa6-dev libegl1-mesa libgl1-mesa-glx libglfw3 libglew-dev</code></pre>
 <h2 id="installing-mujoco">Installing MuJoCo</h2>
-<p>Download MuJoCo, create the <code>~/.mujoco/</code> directory. Place your MuJoCo key inside this directory, naming it <code>mjkey.txt</code>, and unzip MuJoCo 2.0.0 inside it, creating the following directory structure:</p>
+<p>Download MuJoCo, create the <code>~/.mujoco/</code> directory. Place
+your MuJoCo key inside this directory, naming it <code>mjkey.txt</code>,
+and unzip MuJoCo 2.0.0 inside it, creating the following directory
+structure:</p>
 <pre><code>~/.mujoco/
 ├── mjkey.txt
 └── mujoco200/</code></pre>
-<p>Additionally, so that code can compile and link against MuJoCo, you need to add it to your library path; this can be done by adding</p>
+<p>Additionally, so that code can compile and link against MuJoCo, you
+need to add it to your library path; this can be done by adding</p>
 <pre><code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.mujoco/mujoco200/bin</code></pre>
 <p>to your <code>~/.bashrc</code> and <code>source</code>ing it.</p>
 <h2 id="installing-mujoco-py">Installing mujoco-py</h2>
@@ -37,19 +47,43 @@ Setting up mujoco-py for on-screen and off-screen rendering via GLEW and EGL lib
 <p>or by cloning the repo and running</p>
 <pre><code>make test
 pip install -e .</code></pre>
-<p>inside it to compile from source. We recommend cloning the repo and building from source, as this gives you access to <code>examples/</code> that will be useful below.</p>
-<h2 id="selecting-the-proper-graphics-library">Selecting the proper graphics library</h2>
-<p>Due to the nature of the graphics libraries that MuJoCo uses, it’s not possible to render to the viewer and programatically render images for a MuJoCo camera without causing errors. This is because rendering off-screen and rendering with the viewer require two different graphics libraries (EGL vs GLEW respectively).</p>
-<h3 id="graphics-library-for-running-viewer">Graphics library for running viewer</h3>
-<p>If we try to run one of the <code>mujoco-py</code> examples (e.g. <code>examples/body_interaction.py</code>), we get the following error:</p>
+<p>inside it to compile from source. We recommend cloning the repo and
+building from source, as this gives you access to <code>examples/</code>
+that will be useful below.</p>
+<h2 id="selecting-the-proper-graphics-library">Selecting the proper
+graphics library</h2>
+<p>Due to the nature of the graphics libraries that MuJoCo uses, it’s
+not possible to render to the viewer and programatically render images
+for a MuJoCo camera without causing errors. This is because rendering
+off-screen and rendering with the viewer require two different graphics
+libraries (EGL vs GLEW respectively).</p>
+<h3 id="graphics-library-for-running-viewer">Graphics library for
+running viewer</h3>
+<p>If we try to run one of the <code>mujoco-py</code> examples
+(e.g. <code>examples/body_interaction.py</code>), we get the following
+error:</p>
 <pre><code>Creating window glfw
 ERROR: GLEW initalization error: Missing GL version</code></pre>
-<p>To remedy this, we need to set the <code>LD_PRELOAD</code> environment variable to point to the <code>libGLEW.so</code>; on my system, this is <code>/usr/lib/x86_64-linux-gnu/libGLEW.so</code>, but you can confirm this on your system by running <code>locate libGLEW.so</code>; multiple copies may appear (e.g. in <code>snap</code> packages or <code>conda</code> environments) but at least one should exist at the above path. As a permanant fix, we recommend adding</p>
+<p>To remedy this, we need to set the <code>LD_PRELOAD</code>
+environment variable to point to the <code>libGLEW.so</code>; on my
+system, this is <code>/usr/lib/x86_64-linux-gnu/libGLEW.so</code>, but
+you can confirm this on your system by running
+<code>locate libGLEW.so</code>; multiple copies may appear (e.g. in
+<code>snap</code> packages or <code>conda</code> environments) but at
+least one should exist at the above path. As a permanant fix, we
+recommend adding</p>
 <pre><code>export LD_PRELOAD=$LD_PRELOAD:/usr/lib/x86_64-linux-gnu/libGLEW.so</code></pre>
-<p>to your <code>~/.bashrc</code> and <code>source</code>ing it. The <code>examples/body_interaction.py</code> should now render.</p>
-<h3 id="graphics-library-for-rendering-off-screen">Graphics library for rendering off-screen</h3>
-<p>In order to render off-screen, e.g. by saving images from MuJoCo <code>camera</code> objects while running headless, we must use EGL instead of GLEW. To do this <strong>comment out</strong> any <code>LD_PRELOAD=</code> command in your <code>~/.bashrc</code> and remove any <code>MjViewer</code> creation in your code.</p>
-<p>To demo this, modify <code>examples/body_interaction.py</code> as follows</p>
+<p>to your <code>~/.bashrc</code> and <code>source</code>ing it. The
+<code>examples/body_interaction.py</code> should now render.</p>
+<h3 id="graphics-library-for-rendering-off-screen">Graphics library for
+rendering off-screen</h3>
+<p>In order to render off-screen, e.g. by saving images from MuJoCo
+<code>camera</code> objects while running headless, we must use EGL
+instead of GLEW. To do this <strong>comment out</strong> any
+<code>LD_PRELOAD=</code> command in your <code>~/.bashrc</code> and
+remove any <code>MjViewer</code> creation in your code.</p>
+<p>To demo this, modify <code>examples/body_interaction.py</code> as
+follows</p>
 <pre><code>model = load_model_from_xml(MODEL_XML)
 sim = MjSim(model)
 # viewer = MjViewer(sim)
@@ -62,4 +96,7 @@ while True:
     # viewer.render()
     if t &gt; 100 and os.getenv(&#39;TESTING&#39;) is not None:
         break</code></pre>
-<p>Note the <code>sim.render()</code> call, and the commented out <code>viewer</code> calls. This should print that <code>res</code> is a 255 x 255 x 3 numpy array representing an RGB image from the <code>rgb</code> camera.</p>
+<p>Note the <code>sim.render()</code> call, and the commented out
+<code>viewer</code> calls. This should print that <code>res</code> is a
+255 x 255 x 3 numpy array representing an RGB image from the
+<code>rgb</code> camera.</p>

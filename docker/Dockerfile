@@ -4,7 +4,9 @@ SHELL ["/bin/bash", "-c"]
 # flow and ignores the non-interactive frontend command 🤬🤬🤬
 RUN ln -snf /usr/share/zoneinfo/America/New_York /etc/localtime && echo "/usr/share/zoneinfo/America/New_York" > /etc/timezone
 RUN apt update -y
-RUN apt install pandoc pandoc-citeproc exiftool texlive-latex-extra -y
+RUN apt install wget exiftool texlive-latex-extra -y
+RUN wget https://github.com/jgm/pandoc/releases/download/3.1.11.1/pandoc-3.1.11.1-1-amd64.deb -O /tmp/pandoc.deb
+RUN apt install /tmp/pandoc.deb -y
 RUN apt install python3-pip -y
 RUN apt install git -y
 RUN pip3 install --no-cache-dir --force-reinstall git+https://github.com/sciunto-org/python-bibtexparser@main

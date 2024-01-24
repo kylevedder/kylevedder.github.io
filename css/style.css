@@ -78,6 +78,36 @@ li {
     line-height: 1.15em;
 }
 
+.figure_box {
+    /* Add a 1 pixel boarder with rounded corners and two pixels of padding to the content on the inside */
+    padding: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* set the boarder to 1 px */
+    /* border: 1px solid #000; */
+    
+}
+
+.figure_box .caption {
+    /* Make the text stay away from the figure box edge by 10 px */
+    padding: 10px;
+}
+
+.data_table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.data_table, .data_table th, .data_table td {
+    border: 1px solid black;
+}
+.data_table th, td {
+    padding: 8px;
+    text-align: left;
+}
+.data_table th {
+    background-color: #f2f2f2;
+}
+
 .centered {
     text-align: center;
     display: block;

@@ -19,29 +19,79 @@ My ML research development environment workflow
 <link href="../css/style.css" rel="stylesheet"> <!-- JavaScript -->
 <script type="text/javascript" src="../js/utils.js"></script>
 </head>
-<h1 id="my-ml-research-development-environment-workflow">My ML research development environment workflow</h1>
-<p><em>TL;DR: Build a docker image, mount your code as a volume, live a happy life.</em></p>
-<p>As a CS PhD student doing machine learning research, I usually have multiple projects going at once. These projects require different versions of libraries (e.g. PyTorch) or system setups (e.g. CUDA versions), so they cannot conflict with each other. I do development locally, but run most train and test jobs on the compute cluster, so I need consistency between the two, with different dataset locations handled at the environment level, not the client code level. These environments are also regularly subject to change; a package needs to be easy to add or update without being left in a broken state (e.g. due to bad uninstall routine), and if the env is broken, it’s easy to roll back to a working one. Once changed, they need to be easy to synchronize with other systems without a painful rebuild process or the possibility of one system being left in a broken state. I also want the environments to be scrutable; the descriptions of how they were constructed need to be human readable and tracked by source control.</p>
+<h1 id="my-ml-research-development-environment-workflow">My ML research
+development environment workflow</h1>
+<p><em>TL;DR: Build a docker image, mount your code as a volume, live a
+happy life.</em></p>
+<p>As a CS PhD student doing machine learning research, I usually have
+multiple projects going at once. These projects require different
+versions of libraries (e.g. PyTorch) or system setups (e.g. CUDA
+versions), so they cannot conflict with each other. I do development
+locally, but run most train and test jobs on the compute cluster, so I
+need consistency between the two, with different dataset locations
+handled at the environment level, not the client code level. These
+environments are also regularly subject to change; a package needs to be
+easy to add or update without being left in a broken state (e.g. due to
+bad uninstall routine), and if the env is broken, it’s easy to roll back
+to a working one. Once changed, they need to be easy to synchronize with
+other systems without a painful rebuild process or the possibility of
+one system being left in a broken state. I also want the environments to
+be scrutable; the descriptions of how they were constructed need to be
+human readable and tracked by source control.</p>
 <p>I need environments that are:</p>
 <ol type="1">
 <li>Self-contained – no implicit system dependencies</li>
-<li>Easy to distribute – pull a binary image from an authoritative source</li>
-<li>Self-describing – script under source control to recreate the image from scratch or modify it for future needs</li>
-<li>Checkpointed – no doing a from scratch rebuild of the env because of a single bad command</li>
-<li>File-system mappable – inside the environment, everything needs to appear in a standard location on disk, even if the underlying filesystem stores the data in different folders</li>
+<li>Easy to distribute – pull a binary image from an authoritative
+source</li>
+<li>Self-describing – script under source control to recreate the image
+from scratch or modify it for future needs</li>
+<li>Checkpointed – no doing a from scratch rebuild of the env because of
+a single bad command</li>
+<li>File-system mappable – inside the environment, everything needs to
+appear in a standard location on disk, even if the underlying filesystem
+stores the data in different folders</li>
 </ol>
-<p>For these reasons, I do all of my development work inside Docker containers.</p>
+<p>For these reasons, I do all of my development work inside Docker
+containers.</p>
 <h2 id="intro-to-docker">Intro to Docker</h2>
-<p>Docker is a system for building and running <em>containers</em>. Each container holds a full system image – you start with a base system image (e.g. <a href="https://hub.docker.com/r/nvidia/cudagl">an Ubuntu image with CUDA and OpenGL preinstalled</a>), and then you modify it via a series of <code>bash</code> commands laid out in a <code>Dockerfile</code>. Once the container image is built, you can interactively run programs (such as your code) inside using the installed libraries. Your code and other folders such as data folders can be dynamically mounted into the container, allowing for live editing of your code from either inside the container, or outside on the base system (e.g. from an open text editor). Built images can be uploaded to <a href="https://hub.docker.com/">DockerHub</a>, where they can be pulled down to another machine (e.g. the compute cluster), ensuring binary identical environments.</p>
-<p>The following steps assume that you have <code>docker</code> installed on your base system with NVidia GPU support (sometimes called <code>nvidia-docker2</code>), and your base system has an NVidia GPU with a GPU <em>driver</em> with CUDA version support at <em>least</em> as great as your targeted CUDA version. <strong>Note:</strong> driver CUDA support is <em>not</em> the same as having CUDA installed on your base system. You can check the version of CUDA your driver supports with the output <code>nvidia-smi</code>, e.g.</p>
+<p>Docker is a system for building and running <em>containers</em>. Each
+container holds a full system image – you start with a base system image
+(e.g. <a href="https://hub.docker.com/r/nvidia/cudagl">an Ubuntu image
+with CUDA and OpenGL preinstalled</a>), and then you modify it via a
+series of <code>bash</code> commands laid out in a
+<code>Dockerfile</code>. Once the container image is built, you can
+interactively run programs (such as your code) inside using the
+installed libraries. Your code and other folders such as data folders
+can be dynamically mounted into the container, allowing for live editing
+of your code from either inside the container, or outside on the base
+system (e.g. from an open text editor). Built images can be uploaded to
+<a href="https://hub.docker.com/">DockerHub</a>, where they can be
+pulled down to another machine (e.g. the compute cluster), ensuring
+binary identical environments.</p>
+<p>The following steps assume that you have <code>docker</code>
+installed on your base system with NVidia GPU support (sometimes called
+<code>nvidia-docker2</code>), and your base system has an NVidia GPU
+with a GPU <em>driver</em> with CUDA version support at <em>least</em>
+as great as your targeted CUDA version. <strong>Note:</strong> driver
+CUDA support is <em>not</em> the same as having CUDA installed on your
+base system. You can check the version of CUDA your driver supports with
+the output <code>nvidia-smi</code>, e.g.</p>
 <pre><code>$ nvidia-smi
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 525.116.04   Driver Version: 525.116.04   CUDA Version: 12.0     |
 |-------------------------------+----------------------+----------------------+
 </code></pre>
-<p>means the base system supports CUDA versions 12.0 and earlier (including CUDA 11.X and 10.X)</p>
+<p>means the base system supports CUDA versions 12.0 and earlier
+(including CUDA 11.X and 10.X)</p>
 <h3 id="the-dockerfile">The <code>Dockerfile</code></h3>
-<p><a href="https://github.com/kylevedder/kylevedder.github.io/blob/master/misc/research_dev_env/docker/Dockerfile">Below is the <code>Dockerfile</code> I base my environments upon</a> — it uses an NVidia provided base image with CUDA 11.3 and OpenGL on Ubuntu 20.04. The <code>Dockerfile</code> performs some system setup, then installs <code>miniconda</code> (a minimal installer for the commonly used <code>conda</code> package manager), which it uses to install other standard packages: Python 3.10, PyTorch 1.12.1, and Open3D 0.17.</p>
+<p><a
+href="https://github.com/kylevedder/kylevedder.github.io/blob/master/misc/research_dev_env/docker/Dockerfile">Below
+is the <code>Dockerfile</code> I base my environments upon</a> — it uses
+an NVidia provided base image with CUDA 11.3 and OpenGL on Ubuntu 20.04.
+The <code>Dockerfile</code> performs some system setup, then installs
+<code>miniconda</code> (a minimal installer for the commonly used
+<code>conda</code> package manager), which it uses to install other
+standard packages: Python 3.10, PyTorch 1.12.1, and Open3D 0.17.</p>
 <pre><code>FROM nvidia/cudagl:11.3.0-devel-ubuntu20.04
 SHELL [&quot;/bin/bash&quot;, &quot;-c&quot;]
 # Set the timezone info because otherwise tzinfo blocks install 
@@ -72,17 +122,32 @@ ENV PYTHONPATH=/project:${PYTHONPATH}
 COPY bashrc /root/.bashrc
 # Set the working directory to the project directory, where we will mount the repo
 WORKDIR /project</code></pre>
-<p>To build this <code>Dockerfile</code> inside the <a href="https://github.com/kylevedder/kylevedder.github.io/tree/master/misc/research_dev_env">example project folder</a>, run</p>
+<p>To build this <code>Dockerfile</code> inside the <a
+href="https://github.com/kylevedder/kylevedder.github.io/tree/master/misc/research_dev_env">example
+project folder</a>, run</p>
 <pre><code>docker build docker/ -t research_dev_env</code></pre>
-<p>This command uses the <code>docker/</code> subfolder as a build context, meaning the build process has access to all files inside the folder (e.g. to <code>COPY</code> into the image, in the case of <code>docker/bashrc</code>), and defaults to using the file named <code>Dockerfile</code> inside this context. The built container is tagged as <code>research_dev_env</code> with the <code>-t</code> flag.</p>
-<h3 id="pushing-the-container-to-dockerhub">Pushing the container to DockerHub</h3>
-<p>To make the container distributable to any system, I created <a href="https://hub.docker.com/repository/docker/kylevedder/research_dev_env">an example repo under my account on DockerHub</a>. Note that the commands below are for my account, and require you to have authenticated your DockerHub account (i.e. via <code>docker login</code>).</p>
+<p>This command uses the <code>docker/</code> subfolder as a build
+context, meaning the build process has access to all files inside the
+folder (e.g. to <code>COPY</code> into the image, in the case of
+<code>docker/bashrc</code>), and defaults to using the file named
+<code>Dockerfile</code> inside this context. The built container is
+tagged as <code>research_dev_env</code> with the <code>-t</code>
+flag.</p>
+<h3 id="pushing-the-container-to-dockerhub">Pushing the container to
+DockerHub</h3>
+<p>To make the container distributable to any system, I created <a
+href="https://hub.docker.com/repository/docker/kylevedder/research_dev_env">an
+example repo under my account on DockerHub</a>. Note that the commands
+below are for my account, and require you to have authenticated your
+DockerHub account (i.e. via <code>docker login</code>).</p>
 <p>To tag the locally built image with the remote repo:</p>
 <pre><code>docker image tag research_dev_env kylevedder/research_dev_env</code></pre>
 <p>To push:</p>
 <pre><code>docker image push kylevedder/research_dev_env</code></pre>
-<h3 id="running-in-the-container-locally">Running in the container locally</h3>
-<p>I use the following bash script to run an interactive session in the container (<code>kylevedder/research_dev_env:latest</code>):</p>
+<h3 id="running-in-the-container-locally">Running in the container
+locally</h3>
+<p>I use the following bash script to run an interactive session in the
+container (<code>kylevedder/research_dev_env:latest</code>):</p>
 <pre><code>#!/bin/bash
 xhost +
 touch `pwd`/docker_history.txt
@@ -95,24 +160,80 @@ docker run --gpus=all --rm -it \
  --privileged \
  kylevedder/research_dev_env:latest
 </code></pre>
-<p>this script enables everything we want inside the container, including interactive sessions (<code>-it</code>), access to all system GPUS (<code>--gpus=all</code>), mounting our codebase as <code>/project</code> inside the container, setting the persistent bash history file, and preparing X11 for headed viewing (a shockingly non-trivial endeavor to setup).</p>
-<p>Upon launch, you’re given a bash session located in <code>/project</code> that lets you run your code; the demo program <code>visualize.py</code> maps a random unit sphere point cloud through a randomly initialized two layer MLP, producing a mapped sphere; the results are interactively visualized in 3D with Open3d, with the input shown in red and the result shown in blue.</p>
+<p>this script enables everything we want inside the container,
+including interactive sessions (<code>-it</code>), access to all system
+GPUS (<code>--gpus=all</code>), mounting our codebase as
+<code>/project</code> inside the container, setting the persistent bash
+history file, and preparing X11 for headed viewing (a shockingly
+non-trivial endeavor to setup).</p>
+<p>Upon launch, you’re given a bash session located in
+<code>/project</code> that lets you run your code; the demo program
+<code>visualize.py</code> maps a random unit sphere point cloud through
+a randomly initialized two layer MLP, producing a mapped sphere; the
+results are interactively visualized in 3D with Open3d, with the input
+shown in red and the result shown in blue.</p>
 <p><img src="./research_dev_env/visualize_result.png" style="max-width:1080px; width:25%; display: block; margin-left: auto;margin-right: auto;"/></p>
-<h3 id="running-the-container-on-a-cluster">Running the container on a cluster</h3>
-<p>Docker requires root access to run and makes changes on the mounted file system as root. This is fine for your local development machine, but is dangerous in a shared cluster.</p>
-<p>Penn’s SLURM cluster supports running inside containers by converting them from traditional container/OS images into unprivileged sandboxes (using NVidia’s <a href="https://github.com/NVIDIA/enroot"><code>enroot</code></a>) and then running those sandboxes (using NVidia’s <a href="https://github.com/NVIDIA/pyxis"><code>pyxis</code></a>).</p>
-<h4 id="creating-a-.sqsh-file-with-enroot">Creating a <code>.sqsh</code> file with <code>enroot</code></h4>
-<p><code>enroot</code> creates a <code>.sqsh</code> file, a self-contained sandbox image of your docker container. To do this on a SLURM cluster using <code>srun</code>, run</p>
+<h3 id="running-the-container-on-a-cluster">Running the container on a
+cluster</h3>
+<p>Docker requires root access to run and makes changes on the mounted
+file system as root. This is fine for your local development machine,
+but is dangerous in a shared cluster.</p>
+<p>Penn’s SLURM cluster supports running inside containers by converting
+them from traditional container/OS images into unprivileged sandboxes
+(using NVidia’s <a
+href="https://github.com/NVIDIA/enroot"><code>enroot</code></a>) and
+then running those sandboxes (using NVidia’s <a
+href="https://github.com/NVIDIA/pyxis"><code>pyxis</code></a>).</p>
+<h4 id="creating-a-.sqsh-file-with-enroot">Creating a <code>.sqsh</code>
+file with <code>enroot</code></h4>
+<p><code>enroot</code> creates a <code>.sqsh</code> file, a
+self-contained sandbox image of your docker container. To do this on a
+SLURM cluster using <code>srun</code>, run</p>
 <pre><code>srun enroot import docker://kylevedder/research_dev_env:latest</code></pre>
-<p>which will produce a <code>kylevedder+research_dev_env+latest.sqsh</code> file in the directory the <code>srun</code> command was launched in</p>
-<h4 id="running-a-job-using-a-.sqsh-file">Running a job using a <code>.sqsh</code> file</h4>
-<p>The <code>pyxis</code> plugin allows for <code>.sqsh</code> files to be used as containers. An example <code>srun</code> job using this container</p>
+<p>which will produce a
+<code>kylevedder+research_dev_env+latest.sqsh</code> file in the
+directory the <code>srun</code> command was launched in</p>
+<h4 id="running-a-job-using-a-.sqsh-file">Running a job using a
+<code>.sqsh</code> file</h4>
+<p>The <code>pyxis</code> plugin allows for <code>.sqsh</code> files to
+be used as containers. An example <code>srun</code> job using this
+container</p>
 <pre><code>srun --container-image=/home/kvedder/kylevedder+research_dev_env+latest.sqsh --container-mounts=/home/kvedder/my_dataset:/dataset/,/home/kvedder/code/my_project:/project  bash -c &quot;python my_job.py&quot;</code></pre>
-<p>This will run <code>python my_job.py</code> in the container using the codebase <code>/home/kvedder/code/my_project</code> mounted to <code>/project</code>, and have access to <code>/home/kvedder/my_dataset</code> mounted at <code>/dataset</code>. Further mounts can be added with the same comma separated syntax.</p>
+<p>This will run <code>python my_job.py</code> in the container using
+the codebase <code>/home/kvedder/code/my_project</code> mounted to
+<code>/project</code>, and have access to
+<code>/home/kvedder/my_dataset</code> mounted at <code>/dataset</code>.
+Further mounts can be added with the same comma separated syntax.</p>
 <h2 id="faq">FAQ</h2>
-<h3 id="why-not-just-use-conda-environment-files">Why not just use <code>conda</code> environment files?</h3>
-<p><code>conda</code> environment files are <strong>NOT</strong> fully reproducible; many packages have implicit dependencies on underlying system packages. Even if they have no underlying system dependencies, <code>conda</code> environments can still fail to be reproduced if a single package at the pegged version becomes unavailable (e.g. deprecation). Docker images are fully self-contained, meaning at any point in the future the environment can be pulled and it will be <em>binary</em> equivalent to the environment used to develop and test for your paper.</p>
-<p><code>conda</code> environments are also easy to break — uninstalling or upgrading a package can require a full environment rebuild, and when testing package versions for issues, there’s not a good way to go back to a “known good” state. Docker images provide known, deterministic state, along with a build cache for easy switching between line configurations.</p>
-<p><code>environment.yml</code> files are also inscrutable, as they do not distinguish between packages intentionally installed versus implicitly installed. They are also difficult to keep synchronized between systems, as it requires either fully rebuilding the environment each time it’s updated, or risk desynchronization because of faulty package uninstall logic.</p>
-<h3 id="docker-is-too-complicated">Docker is too <em>complicated</em></h3>
-<p>This isn’t a question, and I find editing a <code>Dockerfile</code> and rebuilding to be 100x less frustrating than futzing around with a <code>conda</code> environment during package version management. I have had to wipe and rebuild <code>conda</code> environments at least 50 times because something broke during an edit while trying to resolve multi-package compatibility issues. Docker’s ability to revert to a known good state has saved me more times than I can count.</p>
+<h3 id="why-not-just-use-conda-environment-files">Why not just use
+<code>conda</code> environment files?</h3>
+<p><code>conda</code> environment files are <strong>NOT</strong> fully
+reproducible; many packages have implicit dependencies on underlying
+system packages. Even if they have no underlying system dependencies,
+<code>conda</code> environments can still fail to be reproduced if a
+single package at the pegged version becomes unavailable
+(e.g. deprecation). Docker images are fully self-contained, meaning at
+any point in the future the environment can be pulled and it will be
+<em>binary</em> equivalent to the environment used to develop and test
+for your paper.</p>
+<p><code>conda</code> environments are also easy to break — uninstalling
+or upgrading a package can require a full environment rebuild, and when
+testing package versions for issues, there’s not a good way to go back
+to a “known good” state. Docker images provide known, deterministic
+state, along with a build cache for easy switching between line
+configurations.</p>
+<p><code>environment.yml</code> files are also inscrutable, as they do
+not distinguish between packages intentionally installed versus
+implicitly installed. They are also difficult to keep synchronized
+between systems, as it requires either fully rebuilding the environment
+each time it’s updated, or risk desynchronization because of faulty
+package uninstall logic.</p>
+<h3 id="docker-is-too-complicated">Docker is too
+<em>complicated</em></h3>
+<p>This isn’t a question, and I find editing a <code>Dockerfile</code>
+and rebuilding to be 100x less frustrating than futzing around with a
+<code>conda</code> environment during package version management. I have
+had to wipe and rebuild <code>conda</code> environments at least 50
+times because something broke during an edit while trying to resolve
+multi-package compatibility issues. Docker’s ability to revert to a
+known good state has saved me more times than I can count.</p>
