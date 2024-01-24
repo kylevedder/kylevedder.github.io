@@ -24,7 +24,7 @@ As a qualitative example, consider [Argoverse 2's val sequence _0bae3b5e-417d-3b
 
 <div class="figure_box">
 
-<img src="./img/static/av2_2024_scene_flow/bev.png" class="centered">
+<img src="./img/static/av2_2024_scene_flow/bev.png" class="centered" style="width:50%">
 
 <div class="caption">
 
@@ -36,7 +36,7 @@ _Figure 1._ Accumulated point cloud of AV2’s val 0bae3b5e-417d-3b03-abaa-806b4
 
 <div class="figure_box">
 
-<table>
+<table style="width:100%">
     <tr>
         <th>GT</th>
         <th>NSFP</th>
@@ -44,10 +44,10 @@ _Figure 1._ Accumulated point cloud of AV2’s val 0bae3b5e-417d-3b03-abaa-806b4
         <th>FastFlow3D</th>
     </tr>
     <tr>
-        <td><img src="./img/static/av2_2024_scene_flow/ped_flow_gt.png" alt="GT Image"></td>
-        <td><img src="./img/static/av2_2024_scene_flow/ped_flow_nsfp.png" alt="NSFP Image"></td>
-        <td><img src="./img/static/av2_2024_scene_flow/ped_flow_zeroflow.png" alt="ZeroFlow Image"></td>
-        <td><img src="./img/static/av2_2024_scene_flow/ped_flow_supervised.png" alt="Supervised Image"></td>
+        <td><img src="./img/static/av2_2024_scene_flow/ped_flow_gt.png" alt="GT Image" style="width:100%"></td>
+        <td><img src="./img/static/av2_2024_scene_flow/ped_flow_nsfp.png" alt="NSFP Image" style="width:100%"></td>
+        <td><img src="./img/static/av2_2024_scene_flow/ped_flow_zeroflow.png" alt="ZeroFlow Image" style="width:100%"></td>
+        <td><img src="./img/static/av2_2024_scene_flow/ped_flow_supervised.png" alt="Supervised Image"  style="width:100%"></td>
     </tr>
 </table>
 
@@ -75,7 +75,7 @@ Chodosh et al. [@Chodosh_2024_WACV] present Threeway EPE, an alternative evaluat
 
 <div class="figure_box">
 
-<img src="./img/static/av2_2024_scene_flow/point_plot.png" class="centered">
+<img src="./img/static/av2_2024_scene_flow/point_plot.png" class="centered" style="width:70%">
 
 <div class="caption">
 
@@ -142,7 +142,7 @@ To summarize overall method performance, we take a mean over the different meta-
 
 <div class="figure_box">
 
-<img src="./img/static/av2_2024_scene_flow/mean_DNEPE_plot.png" class="centered">
+<img src="./img/static/av2_2024_scene_flow/mean_DNEPE_plot.png" class="centered" style="width:80%">
 
 <div class="caption">
 
