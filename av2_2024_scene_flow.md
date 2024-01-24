@@ -11,6 +11,11 @@ HEADER AV2 2024 Scene Flow Challenge Announcement
 
 The AV2 2024 Scene Flow Challenge is focused on the long tail of scene flow. As part of this year’s challenge, we are announcing a new scene flow evaluation protocol.
 
+As part of this announcement, we are releasing the following code:
+
+ - [BucketedSceneFlowEval](https://github.com/kylevedder/BucketedSceneFlowEval), a `pip install`able dataloader + evaluation suite for scene flow with out-of-the-box support for Argoverse 2 and Waymo Open.
+ - [SceneFlowZoo](https://github.com/kylevedder/SceneFlowZoo), a complete codebase based on ZeroFlow [@vedder2024zeroflow] for training and evaluating scene flow methods on Argoverse 2 and Waymo Open using our eval protocol and dataloaders.
+
 ## Pedestrians matter in scene flow
 
 Scene flow estimation is the task of describing the 3D motion field between temporally successive point clouds. High quality scene flow methods should be able to describe the 3D motion of any object because they have an understanding of geometry and motion.

@@ -25,6 +25,20 @@ Challenge Announcement</h1>
 <p>The AV2 2024 Scene Flow Challenge is focused on the long tail of
 scene flow. As part of this year’s challenge, we are announcing a new
 scene flow evaluation protocol.</p>
+<p>As part of this announcement, we are releasing the following
+code:</p>
+<ul>
+<li><a
+href="https://github.com/kylevedder/BucketedSceneFlowEval">BucketedSceneFlowEval</a>,
+a <code>pip install</code>able dataloader + evaluation suite for scene
+flow with out-of-the-box support for Argoverse 2 and Waymo Open.</li>
+<li><a
+href="https://github.com/kylevedder/SceneFlowZoo">SceneFlowZoo</a>, a
+complete codebase based on ZeroFlow <span class="citation"
+data-cites="vedder2024zeroflow">[1]</span> for training and evaluating
+scene flow methods on Argoverse 2 and Waymo Open using our eval protocol
+and dataloaders.</li>
+</ul>
 <h2 id="pedestrians-matter-in-scene-flow">Pedestrians matter in scene
 flow</h2>
 <p>Scene flow estimation is the task of describing the 3D motion field
@@ -106,11 +120,11 @@ any flow for the pedestrians. NSFP is a popular test-time optimization
 method for scene flow due to its simplicity and good Average EPE
 performance. Many recent methods use NSFP as their workhorse flow
 estimator (Chodosh et al. <span class="citation"
-data-cites="Chodosh_2024_WACV">[1]</span>, NSFP++ <span class="citation"
-data-cites="Najibi_2022_ECCV">[2]</span>, Vacek et al. <span
-class="citation" data-cites="Vacek_2023_arXiv">[3]</span>).</li>
+data-cites="Chodosh_2024_WACV">[2]</span>, NSFP++ <span class="citation"
+data-cites="Najibi_2022_ECCV">[3]</span>, Vacek et al. <span
+class="citation" data-cites="Vacek_2023_arXiv">[4]</span>).</li>
 <li><strong>ZeroFlow</strong> <span class="citation"
-data-cites="vedder2024zeroflow">[4]</span>, which uses NSFP
+data-cites="vedder2024zeroflow">[1]</span>, which uses NSFP
 pseudo-labels to train a student feed forward network that produces
 superior quality flow to its NSFP teacher, also does not capture any of
 the pedestrian motion between these two frames.</li>
@@ -135,7 +149,7 @@ comprise a tiny fraction of the total points), Average EPE is dominated
 by background points. On real-world AV datasets, over 80% of lidar
 points are from the background (Figure 4).</p>
 <p>Chodosh et al. <span class="citation"
-data-cites="Chodosh_2024_WACV">[1]</span> present Threeway EPE, an
+data-cites="Chodosh_2024_WACV">[2]</span> present Threeway EPE, an
 alternative evaluation metric which partially addresses the foreground /
 background imbalance. Specifically, average EPE is computed for three
 mutually exclusive buckets: Background Points, Foreground Static (points
@@ -429,7 +443,7 @@ Dynamic (Norm EPE)
 <div class="caption">
 <p><em>Table 2.</em> Example <em>Bucketed Scene Flow Eval</em> results
 for the <em>ZeroFlow 3x</em> model from Vedder et al. <span
-class="citation" data-cites="vedder2024zeroflow">[4]</span>, limited to
+class="citation" data-cites="vedder2024zeroflow">[1]</span>, limited to
 a 35m box around the ego vehicle. <code>BACKGROUND</code> does not
 contain any moving points, so it has “–” recorded for its
 <em>Dynamic</em> error. <strong>Lower is better</strong>.</p>
@@ -451,7 +465,7 @@ normalized EPE (i.e. second component of mABE).</p>
 <div class="caption">
 <p><em>Figure 4.</em> Plot of <em>mean Dynamic Normalized EPE</em> for
 various configurations of unsupervised ZeroFlow <span class="citation"
-data-cites="vedder2024zeroflow">[4]</span> and supervised FastFlow3D
+data-cites="vedder2024zeroflow">[1]</span> and supervised FastFlow3D
 <span class="citation" data-cites="jund2021scalable">[5]</span>.
 Supervised methods shown with hatching. <strong>Lower is
 better</strong>.</p>
@@ -499,29 +513,29 @@ WHEELED_VRU = [
 [@jund2021scalable]: Jund et al. _Scalable Scene Flow from Point Clouds in the Real World._ ICRA 2021. -->
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0"
 role="list">
+<div id="ref-vedder2024zeroflow" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">K.
+Vedder <em>et al.</em>, <span>“<span class="nocase">ZeroFlow: Scalable
+Scene Flow via Distillation</span>,”</span> in <em>Twelfth International
+Conference on Learning Representations (ICLR)</em>, 2024.</div>
+</div>
 <div id="ref-Chodosh_2024_WACV" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">N.
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">N.
 Chodosh, D. Ramanan, and S. Lucey, <span>“Re-evaluating LiDAR scene
 flow,”</span> in <em>Proceedings of the IEEE/CVF winter conference on
 applications of computer vision (WACV)</em>, 2024, pp. 6005–6015.</div>
 </div>
 <div id="ref-Najibi_2022_ECCV" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline">M.
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">M.
 Najibi <em>et al.</em>, <span>“Motion inspired unsupervised perception
 and prediction in autonomous driving,”</span> <em>European Conference on
 Computer Vision (ECCV)</em>, 2022.</div>
 </div>
 <div id="ref-Vacek_2023_arXiv" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[3] </div><div class="csl-right-inline">P.
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">P.
 Vacek, D. Hurych, K. Zimmermann, P. Perez, and T. Svoboda,
 <span>“Regularizing self-supervised 3D scene flows with surface
 awareness and cyclic consistency,”</span> <em>arXiv</em>, 2023.</div>
-</div>
-<div id="ref-vedder2024zeroflow" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[4] </div><div class="csl-right-inline">K.
-Vedder <em>et al.</em>, <span>“<span class="nocase">ZeroFlow: Scalable
-Scene Flow via Distillation</span>,”</span> in <em>Twelfth International
-Conference on Learning Representations (ICLR)</em>, 2024.</div>
 </div>
 <div id="ref-jund2021scalable" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[5] </div><div class="csl-right-inline">P.
