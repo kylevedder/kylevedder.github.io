@@ -465,6 +465,32 @@ estimators have enormous room for improvement to make good on the
 promise of general motion detection — <em>ZeroFlow 3x XL</em>, which
 achieves state-of-the-art on Threeway EPE, on average only describes 50%
 of motion per metaclass (Figure 4).</p>
+<h2 id="meta-class-definitions">Meta-class definitions</h2>
+<p>As part of <em>Bucketed Scene Flow Eval</em>, we define the following
+meta-classes for the Argoverse 2 dataset evaluation:</p>
+<pre><code>BACKGROUND = [&#39;BACKGROUND&#39;]
+
+CAR = [&#39;REGULAR_VEHICLE&#39;]
+
+OTHER_VEHICLES = [
+   &#39;BOX_TRUCK&#39;, &#39;LARGE_VEHICLE&#39;, &#39;RAILED_VEHICLE&#39;, &#39;TRUCK&#39;, &#39;TRUCK_CAB&#39;,
+   &#39;VEHICULAR_TRAILER&#39;, &#39;ARTICULATED_BUS&#39;, &#39;BUS&#39;, &#39;SCHOOL_BUS&#39;
+]
+
+PEDESTRIAN = [
+   &#39;PEDESTRIAN&#39;, &#39;STROLLER&#39;, &#39;WHEELCHAIR&#39;, &#39;OFFICIAL_SIGNALER&#39;
+]
+
+ROAD_SIGNS = [
+   &#39;BOLLARD&#39;, &#39;CONSTRUCTION_BARREL&#39;, &#39;CONSTRUCTION_CONE&#39;,
+   &#39;MOBILE_PEDESTRIAN_CROSSING_SIGN&#39;, &#39;SIGN&#39;, &#39;STOP_SIGN&#39;,
+   &#39;MESSAGE_BOARD_TRAILER&#39;, &#39;TRAFFIC_LIGHT_TRAILER&#39;
+]
+
+WHEELED_VRU = [
+   &#39;BICYCLE&#39;, &#39;BICYCLIST&#39;, &#39;MOTORCYCLE&#39;, &#39;MOTORCYCLIST&#39;, &#39;WHEELED_DEVICE&#39;,
+   &#39;WHEELED_RIDER&#39;
+]</code></pre>
 <h2 id="bibliography">Bibliography</h2>
 <!-- [@Chodosh_2024_WACV]: Chodosh et al. _Re-Evaluating LiDAR Scene Flow for Autonomous Driving._ WACV 2024. -->
 <!-- [@Najibi_2022_ECCV]: Najibi et al. _Motion Inspired Unsupervised Perception and Prediction in Autonomous DrivingMotion Inspired Unsupervised Perception and Prediction in Autonomous Driving._ ECCV 2022.
