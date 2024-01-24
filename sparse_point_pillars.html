@@ -19,28 +19,70 @@ Sparse Point Pillars
 <link href="./css/style.css" rel="stylesheet"> <!-- JavaScript -->
 <script type="text/javascript" src="./js/utils.js"></script>
 </head>
-<h1 id="sparse-pointpillars-maintaining-and-exploiting-input-sparsity-to-improve-runtime-on-embedded-systems">Sparse PointPillars: Maintaining and Exploiting Input Sparsity to Improve Runtime on Embedded Systems</h1>
-<h2 id="kyle-vedder-and-eric-eaton"><a href="http://vedder.io">Kyle Vedder</a> and <a href="https://www.seas.upenn.edu/~eeaton/">Eric Eaton</a></h2>
+<h1
+id="sparse-pointpillars-maintaining-and-exploiting-input-sparsity-to-improve-runtime-on-embedded-systems">Sparse
+PointPillars: Maintaining and Exploiting Input Sparsity to Improve
+Runtime on Embedded Systems</h1>
+<h2 id="kyle-vedder-and-eric-eaton"><a href="http://vedder.io">Kyle
+Vedder</a> and <a href="https://www.seas.upenn.edu/~eeaton/">Eric
+Eaton</a></h2>
 <h2 id="abstract">Abstract:</h2>
-<p>Bird’s Eye View (BEV) is a popular representation for processing 3D point clouds, and by its nature is fundamentally sparse. Motivated by the computational limitations of mobile robot platforms, we create a fast, high-performance BEV 3D object detector that maintains and exploits this input sparsity to decrease runtimes over non-sparse baselines and avoids the tradeoff between pseudoimage area and runtime. We present results on KITTI, a canonical 3D detection dataset, and Matterport-Chair, a novel Matterport3D-derived chair detection dataset from scenes in real furnished homes. We evaluate runtime characteristics using a desktop GPU, an embedded ML accelerator, and a robot CPU, demonstrating that our method results in significant detection speedups (2X or more) for embedded systems with only a modest decrease in detection quality. Our work represents a new approach for practitioners to optimize models for embedded systems by maintaining and exploiting input sparsity throughout their entire pipeline to reduce runtime and resource usage while preserving detection performance.</p>
+<p>Bird’s Eye View (BEV) is a popular representation for processing 3D
+point clouds, and by its nature is fundamentally sparse. Motivated by
+the computational limitations of mobile robot platforms, we create a
+fast, high-performance BEV 3D object detector that maintains and
+exploits this input sparsity to decrease runtimes over non-sparse
+baselines and avoids the tradeoff between pseudoimage area and runtime.
+We present results on KITTI, a canonical 3D detection dataset, and
+Matterport-Chair, a novel Matterport3D-derived chair detection dataset
+from scenes in real furnished homes. We evaluate runtime characteristics
+using a desktop GPU, an embedded ML accelerator, and a robot CPU,
+demonstrating that our method results in significant detection speedups
+(2X or more) for embedded systems with only a modest decrease in
+detection quality. Our work represents a new approach for practitioners
+to optimize models for embedded systems by maintaining and exploiting
+input sparsity throughout their entire pipeline to reduce runtime and
+resource usage while preserving detection performance.</p>
 <h2 id="key-insights">Key Insights:</h2>
-<p>PointPillars, a popular 3D object detector, consumes a pointcloud, converts its sparse set of non-empty pillars into a sparse COO matrix format, vectorizes these pillars, then converts back to a dense matrix to run its dense convolutional Backbone. In improving runtimes for Sparse PointPillars, our first key insight is we can leave the vectorized matrix in its sparse format and <em>exploit</em> this sparsity in our Backbone, allowing us to skip computation in empty regions of the pseudoimage.</p>
+<p>PointPillars, a popular 3D object detector, consumes a pointcloud,
+converts its sparse set of non-empty pillars into a sparse COO matrix
+format, vectorizes these pillars, then converts back to a dense matrix
+to run its dense convolutional Backbone. In improving runtimes for
+Sparse PointPillars, our first key insight is we can leave the
+vectorized matrix in its sparse format and <em>exploit</em> this
+sparsity in our Backbone, allowing us to skip computation in empty
+regions of the pseudoimage.</p>
 <p><img src="img/static/sparse_pointpillars/architecture_no_cap.png" style="max-width:1080px; width:100%"/></p>
-<p>Our second key insight is that we want to <em>maintain</em> this sparsity to ensure successive layers of the Backbone are also efficient. We do this via our new Backbone which utilizes carefully placed sparse and submanifold convolutions. Left image shows the PointPillars’ dense Backbone pseudoimage smearing, right shows our sparse Backbone’s sparsity preservation.</p>
+<p>Our second key insight is that we want to <em>maintain</em> this
+sparsity to ensure successive layers of the Backbone are also efficient.
+We do this via our new Backbone which utilizes carefully placed sparse
+and submanifold convolutions. Left image shows the PointPillars’ dense
+Backbone pseudoimage smearing, right shows our sparse Backbone’s
+sparsity preservation.</p>
 <p><img src="img/static/sparse_pointpillars/pseudoimages_no_cap.png" style="max-width:1080px; width:100%"/></p>
-<p>Full details on the Backbone design plus ablative studies are available in the paper.</p>
+<p>Full details on the Backbone design plus ablative studies are
+available in the paper.</p>
 <h2 id="results-overview">Results Overview:</h2>
-<p>On our custom realistic service robot object detection benchmark, Matterport-Chair, we found that</p>
+<p>On our custom realistic service robot object detection benchmark,
+Matterport-Chair, we found that</p>
 <ul>
-<li>Sparse PointPillars outperforms PointPillars on a Jetson Xavier on max power mode by ~2X</li>
-<li>Sparse PointPillars outperforms PointPillars on a Jetson Xavier on min power mode by ~3X</li>
-<li>Sparse PointPillars on a Jetson Xavier on min power mode is slightly faster than PointPillars on a Jetson Xavier on max power (saves 3X as much power!)</li>
-<li>Sparse PointPillars outperforms PointPillars on a robot CPU by &gt;4x</li>
+<li>Sparse PointPillars outperforms PointPillars on a Jetson Xavier on
+max power mode by ~2X</li>
+<li>Sparse PointPillars outperforms PointPillars on a Jetson Xavier on
+min power mode by ~3X</li>
+<li>Sparse PointPillars on a Jetson Xavier on min power mode is slightly
+faster than PointPillars on a Jetson Xavier on max power (saves 3X as
+much power!)</li>
+<li>Sparse PointPillars outperforms PointPillars on a robot CPU by
+&gt;4x</li>
 </ul>
-<p>All of this comes at the cost of 6% AP on the BEV benchmark and 4% AP on the 3D box benchmark.</p>
-<p>Full experimental details, plus comparisons on KITTI, are available in the paper.</p>
+<p>All of this comes at the cost of 6% AP on the BEV benchmark and 4% AP
+on the 3D box benchmark.</p>
+<p>Full experimental details, plus comparisons on KITTI, are available
+in the paper.</p>
 <h2 id="full-paper-and-downloadables">Full Paper and Downloadables:</h2>
-<p><a href="publications/sparse_point_pillars_iros_2022.pdf">[Accepted IROS 2022 Paper PDF]</a></p>
+<p><a href="publications/sparse_point_pillars_iros_2022.pdf">[Accepted
+IROS 2022 Paper PDF]</a></p>
 <h3 id="citation">Citation:</h3>
 <pre><code>@inproceedings{vedder2022sparse,
     title = {{Sparse PointPillars: Maintaining and Exploiting Input Sparsity to Improve Runtime on Embedded Systems}},
@@ -52,25 +94,44 @@ Sparse Point Pillars
 }
 </code></pre>
 <h4 id="code">Code:</h4>
-<p><a href="https://github.com/kylevedder/SparsePointPillars">https://github.com/kylevedder/SparsePointPillars</a></p>
+<p><a
+href="https://github.com/kylevedder/SparsePointPillars">https://github.com/kylevedder/SparsePointPillars</a></p>
 <h4 id="model-weights">Model weights:</h4>
 <ul>
-<li><a href="https://drive.google.com/file/d/1f5qGC3NiokMBIrW40_0QJE0PuqWJ9VvK/view?usp=sharing">[matterport_chair_sparse]</a></li>
-<li><a href="https://drive.google.com/file/d/13tB9siL1-kTWDNuES79oRVkNdQQukFWD/view?usp=sharing">[matterport_chair_dense]</a></li>
-<li><a href="https://drive.google.com/file/d/1zUYiaWDTY0V_kR7xtvGxNK0BE005PSh_/view?usp=sharing">[kitti_sparse]</a></li>
-<li><a href="https://drive.google.com/file/d/1TArZ3dx_rydSsgnNMq3UBs6-7k3B2vhD/view?usp=sharing">[kitti_dense]</a></li>
-<li><a href="https://drive.google.com/file/d/1eCvUPQLki7C5nfBa6H0MCg--G8Pqhqbz/view?usp=sharing">[kitti_sparse1_dense23]</a></li>
-<li><a href="https://drive.google.com/file/d/1SJnSuYAvwXE2kBburyp1L30GzEGmY0hu/view?usp=sharing">[kitti_sparse12_dense3]</a></li>
-<li><a href="https://drive.google.com/file/d/1Fc7_DDrYlHKXoCwpVeaSOuMv7QgXPVZ6/view?usp=sharing">[kitti_sparse_wide]</a></li>
+<li><a
+href="https://drive.google.com/file/d/1f5qGC3NiokMBIrW40_0QJE0PuqWJ9VvK/view?usp=sharing">[matterport_chair_sparse]</a></li>
+<li><a
+href="https://drive.google.com/file/d/13tB9siL1-kTWDNuES79oRVkNdQQukFWD/view?usp=sharing">[matterport_chair_dense]</a></li>
+<li><a
+href="https://drive.google.com/file/d/1zUYiaWDTY0V_kR7xtvGxNK0BE005PSh_/view?usp=sharing">[kitti_sparse]</a></li>
+<li><a
+href="https://drive.google.com/file/d/1TArZ3dx_rydSsgnNMq3UBs6-7k3B2vhD/view?usp=sharing">[kitti_dense]</a></li>
+<li><a
+href="https://drive.google.com/file/d/1eCvUPQLki7C5nfBa6H0MCg--G8Pqhqbz/view?usp=sharing">[kitti_sparse1_dense23]</a></li>
+<li><a
+href="https://drive.google.com/file/d/1SJnSuYAvwXE2kBburyp1L30GzEGmY0hu/view?usp=sharing">[kitti_sparse12_dense3]</a></li>
+<li><a
+href="https://drive.google.com/file/d/1Fc7_DDrYlHKXoCwpVeaSOuMv7QgXPVZ6/view?usp=sharing">[kitti_sparse_wide]</a></li>
 </ul>
-<h4 id="matterport-chair-dataset"><em>Matterport-Chair</em> dataset:</h4>
+<h4 id="matterport-chair-dataset"><em>Matterport-Chair</em>
+dataset:</h4>
 <ul>
-<li><a href="https://drive.google.com/file/d/1klZencIH6NiDc6yqlpuD9z5KL8HYfy09/view?usp=sharing">[Train split]</a></li>
-<li><a href="https://drive.google.com/file/d/1xkJWe5PQi-F6LMHNOuK3TeKrnvqtPc0P/view?usp=sharing">[Test split]</a></li>
+<li><a
+href="https://drive.google.com/file/d/1klZencIH6NiDc6yqlpuD9z5KL8HYfy09/view?usp=sharing">[Train
+split]</a></li>
+<li><a
+href="https://drive.google.com/file/d/1xkJWe5PQi-F6LMHNOuK3TeKrnvqtPc0P/view?usp=sharing">[Test
+split]</a></li>
 </ul>
-<p><em>Matterport-Chair</em> was generated using <a href="https://github.com/kylevedder/MatterportDataSampling">MatterportDataSampling</a>, our utility for generating supervised object detection datasets from Matterport3D.</p>
+<p><em>Matterport-Chair</em> was generated using <a
+href="https://github.com/kylevedder/MatterportDataSampling">MatterportDataSampling</a>,
+our utility for generating supervised object detection datasets from
+Matterport3D.</p>
 <h2 id="videos">Videos:</h2>
-<p>Invited talk at the <a href="https://sites.google.com/view/3d-dlad-v4-iv2022/home">3D-Deep Learning for Automated Driving</a> workshop of IEEE Intelligent Vehicles Symposium 2022:</p>
+<p>Invited talk at the <a
+href="https://sites.google.com/view/3d-dlad-v4-iv2022/home">3D-Deep
+Learning for Automated Driving</a> workshop of IEEE Intelligent Vehicles
+Symposium 2022:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JgcR6cFXR5w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 <p>One Minute Overview Video:</p>

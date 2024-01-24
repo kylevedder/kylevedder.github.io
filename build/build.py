@@ -25,7 +25,7 @@ def build_html(file: Path):
 
     html_file = file.parent / file.name.replace(".md", ".html")
     print(f"{file} -> {html_file}")
-    run_command(f"pandoc {tmp_file} -o {html_file}")
+    run_command(f"pandoc --citeproc {tmp_file} -o {html_file}")
     # run_command(f"tidy -i -q -o {html_file} {html_file}")
     Path(tmp_file).unlink()
 
@@ -47,8 +47,7 @@ def build_resume(resume_md: Path, resume_pdf: Path):
     def get_saved_md5(file):
         if not file.exists():
             return None
-        md5 = run_command(
-            f"exiftool {file} | awk '/^Subject/' | awk '{{print $3}}'")
+        md5 = run_command(f"exiftool {file} | awk '/^Subject/' | awk '{{print $3}}'")
         return md5
 
     md5 = get_file_md5(resume_tmp)
@@ -58,8 +57,7 @@ def build_resume(resume_md: Path, resume_pdf: Path):
     if md5 != existing_md5:
         print("Rebuilding resume")
         run_command(f"pandoc {resume_tmp} -o {resume_pdf}")
-        run_command(
-            f"exiftool -overwrite_original -Subject='{md5}' {resume_pdf}")
+        run_command(f"exiftool -overwrite_original -Subject='{md5}' {resume_pdf}")
 
     resume_tmp.unlink()
 

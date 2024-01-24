@@ -25,6 +25,6 @@ def run_command(cmd):
 
 
 def make_tmp_copy(path: Path) -> Path:
-    tmp = tempfile.NamedTemporaryFile(delete=False)
+    tmp = tempfile.NamedTemporaryFile(delete=False, suffix=path.suffix)
     shutil.copy2(path, tmp.name)
     return Path(tmp.name)
