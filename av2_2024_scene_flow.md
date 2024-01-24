@@ -153,6 +153,36 @@ _Figure 4._ Plot of _mean Dynamic Normalized EPE_ for various configurations of 
 
 Method relative performance ordering is preserved between traditional metrics like _Threeway EPE_ (e.g. ZeroFlow 3x XL vs ZeroFlow 1x) and our _mean Dynamic Normalized EPE_; however, _Bucketed Scene Flow Eval_ highlights that state-of-the-art scene flow estimators have enormous room for improvement to make good on the promise of general motion detection — _ZeroFlow 3x XL_, which achieves state-of-the-art on Threeway EPE, on average only describes 50% of motion per metaclass (Figure 4).
 
+## Meta-class definitions
+
+As part of _Bucketed Scene Flow Eval_, we define the following meta-classes for the Argoverse 2 dataset evaluation:
+
+```
+BACKGROUND = ['BACKGROUND']
+
+CAR = ['REGULAR_VEHICLE']
+
+OTHER_VEHICLES = [
+   'BOX_TRUCK', 'LARGE_VEHICLE', 'RAILED_VEHICLE', 'TRUCK', 'TRUCK_CAB',
+   'VEHICULAR_TRAILER', 'ARTICULATED_BUS', 'BUS', 'SCHOOL_BUS'
+]
+
+PEDESTRIAN = [
+   'PEDESTRIAN', 'STROLLER', 'WHEELCHAIR', 'OFFICIAL_SIGNALER'
+]
+
+ROAD_SIGNS = [
+   'BOLLARD', 'CONSTRUCTION_BARREL', 'CONSTRUCTION_CONE',
+   'MOBILE_PEDESTRIAN_CROSSING_SIGN', 'SIGN', 'STOP_SIGN',
+   'MESSAGE_BOARD_TRAILER', 'TRAFFIC_LIGHT_TRAILER'
+]
+
+WHEELED_VRU = [
+   'BICYCLE', 'BICYCLIST', 'MOTORCYCLE', 'MOTORCYCLIST', 'WHEELED_DEVICE',
+   'WHEELED_RIDER'
+]
+```
+
 ## Bibliography
 
 <!-- [@Chodosh_2024_WACV]: Chodosh et al. _Re-Evaluating LiDAR Scene Flow for Autonomous Driving._ WACV 2024. -->
