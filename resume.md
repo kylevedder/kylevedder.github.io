@@ -60,6 +60,14 @@ PUBS bibs/conferences.bib
 
 \vspacebefore{}
 
+## In Submission
+
+\vspaceafter{}
+
+PUBS bibs/in_submission.bib
+
+\vspacebefore{}
+
 ## Workshops
 
 \vspaceafter{}
@@ -75,14 +83,6 @@ PUBS bibs/workshops.bib
 PUBS bibs/tech_reports.bib
 
 \vspacebefore{}
-
-<!-- ## In Submission
-
-\vspaceafter{}
-
-
-
-\vspacebefore{} -->
 
 # Honors and Awards
 

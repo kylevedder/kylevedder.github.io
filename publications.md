@@ -6,6 +6,10 @@ HEADER Kyle Vedder's Publications
 
 PUBS bibs/conferences.bib
 
+## In Submission
+
+PUBS bibs/in_submission.bib
+
 ## Workshops
 
 PUBS bibs/workshops.bib
