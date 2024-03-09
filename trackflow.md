@@ -1,10 +1,10 @@
 HEADER I Can't Believe It's Not Scene Flow!
 <body>
-<style>
+<!-- <style>
 * {
   background-color: #f5bd3a;
 }
-</style>
+</style> -->
 
 <!-- Color is f5bd3a -->
 
@@ -12,7 +12,7 @@ HEADER I Can't Believe It's Not Scene Flow!
 
 ## [Kyle Vedder](http://vedder.io), [Ishan Khatri](https://ishan.khatri.io/), [Neehar Peri](http://www.neeharperi.com/), [Deva Ramanan](https://www.cs.cmu.edu/~deva/), and [James Hays](https://faculty.cc.gatech.edu/~hays/)
 
-<img class="centered" src="img/static/trackflow/i_cant_believe_its_not_scene_flow_gen_bg.png" height=400>
+<!-- <img class="centered" src="img/static/trackflow/i_cant_believe_its_not_scene_flow_gen_bg.png" height=400> -->
 
 ## Abstract:
 
@@ -22,7 +22,7 @@ Current scene flow methods broadly fail to describe motion on small objects, and
 
 The scene flow community must:
 
-1. Evaluate scene flow methods, supervised or unsupervised, using a class and speed aware eval metric (e.g. _Bucket Normalized EPE_).
+1. Evaluate scene flow methods, supervised or unsupervised, using a class and speed aware eval metric (e.g. [_Bucket Normalized EPE_](https://github.com/kylevedder/BucketedSceneFlowEval)).
 2. Supervised scene flow needs to address class and point imbalances.
 
 ## Downloads:
@@ -30,5 +30,12 @@ The scene flow community must:
 [[Preprint PDF]](https://arxiv.org/abs/2403.04739)
 
 [[Official Code]](https://github.com/kylevedder/BucketedSceneFlowEval)
+
+
+## Citation:
+
+```
+BIB bibs/in_submission.bib khatri2024trackflow
+```
 
 </body>
