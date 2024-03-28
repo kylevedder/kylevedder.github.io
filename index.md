@@ -32,27 +32,21 @@ During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas]
 
 ## Updates
 <div class="updates">
+ - Mar 28th, 2024: [Blog post: On Homogeneous Transforms](./misc/homogeneous_transforms.html)
  - Mar 7th, 2024: [_I Can't Believe It's Not Scene Flow!_](./trackflow.html) was posted to arXiv!
- - Jan 16th, 2024: [_ZeroFlow_](./zeroflow.html) was accepted to ICLR 2024!
- - Dec 4th, 2023: [Book Review: Eric Jang’s book "_AI is Good for You_"](./misc/review_ai_is_good_for_you.html)
- - Nov 21st, 2023: I will be joining Nvidia's AV team as a Research Intern starting in January! I will be extending [ZeroFlow](http://vedder.io/zeroflow) in an exciting new way (more to come!)
+ - Jan 29th, 2023: Joined Nvidia as a Research Intern!
+ - Jan 16th, 2024: [_ZeroFlow: Scalable Scene Flow via Distillation_](./zeroflow.html) was accepted to ICLR 2024! [(Reviews)](https://openreview.net/forum?id=FRCHDhbxZF)
+ - Dec 4th, 2023: [Book review: Eric Jang’s book "_AI is Good for You_"](./misc/review_ai_is_good_for_you.html)
  - Aug 3rd, 2023: [Blog post: Applying to CS PhD programs for Machine Learning: what I wish I knew](https://vedder.io/misc/applying_to_ml_phd.html)
- - Jul 28th, 2023: [ZeroFlow XL](./zeroflow.html) is now **state-of-the-art** on the [Argoverse 2 Self-Supervised Scene Flow Leaderboard](https://eval.ai/web/challenges/challenge-page/2010/leaderboard/4759)! And we've only begun to scale our method --- there is plenty of performance left on the table!
  - Jul 3rd, 2023: [Blog post: My ML research development environment workflow](misc/research_dev_env.html)
- - Jun 18th, 2023: [ZeroFlow](./zeroflow.html) was selected as a **highlighted method** in the CVPR 2023 _Workshop on Autonomous Driving_ Scene Flow Challenge!
- - May 18th, 2023: [_ZeroFlow: Scalable Scene Flow via Distillation_](./zeroflow.html) was submitted.
+ - Jun 18th, 2023: [ZeroFlow](./zeroflow.html) was selected as a highlighted method in the CVPR 2023 _Workshop on Autonomous Driving_ Scene Flow Challenge!
  - Jan 12th, 2023: [_A Domain-Agnostic Approach for Characterization of Lifelong Learning Systems_](./publications/L2M_eval_preprint.pdf) was accepted to Neural Networks.
  - Jun 30th, 2022: [_Sparse PointPillars_](./sparse_point_pillars.html) was accepted to IROS 2022. [(Reviews)](./misc/SparsePointPillars_IROS_2022_reviews.txt)
  - Jun 7th, 2022: [Invited talk for _Sparse PointPillars_ at 3D-DLAD](https://www.youtube.com/watch?v=JgcR6cFXR5w)
  - May 15th, 2022: Joined Argo as a Research Intern!
- - Mar 1st, 2022: [Submitted _Sparse PointPillars_ to IROS 2022](./sparse_point_pillars.html)
- - Jul 20th, 2021: [Added project webpage for X\*](./xstar.html)
- - Jul 8th, 2021: [Poster presented at Sparse Neural Networks on _Sparse PointPillars_](misc/SparsePointPillarsSNNPoster.pdf)
- - Jun 14th, 2021: [Workshop paper accepted as poster to Sparse Neural Networks: _Sparse PointPillars: Exploiting Sparsity on Birds-Eye-View Object Detection_](publications/sparse_point_pillars_snn_workshop.pdf)
- - Apr 27th, 2021: [My WPEII Presentation: _Current Approaches and Future Directions for Point Cloud Object Detection in Intelligent Agents_](https://www.youtube.com/watch?v=xFFCQVwYeec)
- - Apr 14th, 2021: [My WPEII Document: _Current Approaches and Future Directions for Point Cloud Object Detection in Intelligent Agents_](misc/KyleVedderWPEII2021.pdf)
+ - Apr 27th, 2021: Passed my WPEII qual on _Current Approaches and Future Directions for Point Cloud Object Detection in Intelligent Agents_ [(Document)](misc/KyleVedderWPEII2021.pdf) [(Video)](https://www.youtube.com/watch?v=xFFCQVwYeec)
  - Feb 11th, 2021: [Blog post: Setting up `mujoco-py` for use with on-screen and off-screen rendering](misc/mujoco_py.html)
- - Nov 4th, 2020: [Journal paper accepted to Artificial Intelligence: _X\*: Anytime Multi-Agent Path Finding for Sparse Domains using Window-Based Iterative Repairs_](http://vedder.io/publications/expanding_astar_aij.pdf)
+ - Nov 4th, 2020: [_X\*: Anytime Multi-Agent Path Finding for Sparse Domains using Window-Based Iterative Repairs_](./xstar.html) was accepted to Artificial Intelligence Journal!
  - Jul 23rd, 2020: [Presentation: _From Shapley Values to Explainable AI_](https://www.youtube.com/watch?v=4RkhsIz14Yc)
  - Jun 29rd, 2020: [Demo: _Penn Service Robots navigating around Levine_](https://www.youtube.com/watch?v=o7WW2cu1h7c)
  - May 8th, 2020: [Term paper: _An Overview of SHAP-based Feature Importance Measures and Their Applications To Classification_](misc/shap_for_classification.pdf)
