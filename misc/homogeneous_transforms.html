@@ -1,0 +1,197 @@
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9NWBV84HB2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9NWBV84HB2');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="On Homogeneous Transforms">
+<meta name="author" content="Kyle Vedder">
+<link rel="shortcut icon" href="../favicon.ico">
+<title>
+On Homogeneous Transforms
+</title>
+<!-- css -->
+<link href="../css/style.css" rel="stylesheet"> <!-- JavaScript -->
+<script type="text/javascript" src="../js/utils.js"></script>
+</head>
+<h1 id="on-homogeneous-transforms">On Homogeneous Transforms</h1>
+<p>I can never remember the difference between left and right
+multiplying transform matrices, so I’m writing all this down mostly for
+myself.</p>
+<h2 id="d-rotations">2D Rotations</h2>
+<p>Let <img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/baf6f946a5473cf6a517a1211c744b7e.png" alt="v"
+title="v" class="math inline" /> be an array of 2D vectors of shape <img
+style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/7b16b63d2741202708841b45ef842029.png"
+alt="N \times 2" title="N \times 2" class="math inline" />:</p>
+<p><img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/c89feba36d297c70d4fa10d9c4374f19.png"
+alt="v = \begin{bmatrix}
+0.8 &amp; 0 \\
+0.9 &amp; 0.1 \\
+1 &amp; 0.2 \\
+\end{bmatrix}" title="v = \begin{bmatrix}
+0.8 &amp; 0 \\
+0.9 &amp; 0.1 \\
+1 &amp; 0.2 \\
+\end{bmatrix}" class="math display" /></p>
+<p>Let <img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/20d3c5646ba45a6ff77caac9dcb870ea.png" alt="R"
+title="R" class="math inline" /> be a <img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/045d285554ddcee38f7975dffa4d2f76.png" alt="K"
+title="K" class="math inline" /> degrees counterclockwise rotation
+matrix:</p>
+<p><img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/f5cdeed9a354a0805004bd2e178c1ac3.png"
+alt="R = \begin{bmatrix}
+\cos K &amp; -\sin K \\
+\sin K &amp; \cos K
+\end{bmatrix}" title="R = \begin{bmatrix}
+\cos K &amp; -\sin K \\
+\sin K &amp; \cos K
+\end{bmatrix}" class="math display" /></p>
+<h3 id="right-multiplication">Right multiplication</h3>
+<p>Expressed with a right multiply, the rotated <img
+style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/effc03b3ea013a9a81ce4fa176b0d7cd.png"
+alt="v&#39;" title="v&#39;" class="math inline" /> would be</p>
+<p><img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/629097b20e6e626733de9cc0ce47a366.png"
+alt="v&#39; = (Rv^T)^T" title="v&#39; = (Rv^T)^T"
+class="math display" /></p>
+<p>Note the shapes: <img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/baf6f946a5473cf6a517a1211c744b7e.png" alt="v"
+title="v" class="math inline" /> is <img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/7b16b63d2741202708841b45ef842029.png"
+alt="N \times 2" title="N \times 2" class="math inline" /> and <img
+style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/20d3c5646ba45a6ff77caac9dcb870ea.png" alt="R"
+title="R" class="math inline" /> is <img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/1cbc23e5668218ead3716d42045c098c.png"
+alt="2 \times 2" title="2 \times 2" class="math inline" />, so we end up
+with <img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/1be363ea75d4fdd584aeab32552bea92.png"
+alt="N \times 2 = ((2 \times 2)(N \times 2)^T)^T"
+title="N \times 2 = ((2 \times 2)(N \times 2)^T)^T"
+class="math inline" />. In numpy for a 30 degree counterclockwise
+rotation:</p>
+<pre><code>v = np.array([[0.8, 0], [0.9, 0.1], [1, 0.2]])
+
+def make_rotation_matrix(K_rad):
+    return np.array([[np.cos(K_rad), -np.sin(K_rad)],
+                     [np.sin(K_rad), np.cos(K_rad)]])
+
+vprime = (make_rotation_matrix(np.deg2rad(30)) @ v.T).T</code></pre>
+<p>which, visualized as vectors from the origin, produces the expected
+result:</p>
+<p><img class="centered" src="../img/static/homogeneous_transforms/rotation_2d.png" width=200px></p>
+<h3 id="left-multiplication">Left multiplication</h3>
+<p>Expressed with a left multiply, the rotated <img
+style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/effc03b3ea013a9a81ce4fa176b0d7cd.png"
+alt="v&#39;" title="v&#39;" class="math inline" /> would be</p>
+<p><img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/64599e80218b7a019492dc056a9ad390.png"
+alt="v&#39; = vR^T" title="v&#39; = vR^T" class="math display" /></p>
+<p>Note the shapes: <img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/baf6f946a5473cf6a517a1211c744b7e.png" alt="v"
+title="v" class="math inline" /> is <img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/7b16b63d2741202708841b45ef842029.png"
+alt="N \times 2" title="N \times 2" class="math inline" /> and <img
+style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/20d3c5646ba45a6ff77caac9dcb870ea.png" alt="R"
+title="R" class="math inline" /> is <img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/1cbc23e5668218ead3716d42045c098c.png"
+alt="2 \times 2" title="2 \times 2" class="math inline" />, so we end up
+with <img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/240084cf43406b044c601e395c31df71.png"
+alt="N \times 2 = (N \times 2)(2 \times 2)"
+title="N \times 2 = (N \times 2)(2 \times 2)" class="math inline" />. In
+numpy:</p>
+<pre><code>vprime = v @ make_rotation_matrix(np.deg2rad(30)).T</code></pre>
+<p>which again visualized as vectors from the origin produces the same
+result:</p>
+<p><img class="centered" src="../img/static/homogeneous_transforms/rotation_2d.png" width=200px></p>
+<h2 id="d-homogeneous-transforms">2D Homogeneous Transforms</h2>
+<p>Imagine instead of a simple rotation by <img
+style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/20d3c5646ba45a6ff77caac9dcb870ea.png" alt="R"
+title="R" class="math inline" />, we also wanted to transform the points
+that included a translation <img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/80b90e72aa4e8546c83afb1919cb017d.png"
+alt="t = (-1, -0.5)" title="t = (-1, -0.5)" class="math inline" />. We
+could represent this as two separate operations, a rotation and a
+translation, or we could represent it as a single homogeneous transform
+<img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/23a9e0c315d3d06295974405c6b7b12c.png" alt="M"
+title="M" class="math inline" />:</p>
+<p><img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/3fbee9a199dfdd5f2b8e5d5bac5daf84.png"
+alt="M = \begin{bmatrix}
+R &amp; t \\
+0 &amp; 1
+\end{bmatrix}" title="M = \begin{bmatrix}
+R &amp; t \\
+0 &amp; 1
+\end{bmatrix}" class="math display" /></p>
+<p>where <img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/20d3c5646ba45a6ff77caac9dcb870ea.png" alt="R"
+title="R" class="math inline" /> is the same rotation matrix as before,
+and <img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/3f96401e64d520662c063aba77d31291.png" alt="t"
+title="t" class="math inline" /> is the column version of the
+translation vector (i.e. <img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/1009ee81f6e3844b4f1dc4dd94e442df.png"
+alt="t^T" title="t^T" class="math inline" />). To do this, we augment
+the <img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/baf6f946a5473cf6a517a1211c744b7e.png" alt="v"
+title="v" class="math inline" /> vectors with a third column of ones,
+i.e.</p>
+<p><img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/3e199e70b11ac36bd3feb14bc8cd65c2.png"
+alt="v_h = \begin{bmatrix}
+0.8 &amp; 0 &amp; 1 \\
+0.9 &amp; 0.1 &amp; 1 \\
+1 &amp; 0.2 &amp; 1 \\
+\end{bmatrix}" title="v_h = \begin{bmatrix}
+0.8 &amp; 0 &amp; 1 \\
+0.9 &amp; 0.1 &amp; 1 \\
+1 &amp; 0.2 &amp; 1 \\
+\end{bmatrix}" class="math display" /></p>
+<p>making it an <img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/93776cecd7f63d4281c728e5d1357ae9.png"
+alt="N \times 3" title="N \times 3" class="math inline" /> matrix. The
+homogeneous transform <img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/23a9e0c315d3d06295974405c6b7b12c.png" alt="M"
+title="M" class="math inline" /> is a <img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/0531529f7dbc8b881abe9f41a411ab47.png"
+alt="3 \times 3" title="3 \times 3" class="math inline" /> matrix, so we
+can left multiply it with <img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/baf6f946a5473cf6a517a1211c744b7e.png" alt="v"
+title="v" class="math inline" /> to get the transformed <img
+style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/9ac2dd0d0416d4a4eabdbf4ddd341f0e.png"
+alt="v_h&#39;" title="v_h&#39;" class="math inline" />:</p>
+<p><img style="vertical-align:middle"
+src="../img/compiled/homogeneous_transforms/0b4eefebb016ee1955968b9bcdbc8101.png"
+alt="v_h&#39; = v_hM^T" title="v_h&#39; = v_hM^T"
+class="math display" /></p>
+<p>In numpy</p>
+<pre><code>def make_transform_matrix(K_rad, translation):
+    return np.array([[np.cos(K_rad), -np.sin(K_rad), translation[0]],
+                     [np.sin(K_rad), np.cos(K_rad), translation[1]],
+                     [0, 0, 1]])
+
+def make_homogeneous(v):
+    return np.hstack((v, np.ones((v.shape[0], 1))))
+
+vprime_h = v_h @ make_transform_matrix(rotation, translation).T</code></pre>
+<p>which, visualized as vectors from the origin, produces the expected
+result:</p>
+<p><img class="centered" src="../img/static/homogeneous_transforms/transform_2d.png" width=200px></p>
