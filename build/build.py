@@ -6,6 +6,7 @@ import shutil
 
 from utils import read_lines, write_lines, run_command, make_tmp_copy
 from preprocess import preprocess_lines
+from postprocess import postprocess_lines
 
 root_dir = Path().absolute()
 
@@ -18,6 +19,12 @@ def preprocess(file: Path):
     return tmp_file
 
 
+def postprocess(file: Path):
+    lines = read_lines(file)
+    lines = postprocess_lines(lines, file, root_dir)
+    write_lines(file, lines)
+
+
 def build_html(file: Path):
     file = Path(file)
     assert file.exists(), f"File {file} does not exist"
@@ -25,7 +32,8 @@ def build_html(file: Path):
 
     html_file = file.parent / file.name.replace(".md", ".html")
     print(f"{file} -> {html_file}")
-    run_command(f"pandoc --citeproc {tmp_file} -o {html_file}")
+    run_command(f"pandoc --citeproc --webtex {tmp_file} -o {html_file}")
+    postprocess(html_file)
     # run_command(f"tidy -i -q -o {html_file} {html_file}")
     Path(tmp_file).unlink()
 

@@ -1,0 +1,1 @@
+This folder is to store compiled images. Do not edit.
