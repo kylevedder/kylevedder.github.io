@@ -2,7 +2,7 @@ HEADER Kyle Vedder's Homepage
 
 <h1 class="centered">I'm Kyle Vedder</h1>
 
-<img class="centered" src="img/me_outside.jpg" height="400" />
+<img class="centered" src="img/me_computer.jpg" height="400" />
 
 STATEMENT_OF_PURPOSE
 
