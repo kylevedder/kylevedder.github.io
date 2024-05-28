@@ -10,9 +10,11 @@ HEADER I Can't Believe It's Not Scene Flow!
 
 # _I Can't Believe It's Not Scene Flow!_
 
-## [Kyle Vedder](http://vedder.io), [Ishan Khatri](https://ishan.khatri.io/), [Neehar Peri](http://www.neeharperi.com/), [Deva Ramanan](https://www.cs.cmu.edu/~deva/), and [James Hays](https://faculty.cc.gatech.edu/~hays/)
+## [Ishan Khatri](https://ishan.khatri.io/)\*, [Kyle Vedder](http://vedder.io)\*, [Neehar Peri](http://www.neeharperi.com/), [Deva Ramanan](https://www.cs.cmu.edu/~deva/), and [James Hays](https://faculty.cc.gatech.edu/~hays/)
 
 <!-- <img class="centered" src="img/static/trackflow/i_cant_believe_its_not_scene_flow_gen_bg.png" height=400> -->
+
+\* Equal contributions
 
 ## Abstract:
 
