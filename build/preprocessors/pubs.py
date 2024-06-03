@@ -21,7 +21,7 @@ def extract_names(names_str):
     # Flip first and last name
     names = [name.split(", ") for name in names]
     names = [f"{name[1]} {name[0]}" for name in names]
-    names = [n if n != "Kyle Vedder" else "**Kyle Vedder**" for n in names]
+    names = [f"**{n}**" if "Kyle Vedder" in n else n for n in names]
     if len(names) > 10:
         names = [names[0] + " et al"]
     return names

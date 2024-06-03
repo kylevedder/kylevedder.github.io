@@ -6,9 +6,11 @@ from .pubs import load_bibtex
 SENTINAL = "BIB"
 
 
-def entry_to_formatted_bibtex(entry) -> str:
-
-    breakpoint()
+def escape_author_astrisks(fields : list) -> list:
+    for idx in range(len(fields)):
+        if fields[idx].key == "author":
+            fields[idx].value = fields[idx].value.replace("\*", "")
+    return fields
 
 
 def process_bib_line(line: str, file: Path, root_dir: Path) -> str:
@@ -21,5 +23,8 @@ def process_bib_line(line: str, file: Path, root_dir: Path) -> str:
     assert len(
         bib.blocks
     ) == 1, f"Expected 1 block corresponding to {arguments[1]}, got {len(bib.blocks)}"
+
+    # Remove astricks from the author fields
+    bib.blocks[0].fields = escape_author_astrisks(bib.blocks[0].fields)
     result_string = bibtexparser.write_string(bib)
     return result_string

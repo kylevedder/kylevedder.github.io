@@ -8,9 +8,9 @@ STATEMENT_OF_PURPOSE
 
 ## Background
 
-I am a CS PhD [candidate](img/static/candidate.png) at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) and [Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/) in the [GRASP Lab](https://www.grasp.upenn.edu/). My current work lies in:
+I am a CS PhD [candidate](img/static/candidate.png) at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) and [Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/) in the [GRASP Lab](https://www.grasp.upenn.edu/). My current line of work is focused on [scene flow](https://www.argoverse.org/sceneflow) with the general goals of:
 
- - [Finding label-free, scalable 3D problem formulations](./zeroflow.html) 
+ - [Finding label-free, scalable 3D scene understanding formulations](./zeroflow.html) 
  - [Designing efficient 3D perception systems](./sparse_point_pillars.html)
  
 
