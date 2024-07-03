@@ -1,4 +1,4 @@
-HEADER I Can't Believe It's Not Scene Flow!
+HEADER {"page_name": "I Can't Believe It's Not Scene Flow!", "teaser_img": "http://vedder.io/img/static/trackflow/teaser.png"}
 <!-- <style>
 * {
   background-color: #f5bd3a;
