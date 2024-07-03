@@ -43,39 +43,92 @@ href="https://www.cs.cmu.edu/~deva/">Deva Ramanan</a>, and <a
 href="https://faculty.cc.gatech.edu/~hays/">James Hays</a></h2>
 <!-- <img class="centered" src="img/static/trackflow/i_cant_believe_its_not_scene_flow_gen_bg.png" height=400> -->
 <p>* Equal contributions</p>
-<h2 id="abstract">Abstract:</h2>
-<p>Current scene flow methods broadly fail to describe motion on small
-objects, and current scene flow evaluation protocols hide this failure
-by averaging over many points, with most drawn from larger objects. To
-fix this evaluation failure, we propose a new evaluation protocol,
-<em>Bucket Normalized EPE</em>, which is class-aware and
-speed-normalized, enabling contextualized error comparisons between
-object types that move at vastly different speeds. To highlight current
-method failures, we propose a frustratingly simple supervised scene flow
-baseline, <em>TrackFlow</em>, built by bolting a high-quality pretrained
-detector (trained using many class rebalancing techniques) onto a simple
-tracker, that produces state-of-the-art performance on current standard
-evaluations and large improvements over prior art on our new evaluation.
-Our results make it clear that all scene flow evaluations must be class
-and speed aware, and supervised scene flow methods must address point
-class imbalances. We release the evaluation code publicly at <a
-href="https://github.com/kylevedder/BucketedSceneFlowEval">https://github.com/kylevedder/BucketedSceneFlowEval</a>.</p>
-<h2 id="key-insights">Key Insights:</h2>
-<p>The scene flow community must:</p>
-<ol type="1">
-<li>Evaluate scene flow methods, supervised or unsupervised, using a
-class and speed aware eval metric (e.g. <a
+<!-- ## Abstract
+
+Current scene flow methods broadly fail to describe motion on small objects, and current scene flow evaluation protocols hide this failure by averaging over many points, with most drawn from larger objects. To fix this evaluation failure, we propose a new evaluation protocol, _Bucket Normalized EPE_, which is class-aware and speed-normalized, enabling contextualized error comparisons between object types that move at vastly different speeds. To highlight current method failures, we propose a frustratingly simple supervised scene flow baseline, _TrackFlow_, built by bolting a high-quality pretrained detector (trained using many class rebalancing techniques) onto a simple tracker, that produces state-of-the-art performance on current standard evaluations and large improvements over prior art on our new evaluation. Our results make it clear that all scene flow evaluations must be class and speed aware, and supervised scene flow methods must address point class imbalances. We release the evaluation code publicly at [https://github.com/kylevedder/BucketedSceneFlowEval](https://github.com/kylevedder/BucketedSceneFlowEval). -->
+<section id="paper-eval-code" class="centered">
+<h1><a href="https://arxiv.org/abs/2403.04739">[Paper]</a> <a
+href="https://github.com/kylevedder/BucketedSceneFlowEval">[Eval
+Code]</a></h1>
+</section>
+<h2
+id="problem-1-current-scene-flow-methods-fail-on-small-objects">Problem
+1: Current scene flow methods fail on small objects</h2>
+<p><img src="img/static/trackflow/main_figure.png" style="max-width:1080px; width:100%" class="centered"/>
+We visualize a cherry picked example of two moving pedestrians (walking
+from left to right) with unusually high density lidar returns. We expect
+state-of-the-art scene flow methods would work well on this easy
+instance, but find that they fall short. Notably, our method
+<em>TrackFlow</em> is the only method to estimate proper flow for these
+pedestrians.</p>
+<h2
+id="problem-2-standard-eval-metrics-dont-capture-this-failure">Problem
+2: Standard eval metrics don’t capture this failure</h2>
+<p>Current eval metrics (Average EPE, Threeway EPE) are reporting
+average error on the order of centimeters for state-of-the-art methods;
+new papers push these errors down by small fractions of a centimeters.
+These metrics are <em>not</em> informative — due to point imbalances,
+minor improvements on car motion estimation improves the metric by a
+significant amount, while major failures on small objects are treated as
+a rounding error.</p>
+<p><img src="img/static/trackflow/point_distribution.png" style="max-width:540px; width:50%" class="centered"/></p>
+<h2 id="fix-1-measuring-this-failure-with-bucket-normalized-epe">Fix 1:
+Measuring this failure with <em>Bucket Normalized EPE</em></h2>
+<p>We propose a new evaluation protocol, <em>Bucket Normalized EPE</em>,
+that is <em>class-aware</em> and <em>speed-normalized</em>.
+Class-awareness allows us to break down the object distribution into
+meaningful subsets, and speed normalization allows us to measure
+<em>percentage of motion described</em> rather than <em>metric space
+error</em>, enabling meaningful comparisons between cars moving at high
+speeds and pedestrians moving at walking speeds.</p>
+<p><em>Bucket Normalized EPE</em> allows us to quantify the systematic
+failures of current scene flow methods on small objects.</p>
+<p><img src="img/static/trackflow/dynamic_normalized_epe.png" style="max-width:1080px; width:100%" class="centered"/>
+A collection of state-of-the-art supervised and unsupervised scene flow
+estimation methods on Argoverse 2’s <em>test</em> split. Supervised
+methods shown with hatching. <strong>Lower is better.</strong> Notably,
+existing methods, supervised or unsupervised, fail to describe more than
+50% of pedestrian motion (have <code>&gt;0.5</code> Dynamic Normalized
+EPE), highlighting the enormity of the failure of current methods.</p>
+<h2 id="fix-2-highlighting-the-low-hanging-fruit-with-trackflow">Fix 2:
+Highlighting the low-hanging fruit with <em>TrackFlow</em></h2>
+<p>We propose a simple supervised scene flow baseline,
+<em>TrackFlow</em>, built by bolting a high-quality pretrained detector
+(trained using many class rebalancing techniques) onto a simple tracker.
+Despite this awkward formulation, <em>TrackFlow</em> not only produces
+state-of-the-art performance on current standard evaluations, it
+provides <em>enormous improvements</em> over prior art on our new
+evaluation (e.g. describing almost 60% of pedestrian motion).
+<em>TrackFlow</em> is as much a call to action as it is a method: such a
+simple, cobbled together baseline thoroughly beating other (supervised!)
+methods means the scene flow community needs to go back to basics.</p>
+<h2 id="takeway-a-call-to-the-community">Takeway: A call to the
+community</h2>
+<p>Scene flow as a problem is not an end unto itself; it is only useful
+as a primitive for downstream tasks. Those tasks care about error across
+<em>all</em> moving objects, and method evaluations that actively hide
+failures on small objects are not just, not useful, they are
+<em>actively deceptive</em>, wasting practitioners time as they try to
+sort through published methods to find something that <em>actually</em>
+works.</p>
+<p>We provide a very easy-to-use, multi-dataset dataloader and scene
+flow evaluation toolkit for <a
 href="https://github.com/kylevedder/BucketedSceneFlowEval"><em>Bucket
-Normalized EPE</em></a>).</li>
-<li>Supervised scene flow needs to address class and point
-imbalances.</li>
-</ol>
-<h2 id="downloads">Downloads:</h2>
-<p><a href="https://arxiv.org/abs/2403.04739">[Preprint PDF]</a></p>
-<p><a
-href="https://github.com/kylevedder/BucketedSceneFlowEval">[Official
-Code]</a></p>
-<h2 id="citation">Citation:</h2>
+Normalized EPE</em></a>, and we have integrated it into our <a
+href="https://github.com/kylevedder/SceneFlowZoo">Scene Flow Zoo</a> as
+the standard method for evaluation. While we have provided these tools,
+the community must use them if we are to make real progress on scene
+flow. And don’t be fooled, there’s plenty left to do.</p>
+<!-- ## Argoverse 2 2024 Scene Flow Challenge @ CVPR 2024 Workshop on Autonomous Driving
+
+We hosted the [Argoverse 2 2024 Scene Flow Challenge](https://www.argoverse.org/sceneflow), ranking methods by their Dynamic Normalized EPE component of _Bucket Normalized EPE_. -->
+<!-- 
+## Downloads
+
+[[Paper PDF]](https://arxiv.org/abs/2403.04739)
+
+[[Official Code]](https://github.com/kylevedder/BucketedSceneFlowEval) -->
+<h2 id="citation">Citation</h2>
 <pre><code>@inproceedings{khatri2024trackflow,
     author = {Khatri, Ishan and Vedder, Kyle and Peri, Neehar and Ramanan, Deva and Hays, James},
     title = {{I Can&#39;t Believe It&#39;s Not Scene Flow!}},
