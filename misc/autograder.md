@@ -1,3 +1,5 @@
+HEADER Autograder CS 220
+
 *Q:* Can we have autograder with public tests and private tests? That will be much more helpful!
 
 *A:* No. This is not 121. This is not 187. This is 220. You are expected to be able to write your own code and not just fill in the blanks.

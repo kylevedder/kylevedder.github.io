@@ -1,4 +1,4 @@
-<head>
+<!DOCTYPE html><html><head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9NWBV84HB2"></script>
 <script>
@@ -19,7 +19,7 @@ Linux box in the browser for visualization with GStreamer
 <link href="../css/style.css" rel="stylesheet"> <!-- JavaScript -->
 <script type="text/javascript" src="../js/utils.js"></script>
 </head>
-<h1 id="linux-box-in-the-browser-for-visualization-with-gstreamer">Linux
+<body><h1 id="linux-box-in-the-browser-for-visualization-with-gstreamer">Linux
 box in the browser for visualization with GStreamer</h1>
 <h2 id="the-docker-image">The docker image</h2>
 <pre><code>FROM ghcr.io/ehfd/nvidia-glx-desktop:latest
@@ -102,3 +102,4 @@ RUN echo &quot;cd ~/project&quot; &gt;&gt; ~/.bashrc</code></pre>
 -v /var/run/docker.sock:/var/run/docker.sock:rw \
 -p 8080:8080 \
 xenv_streamer:latest</code></pre>
+</body></html>

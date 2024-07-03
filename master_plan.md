@@ -1,3 +1,5 @@
+HEADER Master Plan
+
 # Executive Summary
 
 I want to build a prediction engine that takes as input _raw_ percepts and predicts future "state" of the world. I believe being able to make high quality statements across _time_ is the critical component to understanding _action_ in the world, and a high quality prediction engine is a useful backbone for the planning stack of generally capable embodied agents, from autonomous vehicles to service robots.

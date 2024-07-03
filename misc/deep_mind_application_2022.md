@@ -1,3 +1,5 @@
+HEADER DeepMind Internship Application 2022
+
 # WHAT INTERESTS YOU MOST ABOUT INTERNING AT DEEPMIND?
 
 Access to the researchers at DeepMind with expertise in RL to help me design and run experiments to validate the belief that 3D representations will produce better quality/more sample efficient policies for completing real tasks.

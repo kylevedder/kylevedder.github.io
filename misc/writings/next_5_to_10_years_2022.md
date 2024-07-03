@@ -1,3 +1,5 @@
+HEADER Next 5 to 10 years of AI
+
 # Next 5 to 10 years of AI
  
 I'm currently doing a PhD in Machine Learning. It's a broad and fast moving field -- some of the technology has more or less converged on well understood approaches and is already heavily used in production (e.g. CNNs for traditional object detection), some of it is still very early days (e.g. most RL approaches), and some of it sits in the middle. I want to talk about this third category, and examples of where I think the technology is going to move from early days to production ready over the next 5 to 10 years.
