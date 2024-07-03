@@ -38,8 +38,8 @@ During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas]
 
 ## Updates
 <div class="updates">
+ - Jul 1st, 2024: [_I Can't Believe It's Not Scene Flow!_](./trackflow.html) was accepted to ECCV!
  - Mar 28th, 2024: [Blog post: On Homogeneous Transforms](./misc/homogeneous_transforms.html)
- - Mar 7th, 2024: [_I Can't Believe It's Not Scene Flow!_](./trackflow.html) was posted to arXiv!
  - Jan 29th, 2023: Joined Nvidia as a Research Intern!
  - Jan 16th, 2024: [_ZeroFlow: Scalable Scene Flow via Distillation_](./zeroflow.html) was accepted to ICLR 2024! [(Reviews)](https://openreview.net/forum?id=FRCHDhbxZF)
  - Dec 4th, 2023: [Book review: Eric Jang’s book "_AI is Good for You_"](./misc/review_ai_is_good_for_you.html)
