@@ -1,4 +1,4 @@
-HEADER Kyle Vedder's Homepage
+HEADER {"page_name": "Kyle Vedder's Homepage", "teaser_img": "img/me_computer.jpg"}
 
 <h1 class="centered">I'm Kyle Vedder</h1>
 
