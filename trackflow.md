@@ -1,5 +1,4 @@
 HEADER I Can't Believe It's Not Scene Flow!
-<body>
 <!-- <style>
 * {
   background-color: #f5bd3a;
@@ -37,7 +36,5 @@ The scene flow community must:
 ## Citation:
 
 ```
-BIB bibs/in_submission.bib khatri2024trackflow
+BIB bibs/conferences.bib khatri2024trackflow
 ```
-
-</body>
