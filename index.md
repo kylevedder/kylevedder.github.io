@@ -34,6 +34,7 @@ During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas]
  - Resume: [/resume](KyleVedderResume.pdf)
  - Publications: [/publications](publications.html)
  - GitHub: [kylevedder](https://github.com/kylevedder)
+ - Google Scholar: [Kyle Vedder](https://scholar.google.com/citations?user=Ml6RzmEAAAAJ&hl=en)
  - Twitter: [KyleVedder](https://twitter.com/KyleVedder)
 
 ## Updates
