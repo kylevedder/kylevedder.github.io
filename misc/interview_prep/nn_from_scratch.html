@@ -1,0 +1,345 @@
+<!DOCTYPE html><html><head>
+<meta charset="utf-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9NWBV84HB2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9NWBV84HB2');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Binary Classification Neural Network from scratch in Numpy">
+<meta property="og:title" content="Binary Classification Neural Network from scratch in Numpy">
+<meta property="og:description" content="Binary Classification Neural Network from scratch in Numpy">
+<meta property="og:image" content="">
+<meta property="twitter:title" content="Binary Classification Neural Network from scratch in Numpy">
+<meta property="twitter:description" content="Binary Classification Neural Network from scratch in Numpy">
+<meta property="twitter:image" content="">
+<meta property="og:type" content="website">
+<meta name="author" content="Kyle Vedder">
+<link rel="shortcut icon" href="../../favicon.ico">
+<title>
+Binary Classification Neural Network from scratch in Numpy
+</title>
+<!-- css -->
+<link href="../../css/style.css" rel="stylesheet"> <!-- JavaScript -->
+<script type="text/javascript" src="../../js/utils.js"></script>
+</head>
+<body><h1
+id="binary-classification-neural-network-from-scratch-in-numpy">Binary
+Classification Neural Network from scratch in Numpy</h1>
+<p>In this tutorial we manually build the graph for a basic linear
+classifier. We will use the sigmoid activation function and the binary
+cross entropy loss function. We will train the model using standard
+gradient descent.</p>
+<p>If you want to skip straight to the full code, <a
+href="https://github.com/kylevedder/interview_prep/blob/master/nn_from_scratch.py">you
+can find it on my GitHub here</a>.</p>
+<p>Up front, the important bits to know:</p>
+<h2 id="binary-cross-entropy-loss-function">Binary Cross Entropy Loss
+Function</h2>
+<p>The forward pass of the binary cross entropy loss function is:</p>
+<p><img style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/26080b4261e597f65d7320226b1e393e.png"
+alt="L(\hat{y}, y) = -y \log(\hat{y}) - (1 - y) \log(1 - \hat{y})"
+title="L(\hat{y}, y) = -y \log(\hat{y}) - (1 - y) \log(1 - \hat{y})"
+class="math display" /></p>
+<p>Intuitively, the ground truth <img style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/c850e8fe933e4a63141aa1f5e84a70d9.png" alt="y"
+title="y" class="math inline" /> is either 0 or 1, and the loss is the
+negative log likelihood of the predicted probability <img
+style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/f3e03e0ca5d256feed657cb0e0c7146c.png"
+alt="\hat{y}" title="\hat{y}" class="math inline" /> given the ground
+truth. Sometimes this is normalized by the number of samples <img
+style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/ec2f3327c5a428ba12e3931dd82348e1.png"
+alt="1/N" title="1/N" class="math inline" />, but it’s not needed (and
+pytorch drops it).</p>
+<p>Keeping in mind that</p>
+<img style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/3c3181bbfb8dec9392349085e6608c6c.png"
+alt="\begin{array}{rl}
+\frac{\partial{\log(x)}}{\partial{x}} &amp;= \frac{1}{x}\\
+\frac{\partial{\log(1-x)}}{\partial{x}} &amp;= -\frac{1}{1-x}
+\end{array}" title="\begin{array}{rl}
+\frac{\partial{\log(x)}}{\partial{x}} &amp;= \frac{1}{x}\\
+\frac{\partial{\log(1-x)}}{\partial{x}} &amp;= -\frac{1}{1-x}
+\end{array}" class="math display" />
+<p>We compute the derivative of <img style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/abeeb8e18a21bb0a1239e09e6ed55132.png" alt="L"
+title="L" class="math inline" /> with respect to <img
+style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/f3e03e0ca5d256feed657cb0e0c7146c.png"
+alt="\hat{y}" title="\hat{y}" class="math inline" /> step by step:</p>
+<!-- $$\bar{BCE}(\hat{y}, y) = \frac{\hat{y} - y}{\hat{y}(1 - \hat{y})}$$ -->
+<img style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/abbb239149c0f2408d1f0836a4400a1f.png"
+alt="\begin{array}{rl}
+\frac{\partial{L}}{\partial{\hat{y}}} &amp;= -y (\frac{\partial{\log(\hat{y})}}{\partial{\hat{y}}}) - (1 - y)  (\frac{\partial{\log(1-\hat{y})}}{\partial{\hat{y}}})\textup{ Substitute in log definitions}\\
+&amp;= -y (\frac{1}{\hat{y}}) - (1 - y)  (- \frac{1}{1  - \hat{y}})\\
+&amp;=  \frac{-y}{\hat{y}} + (1 - y)  ( \frac{1}{1  - \hat{y}})\textup{ Simplify}\\
+&amp;=  \frac{-y}{\hat{y}} +  \frac{(1 - y)}{1  - \hat{y}}\\
+&amp;=  \frac{-y(1  - \hat{y})}{\hat{y} (1  - \hat{y}) } +  \frac{\hat{y}(1 - y)}{\hat{y}(1  - \hat{y})}\\
+&amp;=  \frac{-y(1  - \hat{y}) + \hat{y}(1 - y) }{\hat{y}(1  - \hat{y})}\\
+&amp;=  \frac{(-y  - -y\hat{y}) + (\hat{y} - \hat{y}y) }{\hat{y}  - \hat{y}^2}\\
+&amp;=  \frac{\hat{y} -y  }{\hat{y}  - \hat{y}^2}
+\end{array}" title="\begin{array}{rl}
+\frac{\partial{L}}{\partial{\hat{y}}} &amp;= -y (\frac{\partial{\log(\hat{y})}}{\partial{\hat{y}}}) - (1 - y)  (\frac{\partial{\log(1-\hat{y})}}{\partial{\hat{y}}})\textup{ Substitute in log definitions}\\
+&amp;= -y (\frac{1}{\hat{y}}) - (1 - y)  (- \frac{1}{1  - \hat{y}})\\
+&amp;=  \frac{-y}{\hat{y}} + (1 - y)  ( \frac{1}{1  - \hat{y}})\textup{ Simplify}\\
+&amp;=  \frac{-y}{\hat{y}} +  \frac{(1 - y)}{1  - \hat{y}}\\
+&amp;=  \frac{-y(1  - \hat{y})}{\hat{y} (1  - \hat{y}) } +  \frac{\hat{y}(1 - y)}{\hat{y}(1  - \hat{y})}\\
+&amp;=  \frac{-y(1  - \hat{y}) + \hat{y}(1 - y) }{\hat{y}(1  - \hat{y})}\\
+&amp;=  \frac{(-y  - -y\hat{y}) + (\hat{y} - \hat{y}y) }{\hat{y}  - \hat{y}^2}\\
+&amp;=  \frac{\hat{y} -y  }{\hat{y}  - \hat{y}^2}
+\end{array}" class="math display" />
+<h2 id="sigmoid-activation-function">Sigmoid Activation Function</h2>
+<p>The forward pass of the sigmoid activation function is:</p>
+<p><img style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/361ec929cd5872dbbacf9eaa47c8e3a9.png"
+alt="\sigma(x) = \frac{1}{1 + e^{-x}}"
+title="\sigma(x) = \frac{1}{1 + e^{-x}}" class="math display" /></p>
+<p>Keeping in mind that</p>
+<img style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/9b2c2842bb15a4ab055ad96c9228eb11.png"
+alt="\begin{array}{rl}
+\frac{\partial{e^x}}{\partial{x}} &amp;= e^x\\
+\frac{\partial{e^{-x}}}{\partial{x}} &amp;= -e^{-x}\\
+\frac{\partial}{\partial{x}} \left(\frac{1}{x}\right) &amp;= -\frac{1}{x^2}
+\end{array}" title="\begin{array}{rl}
+\frac{\partial{e^x}}{\partial{x}} &amp;= e^x\\
+\frac{\partial{e^{-x}}}{\partial{x}} &amp;= -e^{-x}\\
+\frac{\partial}{\partial{x}} \left(\frac{1}{x}\right) &amp;= -\frac{1}{x^2}
+\end{array}" class="math display" />
+<p>We compute the derivative of <img style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/aa02476b7b07d1855453d5774e278f22.png"
+alt="\sigma" title="\sigma" class="math inline" /> with respect to <img
+style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/3fc90aaea65b531bc9e47d6af2179647.png" alt="x"
+title="x" class="math inline" /> step by step:</p>
+<img style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/3ad40d48deaf485fcaa449cce8c7a943.png"
+alt="\begin{array}{rl}
+\frac{\partial{\sigma}}{\partial{x}} &amp;= \frac{\partial}{\partial{u}} \cdot \frac{1}{u} \cdot  \frac{\partial{u}}{\partial{x}}; u = 1 + e^{-x} \textup{ u substitution} \\
+&amp;= -\frac{1}{u^2} \cdot \frac{\partial{u}}{\partial{x}} \textup{ Substitute in fraction derivative} \\
+&amp;= -\frac{1}{(1 + e^{-x})^2} \cdot  \frac{\partial}{\partial{x}} 1 + e^{-x}  \\
+&amp;= -\frac{1}{(1 + e^{-x})^2} \cdot   -e^{-x} \textup{ Substitute in natural exponent} \\
+&amp;= \frac{e^{-x}}{(e^{-x} + 1)^2}
+\end{array}" title="\begin{array}{rl}
+\frac{\partial{\sigma}}{\partial{x}} &amp;= \frac{\partial}{\partial{u}} \cdot \frac{1}{u} \cdot  \frac{\partial{u}}{\partial{x}}; u = 1 + e^{-x} \textup{ u substitution} \\
+&amp;= -\frac{1}{u^2} \cdot \frac{\partial{u}}{\partial{x}} \textup{ Substitute in fraction derivative} \\
+&amp;= -\frac{1}{(1 + e^{-x})^2} \cdot  \frac{\partial}{\partial{x}} 1 + e^{-x}  \\
+&amp;= -\frac{1}{(1 + e^{-x})^2} \cdot   -e^{-x} \textup{ Substitute in natural exponent} \\
+&amp;= \frac{e^{-x}}{(e^{-x} + 1)^2}
+\end{array}" class="math display" />
+<h2 id="matrix-calculus">Matrix Calculus</h2>
+<p>We will use the following notation for matrix calculus for the
+forward pass</p>
+<p><img style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/d09320f51bfedec97b76f1751da3409c.png"
+alt="y = Wx + b" title="y = Wx + b" class="math display" /></p>
+<p>Where <img style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/b89669db395a729eb581612cc7355346.png" alt="W"
+title="W" class="math inline" /> is the weight matrix, <img
+style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/3fc90aaea65b531bc9e47d6af2179647.png" alt="x"
+title="x" class="math inline" /> is the input, <img
+style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/0ea4e5f2cbd6c83665da2a873362c058.png" alt="b"
+title="b" class="math inline" /> is the bias, and <img
+style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/c850e8fe933e4a63141aa1f5e84a70d9.png" alt="y"
+title="y" class="math inline" /> is the output. The gradient of <img
+style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/c850e8fe933e4a63141aa1f5e84a70d9.png" alt="y"
+title="y" class="math inline" /> with respect to <img
+style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/b89669db395a729eb581612cc7355346.png" alt="W"
+title="W" class="math inline" /> and <img style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/0ea4e5f2cbd6c83665da2a873362c058.png" alt="b"
+title="b" class="math inline" /> is:</p>
+<img style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/2090cd3c9c58d7f91d7dd7c7c1fb7985.png"
+alt="\begin{array}{rl}
+\frac{\partial{y}}{\partial{W}} &amp;= x^T\\
+\frac{\partial{y}}{\partial{b}} &amp;= 1
+\end{array}" title="\begin{array}{rl}
+\frac{\partial{y}}{\partial{W}} &amp;= x^T\\
+\frac{\partial{y}}{\partial{b}} &amp;= 1
+\end{array}" class="math display" />
+<h2 id="defining-our-numpy-network-layers">Defining our numpy network
+layers</h2>
+<p>These partial definitions are all we need to write the code for the
+layer pieces. Note I am using dataclasses to make the code more
+readable, but these could be dictionaries or named tuples.</p>
+<pre><code>import numpy as np
+from dataclasses import dataclass
+
+@dataclass
+class BinaryCrossEntropyLossPartials:
+    output_wrt_yhat: np.ndarray
+
+
+class BinaryCrossEntropyLoss:
+
+    def forward(self, yhat: np.ndarray, y: np.ndarray):
+        assert yhat.shape == y.shape, f&quot;Shape difference: {yhat} vs {y}&quot;
+        assert np.all(1 &gt;= yhat) and np.all(yhat &gt;= 0), f&quot;Domain error for yhat: {yhat}&quot;
+        assert np.all(1 &gt;= y) and np.all(y &gt;= 0), f&quot;Domain error for y: {y}&quot;
+        # We drop the 1/len(yhat) factor to make the loss the same as torch&#39;s BCE loss
+        loss = -(y * np.log(yhat) + (1 - y) * np.log(1 - yhat))
+        # clamp the loss entries to at most 100 to avoid nan (and like torch&#39;s BCE loss)
+        loss = np.clip(loss, -100, 100)
+        return loss
+
+    def backwards(
+        self, yhat: np.ndarray, y: np.array
+    ) -&gt; BinaryCrossEntropyLossPartials:
+        output_wrt_yhat = (yhat - y) / (yhat - yhat**2)
+
+        return BinaryCrossEntropyLossPartials(output_wrt_yhat)
+
+
+@dataclass
+class LinearPartials:
+    output_wrt_weight: np.ndarray
+    output_wrt_bias: np.ndarray
+
+
+class Linear:
+
+    def __init__(self, in_features: int, out_features: int) -&gt; None:
+        self.in_features = in_features
+        self.out_features = out_features
+        self.weight = np.random.randn(out_features, in_features).astype(np.float32)
+        self.bias = np.random.randn(out_features).astype(np.float32)
+
+    def forward(self, x: np.ndarray) -&gt; np.ndarray:
+        return self.weight @ x + self.bias
+
+    def backward(self, x: np.ndarray) -&gt; LinearPartials:
+        output_wrt_weight = x
+        output_wrt_bias = np.ones_like(self.bias)
+        return LinearPartials(output_wrt_weight, output_wrt_bias)
+
+
+@dataclass
+class SigmoidPartials:
+    output_wrt_x: np.ndarray
+
+
+class Sigmoid:
+
+    def forward(self, x: np.ndarray) -&gt; np.ndarray:
+        return 1 / (1 + np.exp(-x))
+
+    def backward(self, x: np.ndarray) -&gt; SigmoidPartials:
+        output_wrt_x = np.exp(-x) / ((np.exp(-x) + 1) ** 2)
+        return SigmoidPartials(output_wrt_x)</code></pre>
+<h2 id="building-our-numpy-network">Building our numpy network</h2>
+<p>Unlike PyTorch, we will manually build the graph for our network. We
+will use the following architecture:</p>
+<p><img style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/f21706ad7b93115eeb11e98d1403b852.png"
+alt="\hat{y} = \textup{Sigmoid}(\textup{Linear}())"
+title="\hat{y} = \textup{Sigmoid}(\textup{Linear}())"
+class="math display" /></p>
+<p>with the binary cross entropy loss function.</p>
+<p>We define 3 methods for our network: <code>forward</code>,
+<code>forward_loss</code>, and <code>update_weights</code>. The
+<code>forward</code> method is the forward pass of the network, the
+<code>forward_loss</code> method is the forward pass of the network with
+the loss function, and the <code>update_weights</code> method is the
+backward pass of the network with the loss function and the update of
+the weights.</p>
+<pre><code>class MyNetwork:
+
+    def __init__(self, in_features: int, out_features: int):
+        self.in_features = in_features
+        self.out_features = out_features
+
+        self.linear1 = Linear(in_features, out_features)
+        self.sigmoid = Sigmoid()
+        self.loss = BinaryCrossEntropyLoss()
+
+    def forward_loss(self, x: np.ndarray, y: np.ndarray):
+        sigmoid_out = self.forward(x)
+        loss_out = self.loss.forward(sigmoid_out, y)
+        return loss_out.sum()
+
+    def forward_loss(self, x: np.ndarray, y: np.ndarray):
+        forward_out = self.linear1.forward(x)
+        sigmoid_out = self.sigmoid.forward(forward_out)
+        loss_out = self.loss.forward(sigmoid_out, y)
+        return loss_out.sum()
+
+    def update_weights(self, x: np.ndarray, y: np.ndarray, lr: float):
+        forward_out = self.linear1.forward(x)
+        sigmoid_out = self.sigmoid.forward(forward_out)
+
+        loss_wrt_sigmoid = self.loss.backwards(sigmoid_out, y).output_wrt_yhat
+
+        sigmoid_wrt_linear1 = self.sigmoid.backward(forward_out).output_wrt_x
+        linear1_wrt_weight = self.linear1.backward(x).output_wrt_weight
+        linear1_wrt_bias = self.linear1.backward(x).output_wrt_bias
+
+        loss_wrt_linear1 = loss_wrt_sigmoid * sigmoid_wrt_linear1
+        # Note: outer product because matrix multiplication!
+        loss_wrt_weight = np.outer(loss_wrt_linear1, linear1_wrt_weight)
+        loss_wrt_bias = loss_wrt_linear1 * linear1_wrt_bias
+
+        self.linear1.weight = self.linear1.weight - lr * loss_wrt_weight
+        self.linear1.bias = self.linear1.bias - lr * loss_wrt_bias</code></pre>
+<p>Note the tricky bits in here: we have to take the outer product
+between the partial <code>loss_wrt_linear1</code> and
+<code>linear1_wrt_weight</code> because we are doing matrix
+multiplication. The weight matrix <img style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/b89669db395a729eb581612cc7355346.png" alt="W"
+title="W" class="math inline" /> is of shape
+<code>(out_features, in_features)</code> and the gradient with respect
+to <img style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/b89669db395a729eb581612cc7355346.png" alt="W"
+title="W" class="math inline" /> needs to be the same shape, and this
+shape is formed by the inner product of the input vector <img
+style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/3fc90aaea65b531bc9e47d6af2179647.png" alt="x"
+title="x" class="math inline" /> (the derivative of <img
+style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/cda63a0278c6999647dc49c5de7d22c4.png" alt="Wx"
+title="Wx" class="math inline" /> with respect to <img
+style="vertical-align:middle"
+src="../../img/compiled/nn_from_scratch/b89669db395a729eb581612cc7355346.png" alt="W"
+title="W" class="math inline" />) and the weights.</p>
+<h2 id="training-the-network">Training the network</h2>
+<p>To train the network, I give it some sample data. Note the rule for
+the data is the first element is an indicator variable for the ground
+truth label, making this easy data to fit.</p>
+<pre><code># Set np seed
+np.random.seed(42)
+
+# fmt: off
+sample_inputs =  [[1, 3, 5],    [1, 9, 5],    [1, 2, 5],    [0, 9, 5],    [0, 0, 5]]
+sample_outputs = [[1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+# fmt: on
+
+net = MyNetwork(3, 4)
+
+lr = 0.01
+
+for epoch_idx in range(2000):
+    total_loss = 0
+    for np_x, np_y in zip(sample_inputs, sample_outputs):
+        np_x = np.array(np_x).astype(np.float32)
+        np_y = np.array(np_y).astype(np.float32)
+        total_loss += net.forward_loss(np_x, np_y)
+        net.update_weights(np_x, np_y, lr)
+
+    print(f&quot;Epoch: {epoch_idx} Loss: {total_loss}&quot;)</code></pre>
+<p>and our training prints out the loss as it goes:</p>
+<pre><code>...
+Epoch: 1997 Loss: 0.2139563336968422
+Epoch: 1998 Loss: 0.21384888887405396
+Epoch: 1999 Loss: 0.2137417010962963</code></pre>
+</body></html>
