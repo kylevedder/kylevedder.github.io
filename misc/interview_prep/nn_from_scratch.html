@@ -75,20 +75,20 @@ src="../../img/compiled/nn_from_scratch/f3e03e0ca5d256feed657cb0e0c7146c.png"
 alt="\hat{y}" title="\hat{y}" class="math inline" /> step by step:</p>
 <!-- $$\bar{BCE}(\hat{y}, y) = \frac{\hat{y} - y}{\hat{y}(1 - \hat{y})}$$ -->
 <img style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/abbb239149c0f2408d1f0836a4400a1f.png"
+src="../../img/compiled/nn_from_scratch/c1cf7c783c532f7b9dac0e9d67c3b0f5.png"
 alt="\begin{array}{rl}
-\frac{\partial{L}}{\partial{\hat{y}}} &amp;= -y (\frac{\partial{\log(\hat{y})}}{\partial{\hat{y}}}) - (1 - y)  (\frac{\partial{\log(1-\hat{y})}}{\partial{\hat{y}}})\textup{ Substitute in log definitions}\\
+\frac{\partial{L}}{\partial{\hat{y}}} &amp;= -y (\frac{\partial{\log(\hat{y})}}{\partial{\hat{y}}}) - (1 - y)  (\frac{\partial{\log(1-\hat{y})}}{\partial{\hat{y}}})\textup{ ; Substitute in log definitions}\\
 &amp;= -y (\frac{1}{\hat{y}}) - (1 - y)  (- \frac{1}{1  - \hat{y}})\\
-&amp;=  \frac{-y}{\hat{y}} + (1 - y)  ( \frac{1}{1  - \hat{y}})\textup{ Simplify}\\
+&amp;=  \frac{-y}{\hat{y}} + (1 - y)  ( \frac{1}{1  - \hat{y}})\textup{ ; Simplify}\\
 &amp;=  \frac{-y}{\hat{y}} +  \frac{(1 - y)}{1  - \hat{y}}\\
 &amp;=  \frac{-y(1  - \hat{y})}{\hat{y} (1  - \hat{y}) } +  \frac{\hat{y}(1 - y)}{\hat{y}(1  - \hat{y})}\\
 &amp;=  \frac{-y(1  - \hat{y}) + \hat{y}(1 - y) }{\hat{y}(1  - \hat{y})}\\
 &amp;=  \frac{(-y  - -y\hat{y}) + (\hat{y} - \hat{y}y) }{\hat{y}  - \hat{y}^2}\\
 &amp;=  \frac{\hat{y} -y  }{\hat{y}  - \hat{y}^2}
 \end{array}" title="\begin{array}{rl}
-\frac{\partial{L}}{\partial{\hat{y}}} &amp;= -y (\frac{\partial{\log(\hat{y})}}{\partial{\hat{y}}}) - (1 - y)  (\frac{\partial{\log(1-\hat{y})}}{\partial{\hat{y}}})\textup{ Substitute in log definitions}\\
+\frac{\partial{L}}{\partial{\hat{y}}} &amp;= -y (\frac{\partial{\log(\hat{y})}}{\partial{\hat{y}}}) - (1 - y)  (\frac{\partial{\log(1-\hat{y})}}{\partial{\hat{y}}})\textup{ ; Substitute in log definitions}\\
 &amp;= -y (\frac{1}{\hat{y}}) - (1 - y)  (- \frac{1}{1  - \hat{y}})\\
-&amp;=  \frac{-y}{\hat{y}} + (1 - y)  ( \frac{1}{1  - \hat{y}})\textup{ Simplify}\\
+&amp;=  \frac{-y}{\hat{y}} + (1 - y)  ( \frac{1}{1  - \hat{y}})\textup{ ; Simplify}\\
 &amp;=  \frac{-y}{\hat{y}} +  \frac{(1 - y)}{1  - \hat{y}}\\
 &amp;=  \frac{-y(1  - \hat{y})}{\hat{y} (1  - \hat{y}) } +  \frac{\hat{y}(1 - y)}{\hat{y}(1  - \hat{y})}\\
 &amp;=  \frac{-y(1  - \hat{y}) + \hat{y}(1 - y) }{\hat{y}(1  - \hat{y})}\\
@@ -120,18 +120,18 @@ style="vertical-align:middle"
 src="../../img/compiled/nn_from_scratch/3fc90aaea65b531bc9e47d6af2179647.png" alt="x"
 title="x" class="math inline" /> step by step:</p>
 <img style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/3ad40d48deaf485fcaa449cce8c7a943.png"
+src="../../img/compiled/nn_from_scratch/d46ecee38fd02fe6febe37fe4f50e075.png"
 alt="\begin{array}{rl}
-\frac{\partial{\sigma}}{\partial{x}} &amp;= \frac{\partial}{\partial{u}} \cdot \frac{1}{u} \cdot  \frac{\partial{u}}{\partial{x}}; u = 1 + e^{-x} \textup{ u substitution} \\
-&amp;= -\frac{1}{u^2} \cdot \frac{\partial{u}}{\partial{x}} \textup{ Substitute in fraction derivative} \\
+\frac{\partial{\sigma}}{\partial{x}} &amp;= \frac{\partial}{\partial{u}} \cdot \frac{1}{u} \cdot  \frac{\partial{u}}{\partial{x}}; u = 1 + e^{-x} \textup{ ; u substitution} \\
+&amp;= -\frac{1}{u^2} \cdot \frac{\partial{u}}{\partial{x}} \textup{ ; Substitute in fraction derivative} \\
 &amp;= -\frac{1}{(1 + e^{-x})^2} \cdot  \frac{\partial}{\partial{x}} 1 + e^{-x}  \\
-&amp;= -\frac{1}{(1 + e^{-x})^2} \cdot   -e^{-x} \textup{ Substitute in natural exponent} \\
+&amp;= -\frac{1}{(1 + e^{-x})^2} \cdot   -e^{-x} \textup{ ; Substitute in natural exponent} \\
 &amp;= \frac{e^{-x}}{(e^{-x} + 1)^2}
 \end{array}" title="\begin{array}{rl}
-\frac{\partial{\sigma}}{\partial{x}} &amp;= \frac{\partial}{\partial{u}} \cdot \frac{1}{u} \cdot  \frac{\partial{u}}{\partial{x}}; u = 1 + e^{-x} \textup{ u substitution} \\
-&amp;= -\frac{1}{u^2} \cdot \frac{\partial{u}}{\partial{x}} \textup{ Substitute in fraction derivative} \\
+\frac{\partial{\sigma}}{\partial{x}} &amp;= \frac{\partial}{\partial{u}} \cdot \frac{1}{u} \cdot  \frac{\partial{u}}{\partial{x}}; u = 1 + e^{-x} \textup{ ; u substitution} \\
+&amp;= -\frac{1}{u^2} \cdot \frac{\partial{u}}{\partial{x}} \textup{ ; Substitute in fraction derivative} \\
 &amp;= -\frac{1}{(1 + e^{-x})^2} \cdot  \frac{\partial}{\partial{x}} 1 + e^{-x}  \\
-&amp;= -\frac{1}{(1 + e^{-x})^2} \cdot   -e^{-x} \textup{ Substitute in natural exponent} \\
+&amp;= -\frac{1}{(1 + e^{-x})^2} \cdot   -e^{-x} \textup{ ; Substitute in natural exponent} \\
 &amp;= \frac{e^{-x}}{(e^{-x} + 1)^2}
 \end{array}" class="math display" />
 <h2 id="matrix-calculus">Matrix Calculus</h2>
