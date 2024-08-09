@@ -1,4 +1,4 @@
-HEADER Binary Classification Neural Network from scratch in Numpy
+HEADER {"page_name": "Binary Classification Neural Network from scratch in Numpy", "teaser_img": "http://vedder.io/img/static/nn_from_scratch.png"}
 
 # Binary Classification Neural Network from scratch in Numpy
 
