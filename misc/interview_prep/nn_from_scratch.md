@@ -28,9 +28,9 @@ We compute the derivative of $L$ with respect to $\hat{y}$ step by step:
 <!-- $$\bar{BCE}(\hat{y}, y) = \frac{\hat{y} - y}{\hat{y}(1 - \hat{y})}$$ -->
 
 \begin{array}{rl}
-\frac{\partial{L}}{\partial{\hat{y}}} &= -y (\frac{\partial{\log(\hat{y})}}{\partial{\hat{y}}}) - (1 - y)  (\frac{\partial{\log(1-\hat{y})}}{\partial{\hat{y}}})\textup{ Substitute in log definitions}\\
+\frac{\partial{L}}{\partial{\hat{y}}} &= -y (\frac{\partial{\log(\hat{y})}}{\partial{\hat{y}}}) - (1 - y)  (\frac{\partial{\log(1-\hat{y})}}{\partial{\hat{y}}})\textup{ ; Substitute in log definitions}\\
 &= -y (\frac{1}{\hat{y}}) - (1 - y)  (- \frac{1}{1  - \hat{y}})\\
-&=  \frac{-y}{\hat{y}} + (1 - y)  ( \frac{1}{1  - \hat{y}})\textup{ Simplify}\\
+&=  \frac{-y}{\hat{y}} + (1 - y)  ( \frac{1}{1  - \hat{y}})\textup{ ; Simplify}\\
 &=  \frac{-y}{\hat{y}} +  \frac{(1 - y)}{1  - \hat{y}}\\
 &=  \frac{-y(1  - \hat{y})}{\hat{y} (1  - \hat{y}) } +  \frac{\hat{y}(1 - y)}{\hat{y}(1  - \hat{y})}\\
 &=  \frac{-y(1  - \hat{y}) + \hat{y}(1 - y) }{\hat{y}(1  - \hat{y})}\\
@@ -55,10 +55,10 @@ Keeping in mind that
 We compute the derivative of $\sigma$ with respect to $x$ step by step:
 
 \begin{array}{rl}
-\frac{\partial{\sigma}}{\partial{x}} &= \frac{\partial}{\partial{u}} \cdot \frac{1}{u} \cdot  \frac{\partial{u}}{\partial{x}}; u = 1 + e^{-x} \textup{ u substitution} \\
-&= -\frac{1}{u^2} \cdot \frac{\partial{u}}{\partial{x}} \textup{ Substitute in fraction derivative} \\
+\frac{\partial{\sigma}}{\partial{x}} &= \frac{\partial}{\partial{u}} \cdot \frac{1}{u} \cdot  \frac{\partial{u}}{\partial{x}}; u = 1 + e^{-x} \textup{ ; u substitution} \\
+&= -\frac{1}{u^2} \cdot \frac{\partial{u}}{\partial{x}} \textup{ ; Substitute in fraction derivative} \\
 &= -\frac{1}{(1 + e^{-x})^2} \cdot  \frac{\partial}{\partial{x}} 1 + e^{-x}  \\
-&= -\frac{1}{(1 + e^{-x})^2} \cdot   -e^{-x} \textup{ Substitute in natural exponent} \\
+&= -\frac{1}{(1 + e^{-x})^2} \cdot   -e^{-x} \textup{ ; Substitute in natural exponent} \\
 &= \frac{e^{-x}}{(e^{-x} + 1)^2}
 \end{array}
 
