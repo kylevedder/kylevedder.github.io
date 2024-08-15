@@ -4,6 +4,10 @@ HEADER ZeroFlow: Scalable Scene Flow via Distillation
 
 ## [Kyle Vedder](http://vedder.io), [Neehar Peri](http://www.neeharperi.com/), [Nathaniel Chodosh](https://scholar.google.com/citations?user=b4qKr7gAAAAJ&hl=en), [Ishan Khatri](https://ishan.khatri.io/), [Eric Eaton](https://www.seas.upenn.edu/~eeaton/), [Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/), [Yang Liu](https://youngleox.github.io/), [Deva Ramanan](https://www.cs.cmu.edu/~deva/), and [James Hays](https://faculty.cc.gatech.edu/~hays/)
 
+<div class="centered">
+# [[Paper]](https://arxiv.org/abs/2305.10424) [[Code]](https://github.com/kylevedder/SceneFlowZoo)
+</div>
+
 ## News:
 
 _Jan 16th, 2024_: **ZeroFlow was accepted to ICLR 2024!**
