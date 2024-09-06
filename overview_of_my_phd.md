@@ -44,7 +44,7 @@ Our key take-home message was that feed-forward architecture choice was a critic
 
 Under our new metric from _I Can't Believe It's Not Scene Flow!_, it became clear that ZeroFlow's poor performance was at least partially inherited from the systematic limitations of its teacher. This motivated the need for a high-quality offline optimization method that, even if expensive, could describe the motion of small objects well.
 
-To do this, we proposed _GIGACHAD_, a simple, unsupervised test-time optimization method that fits a neural flow volume to the _entire_ sequence of point clouds. This full sequence formulation combined multi-step optimization losses results in extremely high quality unsupervised flow, allowing GIGACHAD to capture state-of-the-art on the Argoverse 2 2024 Scene Flow Challenge leaderboard, beating out _all_ prior art, including all prior supervised methods. GIGACHAD also displayed a number of emergent capabilities: it is able to extract long tail, small object motion such as birds flying, and it is able to do 3D point tracking across arbitrary time horizons for object using Euler integration.
+To do this, we proposed _GIGACHAD_, a simple, unsupervised test-time optimization method that fits a neural flow volume to the _entire_ sequence of point clouds. This full sequence formulation, combined with multi-step optimization losses, results in extremely high quality unsupervised flow, allowing GIGACHAD to capture state-of-the-art on the Argoverse 2 2024 Scene Flow Challenge leaderboard, beating out _all_ prior art, including all prior supervised methods. GIGACHAD also displayed a number of emergent capabilities: it is able to extract long tail, small object motion such as birds flying, and it is able to do 3D point tracking across arbitrary time horizons for object using Euler integration.
 
 The key take-home messages:
 
@@ -53,14 +53,3 @@ The key take-home messages:
    - this can be used to do long-tail object mining from motion cues
    - this method works out-of-the-box on a wide variety of scenes, including indoor scenes
  - multi-frame predictions were a critical factor to optimizing this representation; this likely has implications for loss design in feed-forward methods
-
-
-
-
-
-I believe the shortest path to getting robust, generally capable robots in the real world is through the construction of [systems whose performance scales with compute and data, *without* requiring human annotations](http://www.incompleteideas.net/IncIdeas/BitterLesson.html).
-
-In service of this, I am interested in designing and scaling fundamentally 3D vision systems that learn just from raw, multi-modal data. My contrarian bet is on the multi-modal and 3D aspects; a high quality, 3D aware representation with diverse data sources should enable more sample efficient and robust downstream policies. Most representations today are 2D for historical reasons (e.g. lots of RGB data, 2D convolutions won the hardware lottery), but I believe this ends up pushing a lot of 3D spacial understand out of the visual representation and into the downstream policy, making them more expensive to learn and less robust.
-
-My current line of work is focused on [tackling scene flow](https://www.argoverse.org/sceneflow), a problem that requires systems to construct a [robust understanding of the dynamics of the 3D world](./zeroflow.html). For data availability reasons, it primarily focuses on the Autonomous Driving domain, but the same principles apply to other domains, e.g. indoor service robots.
-
