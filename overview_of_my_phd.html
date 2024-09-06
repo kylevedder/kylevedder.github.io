@@ -46,16 +46,28 @@ addressed this gap in Scene Flow?</h2>
 href="./zeroflow.html">ZeroFlow: Scalable Scene Flow via
 Distillation</a></h3>
 <p>We need <em>scalable</em> Scene Flow methods, i.e. methods that
-improve by adding more raw data and more parameters. At the time, scene
-flow methods were either feed-forward supervised methods using human
-annotations (or from the synthetic dataset generator), or they were very
-expensive optimization methods. We had a simple idea: distill an
-expensive optimization method (Neural Scene Flow Prior) into a
-feed-forward network. This was even more successful than we expected,
-and ZeroFlow was state-of-the-art on the Argoverse 2 Self-Supervised
-Scene Flow Leaderboard (beating out the optimization teacher!). It was
-also 1000x faster than the best optimization methods, and 1000x cheaper
-to train than the human supervised methods.</p>
+improve by adding more raw data and more parameters. When I started this
+project, scene flow methods were either feed-forward supervised methods
+using human annotations (or from the synthetic dataset generator), or
+they were very expensive optimization methods. Worse, almost all of
+these methods did not run on full-size point clouds; they would
+downsample the point cloud to 8,196 points instead of the 50,000+ points
+in the (ground removed!) full point clouds. This is a <em>critical</em>
+limitation, as it meant they are fundamentally unsuitable to detecting
+motion on all but the largest objects. This left us with only a couple
+optimization and feed-forward baseline scene flow methods that even
+tried to seriously solve the full scene flow problem.</p>
+<p>ZeroFlow is a very simple idea: distill one of the few (very)
+expensive optimization methods (<a
+href="https://arxiv.org/abs/2111.01253">Neural Scene Flow Prior</a>)
+into one of the few feed-forward networks that could handle full-size
+point clouds (<a
+href="https://arxiv.org/abs/2103.01306">FastFlow3D</a>). This was far
+more successful than we expected, and ZeroFlow was state-of-the-art on
+the Argoverse 2 Self-Supervised Scene Flow Leaderboard (beating out the
+optimization teacher!). It was also 1000x faster than the best
+optimization methods, and 1000x cheaper to train than the human
+supervised methods.</p>
 <p>While conceptually simple, ZeroFlow had several important take-home
 messages:</p>
 <ul>
@@ -70,14 +82,15 @@ architecture</li>
 <h3 id="i-cant-believe-its-not-scene-flow"><a
 href="./trackflow.html"><em>I Can’t Believe It’s Not Scene
 Flow!</em></a></h3>
-<p>After publishing ZeroFlow, we started staring at its flow results to
-get a deeper understanding of its shortcomings. We realized it (and all
-of the baselines) systematically failed to describe most small object
-motion (e.g. Pedestrians). Worse, we didn’t know about these systematic
-failures using the standard metrics because, by construction, small
-objects have a very small fraction of the total points in a point cloud,
-and so their error contribution was reduced to a rounding error compared
-to large objects.</p>
+<p>After publishing ZeroFlow, we spent a long time looking at
+visualizations of its flow results to get a deeper understanding of its
+shortcomings. We realized it (and all of the baselines) systematically
+failed to describe most small object motion (e.g. Pedestrians). Worse,
+we didn’t know about these systematic failures using the standard
+metrics because, by construction, small objects have a very small
+fraction of the total points in a point cloud, and so their error
+contribution was reduced to a rounding error compared to large
+objects.</p>
 <p>In order to properly quantify this failure, we proposed a new metric,
 <em>Bucket Normalized Scene Flow</em>, that reported error per class,
 and normalized these errors by point speed to report a
