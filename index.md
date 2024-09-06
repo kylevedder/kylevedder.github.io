@@ -4,29 +4,50 @@ HEADER Kyle Vedder's Homepage
 
 <img class="centered" src="img/me_computer.jpg" height="400" />
 
+**I am graduating with my CS PhD from Penn in May 2025, and I am on the job market for an industry Research Scientist position, either at a major AI lab or at a robotics startup, with the goal of working towards an embodied AI system that can perform at or above human level in a variety of domestic and industrial labor tasks.**
+
+<!-- My career goal is to build embodied AI system that can perform at or above human level in a variety of domestic and industrial labor tasks. I chose to do a PhD to focus on the 3D perception and world modeling aspect of this problem, as I believe having the right representation is a critical factor in learning robust, generalizable policies. My PhD research has focused on the problem of Scene Flow, which I believe encapsulates the critical ability to understand the dynamics of the 3D world. -->
+
+## Research Interests
+
 STATEMENT_OF_PURPOSE
 
-## Background
+## Academic Background
 
-I am a CS PhD [candidate](img/static/candidate.png) at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) and [Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/) in the [GRASP Lab](https://www.grasp.upenn.edu/). My current line of work is focused on [scene flow](https://www.argoverse.org/sceneflow) with the general goals of:
+I am a CS PhD [candidate](img/static/candidate.png) at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) and [Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/) in the [GRASP Lab](https://www.grasp.upenn.edu/). My current line of work is focused on Scene Flow with the general goal of building flexible, scalable systems that do not require human annotations.
 
- - [Finding label-free, scalable 3D scene understanding formulations](./zeroflow.html) 
- - [Designing efficient 3D perception systems](./sparse_point_pillars.html)
+Representative projects include:
+
+ - [ZeroFlow: Scalable Scene Flow via Distillation](./zeroflow.html)
+   - Distill an expensive optimization method into a feed-forward network and data scale it to state-of-the-art performance
+ - [_I Can't Believe It's Not Scene Flow!_](./trackflow.html)
+    - Standard benchmarks were systematically broken, hiding the failure of all methods to describe small object motion; we proposed a new metric and a simple baseline that was state-of-the-art
+  - [Argoverse 2 2024 Scene Flow Challenge](https://www.argoverse.org/sceneflow)
+    - Hosted a challenge to push the field to close the gap between prior art and a qualitative notion of reasonable flow quality
  
+**For a narrative overview of how my PhD research fits together, see [_Overview of my PhD Research_](./overview_of_my_phd.html).**
 
-During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas](https://www.joydeepb.com/) in the [Autonomous Mobile Robotics Lab](https://amrl.cs.umass.edu/). My research was in:
+
+## Industry / Engineering Background
+
+ I have done many industry internships:
+
+  - NVIDIA as a research intern under [Zhiding Yu](https://chrisding.github.io/)
+  - ArgoAI as a research intern under [James Hays](https://faculty.cc.gatech.edu/~hays/) 
+  - Amazon Lab126 as a perception intern on their home robot, [Astro](https://www.aboutamazon.com/news/devices/meet-astro-a-home-robot-unlike-any-other)
+  - Google as a software engineering intern on adwords and ads quality
+  - Unidesk (a startup since aquired by Citrix)
+
+I also have significant experience doing high-precision full stack robotics. In undergrad, I lead the greenfield development of [AMRL](https://amrl.cs.umass.edu/)'s [Robocup Small Size League control stack](https://amrl.cs.umass.edu/minutebots.html) and did research in [multi-agent path planning](./xstar.html).
+
+
+<!-- During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas](https://www.joydeepb.com/) in the . My research was in:
 
  - [Single-Agent Path Finding (SAPF)](http://vedder.io/publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf) for sampling based planners
  - [Anytime Multi-Agent Path Finding (MAPF)](./xstar.html) for efficient first solution generation
  - [Core infrastructure](http://vedder.io/publications/MinutebotsRoboCupTDP2017.pdf) and [low level safety system](http://vedder.io/publications/MinutebotsRoboCupTDP2018.pdf) of our [RoboCup Small Size League team](https://amrl.cs.umass.edu/minutebots.html)
 
- I have also done many industry internships:
-
-  - NVIDIA as a research intern under [Zhiding Yu](https://chrisding.github.io/)
-  - ArgoAI as a research intern under [James Hays](https://faculty.cc.gatech.edu/~hays/) 
-  - Amazon Lab126 on their home robot, [Astro](https://www.aboutamazon.com/news/devices/meet-astro-a-home-robot-unlike-any-other)
-  - Google on adwords and ads quality
-  - Unidesk (a startup since aquired by Citrix)
+ -->
 
 ## More Information
 
@@ -41,7 +62,7 @@ During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas]
 <div class="updates">
  - Jul 1st, 2024: [_I Can't Believe It's Not Scene Flow!_](./trackflow.html) was accepted to ECCV! [(Reviews)](./misc/eccv24_reviews_rebuttal.pdf)
  - Mar 28th, 2024: [Blog post: On Homogeneous Transforms](./misc/homogeneous_transforms.html)
- - Jan 29th, 2023: Joined Nvidia as a Research Intern!
+ - Jan 29th, 2024: Joined Nvidia as a Research Intern!
  - Jan 16th, 2024: [_ZeroFlow: Scalable Scene Flow via Distillation_](./zeroflow.html) was accepted to ICLR 2024! [(Reviews)](https://openreview.net/forum?id=FRCHDhbxZF)
  - Dec 4th, 2023: [Book review: Eric Jang’s book "_AI is Good for You_"](./misc/review_ai_is_good_for_you.html)
  - Aug 3rd, 2023: [Blog post: Applying to CS PhD programs for Machine Learning: what I wish I knew](https://vedder.io/misc/applying_to_ml_phd.html)

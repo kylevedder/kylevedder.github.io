@@ -1,0 +1,175 @@
+<!DOCTYPE html><html><head>
+<meta charset="utf-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9NWBV84HB2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9NWBV84HB2');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Overview of my PhD Research">
+<meta property="og:title" content="Overview of my PhD Research">
+<meta property="og:description" content="Overview of my PhD Research">
+<meta property="og:image" content="">
+<meta property="twitter:title" content="Overview of my PhD Research">
+<meta property="twitter:description" content="Overview of my PhD Research">
+<meta property="twitter:image" content="">
+<meta property="og:type" content="website">
+<meta name="author" content="Kyle Vedder">
+<link rel="shortcut icon" href="./favicon.ico">
+<title>
+Overview of my PhD Research
+</title>
+<!-- css -->
+<link href="./css/style.css" rel="stylesheet"> <!-- JavaScript -->
+<script type="text/javascript" src="./js/utils.js"></script>
+</head>
+<body><h1 id="overview-of-my-phd-research">Overview of my PhD Research</h1>
+<h2 id="why-has-my-phd-focused-on-scene-flow">Why has my PhD focused on
+Scene Flow?</h2>
+<p>My research has focused on describing and learning the
+<em>dynamics</em> of the 3D world through the problem of Scene Flow. I
+strongly believe in <a
+href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">The
+Bitter Lesson</a>, but to me it’s clear that general embodied AI systems
+need a deep intuition for the 3D world to be robust and sample
+efficient. My focus on describing dynamics was driven by the lack of
+scalable, data-driven methods at the time to learn this; while we have
+self-supervised problem of next frame prediction to get structure, when
+I started there were no data-driven methods to learn motion, and I felt
+this was a critical gap.</p>
+<h2 id="how-have-i-addressed-this-gap-in-scene-flow">How have I
+addressed this gap in Scene Flow?</h2>
+<h3 id="zeroflow-scalable-scene-flow-via-distillation"><a
+href="./zeroflow.html">ZeroFlow: Scalable Scene Flow via
+Distillation</a></h3>
+<p>We need <em>scalable</em> Scene Flow methods, i.e. methods that
+improve by adding more raw data and more parameters. At the time, scene
+flow methods were either feed-forward supervised methods using human
+annotations (or from the synthetic dataset generator), or they were very
+expensive optimization methods. We had a simple idea: distill an
+expensive optimization method (Neural Scene Flow Prior) into a
+feed-forward network. This was even more successful than we expected,
+and ZeroFlow was state-of-the-art on the Argoverse 2 Self-Supervised
+Scene Flow Leaderboard (beating out the optimization teacher!). It was
+also 1000x faster than the best optimization methods, and 1000x cheaper
+to train than the human supervised methods.</p>
+<p>While conceptually simple, ZeroFlow had several important take-home
+messages:</p>
+<ul>
+<li>we have a working blueprint for scaling a scene flow method with
+data and compute</li>
+<li>at data scale, feed-forward networks will ignore uncorrelated noise
+in teacher pseudo-labels, enabling them to outperform the teacher</li>
+<li>with sufficient data scale, pseudolabel trained feed-forward
+networks can outperform human supervised methods with the exact same
+architecture</li>
+</ul>
+<h3 id="i-cant-believe-its-not-scene-flow"><a
+href="./trackflow.html"><em>I Can’t Believe It’s Not Scene
+Flow!</em></a></h3>
+<p>After publishing ZeroFlow, we started staring at its flow results to
+get a deeper understanding of its shortcomings. We realized it (and all
+of the baselines) systematically failed to describe most small object
+motion (e.g. Pedestrians). Worse, we didn’t know about these systematic
+failures using the standard metrics because, by construction, small
+objects have a very small fraction of the total points in a point cloud,
+and so their error contribution was reduced to a rounding error compared
+to large objects.</p>
+<p>In order to properly quantify this failure, we proposed a new metric,
+<em>Bucket Normalized Scene Flow</em>, that reported error per class,
+and normalized these errors by point speed to report a
+<em>percentage</em> of motion described — it’s clear that 0.5m/s error
+on a 0.5m/s walking pedestrian is far worse than 0.6m/s error on a 25m/s
+driving car.</p>
+<p>To show that this wasn’t an impossible gap to close, we proposed a
+very simple and crude supervised baseline, <em>TrackFlow</em>,
+constructed by running an off-the-shelf 3D detector on each point cloud
+and then associating boxes across frames with a 3D Kalman filter to
+produce flow. Despite the crude construction without any scene flow
+specific training, it was state-of-the-art by a slim margin on the old
+metrics but by an enormous margin on our new metric; it was the first
+method to describe more than 50% of pedestrian motion correctly (hence
+the name, <em>I Can’t Believe It’s Not Scene Flow!</em>).</p>
+<p>The key take-home messages were:</p>
+<ul>
+<li>there is a huge performance gap to close between prior art and a
+qualitative notion of reasonable flow quality</li>
+<li>standard metrics were <em>broken</em>, hiding this large gap</li>
+<li>this gap is realistically closable, even with very simple methods,
+if we can properly measure it</li>
+</ul>
+<h3 id="argoverse-2-2024-scene-flow-challenge"><a
+href="https://www.argoverse.org/sceneflow">Argoverse 2 2024 Scene Flow
+Challenge</a></h3>
+<p>In order to push the field to close this gap, we hosted the
+<em>Argoverse 2 2024 Scene Flow Challenge</em> as part of the CVPR 2024
+<em>Workshop on Autonomous Driving</em>. The goal was to minimize the
+mean normalized dynamic error of our new metric <em>Bucket Normalized
+Scene Flow</em>, and featured both a supervised and an unsupervised
+track. The most surprising result was the winning supervised method <a
+href="https://arxiv.org/abs/2407.07995">Flow4D</a> was able to
+<em>halve</em> the error compared to the next best method, our baseline
+TrackFlow, and it did so with a novel feed forward architecture that was
+better able to learn general 3D motion cues, while using no additional
+fancy training tricks like class rebalancing.</p>
+<p>Our key take-home message was that feed-forward architecture choice
+was a critically underexplored aspect of scene flow, and ZeroFlow and
+other prior work clearly suffered from inferior network design.</p>
+<h3 id="gigachad">GIGACHAD</h3>
+<p>Under our new metric from <em>I Can’t Believe It’s Not Scene
+Flow!</em>, it became clear that ZeroFlow’s poor performance was at
+least partially inherited from the systematic limitations of its
+teacher. This motivated the need for a high-quality offline optimization
+method that, even if expensive, could describe the motion of small
+objects well.</p>
+<p>To do this, we proposed <em>GIGACHAD</em>, a simple, unsupervised
+test-time optimization method that fits a neural flow volume to the
+<em>entire</em> sequence of point clouds. This full sequence formulation
+combined multi-step optimization losses results in extremely high
+quality unsupervised flow, allowing GIGACHAD to capture state-of-the-art
+on the Argoverse 2 2024 Scene Flow Challenge leaderboard, beating out
+<em>all</em> prior art, including all prior supervised methods. GIGACHAD
+also displayed a number of emergent capabilities: it is able to extract
+long tail, small object motion such as birds flying, and it is able to
+do 3D point tracking across arbitrary time horizons for object using
+Euler integration.</p>
+<p>The key take-home messages:</p>
+<ul>
+<li>we now have a method to get extremely high quality unsupervised
+scene flow
+<ul>
+<li>this is a prime candidate for a pseudolabel teacher</li>
+<li>this can be used to do long-tail object mining from motion cues</li>
+<li>this method works out-of-the-box on a wide variety of scenes,
+including indoor scenes</li>
+</ul></li>
+<li>multi-frame predictions were a critical factor to optimizing this
+representation; this likely has implications for loss design in
+feed-forward methods</li>
+</ul>
+<p>I believe the shortest path to getting robust, generally capable
+robots in the real world is through the construction of <a
+href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">systems
+whose performance scales with compute and data, <em>without</em>
+requiring human annotations</a>.</p>
+<p>In service of this, I am interested in designing and scaling
+fundamentally 3D vision systems that learn just from raw, multi-modal
+data. My contrarian bet is on the multi-modal and 3D aspects; a high
+quality, 3D aware representation with diverse data sources should enable
+more sample efficient and robust downstream policies. Most
+representations today are 2D for historical reasons (e.g. lots of RGB
+data, 2D convolutions won the hardware lottery), but I believe this ends
+up pushing a lot of 3D spacial understand out of the visual
+representation and into the downstream policy, making them more
+expensive to learn and less robust.</p>
+<p>My current line of work is focused on <a
+href="https://www.argoverse.org/sceneflow">tackling scene flow</a>, a
+problem that requires systems to construct a <a
+href="./zeroflow.html">robust understanding of the dynamics of the 3D
+world</a>. For data availability reasons, it primarily focuses on the
+Autonomous Driving domain, but the same principles apply to other
+domains, e.g. indoor service robots.</p>
+</body></html>
