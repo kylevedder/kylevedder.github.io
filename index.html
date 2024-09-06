@@ -30,6 +30,13 @@ Kyle Vedder’s Homepage
 I’m Kyle Vedder
 </h1>
 <p><img class="centered" src="img/me_computer.jpg" height="400" /></p>
+<p><strong>I am graduating with my CS PhD from Penn in May 2025, and I
+am on the job market for an industry Research Scientist position, either
+at a major AI lab or at a robotics startup, with the goal of working
+towards an embodied AI system that can perform at or above human level
+in a variety of domestic and industrial labor tasks.</strong></p>
+<!-- My career goal is to build embodied AI system that can perform at or above human level in a variety of domestic and industrial labor tasks. I chose to do a PhD to focus on the 3D perception and world modeling aspect of this problem, as I believe having the right representation is a critical factor in learning robust, generalizable policies. My PhD research has focused on the problem of Scene Flow, which I believe encapsulates the critical ability to understand the dynamics of the 3D world. -->
+<h2 id="research-interests">Research Interests</h2>
 <p>I believe the shortest path to getting robust, generally capable
 robots in the real world is through the construction of <a
 href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">systems
@@ -52,49 +59,65 @@ href="./zeroflow.html">robust understanding of the dynamics of the 3D
 world</a>. For data availability reasons, it primarily focuses on the
 Autonomous Driving domain, but the same principles apply to other
 domains, e.g. indoor service robots.</p>
-<h2 id="background">Background</h2>
+<h2 id="academic-background">Academic Background</h2>
 <p>I am a CS PhD <a href="img/static/candidate.png">candidate</a> at
 Penn under <a href="https://www.seas.upenn.edu/~eeaton/">Eric Eaton</a>
 and <a href="https://www.seas.upenn.edu/~dineshj/">Dinesh Jayaraman</a>
 in the <a href="https://www.grasp.upenn.edu/">GRASP Lab</a>. My current
-line of work is focused on <a
-href="https://www.argoverse.org/sceneflow">scene flow</a> with the
-general goals of:</p>
+line of work is focused on Scene Flow with the general goal of building
+flexible, scalable systems that do not require human annotations.</p>
+<p>Representative projects include:</p>
 <ul>
-<li><a href="./zeroflow.html">Finding label-free, scalable 3D scene
-understanding formulations</a></li>
-<li><a href="./sparse_point_pillars.html">Designing efficient 3D
-perception systems</a></li>
-</ul>
-<p>During my undergrad in CS at UMass Amherst I did research under <a
-href="https://www.joydeepb.com/">Joydeep Biswas</a> in the <a
-href="https://amrl.cs.umass.edu/">Autonomous Mobile Robotics Lab</a>. My
-research was in:</p>
+<li><a href="./zeroflow.html">ZeroFlow: Scalable Scene Flow via
+Distillation</a>
 <ul>
-<li><a
-href="http://vedder.io/publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf">Single-Agent
-Path Finding (SAPF)</a> for sampling based planners</li>
-<li><a href="./xstar.html">Anytime Multi-Agent Path Finding (MAPF)</a>
-for efficient first solution generation</li>
-<li><a
-href="http://vedder.io/publications/MinutebotsRoboCupTDP2017.pdf">Core
-infrastructure</a> and <a
-href="http://vedder.io/publications/MinutebotsRoboCupTDP2018.pdf">low
-level safety system</a> of our <a
-href="https://amrl.cs.umass.edu/minutebots.html">RoboCup Small Size
-League team</a></li>
+<li>Distill an expensive optimization method into a feed-forward network
+and data scale it to state-of-the-art performance</li>
+</ul></li>
+<li><a href="./trackflow.html"><em>I Can’t Believe It’s Not Scene
+Flow!</em></a>
+<ul>
+<li>Standard benchmarks were systematically broken, hiding the failure
+of all methods to describe small object motion; we proposed a new metric
+and a simple baseline that was state-of-the-art</li>
+</ul></li>
+<li><a href="https://www.argoverse.org/sceneflow">Argoverse 2 2024 Scene
+Flow Challenge</a>
+<ul>
+<li>Hosted a challenge to push the field to close the gap between prior
+art and a qualitative notion of reasonable flow quality</li>
+</ul></li>
 </ul>
-<p>I have also done many industry internships:</p>
+<p><strong>For a narrative overview of how my PhD research fits
+together, see <a href="./overview_of_my_phd.html"><em>Overview of my PhD
+Research</em></a>.</strong></p>
+<h2 id="industry-engineering-background">Industry / Engineering
+Background</h2>
+<p>I have done many industry internships:</p>
 <ul>
 <li>NVIDIA as a research intern under <a
 href="https://chrisding.github.io/">Zhiding Yu</a></li>
 <li>ArgoAI as a research intern under <a
 href="https://faculty.cc.gatech.edu/~hays/">James Hays</a></li>
-<li>Amazon Lab126 on their home robot, <a
+<li>Amazon Lab126 as a perception intern on their home robot, <a
 href="https://www.aboutamazon.com/news/devices/meet-astro-a-home-robot-unlike-any-other">Astro</a></li>
-<li>Google on adwords and ads quality</li>
+<li>Google as a software engineering intern on adwords and ads
+quality</li>
 <li>Unidesk (a startup since aquired by Citrix)</li>
 </ul>
+<p>I also have significant experience doing high-precision full stack
+robotics. In undergrad, I lead the greenfield development of <a
+href="https://amrl.cs.umass.edu/">AMRL</a>’s <a
+href="https://amrl.cs.umass.edu/minutebots.html">Robocup Small Size
+League control stack</a> and did research in <a
+href="./xstar.html">multi-agent path planning</a>.</p>
+<!-- During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas](https://www.joydeepb.com/) in the . My research was in:
+
+ - [Single-Agent Path Finding (SAPF)](http://vedder.io/publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf) for sampling based planners
+ - [Anytime Multi-Agent Path Finding (MAPF)](./xstar.html) for efficient first solution generation
+ - [Core infrastructure](http://vedder.io/publications/MinutebotsRoboCupTDP2017.pdf) and [low level safety system](http://vedder.io/publications/MinutebotsRoboCupTDP2018.pdf) of our [RoboCup Small Size League team](https://amrl.cs.umass.edu/minutebots.html)
+
+ -->
 <h2 id="more-information">More Information</h2>
 <ul>
 <li>Email: kvedder (at) seas.upenn.edu</li>
@@ -115,7 +138,7 @@ Not Scene Flow!</em></a> was accepted to ECCV! <a
 href="./misc/eccv24_reviews_rebuttal.pdf">(Reviews)</a></li>
 <li>Mar 28th, 2024: <a href="./misc/homogeneous_transforms.html">Blog
 post: On Homogeneous Transforms</a></li>
-<li>Jan 29th, 2023: Joined Nvidia as a Research Intern!</li>
+<li>Jan 29th, 2024: Joined Nvidia as a Research Intern!</li>
 <li>Jan 16th, 2024: <a href="./zeroflow.html"><em>ZeroFlow: Scalable
 Scene Flow via Distillation</em></a> was accepted to ICLR 2024! <a
 href="https://openreview.net/forum?id=FRCHDhbxZF">(Reviews)</a></li>
