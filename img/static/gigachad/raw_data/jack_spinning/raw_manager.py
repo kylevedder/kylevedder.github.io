@@ -10,9 +10,12 @@ for i, ply_file in enumerate(ply_files):
 
 
 raw_files = sorted(Path().glob("raw_*.ply"))
-# Only include 6 to 22
+
+min_val = 7
+max_val = 23
+# Only include 6 to 30
 for i, raw_file in enumerate(raw_files):
-    if 6 <= i <= 22:
-        raw_file.rename(raw_file.with_name(f"{i-5:04d}.ply"))
+    if min_val <= i <= max_val:
+        raw_file.rename(raw_file.with_name(f"{i-min_val:04d}.ply"))
     else:
         raw_file.unlink()
