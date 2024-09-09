@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PLY File Viewer with Trajectory Trail</title>
+    <title>PLY File Viewer with Multiple Trajectories</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -39,10 +39,10 @@
     </style>
 </head>
 <body>
-    <h1>PLY File Viewer with Trajectory Trail</h1>
+    <h1>PLY File Viewer with Multiple Trajectories</h1>
     <div id="render-container"></div>
     <div id="slider-container">
-        <input type="range" id="frame-slider" min="0" max="18" value="0">
+        <input type="range" id="frame-slider" min="0" max="16" value="0">
         <span id="frame-number">0</span>
     </div>
 
@@ -81,20 +81,20 @@
         scene.add(light);
 
         let currentPoints = null;
-        let trajectorySphereMesh = null;
+        let trajectorySphereMeshes = [];
         let trailSphereMeshes = [];
-        let trailLine = null;
+        let trailLines = [];
         let isFirstLoad = true;
-        let trajectoryData = null;
+        let trajectoriesData = null;
 
         const slider = document.getElementById('frame-slider');
         const frameNumber = document.getElementById('frame-number');
 
-        // Load trajectory data
+        // Load trajectories data
         fetch('img/static/gigachad/raw_data/jack_spinning/trajectory.json')
             .then(response => response.json())
             .then(data => {
-                trajectoryData = data;
+                trajectoriesData = data;
                 loadPLY(0); // Initial load after trajectory data is available
             })
             .catch(error => console.error('Error loading trajectory data:', error));
@@ -112,87 +112,95 @@
                     scene.remove(currentPoints);
                 }
 
-                const material = new THREE.PointsMaterial({ size: 0.01, vertexColors: true });
+                const material = new THREE.PointsMaterial({ size: 0.1, vertexColors: true });
                 const points = new THREE.Points(geometry, material);
                 
                 scene.add(points);
                 currentPoints = points;
 
                 if (isFirstLoad) {
-                    // Center the model
+                    // Set up the camera only on first load
                     const box = new THREE.Box3().setFromObject(points);
-                    const center = box.getCenter(new THREE.Vector3());
-                    points.position.sub(center);
-
-                    // Set up the camera with negated X and +Z up, zoomed in 3x
                     const size = box.getSize(new THREE.Vector3());
                     const maxDim = Math.max(size.x, size.y, size.z);
-                    const distance = maxDim * 2 / 3;
-                    const angle = Math.PI / 8; // 45 degrees in radians
+                    const distance = maxDim * 0.4; // Reduced distance for a closer view
+                    const angle = Math.PI / 6; // 30 degrees in radians for a slightly different angle
                     camera.position.set(
                         -distance * Math.cos(angle),
                         -distance * Math.sin(angle),
                         distance * 0.5
                     );
                     camera.up.set(0, 0, 1); // Set +Z as up
-                    camera.lookAt(scene.position);
+                    camera.lookAt(0, 0, 0); // Look at the center of the scene
+                    controls.target.set(0, 0, 0); // Set the control target to the center
                     controls.update();
 
                     isFirstLoad = false;
                 }
 
-                // Update trajectory sphere and trail
-                updateTrajectory(frameIndex);
+
+                // Update trajectories
+                updateTrajectories(frameIndex);
 
             }, undefined, function(error) {
                 console.error('An error occurred while loading the PLY file:', error);
             });
         }
 
-        function updateTrajectory(frameIndex) {
-            if (!trajectoryData) return;
+        function updateTrajectories(frameIndex) {
+            if (!trajectoriesData) return;
 
-            const position = trajectoryData[frameIndex];
-            if (!position) return;
+            const colors = [0xff0000, 0x00ff00, 0x0000ff, 0xffff00, 0xff00ff, 0x00ffff];
 
-            // Update main trajectory sphere
-            if (!trajectorySphereMesh) {
-                const sphereGeometry = new THREE.SphereGeometry(0.25, 32, 32);
-                const sphereMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-                trajectorySphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
-                scene.add(trajectorySphereMesh);
-            }
-            trajectorySphereMesh.position.set(position[0], position[1], position[2]);
+            trajectoriesData.forEach((trajectory, trajectoryIndex) => {
+                const position = trajectory[frameIndex];
+                if (!position) return;
 
-            // Update trail
-            const trailPositions = [];
-            for (let i = 0; i < 3; i++) {
-                const trailIndex = Math.max(0, frameIndex - i);
-                const trailPos = trajectoryData[trailIndex];
-                if (trailPos) {
-                    trailPositions.push(new THREE.Vector3(trailPos[0], trailPos[1], trailPos[2]));
-                    
-                    if (i >= trailSphereMeshes.length) {
-                        const trailSphereGeometry = new THREE.SphereGeometry(0.15, 16, 16);
-                        const trailSphereMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-                        const trailSphereMesh = new THREE.Mesh(trailSphereGeometry, trailSphereMaterial);
-                        scene.add(trailSphereMesh);
-                        trailSphereMeshes.push(trailSphereMesh);
-                    }
-                    trailSphereMeshes[i].position.copy(trailPositions[i]);
+                const color = colors[trajectoryIndex % colors.length];
+
+                // Update main trajectory sphere
+                if (trajectoryIndex >= trajectorySphereMeshes.length) {
+                    const sphereGeometry = new THREE.SphereGeometry(0.25, 32, 32);
+                    const sphereMaterial = new THREE.MeshBasicMaterial({ color: color });
+                    const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
+                    scene.add(sphereMesh);
+                    trajectorySphereMeshes.push(sphereMesh);
                 }
-            }
+                trajectorySphereMeshes[trajectoryIndex].position.set(position[0], position[1], position[2]);
 
-            // Update trail line
-            if (trailLine) scene.remove(trailLine);
-            const lineGeometry = new THREE.BufferGeometry().setFromPoints(trailPositions);
-            const lineMaterial = new THREE.LineBasicMaterial({ color: 0xff0000 });
-            trailLine = new THREE.Line(lineGeometry, lineMaterial);
-            scene.add(trailLine);
+                // Update trail
+                const trailPositions = [];
+                for (let i = 0; i < 17; i++) {
+                    const trailIndex = Math.max(0, frameIndex - i);
+                    const trailPos = trajectory[trailIndex];
+                    if (trailPos) {
+                        trailPositions.push(new THREE.Vector3(trailPos[0], trailPos[1], trailPos[2]));
+                        
+                        if (!trailSphereMeshes[trajectoryIndex]) {
+                            trailSphereMeshes[trajectoryIndex] = [];
+                        }
+                        if (i >= trailSphereMeshes[trajectoryIndex].length) {
+                            const trailSphereGeometry = new THREE.SphereGeometry(0.15, 16, 16);
+                            const trailSphereMaterial = new THREE.MeshBasicMaterial({ color: color });
+                            const trailSphereMesh = new THREE.Mesh(trailSphereGeometry, trailSphereMaterial);
+                            scene.add(trailSphereMesh);
+                            trailSphereMeshes[trajectoryIndex].push(trailSphereMesh);
+                        }
+                        trailSphereMeshes[trajectoryIndex][i].position.copy(trailPositions[i]);
+                    }
+                }
+
+                // Update trail line
+                if (trailLines[trajectoryIndex]) scene.remove(trailLines[trajectoryIndex]);
+                const lineGeometry = new THREE.BufferGeometry().setFromPoints(trailPositions);
+                const lineMaterial = new THREE.LineBasicMaterial({ color: color });
+                trailLines[trajectoryIndex] = new THREE.Line(lineGeometry, lineMaterial);
+                scene.add(trailLines[trajectoryIndex]);
+            });
         }
 
         function updateFrame(frameIndex) {
-            frameIndex = Math.max(0, Math.min(18, frameIndex));
+            frameIndex = Math.max(0, Math.min(16, frameIndex));
             slider.value = frameIndex;
             frameNumber.textContent = frameIndex;
             loadPLY(frameIndex);
