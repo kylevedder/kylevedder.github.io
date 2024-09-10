@@ -64,12 +64,12 @@ HEADER {"page_name": "GIGACHAD", "teaser_img": "https://vedder.io/img/static/gig
 <img src="img/static/gigachad/gigachad_bird_trajectory_cropped.png" style="width:49%"/>
 </div>
 
-## Table Top Scene Flow
+## Tabletop scene flow
 
 <div class="centered">
 <div id="jack-flow-render-container"></div>
 <div id="jack-flow-slider-container">
-<input type="range" id="jack-flow-frame-slider" min="0" max="16" value="0" class="centered">
+<input type="range" id="jack-flow-frame-slider" min="0" max="15" value="0" class="centered">
 Frame <span id="jack-flow-frame-number">0</span>
 </div>
 Use the slider or arrow keys to navigate through the frames.
@@ -77,15 +77,17 @@ Use the slider or arrow keys to navigate through the frames.
 <script type="module" src="js/jack_scene_flow_vis.js"></script>
 
 
-## Table Top Object Tracking
+## Tabletop point tracking with multiple types of Euler Integration
 
 <div class="centered">
 <div id="jack-traj-render-container"></div>
 <div id="jack-traj-slider-container">
-<input type="range" id="jack-traj-frame-slider" min="0" max="16" value="0" class="centered">
+<input type="range" id="jack-traj-frame-slider" min="0" max="15" value="0" class="centered">
 Frame <span id="jack-traj-frame-number">0</span>
 </div>
 Use the slider or arrow keys to navigate through the frames.
+
+Color represents Euler integration with shorter step sizes from $\Delta t = 1$ to $\frac{1}{8}$. Full red represents $\Delta t = 1$.
 </div>
 <script type="module" src="js/jack_traj_vis.js"></script>
 

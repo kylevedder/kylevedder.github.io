@@ -90,28 +90,40 @@ Pehserl</a></h2>
 <p><img src="img/static/gigachad/gigachad_bird_flow_cropped.png" style="width:49%;" />
 <img src="img/static/gigachad/gigachad_bird_trajectory_cropped.png" style="width:49%"/></p>
 </div>
-<h2 id="table-top-scene-flow">Table Top Scene Flow</h2>
+<h2 id="tabletop-scene-flow">Tabletop scene flow</h2>
 <div class="centered">
 <div id="jack-flow-render-container">
 
 </div>
 <div id="jack-flow-slider-container">
-<p><input type="range" id="jack-flow-frame-slider" min="0" max="16" value="0" class="centered">
+<p><input type="range" id="jack-flow-frame-slider" min="0" max="15" value="0" class="centered">
 Frame <span id="jack-flow-frame-number">0</span></p>
 </div>
 <p>Use the slider or arrow keys to navigate through the frames.</p>
 </div>
 <script type="module" src="js/jack_scene_flow_vis.js"></script>
-<h2 id="table-top-object-tracking">Table Top Object Tracking</h2>
+<h2
+id="tabletop-point-tracking-with-multiple-types-of-euler-integration">Tabletop
+point tracking with multiple types of Euler Integration</h2>
 <div class="centered">
 <div id="jack-traj-render-container">
 
 </div>
 <div id="jack-traj-slider-container">
-<p><input type="range" id="jack-traj-frame-slider" min="0" max="16" value="0" class="centered">
+<p><input type="range" id="jack-traj-frame-slider" min="0" max="15" value="0" class="centered">
 Frame <span id="jack-traj-frame-number">0</span></p>
 </div>
 <p>Use the slider or arrow keys to navigate through the frames.</p>
+<p>Color represents Euler integration with shorter step sizes from <img
+style="vertical-align:middle"
+src="img/compiled/gigachad/80b4673b5919714b0faeb3d5a55e7e5e.png"
+alt="\Delta t = 1" title="\Delta t = 1" class="math inline" /> to <img
+style="vertical-align:middle"
+src="img/compiled/gigachad/e858d22125989b6b38b27a8c8a1288b5.png"
+alt="\frac{1}{8}" title="\frac{1}{8}" class="math inline" />. Full red
+represents <img style="vertical-align:middle"
+src="img/compiled/gigachad/80b4673b5919714b0faeb3d5a55e7e5e.png"
+alt="\Delta t = 1" title="\Delta t = 1" class="math inline" />.</p>
 </div>
 <script type="module" src="js/jack_traj_vis.js"></script>
 <script>

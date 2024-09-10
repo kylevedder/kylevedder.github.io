@@ -94,7 +94,7 @@ function loadPLYAndFlow(frameIndex) {
             const box = new THREE.Box3().setFromObject(points);
             const size = box.getSize(new THREE.Vector3());
             const maxDim = Math.max(size.x, size.y, size.z);
-            const distance = maxDim * 0.4;
+            const distance = maxDim * 0.3;
             const angle = Math.PI / 6;
             camera.position.set(
                 -distance * Math.cos(angle),
@@ -102,8 +102,8 @@ function loadPLYAndFlow(frameIndex) {
                 distance * 0.5
             );
             camera.up.set(0, 0, 1);
-            camera.lookAt(0, 0, 0);
-            controls.target.set(0, 0, 0);
+            camera.lookAt(-6, 0, 0); 
+            controls.target.set(-6, 0, 0); 
             controls.update();
 
             isFirstLoad = false;
@@ -115,7 +115,7 @@ function loadPLYAndFlow(frameIndex) {
 }
 
 function updateFrame(frameIndex) {
-    frameIndex = Math.max(0, Math.min(16, frameIndex));
+    frameIndex = Math.max(0, Math.min(15, frameIndex));
     slider.value = frameIndex;
     frameNumber.textContent = frameIndex;
     loadPLYAndFlow(frameIndex);
