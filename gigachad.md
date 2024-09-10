@@ -1,4 +1,4 @@
-HEADER {"page_name": "GIGACHAD", "teaser_img": "http://vedder.io/img/static/trackflow/teaser.png"}
+HEADER {"page_name": "GIGACHAD", "teaser_img": "https://vedder.io/img/static/gigachad/gigachad_bird_flow_cropped.png"}
 
 <style>
 #jack-flow-render-container {
