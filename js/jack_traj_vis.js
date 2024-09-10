@@ -4,20 +4,24 @@ import { TrackballControls } from './TrackballControls.js';
 
 const scene = new THREE.Scene();
 const container = document.getElementById('jack-traj-render-container');
-container.tabIndex = 0;  // Make the container focusable
+container.tabIndex = 0; 
 const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+const renderer = new THREE.WebGLRenderer({   
+ antialias: true });
 renderer.setSize(container.clientWidth, container.clientHeight);
 container.appendChild(renderer.domElement);
 
-const controls = new TrackballControls(camera, renderer.domElement);
+const controls = new   
+ TrackballControls(camera, renderer.domElement);
 controls.rotateSpeed = 1.0;
 controls.zoomSpeed = 1.2;
 controls.panSpeed = 0.8;
 controls.noZoom = false;
-controls.noPan = false;
+controls.noPan   
+ = false;
 controls.staticMoving = true;
-controls.dynamicDampingFactor = 0.3;
+controls.dynamicDampingFactor   
+ = 0.3;
 
 const light = new THREE.PointLight(0xffffff, 1, 100);
 light.position.set(0, 0, 10);
@@ -28,19 +32,28 @@ let trajectorySphereMeshes = [];
 let trailSphereMeshes = [];
 let trailLines = [];
 let isFirstLoad = true;
-let trajectoriesData = null;
+let trajectoriesData = []; // Array to store trajectories with different substeps
 
 const slider = document.getElementById('jack-traj-frame-slider');
 const frameNumber = document.getElementById('jack-traj-frame-number');
 
-// Load trajectories data
-fetch('img/static/gigachad/raw_data/jack_spinning/trajectory.json')
-    .then(response => response.json())
-    .then(data => {
-        trajectoriesData = data;
-        loadPLY(0); // Initial load after trajectory data is available
-    })
-    .catch(error => console.error('Error loading trajectory data:', error));
+// Load multiple trajectories data
+const trajectoryFiles = [
+    'img/static/gigachad/raw_data/jack_spinning/trajectories_num_substeps_1.json',
+    'img/static/gigachad/raw_data/jack_spinning/trajectories_num_substeps_2.json',
+    'img/static/gigachad/raw_data/jack_spinning/trajectories_num_substeps_4.json',
+    'img/static/gigachad/raw_data/jack_spinning/trajectories_num_substeps_8.json'
+];
+
+Promise.all(trajectoryFiles.map(file => 
+    fetch(file)
+        .then(response => response.json())
+))
+.then(data => {
+    trajectoriesData = data;
+    loadPLY(0); 
+})
+.catch(error => console.error('Error loading trajectory data:', error));
 
 function padNumber(number) {
     return number.toString().padStart(4, '0');
@@ -62,26 +75,24 @@ function loadPLY(frameIndex) {
         currentPoints = points;
 
         if (isFirstLoad) {
-            // Set up the camera only on first load
             const box = new THREE.Box3().setFromObject(points);
             const size = box.getSize(new THREE.Vector3());
             const maxDim = Math.max(size.x, size.y, size.z);
-            const distance = maxDim * 0.4; // Reduced distance for a closer view
-            const angle = Math.PI / 6; // 30 degrees in radians for a slightly different angle
+            const distance = maxDim * 0.3; 
+            const angle = Math.PI / 6; 
             camera.position.set(
                 -distance * Math.cos(angle),
                 -distance * Math.sin(angle),
                 distance * 0.5
             );
-            camera.up.set(0, 0, 1); // Set +Z as up
-            camera.lookAt(0, 0, 0); // Look at the center of the scene
-            controls.target.set(0, 0, 0); // Set the control target to the center
+            camera.up.set(0, 0, 1); 
+            camera.lookAt(-6, 0, 0); 
+            controls.target.set(-6, 0, 0); 
             controls.update();
 
             isFirstLoad = false;
         }
 
-        // Update trajectories
         updateTrajectories(frameIndex);
 
     }, undefined, function(error) {
@@ -89,60 +100,80 @@ function loadPLY(frameIndex) {
     });
 }
 
+
 function updateTrajectories(frameIndex) {
-    if (!trajectoriesData) return;
+    if (!trajectoriesData.length) return;
 
-    const colors = [0xff0000, 0x00ff00, 0x0000ff, 0xffff00, 0xff00ff, 0x00ffff];
+    const baseColors = [0xff0000, 0x00ff00, 0x0000ff, 0xffff00, 0xff00ff, 0x00ffff];
 
-    trajectoriesData.forEach((trajectory, trajectoryIndex) => {
-        const position = trajectory[frameIndex];
-        if (!position) return;
+    trajectoriesData.forEach((trajectoryData, substepIndex) => {
+        const substepsPerFrame = 2 ** substepIndex;
 
-        const color = colors[trajectoryIndex % colors.length];
+        trajectoryData.forEach((trajectory, trajectoryIndex) => {
+            // Calculate the effective frame index for this substep level
+            const effectiveFrameIndex = frameIndex * substepsPerFrame;
 
-        // Update main trajectory sphere
-        if (trajectoryIndex >= trajectorySphereMeshes.length) {
-            const sphereGeometry = new THREE.SphereGeometry(0.25, 32, 32);
-            const sphereMaterial = new THREE.MeshBasicMaterial({ color: color });
-            const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
-            scene.add(sphereMesh);
-            trajectorySphereMeshes.push(sphereMesh);
-        }
-        trajectorySphereMeshes[trajectoryIndex].position.set(position[0], position[1], position[2]);
+            // Check if the effective frame index is within the trajectory bounds
+            if (effectiveFrameIndex >= trajectory.length) return;
 
-        // Update trail
-        const trailPositions = [];
-        for (let i = 0; i < 17; i++) {
-            const trailIndex = Math.max(0, frameIndex - i);
-            const trailPos = trajectory[trailIndex];
-            if (trailPos) {
-                trailPositions.push(new THREE.Vector3(trailPos[0], trailPos[1], trailPos[2]));
-                
-                if (!trailSphereMeshes[trajectoryIndex]) {
-                    trailSphereMeshes[trajectoryIndex] = [];
-                }
-                if (i >= trailSphereMeshes[trajectoryIndex].length) {
-                    const trailSphereGeometry = new THREE.SphereGeometry(0.15, 16, 16);
-                    const trailSphereMaterial = new THREE.MeshBasicMaterial({ color: color });
-                    const trailSphereMesh = new THREE.Mesh(trailSphereGeometry, trailSphereMaterial);
-                    scene.add(trailSphereMesh);
-                    trailSphereMeshes[trajectoryIndex].push(trailSphereMesh);
-                }
-                trailSphereMeshes[trajectoryIndex][i].position.copy(trailPositions[i]);
+            const position = trajectory[effectiveFrameIndex];
+
+            const color = new THREE.Color(baseColors[trajectoryIndex % baseColors.length]);
+            color.lerp(new THREE.Color(0xffffff), substepIndex / (trajectoriesData.length - 1));
+
+            if (trajectoryIndex >= trajectorySphereMeshes.length) {
+                trajectorySphereMeshes.push([]);
             }
-        }
+            if (substepIndex >= trajectorySphereMeshes[trajectoryIndex].length) {
+                const sphereGeometry = new THREE.SphereGeometry(0.25, 32, 32);
+                const sphereMaterial = new THREE.MeshBasicMaterial({ color: color });
+                const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
+                scene.add(sphereMesh);
+                trajectorySphereMeshes[trajectoryIndex].push(sphereMesh);
+            }
+            trajectorySphereMeshes[trajectoryIndex][substepIndex].position.set(position[0], position[1], position[2]);
 
-        // Update trail line
-        if (trailLines[trajectoryIndex]) scene.remove(trailLines[trajectoryIndex]);
-        const lineGeometry = new THREE.BufferGeometry().setFromPoints(trailPositions);
-        const lineMaterial = new THREE.LineBasicMaterial({ color: color });
-        trailLines[trajectoryIndex] = new THREE.Line(lineGeometry, lineMaterial);
-        scene.add(trailLines[trajectoryIndex]);
+            const trailPositions = [];
+            for (let i = 0; i < 16 * substepsPerFrame; i++) {
+                const trailIndex = Math.max(0, effectiveFrameIndex - i);
+                const trailPos = trajectory[trailIndex];
+                if (trailPos) {
+                    trailPositions.push(new THREE.Vector3(trailPos[0], trailPos[1], trailPos[2]));
+
+                    if (!trailSphereMeshes[trajectoryIndex]) {
+                        trailSphereMeshes[trajectoryIndex] = [];
+                    }
+                    if (substepIndex >= trailSphereMeshes[trajectoryIndex].length) {
+                        trailSphereMeshes[trajectoryIndex].push([]);
+                    }
+                    if (i >= trailSphereMeshes[trajectoryIndex][substepIndex].length) {
+                        const trailSphereGeometry = new THREE.SphereGeometry(0.15, 16, 16);
+                        const trailSphereMaterial = new THREE.MeshBasicMaterial({ color: color });
+                        const trailSphereMesh = new THREE.Mesh(trailSphereGeometry, trailSphereMaterial);
+                        scene.add(trailSphereMesh);
+                        trailSphereMeshes[trajectoryIndex][substepIndex].push(trailSphereMesh);
+                    }
+                    trailSphereMeshes[trajectoryIndex][substepIndex][i].position.copy(trailPositions[i]);
+                }
+            }
+
+            if (trailLines[trajectoryIndex]) {
+                if (trailLines[trajectoryIndex][substepIndex]) {
+                    scene.remove(trailLines[trajectoryIndex][substepIndex]);
+                }
+            } else {
+                trailLines[trajectoryIndex] = [];
+            }
+            const lineGeometry = new THREE.BufferGeometry().setFromPoints(trailPositions);
+            const lineMaterial = new THREE.LineBasicMaterial({ color: color });
+            trailLines[trajectoryIndex][substepIndex] = new THREE.Line(lineGeometry, lineMaterial);
+            scene.add(trailLines[trajectoryIndex][substepIndex]);
+        });
     });
 }
 
 function updateFrame(frameIndex) {
-    frameIndex = Math.max(0, Math.min(16, frameIndex));
+    frameIndex = Math.max(0, Math.min(15, frameIndex));
     slider.value = frameIndex;
     frameNumber.textContent = frameIndex;
     loadPLY(frameIndex);

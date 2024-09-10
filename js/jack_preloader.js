@@ -2,9 +2,7 @@
 
 import { PLYLoader } from './PLYLoader.js';
 
-console.log('PLYLoader imported successfully');
-
-const totalFrames = 17; // 0000 to 0016
+const totalFrames = 16; // 0000 to 0015
 const baseUrl = '../img/static/gigachad/raw_data/jack_spinning/';
 
 function padNumber(number) {
@@ -19,8 +17,6 @@ self.onmessage = function() {
         const frameNum = padNumber(i);
         const plyUrl = `${baseUrl}${frameNum}.ply`;
         const jsonUrl = `${baseUrl}${frameNum}.json`;
-
-        console.log(`Preloading ${frameNum}`);
 
         // Preload PLY
         const plyPromise = new Promise((resolve, reject) => {
