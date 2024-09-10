@@ -90,14 +90,6 @@ Pehserl</a></h2>
 <p><img src="img/static/gigachad/gigachad_bird_flow_cropped.png" style="width:49%;" />
 <img src="img/static/gigachad/gigachad_bird_trajectory_cropped.png" style="width:49%"/></p>
 </div>
-<script type="importmap">
-{
-    "imports": {
-        "three": "https://unpkg.com/three@0.159.0/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.159.0/examples/jsm/"
-    }
-}
-</script>
 <h2 id="table-top-scene-flow">Table Top Scene Flow</h2>
 <div class="centered">
 <div id="jack-flow-render-container">
@@ -122,6 +114,22 @@ Frame <span id="jack-traj-frame-number">0</span></p>
 <p>Use the slider or arrow keys to navigate through the frames.</p>
 </div>
 <script type="module" src="js/jack_traj_vis.js"></script>
+<script>
+// Create a Web Worker for preloading
+const preloadWorker = new Worker('js/jack_preloader.js', { type: "module" });
+
+// Start preloading files in the background
+preloadWorker.postMessage('start');
+
+// Listen for success or error messages from the worker
+preloadWorker.onmessage = function(event) {
+    if (event.data.status === 'success') {
+        console.log('All PLY and JSON files preloaded successfully');
+    } else if (event.data.status === 'error') {
+        console.error('Error preloading files:', event.data.error);
+    }
+};
+</script>
 <h2 id="videos">Videos</h2>
 <h2 id="citation">Citation</h2>
 <pre><code>TODO</code></pre>

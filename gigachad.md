@@ -57,20 +57,12 @@ HEADER {"page_name": "GIGACHAD", "teaser_img": "https://vedder.io/img/static/gig
 </div>
 
 
+
 <!-- Side by side images from img/static/gigachad/gigachad_bird_flow_cropped.png and  img/static/gigachad/gigachad_bird_trajectory_cropped.png -->
 <div style="display: flex" class="centered">
 <img src="img/static/gigachad/gigachad_bird_flow_cropped.png" style="width:49%;" />
 <img src="img/static/gigachad/gigachad_bird_trajectory_cropped.png" style="width:49%"/>
 </div>
-
-<script type="importmap">
-{
-    "imports": {
-        "three": "https://unpkg.com/three@0.159.0/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.159.0/examples/jsm/"
-    }
-}
-</script>
 
 ## Table Top Scene Flow
 
@@ -97,6 +89,22 @@ Use the slider or arrow keys to navigate through the frames.
 </div>
 <script type="module" src="js/jack_traj_vis.js"></script>
 
+<script>
+// Create a Web Worker for preloading
+const preloadWorker = new Worker('js/jack_preloader.js', { type: "module" });
+
+// Start preloading files in the background
+preloadWorker.postMessage('start');
+
+// Listen for success or error messages from the worker
+preloadWorker.onmessage = function(event) {
+    if (event.data.status === 'success') {
+        console.log('All PLY and JSON files preloaded successfully');
+    } else if (event.data.status === 'error') {
+        console.error('Error preloading files:', event.data.error);
+    }
+};
+</script>
 
 ## Videos
 
