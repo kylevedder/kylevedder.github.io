@@ -1,9 +1,10 @@
-import * as THREE from 'three';
-import { PLYLoader } from 'three/addons/loaders/PLYLoader.js';
-import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
+import * as THREE from './three.module.js';
+import { PLYLoader } from './PLYLoader.js';
+import { TrackballControls } from './TrackballControls.js';
 
 const scene = new THREE.Scene();
 const container = document.getElementById('jack-traj-render-container');
+container.tabIndex = 0;  // Make the container focusable
 const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(container.clientWidth, container.clientHeight);
@@ -80,7 +81,6 @@ function loadPLY(frameIndex) {
             isFirstLoad = false;
         }
 
-
         // Update trajectories
         updateTrajectories(frameIndex);
 
@@ -152,7 +152,21 @@ slider.addEventListener('input', function() {
     updateFrame(parseInt(this.value));
 });
 
-document.addEventListener('keydown', function(event) {
+let isMouseOver = false;
+
+container.addEventListener('mouseenter', () => {
+    isMouseOver = true;
+    container.focus();  // Focus on the container when the mouse enters
+});
+
+container.addEventListener('mouseleave', () => {
+    isMouseOver = false;
+    container.blur();  // Blur the container when the mouse leaves
+});
+
+container.addEventListener('keydown', function(event) {
+    if (!isMouseOver) return;  // Ensure the key press is registered only when the mouse is over the container
+
     const currentFrame = parseInt(slider.value);
     if (event.key === 'ArrowLeft') {
         updateFrame(currentFrame - 1);
