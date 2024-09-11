@@ -27,48 +27,26 @@ GIGACHAD
 <script type="text/javascript" src="./js/utils.js"></script>
 </head>
 <body><style>
-#jack-flow-render-container {
+[id*="render-container"] {
     width: 100%;
     height: 600px;
     border: 1px solid #ccc;
     margin-top: 20px;
 }
-#jack-flow-slider-container {
+[id*="slider-container"] {
     width: 100%;
     margin-top: 20px;
     display: flex;
     align-items: center;
 }
-#jack-flow-frame-slider {
+[id*="frame-slider"] {
     flex-grow: 1;
     margin-right: 10px;
 }
-#jack-flow-frame-number {
+[id*="frame-number"] {
     width: 50px;
     text-align: right;
 }
-
-#jack-traj-render-container {
-    width: 100%;
-    height: 600px;
-    border: 1px solid #ccc;
-    margin-top: 20px;
-}
-#jack-traj-slider-container {
-    width: 100%;
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-}
-#jack-traj-frame-slider {
-    flex-grow: 1;
-    margin-right: 10px;
-}
-#jack-traj-frame-number {
-    width: 50px;
-    text-align: right;
-}
-
 
 </style>
 <h1 id="gigachad">GIGACHAD</h1>
@@ -91,6 +69,40 @@ Pehserl</a></h2>
 <p><img src="img/static/gigachad/gigachad_bird_flow_cropped.png" style="width:49%;" />
 <img src="img/static/gigachad/gigachad_bird_trajectory_cropped.png" style="width:49%"/></p>
 </div>
+<h2 id="argoverse-2-bird-scene-flow">Argoverse 2 Bird scene flow</h2>
+<div class="centered">
+<div id="bird-flow-render-container">
+
+</div>
+<div id="bird-flow-slider-container">
+<p><input type="range" id="bird-flow-frame-slider" min="0" max="19" value="0" class="centered">
+Frame <span id="bird-flow-frame-number">0</span></p>
+</div>
+<p>Use the slider or arrow keys to navigate through the frames.</p>
+</div>
+<script type="module" src="js/gigachad/bird_scene_flow_vis.js"></script>
+<h2 id="argoverse-2-bird-tracking">Argoverse 2 Bird tracking</h2>
+<div class="centered">
+<div id="bird-traj-render-container">
+
+</div>
+<div id="bird-traj-slider-container">
+<p><input type="range" id="bird-traj-frame-slider" min="0" max="19" value="0" class="centered">
+Frame <span id="bird-traj-frame-number">0</span></p>
+</div>
+<p>Use the slider or arrow keys to navigate through the frames.</p>
+<p>Color represents Euler integration with shorter step sizes from <img
+style="vertical-align:middle"
+src="img/compiled/gigachad/80b4673b5919714b0faeb3d5a55e7e5e.png"
+alt="\Delta t = 1" title="\Delta t = 1" class="math inline" /> to <img
+style="vertical-align:middle"
+src="img/compiled/gigachad/e858d22125989b6b38b27a8c8a1288b5.png"
+alt="\frac{1}{8}" title="\frac{1}{8}" class="math inline" />. Full red
+represents <img style="vertical-align:middle"
+src="img/compiled/gigachad/80b4673b5919714b0faeb3d5a55e7e5e.png"
+alt="\Delta t = 1" title="\Delta t = 1" class="math inline" />.</p>
+</div>
+<script type="module" src="js/gigachad/bird_traj_vis.js"></script>
 <h2 id="tabletop-scene-flow">Tabletop scene flow</h2>
 <div class="centered">
 <div id="jack-flow-render-container">
@@ -102,7 +114,7 @@ Frame <span id="jack-flow-frame-number">0</span></p>
 </div>
 <p>Use the slider or arrow keys to navigate through the frames.</p>
 </div>
-<script type="module" src="js/jack_scene_flow_vis.js"></script>
+<script type="module" src="js/gigachad/jack_scene_flow_vis.js"></script>
 <h2
 id="tabletop-point-tracking-with-multiple-types-of-euler-integration">Tabletop
 point tracking with multiple types of Euler Integration</h2>
@@ -126,10 +138,10 @@ represents <img style="vertical-align:middle"
 src="img/compiled/gigachad/80b4673b5919714b0faeb3d5a55e7e5e.png"
 alt="\Delta t = 1" title="\Delta t = 1" class="math inline" />.</p>
 </div>
-<script type="module" src="js/jack_traj_vis.js"></script>
+<script type="module" src="js/gigachad/jack_traj_vis.js"></script>
 <script>
-// Create a Web Worker for preloading
-const preloadWorker = new Worker('js/jack_preloader.js', { type: "module" });
+// Create a Web Worker for preloading all PLY and JSON files
+const preloadWorker = new Worker('js/gigachad/preloader.js', { type: "module" });
 
 // Start preloading files in the background
 preloadWorker.postMessage('start');
