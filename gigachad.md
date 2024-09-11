@@ -49,7 +49,7 @@ HEADER {"page_name": "GIGACHAD", "teaser_img": "https://vedder.io/img/static/gig
 
 # GIGACHAD
 
-## [Kyle Vedder](http://vedder.io), [Neehar Peri](http://www.neeharperi.com/), [Ishan Khatri](https://ishan.khatri.io/),  [Eric Eaton](https://www.seas.upenn.edu/~eeaton/), [Yue Wang](https://yuewang.xyz/), [Zhiding Yu](https://chrisding.github.io/), and [Joachim Pehserl](https://www.linkedin.com/in/joachim-pehserl-45514a98/)
+## [Kyle Vedder](http://vedder.io), [Neehar Peri](http://www.neeharperi.com/), [Ishan Khatri](https://ishan.khatri.io/),  [Eric Eaton](https://www.seas.upenn.edu/~eeaton/), [Yue Wang](https://yuewang.xyz/), [Zhiding Yu](https://chrisding.github.io/), [Deva Ramanan](https://www.cs.cmu.edu/~deva/), and [Joachim Pehserl](https://www.linkedin.com/in/joachim-pehserl-45514a98/)
 
 
 <div class="centered">
