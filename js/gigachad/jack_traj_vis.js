@@ -2,8 +2,10 @@ import * as THREE from '../three.module.js';
 import { PLYLoader } from '../PLYLoader.js';
 import { TrackballControls } from '../TrackballControls.js';
 
+
+function setupJackTraj(container, slider, frameNumber) {
 const scene = new THREE.Scene();
-const container = document.getElementById('jack-traj-render-container');
+// const container = document.getElementById('jack-traj-render-container');
 container.tabIndex = 0; 
 const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({   
@@ -34,8 +36,8 @@ let trailLines = [];
 let isFirstLoad = true;
 let trajectoriesData = []; // Array to store trajectories with different substeps
 
-const slider = document.getElementById('jack-traj-frame-slider');
-const frameNumber = document.getElementById('jack-traj-frame-number');
+// const slider = document.getElementById('jack-traj-frame-slider');
+// const frameNumber = document.getElementById('jack-traj-frame-number');
 
 // Load multiple trajectories data
 const trajectoryFiles = [
@@ -221,3 +223,13 @@ window.addEventListener('resize', function() {
     renderer.setSize(newWidth, newHeight);
     controls.handleResize();
 });
+
+const jack_traj_scene = scene;
+const jack_traj_camera = camera;
+const jack_traj_renderer = renderer;
+const jack_traj_controls = controls;
+
+return { jack_traj_scene, jack_traj_camera, jack_traj_renderer, jack_traj_controls  }
+}
+
+export { setupJackTraj };

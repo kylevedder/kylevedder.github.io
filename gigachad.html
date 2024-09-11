@@ -48,13 +48,35 @@ GIGACHAD
     text-align: right;
 }
 
+#jack {
+    visibility: hidden;
+}
+
+#bird {
+    visibility: hidden;
+}
+
+#filler {
+    width: 100%;
+    height: 600px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Set font size */
+    font-size: 24px;
+}
+
 </style>
 <h1 id="gigachad">GIGACHAD</h1>
 <h2
-id="kyle-vedder-neehar-peri-ishan-khatri-eric-eaton-yue-wang-zhiding-yu-deva-ramanan-and-joachim-pehserl"><a
+id="kyle-vedder-neehar-peri-ishan-khatri-siyi-li-eric-eaton-yue-wang-zhiding-yu-deva-ramanan-and-joachim-pehserl"><a
 href="http://vedder.io">Kyle Vedder</a>, <a
 href="http://www.neeharperi.com/">Neehar Peri</a>, <a
 href="https://ishan.khatri.io/">Ishan Khatri</a>, <a
+href="http://linkedin.com/in/siyi-li-14a958328">Siyi Li</a>, <a
 href="https://www.seas.upenn.edu/~eeaton/">Eric Eaton</a>, <a
 href="https://yuewang.xyz/">Yue Wang</a>, <a
 href="https://chrisding.github.io/">Zhiding Yu</a>, <a
@@ -65,11 +87,22 @@ Pehserl</a></h2>
 <h1><a href="TODO">[Paper]</a></h1>
 </section>
 <!-- Side by side images from img/static/gigachad/gigachad_bird_flow_cropped.png and  img/static/gigachad/gigachad_bird_trajectory_cropped.png -->
+<!-- <div style="display: flex" class="centered">
+<img src="img/static/gigachad/gigachad_bird_flow_cropped.png" style="width:49%;" />
+<img src="img/static/gigachad/gigachad_bird_trajectory_cropped.png" style="width:49%"/>
+</div> -->
+<h2 id="interactive-visualizations">Interactive Visualizations</h2>
+<!-- Side by side images from img/static/gigachad/gigachad_bird_flow_cropped.png and  img/static/gigachad/gigachad_bird_trajectory_cropped.png -->
 <div class="centered" style="display: flex">
-<p><img src="img/static/gigachad/gigachad_bird_flow_cropped.png" style="width:49%;" />
-<img src="img/static/gigachad/gigachad_bird_trajectory_cropped.png" style="width:49%"/></p>
+<p><img id="img-bird" src="img/static/gigachad/bird.png" style="width:49%;"/>
+<img id="img-jack" src="img/static/gigachad/jack.png" style="width:49%"/></p>
 </div>
-<h2 id="argoverse-2-bird-scene-flow">Argoverse 2 Bird scene flow</h2>
+<div id="filler">
+Click one of the images above to view an interactive visualization of
+the scene flow and a trajectory.
+</div>
+<div id="bird">
+<h3 id="argoverse-2-bird-scene-flow">Argoverse 2 Bird scene flow</h3>
 <div class="centered">
 <div id="bird-flow-render-container">
 
@@ -80,8 +113,8 @@ Frame <span id="bird-flow-frame-number">0</span></p>
 </div>
 <p>Use the slider or arrow keys to navigate through the frames.</p>
 </div>
-<script type="module" src="js/gigachad/bird_scene_flow_vis.js"></script>
-<h2 id="argoverse-2-bird-tracking">Argoverse 2 Bird tracking</h2>
+<!-- <script type="module" src="js/gigachad/bird_scene_flow_vis.js"></script> -->
+<h3 id="argoverse-2-bird-tracking">Argoverse 2 Bird tracking</h3>
 <div class="centered">
 <div id="bird-traj-render-container">
 
@@ -102,8 +135,10 @@ represents <img style="vertical-align:middle"
 src="img/compiled/gigachad/80b4673b5919714b0faeb3d5a55e7e5e.png"
 alt="\Delta t = 1" title="\Delta t = 1" class="math inline" />.</p>
 </div>
-<script type="module" src="js/gigachad/bird_traj_vis.js"></script>
-<h2 id="tabletop-scene-flow">Tabletop scene flow</h2>
+<!-- <script type="module" src="js/gigachad/bird_traj_vis.js"></script> -->
+</div>
+<div id="jack">
+<h3 id="jack-scene-flow">Jack scene flow</h3>
 <div class="centered">
 <div id="jack-flow-render-container">
 
@@ -114,10 +149,10 @@ Frame <span id="jack-flow-frame-number">0</span></p>
 </div>
 <p>Use the slider or arrow keys to navigate through the frames.</p>
 </div>
-<script type="module" src="js/gigachad/jack_scene_flow_vis.js"></script>
-<h2
-id="tabletop-point-tracking-with-multiple-types-of-euler-integration">Tabletop
-point tracking with multiple types of Euler Integration</h2>
+<!-- <script type="module" src="js/gigachad/jack_scene_flow_vis.js"></script> -->
+<h3
+id="jack-point-tracking-with-multiple-types-of-euler-integration">Jack
+point tracking with multiple types of Euler Integration</h3>
 <div class="centered">
 <div id="jack-traj-render-container">
 
@@ -138,7 +173,130 @@ represents <img style="vertical-align:middle"
 src="img/compiled/gigachad/80b4673b5919714b0faeb3d5a55e7e5e.png"
 alt="\Delta t = 1" title="\Delta t = 1" class="math inline" />.</p>
 </div>
-<script type="module" src="js/gigachad/jack_traj_vis.js"></script>
+<!-- <script type="module" src="js/gigachad/jack_traj_vis.js"></script> -->
+</div>
+<script type="module">
+import { setupBirdSceneFlow } from './js/gigachad/bird_scene_flow_vis.js';
+import { setupBirdTraj  } from './js/gigachad/bird_traj_vis.js';
+
+import { setupJackSceneFlow  } from './js/gigachad/jack_scene_flow_vis.js';
+import { setupJackTraj  } from './js/gigachad/jack_traj_vis.js';
+
+const bird_flow_container = document.getElementById('bird-flow-render-container');
+const bird_flow_slider = document.getElementById('bird-flow-frame-slider');
+const bird_flow_frame_number = document.getElementById('bird-flow-frame-number');
+const bird_traj_container = document.getElementById('bird-traj-render-container');
+const bird_traj_slider = document.getElementById('bird-traj-frame-slider');
+const bird_traj_frame_number = document.getElementById('bird-traj-frame-number');
+
+
+
+const jack_flow_container = document.getElementById('jack-flow-render-container');
+const jack_flow_slider = document.getElementById('jack-flow-frame-slider');
+const jack_flow_frame_number = document.getElementById('jack-flow-frame-number');
+const jack_traj_container = document.getElementById('jack-traj-render-container');
+const jack_traj_slider = document.getElementById('jack-traj-frame-slider');
+const jack_traj_frame_number = document.getElementById('jack-traj-frame-number');
+
+let bird_flow = setupBirdSceneFlow(bird_flow_container, bird_flow_slider, bird_flow_frame_number);
+let bird_traj = setupBirdTraj(bird_traj_container, bird_traj_slider, bird_traj_frame_number);
+
+let jack_flow = setupJackSceneFlow(jack_flow_container, jack_flow_slider, jack_flow_frame_number);
+let jack_traj = setupJackTraj(jack_traj_container, jack_traj_slider, jack_traj_frame_number);
+
+
+document.getElementById("bird").style.display = "none";
+document.getElementById("jack").style.display = "none";
+
+// Set to visible 
+document.getElementById("bird").style.visibility = "visible";
+document.getElementById("jack").style.visibility = "visible";
+
+
+
+
+
+
+
+
+
+
+function showBird() {
+    document.getElementById("bird").style.display = "block";
+    document.getElementById("jack").style.display = "none";
+    document.getElementById("filler").style.display = "none";
+
+    let bird_flow_container = document.getElementById("bird-flow-render-container");
+    let bird_flow_canvas = bird_flow_container.getElementsByTagName("canvas")[0];
+    let bird_traj_container = document.getElementById("bird-traj-render-container");
+    let bird_traj_canvas = bird_traj_container.getElementsByTagName("canvas")[0];
+
+
+    // Set the canvas to the container width and height
+    bird_flow_canvas.width = bird_flow_container.clientWidth;
+    bird_flow_canvas.height = bird_flow_container.clientHeight;
+    bird_traj_canvas.width = bird_traj_container.clientWidth;
+    bird_traj_canvas.height = bird_traj_container.clientHeight;
+
+    // set the style width and height to be in px
+    bird_flow_canvas.style.width = bird_flow_container.clientWidth + "px";
+    bird_flow_canvas.style.height = bird_flow_container.clientHeight + "px";
+    bird_traj_canvas.style.width = bird_traj_container.clientWidth + "px";
+    bird_traj_canvas.style.height = bird_traj_container.clientHeight + "px";
+
+    // Resize the canvas tags
+    bird_flow.renderer.setSize(bird_flow_container.clientWidth, bird_flow_container.clientHeight);
+    bird_traj.renderer.setSize(bird_flow_container.clientWidth, bird_flow_container.clientHeight);
+
+    
+
+    // Call render on the bird scenes
+    bird_flow.renderer.render(bird_flow.scene, bird_flow.camera);
+    bird_traj.renderer.render(bird_traj.scene, bird_traj.camera);
+
+    console.log("Showing bird");
+
+}
+
+function showJack() {
+    document.getElementById("bird").style.display = "none";
+    document.getElementById("jack").style.display = "block";
+    document.getElementById("filler").style.display = "none";
+
+    let jack_flow_container = document.getElementById("jack-flow-render-container");
+    let jack_flow_canvas = jack_flow_container.getElementsByTagName("canvas")[0];
+    let jack_traj_container = document.getElementById("jack-traj-render-container");
+    let jack_traj_canvas = jack_traj_container.getElementsByTagName("canvas")[0];
+
+
+    // Set the canvas to the container width and height
+    jack_flow_canvas.width = jack_flow_container.clientWidth;
+    jack_flow_canvas.height = jack_flow_container.clientHeight;
+    jack_traj_canvas.width = jack_traj_container.clientWidth;
+    jack_traj_canvas.height = jack_traj_container.clientHeight;
+
+    // Resize the canvas tags
+    jack_flow_renderer.setSize(jack_flow_canvas.clientWidth, jack_flow_canvas.clientHeight);
+    jack_traj_renderer.setSize(jack_traj_canvas.clientWidth, jack_traj_canvas.clientHeight);
+
+    
+
+    // Call render on the jack scenes
+    jack_flow.renderer.render(jack_flow.scene, jack_flow.camera);
+    jack_traj.renderer.render(jack_traj.scene, jack_traj.camera);
+
+
+}
+
+// Get the bird and jack images
+const birdImg = document.getElementById("img-bird");
+const jackImg = document.getElementById("img-jack");
+
+// Add onclick listeners to the images
+birdImg.onclick = showBird;
+jackImg.onclick = showJack;
+
+</script>
 <script>
 // Create a Web Worker for preloading all PLY and JSON files
 const preloadWorker = new Worker('js/gigachad/preloader.js', { type: "module" });
