@@ -2,8 +2,9 @@ import * as THREE from '../three.module.js';
 import { PLYLoader } from '../PLYLoader.js';
 import { TrackballControls } from '../TrackballControls.js';
 
+function setupJackSceneFlow(container, slider, frameNumber) {
 const scene = new THREE.Scene();
-const container = document.getElementById('jack-flow-render-container');
+// const container = document.getElementById('jack-flow-render-container');
 container.tabIndex = 0;  // Make the container focusable
 const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -27,8 +28,8 @@ let currentPoints = null;
 let flowLines = null;
 let isFirstLoad = true;
 
-const slider = document.getElementById('jack-flow-frame-slider');
-const frameNumber = document.getElementById('jack-flow-frame-number');
+// const slider = document.getElementById('jack-flow-frame-slider');
+// const frameNumber = document.getElementById('jack-flow-frame-number');
 
 function padNumber(number) {
     return number.toString().padStart(4, '0');
@@ -166,3 +167,13 @@ window.addEventListener('resize', function() {
 
 // Initial load
 loadPLYAndFlow(0);
+
+const jack_flow_scene = scene;
+const jack_flow_camera = camera;
+const jack_flow_renderer = renderer;
+const jack_flow_controls = controls;
+
+return { jack_flow_scene, jack_flow_camera, jack_flow_renderer, jack_flow_controls  }
+}
+
+export { setupJackSceneFlow };

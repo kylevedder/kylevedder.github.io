@@ -2,8 +2,10 @@ import * as THREE from '../three.module.js';
 import { PLYLoader } from '../PLYLoader.js';
 import { TrackballControls } from '../TrackballControls.js';
 
+function setupBirdSceneFlow(container, slider, frameNumber) {
+
 const scene = new THREE.Scene();
-const container = document.getElementById('bird-flow-render-container');
+// const container = document.getElementById('bird-flow-render-container');
 container.tabIndex = 0;  // Make the container focusable
 const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -27,8 +29,8 @@ let currentPoints = null;
 let flowLines = null;
 let isFirstLoad = true;
 
-const slider = document.getElementById('bird-flow-frame-slider');
-const frameNumber = document.getElementById('bird-flow-frame-number');
+// const slider = document.getElementById('bird-flow-frame-slider');
+// const frameNumber = document.getElementById('bird-flow-frame-number');
 
 function padNumber(number) {
     return number.toString().padStart(4, '0');
@@ -164,3 +166,8 @@ window.addEventListener('resize', function() {
 
 // Initial load
 loadPLYAndFlow(0);
+
+return { scene, camera, renderer, controls  }
+}
+
+export { setupBirdSceneFlow };

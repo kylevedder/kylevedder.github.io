@@ -2,8 +2,9 @@ import * as THREE from '../three.module.js';
 import { PLYLoader } from '../PLYLoader.js';
 import { TrackballControls } from '../TrackballControls.js';
 
+function setupBirdTraj(container, slider, frameNumber) {
 const scene = new THREE.Scene();
-const container = document.getElementById('bird-traj-render-container');
+// const container = document.getElementById('bird-traj-render-container');
 container.tabIndex = 0; 
 const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({   
@@ -34,8 +35,8 @@ let trailLines = [];
 let isFirstLoad = true;
 let trajectoriesData = []; // Array to store trajectories with different substeps
 
-const slider = document.getElementById('bird-traj-frame-slider');
-const frameNumber = document.getElementById('bird-traj-frame-number');
+// const slider = document.getElementById('bird-traj-frame-slider');
+// const frameNumber = document.getElementById('bird-traj-frame-number');
 
 // Load multiple trajectories data
 const trajectoryFiles = [
@@ -220,3 +221,8 @@ window.addEventListener('resize', function() {
     renderer.setSize(newWidth, newHeight);
     controls.handleResize();
 });
+
+return { scene, camera, renderer, controls  }
+}
+
+export { setupBirdTraj };
