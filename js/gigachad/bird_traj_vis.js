@@ -1,9 +1,9 @@
-import * as THREE from './three.module.js';
-import { PLYLoader } from './PLYLoader.js';
-import { TrackballControls } from './TrackballControls.js';
+import * as THREE from '../three.module.js';
+import { PLYLoader } from '../PLYLoader.js';
+import { TrackballControls } from '../TrackballControls.js';
 
 const scene = new THREE.Scene();
-const container = document.getElementById('jack-traj-render-container');
+const container = document.getElementById('bird-traj-render-container');
 container.tabIndex = 0; 
 const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({   
@@ -34,15 +34,15 @@ let trailLines = [];
 let isFirstLoad = true;
 let trajectoriesData = []; // Array to store trajectories with different substeps
 
-const slider = document.getElementById('jack-traj-frame-slider');
-const frameNumber = document.getElementById('jack-traj-frame-number');
+const slider = document.getElementById('bird-traj-frame-slider');
+const frameNumber = document.getElementById('bird-traj-frame-number');
 
 // Load multiple trajectories data
 const trajectoryFiles = [
-    'img/static/gigachad/raw_data/jack_spinning/trajectories_num_substeps_1.json',
-    'img/static/gigachad/raw_data/jack_spinning/trajectories_num_substeps_2.json',
-    'img/static/gigachad/raw_data/jack_spinning/trajectories_num_substeps_4.json',
-    'img/static/gigachad/raw_data/jack_spinning/trajectories_num_substeps_8.json'
+    'img/static/gigachad/raw_data/av2_bird/trajectories_num_substeps_1.json',
+    // 'img/static/gigachad/raw_data/av2_bird/trajectories_num_substeps_2.json',
+    // 'img/static/gigachad/raw_data/av2_bird/trajectories_num_substeps_4.json',
+    // 'img/static/gigachad/raw_data/av2_bird/trajectories_num_substeps_8.json'
 ];
 
 Promise.all(trajectoryFiles.map(file => 
@@ -60,7 +60,7 @@ function padNumber(number) {
 }
 
 function loadPLY(frameIndex) {
-    const fileName = `img/static/gigachad/raw_data/jack_spinning/${padNumber(frameIndex)}.ply`;
+    const fileName = `img/static/gigachad/raw_data/av2_bird/${padNumber(frameIndex)}.ply`;
     const loader = new PLYLoader();
 
     loader.load(fileName, function(geometry) {
@@ -78,16 +78,15 @@ function loadPLY(frameIndex) {
             const box = new THREE.Box3().setFromObject(points);
             const size = box.getSize(new THREE.Vector3());
             const maxDim = Math.max(size.x, size.y, size.z);
-            const distance = maxDim * 0.3; 
-            const angle = Math.PI / 6; 
+            const distance = maxDim * 0.1; 
             camera.position.set(
-                -distance * Math.cos(angle),
-                -distance * Math.sin(angle),
-                distance * 0.5
+                -20,
+                0,
+                5
             );
             camera.up.set(0, 0, 1); 
             camera.lookAt(-6, 0, 0); 
-            controls.target.set(-6, 0, 0); 
+            controls.target.set(-10, 6, 3); 
             controls.update();
 
             isFirstLoad = false;
@@ -119,13 +118,13 @@ function updateTrajectories(frameIndex) {
             const position = trajectory[effectiveFrameIndex];
 
             const color = new THREE.Color(baseColors[trajectoryIndex % baseColors.length]);
-            color.lerp(new THREE.Color(0xffffff), substepIndex / (trajectoriesData.length - 1));
+            // color.lerp(new THREE.Color(0xffffff), substepIndex / (trajectoriesData.length - 1));
 
             if (trajectoryIndex >= trajectorySphereMeshes.length) {
                 trajectorySphereMeshes.push([]);
             }
             if (substepIndex >= trajectorySphereMeshes[trajectoryIndex].length) {
-                const sphereGeometry = new THREE.SphereGeometry(0.25, 32, 32);
+                const sphereGeometry = new THREE.SphereGeometry(0.15, 32, 32);
                 const sphereMaterial = new THREE.MeshBasicMaterial({ color: color });
                 const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
                 scene.add(sphereMesh);
@@ -147,7 +146,7 @@ function updateTrajectories(frameIndex) {
                         trailSphereMeshes[trajectoryIndex].push([]);
                     }
                     if (i >= trailSphereMeshes[trajectoryIndex][substepIndex].length) {
-                        const trailSphereGeometry = new THREE.SphereGeometry(0.15, 16, 16);
+                        const trailSphereGeometry = new THREE.SphereGeometry(0.05, 16, 16);
                         const trailSphereMaterial = new THREE.MeshBasicMaterial({ color: color });
                         const trailSphereMesh = new THREE.Mesh(trailSphereGeometry, trailSphereMaterial);
                         scene.add(trailSphereMesh);
@@ -173,7 +172,7 @@ function updateTrajectories(frameIndex) {
 }
 
 function updateFrame(frameIndex) {
-    frameIndex = Math.max(0, Math.min(15, frameIndex));
+    frameIndex = Math.max(0, Math.min(19, frameIndex));
     slider.value = frameIndex;
     frameNumber.textContent = frameIndex;
     loadPLY(frameIndex);

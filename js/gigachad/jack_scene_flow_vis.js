@@ -1,6 +1,6 @@
-import * as THREE from './three.module.js';
-import { PLYLoader } from './PLYLoader.js';
-import { TrackballControls } from './TrackballControls.js';
+import * as THREE from '../three.module.js';
+import { PLYLoader } from '../PLYLoader.js';
+import { TrackballControls } from '../TrackballControls.js';
 
 const scene = new THREE.Scene();
 const container = document.getElementById('jack-flow-render-container');
