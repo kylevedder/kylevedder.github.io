@@ -1,4 +1,4 @@
-HEADER {"page_name": "GIGACHAD", "teaser_img": "https://vedder.io/img/static/gigachad/gigachad_bird_flow_cropped.png"}
+HEADER {"page_name": "GIGACHAD: Fitting Neural Scene Flow Volumes", "teaser_img": "https://vedder.io/img/static/gigachad/gigachad_bird_flow_cropped.png"}
 
 <style>
 [id*="render-container"] {
