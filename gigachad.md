@@ -46,7 +46,7 @@ HEADER {"page_name": "GIGACHAD", "teaser_img": "https://vedder.io/img/static/gig
 </style>
 
 
-# GIGACHAD
+# GIGACHAD: Fitting Neural Scene Flow Volumes
 
 ## [Kyle Vedder](http://vedder.io), [Neehar Peri](http://www.neeharperi.com/), [Ishan Khatri](https://ishan.khatri.io/), [Siyi Li](http://linkedin.com/in/siyi-li-14a958328), [Eric Eaton](https://www.seas.upenn.edu/~eeaton/), [Yue Wang](https://yuewang.xyz/), [Zhiding Yu](https://chrisding.github.io/), [Deva Ramanan](https://www.cs.cmu.edu/~deva/), and [Joachim Pehserl](https://www.linkedin.com/in/joachim-pehserl-45514a98/)
 
@@ -56,6 +56,9 @@ HEADER {"page_name": "GIGACHAD", "teaser_img": "https://vedder.io/img/static/gig
 </div>
 
 
+## Abstract
+
+We present a step function unlock in unsupervised scene flow capabilities. Our unsupervised method, GIGACHAD, outperforms _all_ prior art, unsupervised or supervised, on the Argoverse 2 2024 Scene Flow Challenge leaderboard, as well as other common benchmarks. GIGACHAD's success is powered by straightforwardly fitting a neural scene flow volume to an entire time-conditioned sequence of observations by optimizing against multi-frame objectives, enabling high quality scene flow estimation even for small, sparsely observed objects. Consequently, GIGACHAD is capable of providing high quality motion descriptions for small objects, including those outside any labeled object taxonomy, making good on the promise of scene flow as a strong signal for open-world object detection. GIGACHAD provides good quality scene flow out-of-the-box on real-world data in multiple domains, including dynamic tabletop settings, and demonstrates emergent capabilities such as point tracking via Euler integration.
 
 <!-- Side by side images from img/static/gigachad/gigachad_bird_flow_cropped.png and  img/static/gigachad/gigachad_bird_trajectory_cropped.png -->
 <!-- <div style="display: flex" class="centered">
