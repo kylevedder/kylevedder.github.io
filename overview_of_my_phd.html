@@ -165,4 +165,18 @@ including indoor scenes</li>
 representation; this likely has implications for loss design in
 feed-forward methods</li>
 </ul>
+<h2 id="artifacts-and-code">Artifacts and Code</h2>
+<p>When I started, there were no model zoos and the open source
+codebases that were available were a mess. I sat down and wrote the
+ZeroFlow codebase from scratch, which then turned into <a
+href="https://github.com/kylevedder/SceneFlowZoo">SceneFlowZoo</a> with
+several other baseline implementations.</p>
+<p>As part of <em>I Can’t Believe It’s Not Scene Flow!</em> we also
+released a standalone dataloader and evaluation package which we used as
+the basis of the <a href="https://www.argoverse.org/sceneflow">Argoverse
+2 2024 Scene Flow Challenge</a>. This codebase, <a
+href="https://github.com/kylevedder/BucketedSceneFlowEval">BucketedSceneFlowEval</a>
+is used by the model zoo, but is deep learning library agnostic (it
+produces everything in numpy arrays) and is thinly wrapped in the
+SceneFlowZoo codebase.</p>
 </body></html>
