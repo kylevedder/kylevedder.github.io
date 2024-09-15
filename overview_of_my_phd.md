@@ -42,7 +42,7 @@ In order to push the field to close this gap, we hosted the _Argoverse 2 2024 Sc
 
 Our key take-home message was that feed-forward architecture choice was a critically underexplored aspect of scene flow, and ZeroFlow and other prior work clearly suffered from inferior network design.
 
-### GIGACHAD
+### [GIGACHAD: FItting Neural Scene Flow Volumes](./gigachad.html)
 
 Under our new metric from _I Can't Believe It's Not Scene Flow!_, it became clear that ZeroFlow's poor performance was at least partially inherited from the systematic limitations of its teacher. This motivated the need for a high-quality offline optimization method that, even if expensive, could describe the motion of small objects well.
 
@@ -55,3 +55,9 @@ The key take-home messages:
    - this can be used to do long-tail object mining from motion cues
    - this method works out-of-the-box on a wide variety of scenes, including indoor scenes
  - multi-frame predictions were a critical factor to optimizing this representation; this likely has implications for loss design in feed-forward methods
+
+## Artifacts and Code
+
+When I started, there were no model zoos and the open source codebases that were available were a mess. I sat down and wrote the ZeroFlow codebase from scratch, which then turned into [SceneFlowZoo](https://github.com/kylevedder/SceneFlowZoo) with several other baseline implementations.
+
+As part of _I Can't Believe It's Not Scene Flow!_ we also released a standalone dataloader and evaluation package which we used as the basis of the [Argoverse 2 2024 Scene Flow Challenge](https://www.argoverse.org/sceneflow). This codebase, [BucketedSceneFlowEval](https://github.com/kylevedder/BucketedSceneFlowEval) is used by the model zoo, but is deep learning library agnostic (it produces everything in numpy arrays) and is thinly wrapped in the SceneFlowZoo codebase.
