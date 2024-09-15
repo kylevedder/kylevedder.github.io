@@ -1,12 +1,7 @@
-// import { PLYLoader } from 'three/addons/loaders/PLYLoader.js';
-
 import { PLYLoader } from '../PLYLoader.js';
 
-const jackTotalFrames = 16; // 0000 to 0015
-const jackBaseUrl = '../../img/static/gigachad/raw_data/jack_spinning/';
-
-const birdTotalFrames = 20; // 0000 to 0019
-const birdBaseUrl = '../../img/static/gigachad/raw_data/av2_bird/';
+// Map from str id to metadata object
+const id_to_metadata = await fetch("../../img/static/gigachad/metadata.json").then(response => response.json())
 
 function padNumber(number) {
     return number.toString().padStart(4, '0');
@@ -16,38 +11,29 @@ self.onmessage = function() {
     const plyLoader = new PLYLoader();
     const loadPromises = [];
 
-    for (let i = 0; i < birdTotalFrames; i++) {
-        const frameNum = padNumber(i);
-        const plyUrl = `${birdBaseUrl}${frameNum}.ply`;
-        const jsonUrl = `${birdBaseUrl}${frameNum}.json`;
+    const ids = id_to_metadata.keys()
+    
+    for (let id of ids) {
+        const metadata = id_to_metadata[id]
+        const frameTotalFrames = metadata['total_frames']
+        const baseUrl = `../../${metadata['data_path']}`
 
-        // Preload PLY
-        const plyPromise = new Promise((resolve, reject) => {
-            plyLoader.load(plyUrl, resolve, undefined, reject);
-        });
+        for (let i = 0; i < frameTotalFrames; i++) {
+            const frameNum = padNumber(i);
+            const plyUrl = `${baseUrl}${frameNum}.ply`;
+            const jsonUrl = `${baseUrl}${frameNum}.json`;
 
-        // Preload JSON
-        const jsonPromise = fetch(jsonUrl).then(response => response.json());
+            // Preload PLY
+            const plyPromise = new Promise((resolve, reject) => {
+                plyLoader.load(plyUrl, resolve, undefined, reject);
+            });
 
-        loadPromises.push(plyPromise, jsonPromise);
+            // Preload JSON
+            const jsonPromise = fetch(jsonUrl).then(response => response.json());
+
+            loadPromises.push(plyPromise, jsonPromise);
+        }
     }
-
-    for (let i = 0; i < jackTotalFrames; i++) {
-        const frameNum = padNumber(i);
-        const plyUrl = `${jackBaseUrl}${frameNum}.ply`;
-        const jsonUrl = `${jackBaseUrl}${frameNum}.json`;
-
-        // Preload PLY
-        const plyPromise = new Promise((resolve, reject) => {
-            plyLoader.load(plyUrl, resolve, undefined, reject);
-        });
-
-        // Preload JSON
-        const jsonPromise = fetch(jsonUrl).then(response => response.json());
-
-        loadPromises.push(plyPromise, jsonPromise);
-    }
-
     
 
     Promise.all(loadPromises)
