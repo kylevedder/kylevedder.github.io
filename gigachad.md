@@ -59,6 +59,8 @@ We present a step function unlock in unsupervised scene flow capabilities. Our u
 
 ## Interactive Visualizations
 
+We present _representative_ examples of GIGACHAD's performance on a variety of scenes in order to provide honest depictions of the performance you can expect out of GIGACHAD on diverse, in-the-wild data. While these results highlight GIGACHAD's many strengths, they also accurately portray its weaknesses, such as adding motion to partially occluded areas or on nearby static surfaces. Scenes with RGB information are for visualization purposes only; RGB information is not used in the flow estimation process.
+
 <div id="iteractive_vis"></div>
 
 <script type="module">

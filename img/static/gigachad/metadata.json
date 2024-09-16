@@ -38,7 +38,7 @@
         "data_path": "img/static/gigachad/raw_data/ball_and_tape_big_bounce",
         "image_path": "img/static/gigachad/bounce.png",
         "num_steps": 40,
-        "num_traj": 1,
+        "num_traj": 4,
         "title": "Ball and Tape",
         "camera_position": [
             -30,
@@ -50,5 +50,23 @@
             -5,
             15
         ]
+    },
+    "hand" : {
+        "data_path" : "img/static/gigachad/raw_data/hand_place_in_sink",
+        "image_path" : "img/static/gigachad/hand.png",
+        "num_steps" : 60,
+        "num_traj" : 4,
+        "title" : "Hand Place in Sink",
+        "camera_position" : [
+            -30,
+            -0,
+            20
+        ],
+        "lookat" : [
+            0,
+            -5,
+            5
+        ]
+
     }
 }
