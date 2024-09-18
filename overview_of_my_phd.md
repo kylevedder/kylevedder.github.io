@@ -42,7 +42,7 @@ In order to push the field to close this gap, we hosted the _Argoverse 2 2024 Sc
 
 Our key take-home message was that feed-forward architecture choice was a critically underexplored aspect of scene flow, and ZeroFlow and other prior work clearly suffered from inferior network design.
 
-### [GIGACHAD: FItting Neural Scene Flow Volumes](./gigachad.html)
+### [GIGACHAD: Fitting Neural Scene Flow Volumes](./gigachad.html)
 
 Under our new metric from _I Can't Believe It's Not Scene Flow!_, it became clear that ZeroFlow's poor performance was at least partially inherited from the systematic limitations of its teacher. This motivated the need for a high-quality offline optimization method that, even if expensive, could describe the motion of small objects well.
 
