@@ -8,7 +8,7 @@ function setupTraj(container, slider, frameNumber, dataRoot, num_trajectories, t
     const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(container.clientWidth, container.clientHeight);
-    // renderer.setClearColor(0xffffff)
+    renderer.setClearColor(0xffffff)
     container.appendChild(renderer.domElement);
 
     const controls = new TrackballControls(camera, renderer.domElement);
@@ -89,7 +89,7 @@ function setupTraj(container, slider, frameNumber, dataRoot, num_trajectories, t
     function updateTrajectories(frameIndex) {
         if (!trajectoriesData.length) return;
 
-        const baseColors = [0xff0000, 0x00ff00, 0x0000ff, 0xffff00, 0xff00ff, 0x00ffff];
+        const baseColors = [0x0000ff, 0x00ff00, 0xff0000, 0xffff00, 0xff00ff, 0x00ffff];
 
         trajectoriesData.forEach((trajectoryData, substepIndex) => {
             const substepsPerFrame = 2 ** substepIndex;
