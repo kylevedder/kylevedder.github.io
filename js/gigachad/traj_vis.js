@@ -64,6 +64,11 @@ function setupTraj(container, slider, frameNumber, dataRoot, num_trajectories, t
             }
 
             const material = new THREE.PointsMaterial({ size: 0.1, vertexColors: true });
+            // If colors are all white, set to black
+            if (geometry.attributes.color.array.every(color => color === 1)) {
+                const point_colors = new Float32Array(geometry.attributes.position.count * 3).fill(0);
+                geometry.setAttribute('color', new THREE.Float32BufferAttribute(point_colors, 3));
+            }
             const points = new THREE.Points(geometry, material);
             
             scene.add(points);
