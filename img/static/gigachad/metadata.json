@@ -21,7 +21,7 @@
         "data_path": "img/static/gigachad/raw_data/jack_spinning",
         "image_path": "img/static/gigachad/jack.png",
         "num_steps": 15,
-        "num_traj": 4,
+        "num_traj": 1,
         "title": "Jack",
         "camera_position": [
             -20,
@@ -38,7 +38,7 @@
         "data_path": "img/static/gigachad/raw_data/ball_and_tape_big_bounce",
         "image_path": "img/static/gigachad/bounce.png",
         "num_steps": 40,
-        "num_traj": 4,
+        "num_traj": 1,
         "title": "Ball and Tape",
         "camera_position": [
             -30,
@@ -55,8 +55,26 @@
         "data_path" : "img/static/gigachad/raw_data/hand_place_in_sink",
         "image_path" : "img/static/gigachad/hand.png",
         "num_steps" : 60,
-        "num_traj" : 4,
+        "num_traj" : 1,
         "title" : "Hand Place in Sink",
+        "camera_position" : [
+            -30,
+            -0,
+            20
+        ],
+        "lookat" : [
+            0,
+            -5,
+            5
+        ]
+
+    },
+    "waving_ball" : {
+        "data_path" : "img/static/gigachad/raw_data/waving_ball",
+        "image_path" : "img/static/gigachad/waving_ball.png",
+        "num_steps" : 40,
+        "num_traj" : 1,
+        "title" : "Tennis Ball on a Flexible Rod",
         "camera_position" : [
             -30,
             -0,
