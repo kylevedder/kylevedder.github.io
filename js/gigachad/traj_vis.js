@@ -2,6 +2,25 @@ import * as THREE from '../three.module.js';
 import { PLYLoader } from '../PLYLoader.js';
 import { TrackballControls } from '../TrackballControls.js';
 
+function saveScreenshot(renderer, frameIndex) {
+    // Pad the frameIndex with leading zeros (e.g., 0001, 0012, etc.)
+    const paddedFrameIndex = frameIndex.toString().padStart(4, '0');
+
+    // Ensure the renderer has completed drawing the frame before capturing
+    requestAnimationFrame(() => {
+        // Get the canvas data as a base64-encoded PNG
+        const dataURL = renderer.domElement.toDataURL('image/png');
+
+        // Create an anchor element
+        const link = document.createElement('a');
+        link.href = dataURL;
+        link.download = `screenshot_frame_${paddedFrameIndex}.png`; // Set the download file name with the padded frame number
+
+        // Programmatically click the link to trigger the download
+        link.click();
+    });
+}
+
 function setupTraj(container, slider, frameNumber, dataRoot, num_trajectories, traj_length, camera_position, camera_lookat) {
     const scene = new THREE.Scene();
     container.tabIndex = 0; 
@@ -23,6 +42,13 @@ function setupTraj(container, slider, frameNumber, dataRoot, num_trajectories, t
     const light = new THREE.PointLight(0xffffff, 1, 100);
     light.position.set(0, 0, 10);
     scene.add(light);
+
+    // Add an event listener to capture key presses
+    container.addEventListener('keydown', function(event) {
+        if (event.key === 's') { // Change 's' to any other key if you prefer
+            saveScreenshot(renderer, parseInt(slider.value)); // Pass the current frame index to the function
+        }
+    });
 
     let currentPoints = null;
     let trajectorySphereMeshes = [];
