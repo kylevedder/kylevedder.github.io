@@ -1,32 +1,6 @@
-<!DOCTYPE html><html><head>
-<meta charset="utf-8">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9NWBV84HB2"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9NWBV84HB2');
-</script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="GIGACHAD: Fitting Neural Scene Flow Volumes">
-<meta property="og:title" content="GIGACHAD: Fitting Neural Scene Flow Volumes">
-<meta property="og:description" content="GIGACHAD: Fitting Neural Scene Flow Volumes">
-<meta property="og:image" content="https://vedder.io/img/static/gigachad/gigachad_bird_flow_cropped.png">
-<meta property="twitter:title" content="GIGACHAD: Fitting Neural Scene Flow Volumes">
-<meta property="twitter:description" content="GIGACHAD: Fitting Neural Scene Flow Volumes">
-<meta property="twitter:image" content="https://vedder.io/img/static/gigachad/gigachad_bird_flow_cropped.png">
-<meta property="og:type" content="website">
-<meta name="author" content="Kyle Vedder">
-<link rel="shortcut icon" href="./favicon.ico">
-<title>
-GIGACHAD: Fitting Neural Scene Flow Volumes
-</title>
-<!-- css -->
-<link href="./css/style.css" rel="stylesheet"> <!-- JavaScript -->
-<script type="text/javascript" src="./js/utils.js"></script>
-</head>
-<body><style>
+HEADER {"page_name": "EulerFlow: Scene Flow as a Partial Differential Equation", "teaser_img": "https://vedder.io/img/static/eulerflow/gigachad_bird_flow_cropped.png"}
+
+<style>
 [id*="render-container"] {
     width: 100%;
     height: 600px;
@@ -67,56 +41,33 @@ GIGACHAD: Fitting Neural Scene Flow Volumes
 }
 
 </style>
-<h1 id="gigachad-fitting-neural-scene-flow-volumes">GIGACHAD: Fitting
-Neural Scene Flow Volumes</h1>
-<h2
-id="kyle-vedder-neehar-peri-ishan-khatri-siyi-li-eric-eaton-yue-wang-zhiding-yu-deva-ramanan-and-joachim-pehserl"><a
-href="http://vedder.io">Kyle Vedder</a>, <a
-href="http://www.neeharperi.com/">Neehar Peri</a>, <a
-href="https://ishan.khatri.io/">Ishan Khatri</a>, <a
-href="http://linkedin.com/in/siyi-li-14a958328">Siyi Li</a>, <a
-href="https://www.seas.upenn.edu/~eeaton/">Eric Eaton</a>, <a
-href="https://yuewang.xyz/">Yue Wang</a>, <a
-href="https://chrisding.github.io/">Zhiding Yu</a>, <a
-href="https://www.cs.cmu.edu/~deva/">Deva Ramanan</a>, and <a
-href="https://www.linkedin.com/in/joachim-pehserl-45514a98/">Joachim
-Pehserl</a></h2>
-<section id="paper" class="centered">
-<h1><a href="TODO">[Paper]</a></h1>
-</section>
-<h2 id="abstract">Abstract</h2>
-<p>We present a step function unlock in unsupervised scene flow
-capabilities. Our unsupervised method, GIGACHAD, outperforms
-<em>all</em> prior art, unsupervised or supervised, on the Argoverse 2
-2024 Scene Flow Challenge leaderboard, as well as other common
-benchmarks. GIGACHAD’s success is powered by straightforwardly fitting a
-neural scene flow volume to an entire time-conditioned sequence of
-observations by optimizing against multi-frame objectives, enabling high
-quality scene flow estimation even for small, sparsely observed objects.
-Consequently, GIGACHAD is capable of providing high quality motion
-descriptions for small objects, including those outside any labeled
-object taxonomy, making good on the promise of scene flow as a strong
-signal for open-world object detection. GIGACHAD provides good quality
-scene flow out-of-the-box on real-world data in multiple domains,
-including dynamic tabletop settings, and demonstrates emergent
-capabilities such as point tracking via Euler integration.</p>
-<h2 id="interactive-visualizations">Interactive Visualizations</h2>
-<p>We present <em>representative</em> examples of GIGACHAD’s performance
-on a variety of scenes in order to provide honest depictions of the
-performance you can expect out of GIGACHAD on diverse, in-the-wild data.
-While these results highlight GIGACHAD’s many strengths, they also
-accurately portray its weaknesses, such as adding motion to partially
-occluded areas or on nearby static surfaces. Scenes with RGB information
-are for visualization purposes only; RGB information is not used in the
-flow estimation process.</p>
-<div id="iteractive_vis">
 
+
+# Scene Flow as a Partial Differential Equation
+
+## [Kyle Vedder](http://vedder.io), [Neehar Peri](http://www.neeharperi.com/), [Ishan Khatri](https://ishan.khatri.io/), [Siyi Li](http://linkedin.com/in/siyi-li-14a958328), [Eric Eaton](https://www.seas.upenn.edu/~eeaton/), [Mehmet Kocamaz](https://www.linkedin.com/in/mehmet-kocamaz/), [Yue Wang](https://yuewang.xyz/), [Zhiding Yu](https://chrisding.github.io/), [Deva Ramanan](https://www.cs.cmu.edu/~deva/), and [Joachim Pehserl](https://www.linkedin.com/in/joachim-pehserl-45514a98/)
+
+
+<div class="centered">
+# [[Paper]](TODO)
 </div>
-<script type="module">
-import { setupSceneFlow } from './js/gigachad/scene_flow_vis.js';
-import { setupTraj } from './js/gigachad/traj_vis.js';
 
-const id_to_metadata = await fetch("./img/static/gigachad/metadata.json").then(response => response.json())
+
+## Abstract
+
+We reframe scene flow as the problem of estimating a continuous space and time PDE that describes motion for an entire observation sequence, represented with a neural prior. Our resulting unsupervised method, EulerFlow, produces high quality scene flow on real-world data across multiple domains, including large-scale autonomous driving scenes and dynamic tabletop settings. Notably, EulerFlow produces high quality flow on small, fast moving objects like birds and tennis balls, and exhibits emergent 3D point tracking behavior by solving its estimated PDE over long time horizons. On the Argoverse 2 2024 Scene Flow Challenge, EulerFlow outperforms all prior art, beating the next best unsupervised method by over 2.5x and the next best supervised method by over 10%.
+
+## Interactive Visualizations
+
+We present _representative_ examples of EulerFlow's performance on a variety of scenes in order to provide honest depictions of the performance you can expect out of EulerFlow on diverse, in-the-wild data. While these results highlight EulerFlow's many strengths, they also accurately portray its weaknesses, such as adding motion to partially occluded areas or on nearby static surfaces. Scenes with RGB information are for visualization purposes only; RGB information is not used in the flow estimation process.
+
+<div id="iteractive_vis"></div>
+
+<script type="module">
+import { setupSceneFlow } from './js/eulerflow/scene_flow_vis.js';
+import { setupTraj } from './js/eulerflow/traj_vis.js';
+
+const id_to_metadata = await fetch("./img/static/eulerflow/metadata.json").then(response => response.json())
 
 const container_ids = Object.keys(id_to_metadata);
 
@@ -302,7 +253,7 @@ container_ids.forEach((id) => {
 });
 
 // Create a Web Worker for preloading all PLY and JSON files
-const preloadWorker = new Worker('js/gigachad/preloader.js', { type: "module" });
+const preloadWorker = new Worker('js/eulerflow/preloader.js', { type: "module" });
 
 // Start preloading files in the background
 preloadWorker.postMessage('start');
@@ -317,6 +268,9 @@ preloadWorker.onmessage = function(event) {
 };
 
 </script>
-<h2 id="citation">Citation</h2>
-<pre><code>TODO</code></pre>
-</body></html>
+
+## Citation
+
+```
+TODO
+```
