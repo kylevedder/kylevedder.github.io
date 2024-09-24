@@ -24,7 +24,7 @@ Representative projects include:
     - Standard benchmarks were systematically broken, hiding the failure of all methods to describe small object motion; we proposed a new metric and a simple baseline that was state-of-the-art
   - [Argoverse 2 2024 Scene Flow Challenge](https://www.argoverse.org/sceneflow)
     - Hosted a challenge to push the field to close the gap between prior art and a qualitative notion of reasonable flow quality
-  - [GIGACHAD: Fitting Neural Scene Flow Volumes](./gigachad.html)
+  - [Scene Flow as a Partial Differential Equation](./gigachad.html)
     - Fit a neural network-based scene flow volume to the entire observation and optimize it against multi-frame objectives and out pops amazing performance and emergent behaviors like point tracking.
  
 **For a narrative overview of how my PhD research fits together, see [_Overview of my PhD Research_](./overview_of_my_phd.html).**

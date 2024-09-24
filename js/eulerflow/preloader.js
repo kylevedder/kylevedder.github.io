@@ -1,7 +1,7 @@
 import { PLYLoader } from '../PLYLoader.js';
 
 // Map from str id to metadata object
-const id_to_metadata = await fetch("../../img/static/gigachad/metadata.json").then(response => response.json())
+const id_to_metadata = await fetch("../../img/static/eulerflow/metadata.json").then(response => response.json())
 
 function padNumber(number) {
     return number.toString().padStart(4, '0');
