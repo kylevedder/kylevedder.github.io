@@ -86,5 +86,23 @@
             5
         ]
 
+    },
+    "waving_ball_mono" : {
+        "data_path" : "img/static/eulerflow/raw_data/waving_ball_mono",
+        "image_path" : "img/static/eulerflow/waving_ball_monodepth.png",
+        "num_steps" : 40,
+        "num_traj" : 1,
+        "title" : "Monodepth estimate of Tennis Ball on a Flexible Rod",
+        "camera_position" : [
+            -30,
+            -0,
+            20
+        ],
+        "lookat" : [
+            0,
+            -5,
+            5
+        ]
+
     }
 }
