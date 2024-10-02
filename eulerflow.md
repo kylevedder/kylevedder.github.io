@@ -49,7 +49,7 @@ HEADER {"page_name": "EulerFlow: Scene Flow as a Partial Differential Equation",
 
 
 <div class="centered">
-# [[Paper]](TODO)
+# [[Paper]](./publications/eulerflow_preprint.pdf)
 </div>
 
 
@@ -272,5 +272,5 @@ preloadWorker.onmessage = function(event) {
 ## Citation
 
 ```
-TODO
+BIB bibs/in_submission.bib vedder2024eulerflow
 ```
