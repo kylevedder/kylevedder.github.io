@@ -49,9 +49,9 @@ We propose a simple supervised scene flow baseline, _TrackFlow_, built by boltin
 
 ## Takeway: A call to the community
 
-Scene flow as a problem is not an end unto itself; it is only useful as a primitive for downstream tasks. Those tasks care about error across _all_ moving objects, and method evaluations that actively hide failures on small objects are more than just _not useful_; they are _actively deceptive_, wasting practitioners time as they try to sort through published methods to find something that _actually_ works.
+Scene flow as a problem is not an end unto itself; it is only useful as a primitive for downstream tasks. We present a new benchmark that highlights failures on important classes of objects, and show that once highlighted, even simple methods can make meaningful progress.
 
-We provide a very easy-to-use, multi-dataset dataloader and scene flow evaluation toolkit for [_Bucket Normalized EPE_](https://github.com/kylevedder/BucketedSceneFlowEval), and we have integrated it into our [Scene Flow Zoo](https://github.com/kylevedder/SceneFlowZoo) as the standard method for evaluation. While we have provided these tools, the community must use them if we are to make real progress on scene flow.
+In service of future progress, we provide a very easy-to-use, multi-dataset dataloader and scene flow evaluation toolkit for [_Bucket Normalized EPE_](https://github.com/kylevedder/BucketedSceneFlowEval), and we have integrated it into our [Scene Flow Zoo](https://github.com/kylevedder/SceneFlowZoo) as the standard method for evaluation.
 
 
 <!-- ## Argoverse 2 2024 Scene Flow Challenge @ CVPR 2024 Workshop on Autonomous Driving
