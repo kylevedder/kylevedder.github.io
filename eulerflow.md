@@ -49,7 +49,7 @@ HEADER {"page_name": "EulerFlow: Scene Flow as a Partial Differential Equation",
 
 
 <div class="centered">
-# [[Paper]](./publications/eulerflow_preprint.pdf)
+# [[Paper]](https://arxiv.org/abs/2410.02031)
 </div>
 
 

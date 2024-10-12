@@ -2,13 +2,33 @@ import * as THREE from '../three.module.js';
 import { PLYLoader } from '../PLYLoader.js';
 import { TrackballControls } from '../TrackballControls.js';
 
+// Function to save the screenshot with padded frame number
+function saveScreenshot(renderer, frameIndex) {
+    // Pad the frameIndex with leading zeros (e.g., 0001, 0012, etc.)
+    const paddedFrameIndex = frameIndex.toString().padStart(4, '0');
+
+    // Ensure the renderer has completed drawing the frame before capturing
+    requestAnimationFrame(() => {
+        // Get the canvas data as a base64-encoded PNG
+        const dataURL = renderer.domElement.toDataURL('image/png');
+
+        // Create an anchor element
+        const link = document.createElement('a');
+        link.href = dataURL;
+        link.download = `screenshot_frame_${paddedFrameIndex}.png`; // Set the download file name with the padded frame number
+
+        // Programmatically click the link to trigger the download
+        link.click();
+    });
+}
+
 function setupSceneFlow(container, slider, frameNumber, dataRoot, traj_length, camera_position, camera_lookat) {
     const scene = new THREE.Scene();
     container.tabIndex = 0;  // Make the container focusable
     const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setClearColor(0xffffff)
+    renderer.setClearColor(0xffffff);
     container.appendChild(renderer.domElement);
 
     const controls = new TrackballControls(camera, renderer.domElement);
@@ -27,6 +47,9 @@ function setupSceneFlow(container, slider, frameNumber, dataRoot, traj_length, c
     let currentPoints = null;
     let flowLines = null;
     let isFirstLoad = true;
+
+    // Keep track of the current frame index
+    let currentFrameIndex = 0;
 
     function padNumber(number) {
         return number.toString().padStart(4, '0');
@@ -110,6 +133,7 @@ function setupSceneFlow(container, slider, frameNumber, dataRoot, traj_length, c
         frameIndex = Math.max(0, Math.min(traj_length - 1, frameIndex));
         slider.value = frameIndex;
         frameNumber.textContent = frameIndex;
+        currentFrameIndex = frameIndex; // Update the current frame index
         loadPLYAndFlow(frameIndex);
     }
 
@@ -137,6 +161,8 @@ function setupSceneFlow(container, slider, frameNumber, dataRoot, traj_length, c
             updateFrame(currentFrame - 1);
         } else if (event.key === 'ArrowRight') {
             updateFrame(currentFrame + 1);
+        } else if (event.key === 's') {
+            saveScreenshot(renderer, currentFrameIndex); // Save screenshot with current frame index
         }
     });
 
@@ -159,7 +185,7 @@ function setupSceneFlow(container, slider, frameNumber, dataRoot, traj_length, c
     // Initial load
     loadPLYAndFlow(0);
 
-    return { scene, camera, renderer, controls  }
+    return { scene, camera, renderer, controls };
 }
 
 export { setupSceneFlow };
