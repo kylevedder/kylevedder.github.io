@@ -9,18 +9,18 @@
     gtag('config', 'G-9NWBV84HB2');
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="EulerFlow: Scene Flow as a Partial Differential Equation">
-<meta property="og:title" content="EulerFlow: Scene Flow as a Partial Differential Equation">
-<meta property="og:description" content="EulerFlow: Scene Flow as a Partial Differential Equation">
+<meta name="description" content="EulerFlow: Neural Eulerian Scene Flow Fields">
+<meta property="og:title" content="EulerFlow: Neural Eulerian Scene Flow Fields">
+<meta property="og:description" content="EulerFlow: Neural Eulerian Scene Flow Fields">
 <meta property="og:image" content="https://vedder.io/img/static/eulerflow/gigachad_bird_flow_cropped.png">
-<meta property="twitter:title" content="EulerFlow: Scene Flow as a Partial Differential Equation">
-<meta property="twitter:description" content="EulerFlow: Scene Flow as a Partial Differential Equation">
+<meta property="twitter:title" content="EulerFlow: Neural Eulerian Scene Flow Fields">
+<meta property="twitter:description" content="EulerFlow: Neural Eulerian Scene Flow Fields">
 <meta property="twitter:image" content="https://vedder.io/img/static/eulerflow/gigachad_bird_flow_cropped.png">
 <meta property="og:type" content="website">
 <meta name="author" content="Kyle Vedder">
 <link rel="shortcut icon" href="./favicon.ico">
 <title>
-EulerFlow: Scene Flow as a Partial Differential Equation
+EulerFlow: Neural Eulerian Scene Flow Fields
 </title>
 <!-- css -->
 <link href="./css/style.css" rel="stylesheet"> <!-- JavaScript -->
@@ -67,8 +67,8 @@ EulerFlow: Scene Flow as a Partial Differential Equation
 }
 
 </style>
-<h1 id="scene-flow-as-a-partial-differential-equation">Scene Flow as a
-Partial Differential Equation</h1>
+<h1 id="neural-eulerian-scene-flow-fields">Neural Eulerian Scene Flow
+Fields</h1>
 <h2
 id="kyle-vedder-neehar-peri-ishan-khatri-siyi-li-eric-eaton-mehmet-kocamaz-yue-wang-zhiding-yu-deva-ramanan-and-joachim-pehserl"><a
 href="http://vedder.io">Kyle Vedder</a>, <a
@@ -86,17 +86,20 @@ Pehserl</a></h2>
 <h1><a href="https://arxiv.org/abs/2410.02031">[Paper]</a></h1>
 </section>
 <h2 id="abstract">Abstract</h2>
-<p>We reframe scene flow as the problem of estimating a continuous space
-and time PDE that describes motion for an entire observation sequence,
-represented with a neural prior. Our resulting unsupervised method,
-EulerFlow, produces high quality scene flow on real-world data across
-multiple domains, including large-scale autonomous driving scenes and
-dynamic tabletop settings. Notably, EulerFlow produces high quality flow
-on small, fast moving objects like birds and tennis balls, and exhibits
-emergent 3D point tracking behavior by solving its estimated PDE over
-long time horizons. On the Argoverse 2 2024 Scene Flow Challenge,
-EulerFlow outperforms all prior art, beating the next best unsupervised
-method by over 2.5x and the next best supervised method by over 10%.</p>
+<p>We reframe scene flow as the task of estimating a continuous
+space-time ODE that describes motion for an entire observation sequence,
+represented with a neural prior. Our method, EulerFlow, optimizes this
+neural prior estimate against several multi-observation reconstruction
+objectives, enabling high quality scene flow estimation via pure
+self-supervision on real-world data. EulerFlow works out-of-the-box
+without tuning across multiple domains, including large-scale autonomous
+driving scenes and dynamic tabletop settings. Remarkably, EulerFlow
+produces high quality flow estimates on small, fast moving objects like
+birds and tennis balls, and exhibits emergent 3D point tracking behavior
+by solving its estimated ODE over long-time horizons. On the Argoverse 2
+2024 Scene Flow Challenge, EulerFlow outperforms all prior art,
+surpassing the next-best unsupervised method by more than 2.5x, and even
+exceeding the next-best supervised method by over 10%.</p>
 <h2 id="interactive-visualizations">Interactive Visualizations</h2>
 <p>We present <em>representative</em> examples of EulerFlow’s
 performance on a variety of scenes in order to provide honest depictions

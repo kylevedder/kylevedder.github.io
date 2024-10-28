@@ -1,4 +1,4 @@
-HEADER {"page_name": "EulerFlow: Scene Flow as a Partial Differential Equation", "teaser_img": "https://vedder.io/img/static/eulerflow/gigachad_bird_flow_cropped.png"}
+HEADER {"page_name": "EulerFlow: Neural Eulerian Scene Flow Fields", "teaser_img": "https://vedder.io/img/static/eulerflow/gigachad_bird_flow_cropped.png"}
 
 <style>
 [id*="render-container"] {
@@ -43,7 +43,7 @@ HEADER {"page_name": "EulerFlow: Scene Flow as a Partial Differential Equation",
 </style>
 
 
-# Scene Flow as a Partial Differential Equation
+# Neural Eulerian Scene Flow Fields
 
 ## [Kyle Vedder](http://vedder.io), [Neehar Peri](http://www.neeharperi.com/), [Ishan Khatri](https://ishan.khatri.io/), [Siyi Li](http://linkedin.com/in/siyi-li-14a958328), [Eric Eaton](https://www.seas.upenn.edu/~eeaton/), [Mehmet Kocamaz](https://www.linkedin.com/in/mehmet-kocamaz/), [Yue Wang](https://yuewang.xyz/), [Zhiding Yu](https://chrisding.github.io/), [Deva Ramanan](https://www.cs.cmu.edu/~deva/), and [Joachim Pehserl](https://www.linkedin.com/in/joachim-pehserl-45514a98/)
 
@@ -55,7 +55,7 @@ HEADER {"page_name": "EulerFlow: Scene Flow as a Partial Differential Equation",
 
 ## Abstract
 
-We reframe scene flow as the problem of estimating a continuous space and time PDE that describes motion for an entire observation sequence, represented with a neural prior. Our resulting unsupervised method, EulerFlow, produces high quality scene flow on real-world data across multiple domains, including large-scale autonomous driving scenes and dynamic tabletop settings. Notably, EulerFlow produces high quality flow on small, fast moving objects like birds and tennis balls, and exhibits emergent 3D point tracking behavior by solving its estimated PDE over long time horizons. On the Argoverse 2 2024 Scene Flow Challenge, EulerFlow outperforms all prior art, beating the next best unsupervised method by over 2.5x and the next best supervised method by over 10%.
+We reframe scene flow as the task of estimating a continuous space-time ODE that describes motion for an entire observation sequence, represented with a neural prior. Our method, EulerFlow, optimizes this neural prior estimate against several multi-observation reconstruction objectives, enabling high quality scene flow estimation via pure self-supervision on real-world data. EulerFlow works out-of-the-box without tuning across multiple domains, including large-scale autonomous driving scenes and dynamic tabletop settings. Remarkably, EulerFlow produces high quality flow estimates on small, fast moving objects like birds and tennis balls, and exhibits emergent 3D point tracking behavior by solving its estimated ODE over long-time horizons. On the Argoverse 2 2024 Scene Flow Challenge, EulerFlow outperforms all prior art, surpassing the next-best unsupervised method by more than 2.5x, and even exceeding the next-best supervised method by over 10%.
 
 ## Interactive Visualizations
 
