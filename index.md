@@ -4,8 +4,6 @@ HEADER Kyle Vedder's Homepage
 
 <img class="centered" src="img/me_computer.jpg" height="400" />
 
-**I am graduating with my CS PhD from Penn in May 2025, and I am on the job market for an industry Research Scientist position, either at a major AI lab or at a robotics startup, with the goal of working towards an embodied AI system that can perform at or above human level in a variety of domestic and industrial labor tasks.**
-
 <!-- My career goal is to build embodied AI system that can perform at or above human level in a variety of domestic and industrial labor tasks. I chose to do a PhD to focus on the 3D perception and world modeling aspect of this problem, as I believe having the right representation is a critical factor in learning robust, generalizable policies. My PhD research has focused on the problem of Scene Flow, which I believe encapsulates the critical ability to understand the dynamics of the 3D world. -->
 
 ## Research Interests
@@ -14,9 +12,7 @@ STATEMENT_OF_PURPOSE
 
 ## Academic Background
 
-I am a CS PhD [candidate](img/static/candidate.png) at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) and [Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/) in the [GRASP Lab](https://www.grasp.upenn.edu/). My current line of work is focused on Scene Flow with the general goal of building flexible, scalable systems that do not require human annotations.
-
-Representative projects include:
+I am a CS PhD [candidate](img/static/candidate.png) at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) and [Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/) in the [GRASP Lab](https://www.grasp.upenn.edu/). Representative projects include:
 
  - [ZeroFlow: Scalable Scene Flow via Distillation](./zeroflow.html)
    - Distill an expensive optimization method into a feed-forward network and data scale it to state-of-the-art performance
@@ -24,10 +20,10 @@ Representative projects include:
     - Standard benchmarks were systematically broken, hiding the failure of all methods to describe small object motion; we proposed a new metric and a simple baseline that was state-of-the-art
   - [Argoverse 2 2024 Scene Flow Challenge](https://www.argoverse.org/sceneflow)
     - Hosted a challenge to push the field to close the gap between prior art and a qualitative notion of reasonable flow quality
-  - [Scene Flow as a Partial Differential Equation](./eulerflow.html)
+  - [Neural Eulerian Scene Flow Fields](./eulerflow.html)
     - Fit a neural network-based scene flow volume to the entire observation and optimize it against multi-frame objectives and out pops amazing performance and emergent behaviors like point tracking.
  
-**For a narrative overview of how my PhD research fits together, see [_Overview of my PhD Research_](./overview_of_my_phd.html).**
+For a narrative overview of how my PhD research fits together, see [_Overview of my PhD Research_](./overview_of_my_phd.html).
 
 
 ## Industry / Engineering Background

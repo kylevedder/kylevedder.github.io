@@ -30,43 +30,28 @@ Kyle Vedder’s Homepage
 I’m Kyle Vedder
 </h1>
 <p><img class="centered" src="img/me_computer.jpg" height="400" /></p>
-<p><strong>I am graduating with my CS PhD from Penn in May 2025, and I
-am on the job market for an industry Research Scientist position, either
-at a major AI lab or at a robotics startup, with the goal of working
-towards an embodied AI system that can perform at or above human level
-in a variety of domestic and industrial labor tasks.</strong></p>
 <!-- My career goal is to build embodied AI system that can perform at or above human level in a variety of domestic and industrial labor tasks. I chose to do a PhD to focus on the 3D perception and world modeling aspect of this problem, as I believe having the right representation is a critical factor in learning robust, generalizable policies. My PhD research has focused on the problem of Scene Flow, which I believe encapsulates the critical ability to understand the dynamics of the 3D world. -->
 <h2 id="research-interests">Research Interests</h2>
-<p>I believe the shortest path to getting robust, generally capable
-robots in the real world is through the construction of <a
-href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">systems
-whose performance scales with compute and data, <em>without</em>
-requiring human annotations</a>.</p>
-<p>In service of this, I am interested in designing and scaling
-fundamentally 3D vision systems that learn just from raw, multi-modal
-data. My contrarian bet is on the multi-modal and 3D aspects; a high
-quality, 3D aware representation with diverse data sources should enable
-more sample efficient and robust downstream policies. Most
-representations today are 2D for historical reasons (e.g. lots of RGB
-data, 2D convolutions won the hardware lottery), but I believe this ends
-up pushing a lot of 3D spacial understand out of the visual
-representation and into the downstream policy, making them more
-expensive to learn and less robust.</p>
-<p>My current line of work is focused on <a
-href="https://www.argoverse.org/sceneflow">tackling scene flow</a>, a
-problem that requires systems to construct a <a
-href="./zeroflow.html">robust understanding of the dynamics of the 3D
-world</a>. For data availability reasons, it primarily focuses on the
-Autonomous Driving domain, but the same principles apply to other
-domains, e.g. indoor service robots.</p>
+<p>I believe strongly in <a
+href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">The
+Bitter Lesson</a>, and I believe our job as researchers is to find the
+right tricks, data distributions, and algorithms to scale up deep
+learning.</p>
+<p>I believe one such trick is teaching vision systems to understand
+motion. My PhD research has focused on training self-supervised models
+to predict motion via scene flow, and building offline preprocessing
+pipelines to provide these motion descriptions without labels.</p>
+<!-- I believe the shortest path to getting robust, generally capable robots in the real world is through the construction of [systems whose performance scales with compute and data, *without* requiring human annotations](http://www.incompleteideas.net/IncIdeas/BitterLesson.html).
+
+In service of this, I am interested in designing and scaling fundamentally 3D vision systems that learn just from raw, multi-modal data. My contrarian bet is on the multi-modal and 3D aspects; a high quality, 3D aware representation with diverse data sources should enable more sample efficient and robust downstream policies. Most representations today are 2D for historical reasons (e.g. lots of RGB data, 2D convolutions won the hardware lottery), but I believe this ends up pushing a lot of 3D spacial understand out of the visual representation and into the downstream policy, making them more expensive to learn and less robust.
+
+My current line of work is focused on [tackling scene flow](https://www.argoverse.org/sceneflow), a problem that requires systems to construct a [robust understanding of the dynamics of the 3D world](./zeroflow.html). For data availability reasons, it primarily focuses on the Autonomous Driving domain, but the same principles apply to other domains, e.g. indoor service robots. -->
 <h2 id="academic-background">Academic Background</h2>
 <p>I am a CS PhD <a href="img/static/candidate.png">candidate</a> at
 Penn under <a href="https://www.seas.upenn.edu/~eeaton/">Eric Eaton</a>
 and <a href="https://www.seas.upenn.edu/~dineshj/">Dinesh Jayaraman</a>
-in the <a href="https://www.grasp.upenn.edu/">GRASP Lab</a>. My current
-line of work is focused on Scene Flow with the general goal of building
-flexible, scalable systems that do not require human annotations.</p>
-<p>Representative projects include:</p>
+in the <a href="https://www.grasp.upenn.edu/">GRASP Lab</a>.
+Representative projects include:</p>
 <ul>
 <li><a href="./zeroflow.html">ZeroFlow: Scalable Scene Flow via
 Distillation</a>
@@ -87,17 +72,16 @@ Flow Challenge</a>
 <li>Hosted a challenge to push the field to close the gap between prior
 art and a qualitative notion of reasonable flow quality</li>
 </ul></li>
-<li><a href="./eulerflow.html">Scene Flow as a Partial Differential
-Equation</a>
+<li><a href="./eulerflow.html">Neural Eulerian Scene Flow Fields</a>
 <ul>
 <li>Fit a neural network-based scene flow volume to the entire
 observation and optimize it against multi-frame objectives and out pops
 amazing performance and emergent behaviors like point tracking.</li>
 </ul></li>
 </ul>
-<p><strong>For a narrative overview of how my PhD research fits
-together, see <a href="./overview_of_my_phd.html"><em>Overview of my PhD
-Research</em></a>.</strong></p>
+<p>For a narrative overview of how my PhD research fits together, see <a
+href="./overview_of_my_phd.html"><em>Overview of my PhD
+Research</em></a>.</p>
 <h2 id="industry-engineering-background">Industry / Engineering
 Background</h2>
 <p>I have done many industry internships:</p>
