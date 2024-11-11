@@ -2,11 +2,11 @@ HEADER Kyle Vedder's Homepage
 
 <h1 class="centered">I'm Kyle Vedder</h1>
 
-<img class="centered" src="img/me_computer.jpg" height="400" />
+<img class="centered" src="img/me_dock.jpg" height="400" />
 
 <!-- My career goal is to build embodied AI system that can perform at or above human level in a variety of domestic and industrial labor tasks. I chose to do a PhD to focus on the 3D perception and world modeling aspect of this problem, as I believe having the right representation is a critical factor in learning robust, generalizable policies. My PhD research has focused on the problem of Scene Flow, which I believe encapsulates the critical ability to understand the dynamics of the 3D world. -->
 
-## Research Interests
+## About Me
 
 STATEMENT_OF_PURPOSE
 
