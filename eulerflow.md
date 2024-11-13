@@ -45,13 +45,22 @@ HEADER {"page_name": "EulerFlow: Neural Eulerian Scene Flow Fields", "teaser_img
 
 # Neural Eulerian Scene Flow Fields
 
-## [Kyle Vedder](http://vedder.io), [Neehar Peri](http://www.neeharperi.com/), [Ishan Khatri](https://ishan.khatri.io/), [Siyi Li](http://linkedin.com/in/siyi-li-14a958328), [Eric Eaton](https://www.seas.upenn.edu/~eeaton/), [Mehmet Kocamaz](https://www.linkedin.com/in/mehmet-kocamaz/), [Yue Wang](https://yuewang.xyz/), [Zhiding Yu](https://chrisding.github.io/), [Deva Ramanan](https://www.cs.cmu.edu/~deva/), and [Joachim Pehserl](https://www.linkedin.com/in/joachim-pehserl-45514a98/)
+### [Kyle Vedder](http://vedder.io), [Neehar Peri](http://www.neeharperi.com/), [Ishan Khatri](https://ishan.khatri.io/), [Siyi Li](http://linkedin.com/in/siyi-li-14a958328), [Eric Eaton](https://www.seas.upenn.edu/~eeaton/), [Mehmet Kocamaz](https://www.linkedin.com/in/mehmet-kocamaz/), [Yue Wang](https://yuewang.xyz/), [Zhiding Yu](https://chrisding.github.io/), [Deva Ramanan](https://www.cs.cmu.edu/~deva/), and [Joachim Pehserl](https://www.linkedin.com/in/joachim-pehserl-45514a98/)
 
 
 <div class="centered">
-# [[Paper]](https://arxiv.org/abs/2410.02031)
+# [[Paper]](https://arxiv.org/abs/2410.02031) [[Code]](https://github.com/kylevedder/SceneFlowZoo) [[𝕏 Thread]](https://x.com/KyleVedder/status/1851732947130589371)
 </div>
 
+
+<!-- Insert img/static/eulerflow/bird.gif and img/static/eulerflow/tabletop.gif side by side -->
+
+<div class="centered">
+
+<img src="./img/static/eulerflow/bird.gif" style="width: 45%; margin-right: 10px;">
+<img src="./img/static/eulerflow/tabletop.gif" style="width: 45%; margin-left: 10px;">
+
+</div>
 
 ## Abstract
 
