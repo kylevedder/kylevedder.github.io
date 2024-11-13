@@ -8,11 +8,13 @@ HEADER Kyle Vedder's Homepage
 
 ## About Me
 
+I am a Member of Technical Staff at a stealth embodied AGI startup.
+
 STATEMENT_OF_PURPOSE
 
 ## Academic Background
 
-I am a CS PhD [candidate](img/static/candidate.png) at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) and [Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/) in the [GRASP Lab](https://www.grasp.upenn.edu/). Representative projects include:
+I am a CS PhD candidate at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/)  in the [GRASP Lab](https://www.grasp.upenn.edu/). I have been fortunate to work closely with [Deva Ramanan](https://www.cs.cmu.edu/~deva/), [James Hays](https://faculty.cc.gatech.edu/~hays/), and [Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/) throughout my PhD. Representative projects include:
 
  - [ZeroFlow: Scalable Scene Flow via Distillation](./zeroflow.html)
    - Distill an expensive optimization method into a feed-forward network and data scale it to state-of-the-art performance
@@ -58,6 +60,7 @@ I also have significant experience doing high-precision full stack robotics. In 
 
 ## Updates
 <div class="updates">
+ - Oct 2nd, 2024: [Neural Eulerian Scene Flow Fields](./eulerflow.html) posted to arXiv!
  - Jul 1st, 2024: [_I Can't Believe It's Not Scene Flow!_](./trackflow.html) was accepted to ECCV! [(Reviews)](./misc/eccv24_reviews_rebuttal.pdf)
  - Mar 28th, 2024: [Blog post: On Homogeneous Transforms](./misc/homogeneous_transforms.html)
  - Jan 29th, 2024: Joined Nvidia as a Research Intern!
