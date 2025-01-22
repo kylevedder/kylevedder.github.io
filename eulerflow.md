@@ -281,5 +281,5 @@ preloadWorker.onmessage = function(event) {
 ## Citation
 
 ```
-BIB bibs/in_submission.bib vedder2024eulerflow
+BIB bibs/conferences.bib vedder2025eulerflow
 ```
