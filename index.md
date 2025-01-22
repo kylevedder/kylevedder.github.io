@@ -8,7 +8,7 @@ HEADER Kyle Vedder's Homepage
 
 ## About Me
 
-I am a Member of Technical Staff at a stealth embodied AGI startup.
+I am a researcher at Dyna Robotics.
 
 STATEMENT_OF_PURPOSE
 
@@ -60,7 +60,9 @@ I also have significant experience doing high-precision full stack robotics. In 
 
 ## Updates
 <div class="updates">
- - Oct 2nd, 2024: [Neural Eulerian Scene Flow Fields](./eulerflow.html) posted to arXiv!
+ - Jan 22nd, 2025: [Neural Eulerian Scene Flow Fields](./eulerflow.html) was accepted to ICLR 2025!
+ - Jan 22nd, 2025: [Articulate Anything: Automatic Modeling of Articulated Objects via a Vision-Language Foundation Model](https://articulate-anything.github.io/) was accepted to ICLR 2025!
+ - Nov 20th, 2024: I joined Dyna Robotics as a Researcher!
  - Jul 1st, 2024: [_I Can't Believe It's Not Scene Flow!_](./trackflow.html) was accepted to ECCV! [(Reviews)](./misc/eccv24_reviews_rebuttal.pdf)
  - Mar 28th, 2024: [Blog post: On Homogeneous Transforms](./misc/homogeneous_transforms.html)
  - Jan 29th, 2024: Joined Nvidia as a Research Intern!
