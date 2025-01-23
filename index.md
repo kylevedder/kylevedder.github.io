@@ -8,7 +8,7 @@ HEADER Kyle Vedder's Homepage
 
 ## About Me
 
-I am a researcher at Dyna Robotics.
+I am a researcher at [Dyna Robotics](https://dyna.co/).
 
 STATEMENT_OF_PURPOSE
 
