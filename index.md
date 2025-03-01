@@ -14,7 +14,7 @@ STATEMENT_OF_PURPOSE
 
 ## Academic Background
 
-I am a CS PhD candidate at Penn under [Eric Eaton](https://www.seas.upenn.edu/~eeaton/)  in the [GRASP Lab](https://www.grasp.upenn.edu/). I have been fortunate to work closely with [Deva Ramanan](https://www.cs.cmu.edu/~deva/), [James Hays](https://faculty.cc.gatech.edu/~hays/), and [Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/) throughout my PhD. Representative projects include:
+I have a CS PhD candidate from Penn, advised by [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) in the [GRASP Lab](https://www.grasp.upenn.edu/). I have been fortunate to work closely with [Deva Ramanan](https://www.cs.cmu.edu/~deva/), [James Hays](https://faculty.cc.gatech.edu/~hays/), and [Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/) throughout my PhD. Representative projects include:
 
  - [ZeroFlow: Scalable Scene Flow via Distillation](./zeroflow.html)
    - Distill an expensive optimization method into a feed-forward network and data scale it to state-of-the-art performance
