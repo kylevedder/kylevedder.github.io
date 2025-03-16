@@ -98,8 +98,11 @@ PUBS bibs/tech_reports.bib
 
 \vspaceafter{}
 
+- _Dyna Robotics -- Member of Technical Staff_ \ra{(November 2024 -- Present)}
+    - Robot learning research
 - _Nvidia -- Research Intern_ \ra{(Spring / Summer 2024)}
-    - Pushing forward scene flow and occupancy flow methods (stay tuned!)
+    - Pushing forward scene flow and occupancy flow methods
+    - Led to _EulerFlow_ line of scene flow work
 - _Argo AI -- Research Intern_ \ra{(Summer / Fall 2022)}
     - Explored 2D and 3D methods for generalizing to the long tail of objects
     - Led to _ZeroFlow_ line of scene flow work
