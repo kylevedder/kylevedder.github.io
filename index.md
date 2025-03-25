@@ -14,7 +14,7 @@ STATEMENT_OF_PURPOSE
 
 ## Academic Background
 
-I have a CS PhD candidate from Penn, advised by [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) in the [GRASP Lab](https://www.grasp.upenn.edu/). I have been fortunate to work closely with [Deva Ramanan](https://www.cs.cmu.edu/~deva/), [James Hays](https://faculty.cc.gatech.edu/~hays/), and [Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/) throughout my PhD. Representative projects include:
+I did my CS PhD at Penn, where I was advised by [Eric Eaton](https://www.seas.upenn.edu/~eeaton/) in the [GRASP Lab](https://www.grasp.upenn.edu/). I have been fortunate to work closely with [Deva Ramanan](https://www.cs.cmu.edu/~deva/), [James Hays](https://faculty.cc.gatech.edu/~hays/), and [Dinesh Jayaraman](https://www.seas.upenn.edu/~dineshj/) throughout my PhD. Representative projects include:
 
  - [ZeroFlow: Scalable Scene Flow via Distillation](./zeroflow.html)
    - Distill an expensive optimization method into a feed-forward network and data scale it to state-of-the-art performance
@@ -25,7 +25,7 @@ I have a CS PhD candidate from Penn, advised by [Eric Eaton](https://www.seas.up
   - [Neural Eulerian Scene Flow Fields](./eulerflow.html)
     - Fit a neural network-based scene flow volume to the entire observation and optimize it against multi-frame objectives and out pops amazing performance and emergent behaviors like point tracking.
  
-For a narrative overview of how my PhD research fits together, see [_Overview of my PhD Research_](./overview_of_my_phd.html).
+For a short narrative overview of how my PhD research fits together, see [_Overview of my PhD Research_](./overview_of_my_phd.html). For a longer overview with nice pictures, check out the intro of [my thesis](https://arxiv.org/abs/2503.15666).
 
 
 ## Industry / Engineering Background
@@ -60,6 +60,8 @@ I also have significant experience doing high-precision full stack robotics. In 
 
 ## Updates
 <div class="updates">
+ - Mar 25th, 2025: Dyna Robotics has come out of stealth!
+ - Feb 10th, 2025: I defended [my thesis!](https://arxiv.org/abs/2503.15666)
  - Jan 22nd, 2025: [Neural Eulerian Scene Flow Fields](./eulerflow.html) was accepted to ICLR 2025!
  - Jan 22nd, 2025: [Articulate Anything: Automatic Modeling of Articulated Objects via a Vision-Language Foundation Model](https://articulate-anything.github.io/) was accepted to ICLR 2025!
  - Nov 20th, 2024: I joined Dyna Robotics as a Researcher!
