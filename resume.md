@@ -33,8 +33,8 @@ output:
 
 \vspaceafter{}
 
- - PhD in Computer Science, University of Pennsylvania (in progress) \ra{(2019 -- Present)}
-     - Advisors: Eric Eaton, Dinesh Jayaraman, _GRASP Lab_
+ - PhD in Computer Science, University of Pennsylvania \ra{(2019 -- 2025)}
+     - Advisor: Eric Eaton, _GRASP Lab_
  - BS in Computer Science, University of Massachusetts \ra{(2015 -- 2019)}
      - Advisor: Joydeep Biswas, _Autonomous Mobile Robotics Lab (AMRL)_
 
@@ -99,7 +99,8 @@ PUBS bibs/tech_reports.bib
 \vspaceafter{}
 
 - _Dyna Robotics -- Member of Technical Staff_ \ra{(November 2024 -- Present)}
-    - Robot learning research
+    - Full stack robot learning research
+    - Data collection, modeling, inference, and everything in between
 - _Nvidia -- Research Intern_ \ra{(Spring / Summer 2024)}
     - Pushing forward scene flow and occupancy flow methods
     - Led to _EulerFlow_ line of scene flow work
