@@ -223,3 +223,37 @@ td {
     }
 
 }
+
+/* Homepage hero layout */
+.kv-hero {
+    display: block;
+}
+
+.kv-title {
+    margin-bottom: 8px;
+}
+
+.kv-photo {
+    float: right;
+    margin: 0 0 16px 16px;
+    width: 45%;
+    text-align: right;
+}
+
+.kv-photo img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 800px) {
+    .kv-photo {
+        float: none;
+        margin: 8px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .kv-title h1 {
+        text-align: center;
+    }
+}
