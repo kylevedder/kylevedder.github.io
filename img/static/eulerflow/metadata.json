@@ -1,0 +1,108 @@
+{
+    "bird": {
+        "data_path": "img/static/eulerflow/raw_data/av2_bird",
+        "image_path": "img/static/eulerflow/bird.png",
+        "num_steps": 20,
+        "num_traj": 1,
+        "title": "Argoverse 2 Bird",
+        "camera_position": [
+            -22,
+            -7,
+            5
+        ],
+        "lookat": [
+            -6,
+            0,
+            0
+        ]
+
+    },
+    "jack": {
+        "data_path": "img/static/eulerflow/raw_data/jack_spinning",
+        "image_path": "img/static/eulerflow/jack.png",
+        "num_steps": 15,
+        "num_traj": 1,
+        "title": "Jack",
+        "camera_position": [
+            -20,
+            -12,
+            10
+        ],
+        "lookat": [
+            -6,
+            0,
+            0
+        ]
+    },
+    "bounce": {
+        "data_path": "img/static/eulerflow/raw_data/ball_and_tape_big_bounce",
+        "image_path": "img/static/eulerflow/bounce.png",
+        "num_steps": 40,
+        "num_traj": 1,
+        "title": "Ball and Tape",
+        "camera_position": [
+            -30,
+            -0,
+            30
+        ],
+        "lookat": [
+            0,
+            -5,
+            15
+        ]
+    },
+    "hand" : {
+        "data_path" : "img/static/eulerflow/raw_data/hand_place_in_sink",
+        "image_path" : "img/static/eulerflow/hand.png",
+        "num_steps" : 60,
+        "num_traj" : 1,
+        "title" : "Hand Place in Sink",
+        "camera_position" : [
+            -30,
+            -0,
+            20
+        ],
+        "lookat" : [
+            0,
+            -5,
+            5
+        ]
+
+    },
+    "waving_ball" : {
+        "data_path" : "img/static/eulerflow/raw_data/waving_ball",
+        "image_path" : "img/static/eulerflow/waving_ball.png",
+        "num_steps" : 40,
+        "num_traj" : 1,
+        "title" : "Tennis Ball on a Flexible Rod",
+        "camera_position" : [
+            -30,
+            -0,
+            20
+        ],
+        "lookat" : [
+            0,
+            -5,
+            5
+        ]
+
+    },
+    "waving_ball_mono" : {
+        "data_path" : "img/static/eulerflow/raw_data/waving_ball_mono",
+        "image_path" : "img/static/eulerflow/waving_ball_monodepth.png",
+        "num_steps" : 40,
+        "num_traj" : 1,
+        "title" : "Monodepth estimate of Tennis Ball on a Flexible Rod",
+        "camera_position" : [
+            -30,
+            -0,
+            20
+        ],
+        "lookat" : [
+            0,
+            -5,
+            5
+        ]
+
+    }
+}
