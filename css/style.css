@@ -41,6 +41,8 @@
     src: url('../fonts/computer-modern/cmuntt.ttf');
 }
 
+
+
 * {
     font-family: 'cmu', serif;
     background-color: #ffffff;
@@ -85,7 +87,7 @@ li {
     margin-bottom: 10px;
     /* set the boarder to 1 px */
     /* border: 1px solid #000; */
-    
+
 }
 
 .figure_box .caption {
@@ -97,13 +99,19 @@ li {
     width: 100%;
     border-collapse: collapse;
 }
-.data_table, .data_table th, .data_table td {
+
+.data_table,
+.data_table th,
+.data_table td {
     border: 1px solid black;
 }
-.data_table th, td {
+
+.data_table th,
+td {
     padding: 8px;
     text-align: left;
 }
+
 .data_table th {
     background-color: #f2f2f2;
 }
@@ -134,7 +142,7 @@ li {
 }
 
 @media (min-width: 800px) {
-    
+
 
     .custom-tooltip {
         visibility: hidden;

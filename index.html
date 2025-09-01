@@ -30,94 +30,27 @@ Kyle Vedder’s Homepage
 I’m Kyle Vedder
 </h1>
 <p><img class="centered" src="img/me_dock.jpg" width="400" /></p>
-<!-- My career goal is to build embodied AI system that can perform at or above human level in a variety of domestic and industrial labor tasks. I chose to do a PhD to focus on the 3D perception and world modeling aspect of this problem, as I believe having the right representation is a critical factor in learning robust, generalizable policies. My PhD research has focused on the problem of Scene Flow, which I believe encapsulates the critical ability to understand the dynamics of the 3D world. -->
 <h2 id="about-me">About Me</h2>
-<p>I am a researcher at <a href="https://dyna.co/">Dyna
-Robotics</a>.</p>
-<p>I believe strongly in <a
-href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">The
-Bitter Lesson</a>, and I believe our job as researchers is to find the
-right tricks, data distributions, and algorithms to scale up deep
-learning.</p>
-<p>I believe one such trick is teaching vision systems to understand
-motion. My PhD research has focused on training self-supervised models
-to predict motion via scene flow, and building offline preprocessing
-pipelines to provide these motion descriptions without labels.</p>
-<!-- I believe the shortest path to getting robust, generally capable robots in the real world is through the construction of [systems whose performance scales with compute and data, *without* requiring human annotations](http://www.incompleteideas.net/IncIdeas/BitterLesson.html).
-
-In service of this, I am interested in designing and scaling fundamentally 3D vision systems that learn just from raw, multi-modal data. My contrarian bet is on the multi-modal and 3D aspects; a high quality, 3D aware representation with diverse data sources should enable more sample efficient and robust downstream policies. Most representations today are 2D for historical reasons (e.g. lots of RGB data, 2D convolutions won the hardware lottery), but I believe this ends up pushing a lot of 3D spacial understand out of the visual representation and into the downstream policy, making them more expensive to learn and less robust.
-
-My current line of work is focused on [tackling scene flow](https://www.argoverse.org/sceneflow), a problem that requires systems to construct a [robust understanding of the dynamics of the 3D world](./zeroflow.html). For data availability reasons, it primarily focuses on the Autonomous Driving domain, but the same principles apply to other domains, e.g. indoor service robots. -->
-<h2 id="academic-background">Academic Background</h2>
+<p>I am a researcher at <a href="https://dyna.co/">Dyna Robotics</a>. I
+do full stack robot learning, touching every part of the data
+collection, model training, and inference stack.</p>
 <p>I did my CS PhD at Penn, where I was advised by <a
 href="https://www.seas.upenn.edu/~eeaton/">Eric Eaton</a> in the <a
-href="https://www.grasp.upenn.edu/">GRASP Lab</a>. I have been fortunate
-to work closely with <a href="https://www.cs.cmu.edu/~deva/">Deva
-Ramanan</a>, <a href="https://faculty.cc.gatech.edu/~hays/">James
-Hays</a>, and <a href="https://www.seas.upenn.edu/~dineshj/">Dinesh
-Jayaraman</a> throughout my PhD. Representative projects include:</p>
-<ul>
-<li><a href="./zeroflow.html">ZeroFlow: Scalable Scene Flow via
-Distillation</a>
-<ul>
-<li>Distill an expensive optimization method into a feed-forward network
-and data scale it to state-of-the-art performance</li>
-</ul></li>
-<li><a href="./trackflow.html"><em>I Can’t Believe It’s Not Scene
-Flow!</em></a>
-<ul>
-<li>Standard benchmarks were systematically broken, hiding the failure
-of all methods to describe small object motion; we proposed a new metric
-and a simple baseline that was state-of-the-art</li>
-</ul></li>
-<li><a href="https://www.argoverse.org/sceneflow">Argoverse 2 2024 Scene
-Flow Challenge</a>
-<ul>
-<li>Hosted a challenge to push the field to close the gap between prior
-art and a qualitative notion of reasonable flow quality</li>
-</ul></li>
-<li><a href="./eulerflow.html">Neural Eulerian Scene Flow Fields</a>
-<ul>
-<li>Fit a neural network-based scene flow volume to the entire
-observation and optimize it against multi-frame objectives and out pops
-amazing performance and emergent behaviors like point tracking.</li>
-</ul></li>
-</ul>
-<p>For a short narrative overview of how my PhD research fits together,
-see <a href="./overview_of_my_phd.html"><em>Overview of my PhD
-Research</em></a>. For a longer overview with nice pictures, check out
-the intro of <a href="https://arxiv.org/abs/2503.15666">my
+href="https://www.grasp.upenn.edu/">GRASP Lab</a>. My PhD research
+focused on scene flow: building better evaluations, and developing a
+repertoire of tricks to make scalable, flexible scene flow a reality. I
+was fortunate to work closely with <a
+href="https://www.cs.cmu.edu/~deva/">Deva Ramanan</a>, <a
+href="https://faculty.cc.gatech.edu/~hays/">James Hays</a>, and <a
+href="https://www.seas.upenn.edu/~dineshj/">Dinesh Jayaraman</a>
+throughout my PhD. For a short narrative overview of how my PhD research
+fits together, see <a href="./overview_of_my_phd.html"><em>Overview of
+my PhD Research</em></a>. For a longer overview with nice pictures,
+check out the intro of <a href="https://arxiv.org/abs/2503.15666">my
 thesis</a>.</p>
-<h2 id="industry-engineering-background">Industry / Engineering
-Background</h2>
-<p>I have done many industry internships:</p>
-<ul>
-<li>NVIDIA as a research intern under <a
-href="https://chrisding.github.io/">Zhiding Yu</a></li>
-<li>ArgoAI as a research intern under <a
-href="https://faculty.cc.gatech.edu/~hays/">James Hays</a></li>
-<li>Amazon Lab126 as a perception intern on their home robot, <a
-href="https://www.aboutamazon.com/news/devices/meet-astro-a-home-robot-unlike-any-other">Astro</a></li>
-<li>Google as a software engineering intern on adwords and ads
-quality</li>
-<li>Unidesk (a startup since aquired by Citrix)</li>
-</ul>
-<p>I also have significant experience doing high-precision full stack
-robotics. In undergrad, I lead the greenfield development of <a
-href="https://amrl.cs.umass.edu/">AMRL</a>’s <a
-href="https://amrl.cs.umass.edu/minutebots.html">Robocup Small Size
-League control stack</a> and did research in <a
-href="./xstar.html">multi-agent path planning</a>.</p>
-<!-- During my undergrad in CS at UMass Amherst I did research under [Joydeep Biswas](https://www.joydeepb.com/) in the . My research was in:
-
- - [Single-Agent Path Finding (SAPF)](http://vedder.io/publications/ScaffoldsLaneVedderBiswasPlanRob2017.pdf) for sampling based planners
- - [Anytime Multi-Agent Path Finding (MAPF)](./xstar.html) for efficient first solution generation
- - [Core infrastructure](http://vedder.io/publications/MinutebotsRoboCupTDP2017.pdf) and [low level safety system](http://vedder.io/publications/MinutebotsRoboCupTDP2018.pdf) of our [RoboCup Small Size League team](https://amrl.cs.umass.edu/minutebots.html)
-
- -->
 <h2 id="more-information">More Information</h2>
 <ul>
-<li>Email: kvedder (at) seas.upenn.edu</li>
+<li>Email: kyle (dot) c (dot) vedder (at) gmail.com</li>
 <li>Resume: <a href="KyleVedderResume.pdf">/resume</a></li>
 <li>Publications: <a href="publications.html">/publications</a></li>
 <li>GitHub: <a href="https://github.com/kylevedder">kylevedder</a></li>
@@ -126,69 +59,6 @@ href="https://scholar.google.com/citations?user=Ml6RzmEAAAAJ&amp;hl=en">Kyle
 Vedder</a></li>
 <li>Twitter: <a
 href="https://twitter.com/KyleVedder">KyleVedder</a></li>
-</ul>
-<h2 id="updates">Updates</h2>
-<div class="updates">
-<ul>
-<li>Mar 25th, 2025: Dyna Robotics has come out of stealth!</li>
-<li>Feb 10th, 2025: I defended <a
-href="https://arxiv.org/abs/2503.15666">my thesis!</a></li>
-<li>Jan 22nd, 2025: <a href="./eulerflow.html">Neural Eulerian Scene
-Flow Fields</a> was accepted to ICLR 2025!</li>
-<li>Jan 22nd, 2025: <a
-href="https://articulate-anything.github.io/">Articulate Anything:
-Automatic Modeling of Articulated Objects via a Vision-Language
-Foundation Model</a> was accepted to ICLR 2025!</li>
-<li>Nov 20th, 2024: I joined Dyna Robotics as a Researcher!</li>
-<li>Jul 1st, 2024: <a href="./trackflow.html"><em>I Can’t Believe It’s
-Not Scene Flow!</em></a> was accepted to ECCV! <a
-href="./misc/eccv24_reviews_rebuttal.pdf">(Reviews)</a></li>
-<li>Mar 28th, 2024: <a href="./misc/homogeneous_transforms.html">Blog
-post: On Homogeneous Transforms</a></li>
-<li>Jan 29th, 2024: Joined Nvidia as a Research Intern!</li>
-<li>Jan 16th, 2024: <a href="./zeroflow.html"><em>ZeroFlow: Scalable
-Scene Flow via Distillation</em></a> was accepted to ICLR 2024! <a
-href="https://openreview.net/forum?id=FRCHDhbxZF">(Reviews)</a></li>
-<li>Dec 4th, 2023: <a href="./misc/review_ai_is_good_for_you.html">Book
-review: Eric Jang’s book “<em>AI is Good for You</em>”</a></li>
-<li>Aug 3rd, 2023: <a
-href="https://vedder.io/misc/applying_to_ml_phd.html">Blog post:
-Applying to CS PhD programs for Machine Learning: what I wish I
-knew</a></li>
-<li>Jul 3rd, 2023: <a href="misc/research_dev_env.html">Blog post: My ML
-research development environment workflow</a></li>
-<li>Jun 18th, 2023: <a href="./zeroflow.html">ZeroFlow</a> was selected
-as a highlighted method in the CVPR 2023 <em>Workshop on Autonomous
-Driving</em> Scene Flow Challenge!</li>
-<li>Jan 12th, 2023: <a href="./publications/L2M_eval_preprint.pdf"><em>A
-Domain-Agnostic Approach for Characterization of Lifelong Learning
-Systems</em></a> was accepted to Neural Networks.</li>
-<li>Jun 30th, 2022: <a href="./sparse_point_pillars.html"><em>Sparse
-PointPillars</em></a> was accepted to IROS 2022. <a
-href="./misc/SparsePointPillars_IROS_2022_reviews.txt">(Reviews)</a></li>
-<li>Jun 7th, 2022: <a
-href="https://www.youtube.com/watch?v=JgcR6cFXR5w">Invited talk for
-<em>Sparse PointPillars</em> at 3D-DLAD</a></li>
-<li>May 15th, 2022: Joined Argo as a Research Intern!</li>
-<li>Apr 27th, 2021: Passed my WPEII qual on <em>Current Approaches and
-Future Directions for Point Cloud Object Detection in Intelligent
-Agents</em> <a href="misc/KyleVedderWPEII2021.pdf">(Document)</a> <a
-href="https://www.youtube.com/watch?v=xFFCQVwYeec">(Video)</a></li>
-<li>Feb 11th, 2021: <a href="misc/mujoco_py.html">Blog post: Setting up
-<code>mujoco-py</code> for use with on-screen and off-screen
-rendering</a></li>
-<li>Nov 4th, 2020: <a href="./xstar.html"><em>X*: Anytime Multi-Agent
-Path Finding for Sparse Domains using Window-Based Iterative
-Repairs</em></a> was accepted to Artificial Intelligence Journal!</li>
-<li>Jul 23rd, 2020: <a
-href="https://www.youtube.com/watch?v=4RkhsIz14Yc">Presentation:
-<em>From Shapley Values to Explainable AI</em></a></li>
-<li>Jun 29rd, 2020: <a
-href="https://www.youtube.com/watch?v=o7WW2cu1h7c">Demo: <em>Penn
-Service Robots navigating around Levine</em></a></li>
-<li>May 8th, 2020: <a href="misc/shap_for_classification.pdf">Term
-paper: <em>An Overview of SHAP-based Feature Importance Measures and
-Their Applications To Classification</em></a>
-</div></li>
+<li>Writings: <a href="misc.html">/misc</a></li>
 </ul>
 </body></html>
