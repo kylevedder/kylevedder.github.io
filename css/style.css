@@ -41,11 +41,68 @@
     src: url('../fonts/computer-modern/cmuntt.ttf');
 }
 
+@font-face {
+    font-family: 'berkeley_mono';
+    src: url('../fonts/BerkeleyMonoTrial-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'univers_lt';
+    font-weight: 400;
+    font-style: normal;
+    src: url('../fonts/univers_lt/univers_lt_pro_55_roman.4020960013f9.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'univers_lt';
+    font-weight: 700;
+    font-style: normal;
+    src: url('../fonts/univers_lt/univers_lt_pro_65_bold.3e0bae4c4341.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'univers_lt';
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: condensed;
+    src: url('../fonts/univers_lt/univers_lt_pro_57_condensed.9b7813ee98f5.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'univers_lt';
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: condensed;
+    src: url('../fonts/univers_lt/univers_lt_pro_67_bold_condensed.0f0f0b325220.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'avant_garde';
+    font-weight: 500;
+    src: url("../fonts/ITC Avant Garde Gothic/ITC Avant Garde Gothic Medium/ITC Avant Garde Gothic Medium.otf");
+}
+
+@font-face {
+    font-family: 'avant_garde';
+    font-weight: 700;
+    src: url("../fonts/ITC Avant Garde Gothic/ITC Avant Garde Gothic Bold/ITC Avant Garde Gothic Bold.otf");
+}
 
 
 * {
-    font-family: 'cmu', serif;
+    font-family: 'univers_lt', sans-serif;
     background-color: #ffffff;
+}
+
+body {
+    font-family: 'univers_lt', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'avant_garde', 'univers_lt', sans-serif;
+    color: #c40000;
 }
 
 .updates li {
@@ -59,7 +116,7 @@ pre {
 }
 
 code {
-    font-family: 'cmu_code', monospace;
+    font-family: 'berkeley_mono', 'cmu_code', monospace;
 }
 
 pre>code {
