@@ -17,3 +17,9 @@ HEADER Misc: Blog posts, notes, and resources
 - Binary classification NN from scratch (NumPy) — [Read](./misc/interview_prep/nn_from_scratch.html)
 
 
+
+## Interview prep
+
+- Binary classification NN from scratch (NumPy) — [Read](./misc/interview_prep/nn_from_scratch.html)
+- Reinforcement learning notes — [Read](./misc/interview_prep/rl_notes.html)
+
