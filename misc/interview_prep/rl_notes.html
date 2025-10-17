@@ -27,9 +27,70 @@ RL Notes
 <script type="text/javascript" src="../../js/utils.js"></script>
 </head>
 <body><h1 id="reinforcement-learning">Reinforcement Learning</h1>
-<h2 id="q-learning">Q Learning</h2>
-<p>In tabular setting, can be solved by dynamic programming</p>
+<h2 id="standard-q-learning-discrete-space">Standard Q Learning —
+Discrete Space</h2>
+<p>In discrete setting, can be solved by dynamic programming.</p>
+<p>Given state <img style="vertical-align:middle"
+src="../../img/compiled/rl_notes/3e6f6e9b24cbb864176eb9cb391b0d91.png" alt="s_t"
+title="s_t" class="math inline" />, action <img
+style="vertical-align:middle"
+src="../../img/compiled/rl_notes/e5b8858caa56c71e6be3ef42b85e9a93.png" alt="a_t"
+title="a_t" class="math inline" />, learning rate <img
+style="vertical-align:middle"
+src="../../img/compiled/rl_notes/1b9819f0b4662635e47ea8d25027b1c5.png" alt="l"
+title="l" class="math inline" />, reward <img
+style="vertical-align:middle"
+src="../../img/compiled/rl_notes/4d5533196b6e1ae8563badf5da8e3b79.png"
+alt="r_{t+1}" title="r_{t+1}" class="math inline" /> for taking <img
+style="vertical-align:middle"
+src="../../img/compiled/rl_notes/e5b8858caa56c71e6be3ef42b85e9a93.png" alt="a_t"
+title="a_t" class="math inline" /> at <img style="vertical-align:middle"
+src="../../img/compiled/rl_notes/3e6f6e9b24cbb864176eb9cb391b0d91.png" alt="s_t"
+title="s_t" class="math inline" />, discount factor <img
+style="vertical-align:middle"
+src="../../img/compiled/rl_notes/ae9147b27842ebb918f69c75d8845dc8.png"
+alt="\gamma" title="\gamma" class="math inline" /></p>
 <p><img style="vertical-align:middle"
-src="../../img/compiled/rl_notes/cce982161da7957b4cba1d25df389cd6.png"
-alt="Q(s, a) \gets" title="Q(s, a) \gets" class="math display" /></p>
+src="../../img/compiled/rl_notes/5dd1e7491e26009e03b9579c3795984d.png"
+alt="Q_{\textup{new}}(s_t, a_t) \gets (1 - l) Q_{\textup{old}}(s_t, a_t) + l \left(r_{t+1} + \gamma \max_{a&#39;} Q(s_{t+1}, a&#39;) \right)"
+title="Q_{\textup{new}}(s_t, a_t) \gets (1 - l) Q_{\textup{old}}(s_t, a_t) + l \left(r_{t+1} + \gamma \max_{a&#39;} Q(s_{t+1}, a&#39;) \right)"
+class="math display" /></p>
+<h2 id="actor-critic-handling-continuious-space">Actor Critic — Handling
+Continuious Space</h2>
+<p>In discrete space, <img style="vertical-align:middle"
+src="../../img/compiled/rl_notes/2d44f499b3fcbdbd747c793a094cd1b1.png"
+alt="\max_{a&#39;}" title="\max_{a&#39;}" class="math inline" /> is
+computable as we can enumerate all possible actions. In continuious
+action space, this is not possible. Thus, we must replace this
+exhaustive max with a learned “actor” that takes actions, with the Q
+function taking the role of “critic”.</p>
+<h3 id="deep-deterministic-policy-gradient-ddpg">Deep Deterministic
+Policy Gradient (DDPG)</h3>
+<p>In DDPG, the actor learns a simple determinstic mapping from state
+<img style="vertical-align:middle"
+src="../../img/compiled/rl_notes/3e6f6e9b24cbb864176eb9cb391b0d91.png" alt="s_t"
+title="s_t" class="math inline" /> to action <img
+style="vertical-align:middle"
+src="../../img/compiled/rl_notes/e5b8858caa56c71e6be3ef42b85e9a93.png" alt="a_t"
+title="a_t" class="math inline" />, with noise added for exploration
+during data collection, i.e.</p>
+<p><img style="vertical-align:middle"
+src="../../img/compiled/rl_notes/328f160b9f171ccb711446a2c1bd380b.png"
+alt="a_t = \mu_\theta(s_t) +\mathcal{N}(0, \sigma^2)"
+title="a_t = \mu_\theta(s_t) +\mathcal{N}(0, \sigma^2)"
+class="math display" /></p>
+<p>Thus, for a given batch of data, the critic can be optimized via a
+modified <img style="vertical-align:middle"
+src="../../img/compiled/rl_notes/e97d64701944887b7908826be6df427e.png" alt="Q"
+title="Q" class="math inline" /> update, i.e.</p>
+<p><img style="vertical-align:middle"
+src="../../img/compiled/rl_notes/61844429542e7fe6102b00860ad21ccc.png"
+alt="Q_{\textup{new}}(s_t, a_t) \gets (1 - l) Q_{\textup{old}}(s_t, a_t) + l \left(r_{t+1} + \gamma Q(s_{t+1}, \mu_\theta(s_t)) \right)"
+title="Q_{\textup{new}}(s_t, a_t) \gets (1 - l) Q_{\textup{old}}(s_t, a_t) + l \left(r_{t+1} + \gamma Q(s_{t+1}, \mu_\theta(s_t)) \right)"
+class="math display" /></p>
+<p>and then the actor optimized to maximize the <img
+style="vertical-align:middle"
+src="../../img/compiled/rl_notes/e97d64701944887b7908826be6df427e.png" alt="Q"
+title="Q" class="math inline" /> value via</p>
+<!--This actor is often paramaterized as a Gaussian policy --- the network emits an $n$ dimensional mean $\mu$ and variance $\Sigma$ characterizing a distribution actions are then drawn from. While $\Sigma$ could be a full $n \times n$ matrix, it's often diagonal, i.e. each dimension is sampled independently, to form a _diagonal Gaussian policy_.-->
 </body></html>
