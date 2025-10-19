@@ -169,11 +169,6 @@ class MyNetwork:
         self.loss = BinaryCrossEntropyLoss()
 
     def forward_loss(self, x: np.ndarray, y: np.ndarray):
-        sigmoid_out = self.forward(x)
-        loss_out = self.loss.forward(sigmoid_out, y)
-        return loss_out.sum()
-
-    def forward_loss(self, x: np.ndarray, y: np.ndarray):
         forward_out = self.linear1.forward(x)
         sigmoid_out = self.sigmoid.forward(forward_out)
         loss_out = self.loss.forward(sigmoid_out, y)
