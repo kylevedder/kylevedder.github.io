@@ -29,16 +29,19 @@ RL Notes
 <body><h1 id="reinforcement-learning">Reinforcement Learning</h1>
 <h2 id="standard-q-learning-discrete-space">Standard Q Learning —
 Discrete Space</h2>
-<p>In discrete setting, can be solved by dynamic programming.</p>
+<p>Q Learning is an off-policy RL method — the policy that
+<em>generates</em> the data does not need to be the same policy that you
+are improving using it. In discrete tabular setting, this can be solved
+via simple dynamic programming. <img style="vertical-align:middle"
+src="../../img/compiled/rl_notes/e97d64701944887b7908826be6df427e.png" alt="Q"
+title="Q" class="math inline" /> should tell you the discounted sum of
+rewards, and thus can be framed recursively as a local update.</p>
 <p>Given state <img style="vertical-align:middle"
 src="../../img/compiled/rl_notes/3e6f6e9b24cbb864176eb9cb391b0d91.png" alt="s_t"
 title="s_t" class="math inline" />, action <img
 style="vertical-align:middle"
 src="../../img/compiled/rl_notes/e5b8858caa56c71e6be3ef42b85e9a93.png" alt="a_t"
-title="a_t" class="math inline" />, learning rate <img
-style="vertical-align:middle"
-src="../../img/compiled/rl_notes/1b9819f0b4662635e47ea8d25027b1c5.png" alt="l"
-title="l" class="math inline" />, reward <img
+title="a_t" class="math inline" />, reward <img
 style="vertical-align:middle"
 src="../../img/compiled/rl_notes/4d5533196b6e1ae8563badf5da8e3b79.png"
 alt="r_{t+1}" title="r_{t+1}" class="math inline" /> for taking <img
@@ -51,9 +54,18 @@ style="vertical-align:middle"
 src="../../img/compiled/rl_notes/ae9147b27842ebb918f69c75d8845dc8.png"
 alt="\gamma" title="\gamma" class="math inline" /></p>
 <p><img style="vertical-align:middle"
-src="../../img/compiled/rl_notes/5dd1e7491e26009e03b9579c3795984d.png"
-alt="Q_{\textup{new}}(s_t, a_t) \gets (1 - l) Q_{\textup{old}}(s_t, a_t) + l \left(r_{t+1} + \gamma \max_{a&#39;} Q(s_{t+1}, a&#39;) \right)"
-title="Q_{\textup{new}}(s_t, a_t) \gets (1 - l) Q_{\textup{old}}(s_t, a_t) + l \left(r_{t+1} + \gamma \max_{a&#39;} Q(s_{t+1}, a&#39;) \right)"
+src="../../img/compiled/rl_notes/3aedbe61d78b6156922749f321ff7dac.png"
+alt="Q_{\textup{new}}(s_t, a_t) \gets \left(r_{t+1} + \gamma \max_{a&#39;} Q(s_{t+1}, a&#39;) \right)"
+title="Q_{\textup{new}}(s_t, a_t) \gets \left(r_{t+1} + \gamma \max_{a&#39;} Q(s_{t+1}, a&#39;) \right)"
+class="math display" /></p>
+<p>Thus, written a least squares loss function <img
+style="vertical-align:middle"
+src="../../img/compiled/rl_notes/bd15966954380b8a18a71e79555bbd6e.png" alt="L_Q"
+title="L_Q" class="math inline" /></p>
+<p><img style="vertical-align:middle"
+src="../../img/compiled/rl_notes/6e0c88eeb71ec1648f21cce36d3d1b9c.png"
+alt="L_Q(s_t, a_t) = \left(Q(s_t, a_t) - \left(r_{t+1} + \gamma \max_{a&#39;} Q(s_{t+1}, a&#39;) \right) \right)^2"
+title="L_Q(s_t, a_t) = \left(Q(s_t, a_t) - \left(r_{t+1} + \gamma \max_{a&#39;} Q(s_{t+1}, a&#39;) \right) \right)^2"
 class="math display" /></p>
 <h2 id="actor-critic-handling-continuious-space">Actor Critic — Handling
 Continuious Space</h2>
@@ -79,18 +91,31 @@ src="../../img/compiled/rl_notes/328f160b9f171ccb711446a2c1bd380b.png"
 alt="a_t = \mu_\theta(s_t) +\mathcal{N}(0, \sigma^2)"
 title="a_t = \mu_\theta(s_t) +\mathcal{N}(0, \sigma^2)"
 class="math display" /></p>
-<p>Thus, for a given batch of data, the critic can be optimized via a
-modified <img style="vertical-align:middle"
-src="../../img/compiled/rl_notes/e97d64701944887b7908826be6df427e.png" alt="Q"
-title="Q" class="math inline" /> update, i.e.</p>
+<p>during training and</p>
 <p><img style="vertical-align:middle"
-src="../../img/compiled/rl_notes/61844429542e7fe6102b00860ad21ccc.png"
-alt="Q_{\textup{new}}(s_t, a_t) \gets (1 - l) Q_{\textup{old}}(s_t, a_t) + l \left(r_{t+1} + \gamma Q(s_{t+1}, \mu_\theta(s_t)) \right)"
-title="Q_{\textup{new}}(s_t, a_t) \gets (1 - l) Q_{\textup{old}}(s_t, a_t) + l \left(r_{t+1} + \gamma Q(s_{t+1}, \mu_\theta(s_t)) \right)"
+src="../../img/compiled/rl_notes/8f7f8f1b5153ea4f7cdd07cc15959512.png"
+alt="a_t = \mu_\theta(s_t)" title="a_t = \mu_\theta(s_t)"
+class="math display" /></p>
+<p>during inference. Thus, for a given batch of data, the critic can be
+optimized via a modified <img style="vertical-align:middle"
+src="../../img/compiled/rl_notes/e97d64701944887b7908826be6df427e.png" alt="Q"
+title="Q" class="math inline" /> loss, i.e.</p>
+<p><img style="vertical-align:middle"
+src="../../img/compiled/rl_notes/33c99195397b461417d5f5d41fcd78ce.png"
+alt="L_Q(s_t, a_t) = \left(Q(s_t, a_t) - \left(r_{t+1} + \gamma Q(s_{t+1}, \mu_\theta(s_{t+1})) \right) \right)^2"
+title="L_Q(s_t, a_t) = \left(Q(s_t, a_t) - \left(r_{t+1} + \gamma Q(s_{t+1}, \mu_\theta(s_{t+1})) \right) \right)^2"
 class="math display" /></p>
 <p>and then the actor optimized to maximize the <img
 style="vertical-align:middle"
 src="../../img/compiled/rl_notes/e97d64701944887b7908826be6df427e.png" alt="Q"
-title="Q" class="math inline" /> value via</p>
+title="Q" class="math inline" /> value; this can be done by simply
+minimizing the negative of the <img style="vertical-align:middle"
+src="../../img/compiled/rl_notes/e97d64701944887b7908826be6df427e.png" alt="Q"
+title="Q" class="math inline" /> function, i.e.</p>
+<p><img style="vertical-align:middle"
+src="../../img/compiled/rl_notes/93204f427c0d56e586e220a7fa283d70.png"
+alt="L_\mu(s_t, \theta) = -Q(s_t, \mu_\theta(s_t))"
+title="L_\mu(s_t, \theta) = -Q(s_t, \mu_\theta(s_t))"
+class="math display" /></p>
 <!--This actor is often paramaterized as a Gaussian policy --- the network emits an $n$ dimensional mean $\mu$ and variance $\Sigma$ characterizing a distribution actions are then drawn from. While $\Sigma$ could be a full $n \times n$ matrix, it's often diagonal, i.e. each dimension is sampled independently, to form a _diagonal Gaussian policy_.-->
 </body></html>
