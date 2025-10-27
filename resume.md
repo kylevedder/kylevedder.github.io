@@ -40,11 +40,30 @@ output:
 
 \vspacebefore{}
 
-# Research Interests
+# Industry Experience
 
 \vspaceafter{}
 
-STATEMENT_OF_PURPOSE
+- _Dyna Robotics -- Member of Technical Staff_ \ra{(November 2024 -- Present)}
+    - Full stack robot learning research
+    - Data collection, modeling, inference, and everything in between
+- _Nvidia -- Research Intern_ \ra{(Spring / Summer 2024)}
+    - Pushing forward scene flow and occupancy flow methods
+    - Led to _EulerFlow_ line of scene flow work
+- _Argo AI -- Research Intern_ \ra{(Summer / Fall 2022)}
+    - Explored 2D and 3D methods for generalizing to the long tail of objects
+    - Led to _ZeroFlow_ line of scene flow work
+- _Amazon Lab126 -- Software Development Intern_ \ra{(Summer 2019)}
+    - Small object detection on Amazon Astro
+- _Google -- Software Engineering Intern_ \ra{(Summer 2017)}
+    - Automated training data sampling on Ads Quality Metrics
+- _Google -- Software Engineering Intern_ \ra{(Summer 2016)}
+    - Statistical processing for AdWords redesign
+- _Unidesk Corporation -- C++ Development Intern_ \ra{(Summer 2015)}
+    - Windows registry hive manipulation unit testing framework
+- _Unidesk Corporation -- Robotics Intern_ \ra{(Summer 2014)}
+    - Pick and place robot arm control stack for trade show
+
 
 \vspacebefore{}
 
@@ -92,31 +111,7 @@ PUBS bibs/tech_reports.bib
 
 \vspacebefore{} -->
 
-\newpage
 
-# Industry Experience
-
-\vspaceafter{}
-
-- _Dyna Robotics -- Member of Technical Staff_ \ra{(November 2024 -- Present)}
-    - Full stack robot learning research
-    - Data collection, modeling, inference, and everything in between
-- _Nvidia -- Research Intern_ \ra{(Spring / Summer 2024)}
-    - Pushing forward scene flow and occupancy flow methods
-    - Led to _EulerFlow_ line of scene flow work
-- _Argo AI -- Research Intern_ \ra{(Summer / Fall 2022)}
-    - Explored 2D and 3D methods for generalizing to the long tail of objects
-    - Led to _ZeroFlow_ line of scene flow work
-- _Amazon Lab126 -- Software Development Intern_ \ra{(Summer 2019)}
-    - Small object detection on Amazon Astro
-- _Google -- Software Engineering Intern_ \ra{(Summer 2017)}
-    - Automated training data sampling on Ads Quality Metrics
-- _Google -- Software Engineering Intern_ \ra{(Summer 2016)}
-    - Statistical processing for AdWords redesign
-- _Unidesk Corporation -- C++ Development Intern_ \ra{(Summer 2015)}
-    - Windows registry hive manipulation unit testing framework
-- _Unidesk Corporation -- Robotics Intern_ \ra{(Summer 2014)}
-    - Pick and place robot arm control stack for trade show
 
 # Honors and Awards
 
