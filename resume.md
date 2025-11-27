@@ -44,7 +44,10 @@ output:
 
 \vspaceafter{}
 
-- _Dyna Robotics -- Member of Technical Staff_ \ra{(November 2024 -- Present)}
+- _Physical Intelligence -- Member of Technical Staff_ \ra{(December 2025 -- Present)}
+    - Full stack robot learning research
+    - Hill climbing on self-improving robot systems
+- _Dyna Robotics -- Member of Technical Staff_ \ra{(November 2024 -- October 2025)}
     - Full stack robot learning research
     - Data collection, modeling, inference, and everything in between
 - _Nvidia -- Research Intern_ \ra{(Spring / Summer 2024)}
