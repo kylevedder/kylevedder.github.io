@@ -57,16 +57,24 @@ These come from human demonstrations, and from a variety of sources.</p>
 <p>Humans directly teleoperate a full robot (follower) using a
 controller (leader). This can be done with a full copy of the robot
 setup (ALOHA) or a smaller, lighter scaled down version (GELLO).</p>
-<p>Pros: - Follower robot has the full sensor suite to record all of
-<img style="vertical-align:middle"
+<p>Pros:</p>
+<ul>
+<li>Follower robot has the full sensor suite to record all of <img
+style="vertical-align:middle"
 src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
-title="s" class="math inline" /> - All demonstrations are
-kinodynamically feasible, as they were executed on the robot Cons: -
-Typically <em>much</em> slower than humans performing the task manually
-- Operators require multiple weeks of practice to become proficient
-enough to make data usable for training - Requires a full robot onsite
-to collect data — significant production and capital requirement to
-scale collection</p>
+title="s" class="math inline" /></li>
+<li>All demonstrations are kinodynamically feasible, as they were
+executed on the robot</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>Typically <em>much</em> slower than humans performing the task
+manually</li>
+<li>Operators require multiple weeks of practice to become proficient
+enough to make data usable for training</li>
+<li>Requires a full robot onsite to collect data — significant
+production and capital requirement to scale collection</li>
+</ul>
 <h4 id="smart-demo-gloves-universal-manipulation-interface">Smart Demo
 Gloves (Universal Manipulation Interface)</h4>
 <p>Rather than full leader follower, humans hold devices in their hands
@@ -77,39 +85,60 @@ src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc
 title="s" class="math inline" />. Devices perform SLAM to get end
 effector pose in task space, such that IK can later be used to estimate
 full joint state.</p>
-<p>Pros: - Faster to learn for operators - Faster demonstrations -
-Cheaper to deploy at scale (e.g. Generalist) Cons: - Noisy
-reconstruction of <img style="vertical-align:middle"
+<p>Pros:</p>
+<ul>
+<li>Faster to learn for operators</li>
+<li>Faster demonstrations</li>
+<li>Cheaper to deploy at scale (e.g. Generalist)</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>Noisy reconstruction of <img style="vertical-align:middle"
 src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
 title="s" class="math inline" /> and <img style="vertical-align:middle"
 src="../img/compiled/state_of_robot_learning_dec_2025/056f3394080f938e7fab34481c4dea41.png" alt="a"
 title="a" class="math inline" />, introducing a domain gap that can
-severely harm policy performance - Proprioception and actions need to be
-inferred from the SLAM estimate of end effector pose - Camera images all
-feature human arms holding a device, but at inference time the robot
-sees robot arms instead - No guarantee of kinodynamic feasibility —
-human may reach outside of the workspace as part of the demonstration,
-or use their arms to achieve poses that are impossible with the
-robots</p>
+severely harm policy performance
+<ul>
+<li>Proprioception and actions need to be inferred from the SLAM
+estimate of end effector pose</li>
+<li>Camera images all feature human arms holding a device, but at
+inference time the robot sees robot arms instead</li>
+</ul></li>
+<li>No guarantee of kinodynamic feasibility — human may reach outside of
+the workspace as part of the demonstration, or use their arms to achieve
+poses that are impossible with the robots</li>
+</ul>
 <h4 id="direct-human-demonstrations">Direct human demonstrations</h4>
 <p>YouTube and other video sources have large scale data of humans
 performing all kinds of tasks. Similarly, many factories feature humans
 performing dexterous tasks, and these workers can be augmented with
 cameras to record their observations, providing an enormous source of
 data.</p>
-<p>Pros: - Easiest data source to acquire - Enormous amounts of diverse
-data - At full human speed Cons: - Enormous gap in reconstructing <img
-style="vertical-align:middle"
+<p>Pros:</p>
+<ul>
+<li>Easiest data source to acquire - Enormous amounts of diverse
+data</li>
+<li>At full human speed</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>Enormous gap in reconstructing <img style="vertical-align:middle"
 src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
 title="s" class="math inline" /> and <img style="vertical-align:middle"
 src="../img/compiled/state_of_robot_learning_dec_2025/056f3394080f938e7fab34481c4dea41.png" alt="a"
-title="a" class="math inline" /> - State may not be from first person
-view, or be from a different angle, introducing a large state gap, -
-Actions must be entirely inferred from the raw data, likely via a
+title="a" class="math inline" />
+<ul>
+<li>State may not be from first person view, or be from a different
+angle, introducing a large state gap,</li>
+<li>Actions must be entirely inferred from the raw data, likely via a
 pseudolabing process from another model (e.g. skeleton trackers / human
-hand trackers) - Without full human DoF, trajectories are likely
-<em>not</em> kinodynamically feasible, due to torso leaning, shifting
-weight, reaching, etc</p>
+hand trackers)</li>
+</ul></li>
+<li>Without full human DoF, trajectories are likely <em>not</em>
+kinodynamically feasible, due to torso leaning, shifting weight,
+reaching, etc</li>
+</ul>
 <h3 id="the-hard-problem-of-behavior-cloning-ood-states">The hard
 problem of behavior cloning (OOD states)</h3>
 <p>Behavior cloning sounds simple in principle — supervise <img
@@ -274,7 +303,7 @@ state <img style="vertical-align:middle"
 src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
 title="s" class="math inline" />.</p>
 <h3 id="rl-in-sim">RL in Sim</h3>
-<p>NB: I am not a sim expert.</p>
+<p><em>NB: I am not a sim expert.</em></p>
 <p>In LLMs, there is no sim-to-real gap — the environments it interacts
 with during training are the exact same environments it will see at
 inference. However, in robotics, our simulators are a facsimile for the

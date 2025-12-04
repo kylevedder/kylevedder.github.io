@@ -18,9 +18,12 @@ First and foremost, to do Behavior Cloning you need data to clone. These come fr
 Humans directly teleoperate a full robot (follower) using a controller (leader). This can be done with a full copy of the robot setup (ALOHA) or a smaller, lighter scaled down version (GELLO).
 
 Pros:
+
  - Follower robot has the full sensor suite to record all of $s$
  - All demonstrations are kinodynamically feasible, as they were executed on the robot
+
 Cons:
+
  - Typically _much_ slower than humans performing the task manually
  - Operators require multiple weeks of practice to become proficient enough to make data usable for training
  - Requires a full robot onsite to collect data — significant production and capital requirement to scale collection
@@ -30,10 +33,13 @@ Cons:
 Rather than full leader follower, humans hold devices in their hands and use these devices to perform the task. The end effectors match the robot, along with a cheap version of the sensor suite onboard the robot to try to reconstruct $s$. Devices perform SLAM to get end effector pose in task space, such that IK can later be used to estimate full joint state.
 
 Pros:
+
  - Faster to learn for operators
  - Faster demonstrations
  - Cheaper to deploy at scale (e.g. Generalist)
+
 Cons:
+
  - Noisy reconstruction of $s$ and $a$, introducing a domain gap that can severely harm policy performance
 	- Proprioception and actions need to be inferred from the SLAM estimate of end effector pose
 	- Camera images all feature human arms holding a device, but at inference time the robot sees robot arms instead
@@ -45,9 +51,12 @@ Cons:
 YouTube and other video sources have large scale data of humans performing all kinds of tasks. Similarly, many factories feature humans performing dexterous tasks, and these workers can be augmented with cameras to record their observations, providing an enormous source of data.
 
 Pros:
+
  - Easiest data source to acquire - Enormous	amounts of diverse data
  - At full human speed
+
 Cons:
+
  - Enormous gap in reconstructing $s$ and $a$
 	 - State may not be from first person view, or be from a different angle, introducing a large state gap,
 	 - Actions must be entirely inferred from the raw data, likely via a pseudolabing process from another model (e.g. skeleton trackers / human hand trackers)
@@ -69,7 +78,7 @@ As discussed in 3), naively training these models on expert human demonstrations
 
 ### Tackling out-of-distribution state performance (by bringing them in distribution)
 
-This is why it's important to not just naively train on expert human data! In addition to these straightforward task demonstrations, it's critical to train the model how to get out of these failure states — a “DAgger” style approach. There's a bit of nuance to constructing this data — you want to train your model to _leave_ these bad states, but you do not want to accidentally train to _enter_ these bad states, lest it imitate this data and intentionally visit these bad states. Doing this right means carefully curating your recovery data. 
+This is why it's important to not just naively train on expert human data! In addition to these straightforward task demonstrations, it's critical to train the model how to get out of these failure states — a "DAgger" style approach. There's a bit of nuance to constructing this data — you want to train your model to _leave_ these bad states, but you do not want to accidentally train to _enter_ these bad states, lest it imitate this data and intentionally visit these bad states. Doing this right means carefully curating your recovery data. 
 
 Building out this DAgger data is an iterative process, and an art at that. You train the model for the given task, observe its failure modes, concoct a new dataset to try to address those failure modes, retrain, and retry. This is a tedious process, requiring many hours of very smart and discerning human time to essentially play whack-a-mole with various issues. Along the way, you start to develop a touch and feel for the policy and its issues. Due to the need for rapid iteration, this is typically done as a post-training step atop a base pretrained policy, and hopefully that base policy has already seen quite a bit of task data such that it already mostly knows what its doing.
 
@@ -111,7 +120,7 @@ Thus, we either need to leverage simulation, where we can reliably reconstruct $
 
 ### RL in Sim
 
-NB: I am not a sim expert.
+_NB: I am not a sim expert._
 
 In LLMs, there is no sim-to-real gap — the environments it interacts with during training are the exact same environments it will see at inference. However, in robotics, our simulators are a facsimile for the real world, and often a poor one at that. Simulators have naive physics models, have to make numerical estimates to handle multiple colliding bodies, must select contact models with different tradeoffs, are poor models of non-rigid objects, and large visual gaps between sim and real.
 
