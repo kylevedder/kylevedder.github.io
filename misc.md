@@ -2,6 +2,7 @@ HEADER Misc: Blog posts, notes, and resources
 
 ## Blog posts
 
+- State of Robot Learning --- Dec 2025 - [Read](./misc/state_of_robot_learning_dec_2025.html)
 - Applying to CS/ML PhD programs: what I wish I knew — [Read](./misc/applying_to_ml_phd.html)
 - Book review: Eric Jang’s “AI is Good for You” — [Read](./misc/review_ai_is_good_for_you.html)
 - Predictions on the next 5–10 years of AI (2022) — [Read](./misc/writings/next_5_to_10_years_2022.html)
