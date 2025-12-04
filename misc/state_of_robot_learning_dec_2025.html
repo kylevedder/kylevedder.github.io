@@ -1,0 +1,355 @@
+<!DOCTYPE html><html><head>
+<meta charset="utf-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9NWBV84HB2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9NWBV84HB2');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="State of Robot Learning, December 2025">
+<meta property="og:title" content="State of Robot Learning, December 2025">
+<meta property="og:description" content="State of Robot Learning, December 2025">
+<meta property="og:image" content="">
+<meta property="twitter:title" content="State of Robot Learning, December 2025">
+<meta property="twitter:description" content="State of Robot Learning, December 2025">
+<meta property="twitter:image" content="">
+<meta property="og:type" content="website">
+<meta name="author" content="Kyle Vedder">
+<link rel="shortcut icon" href="../favicon.ico">
+<title>
+State of Robot Learning, December 2025
+</title>
+<!-- css -->
+<link href="../css/style.css" rel="stylesheet"> <!-- JavaScript -->
+<script type="text/javascript" src="../js/utils.js"></script>
+</head>
+<body><h1 id="state-of-robot-learning-december-2025">State of Robot Learning —
+December 2025</h1>
+<p>Basically all robot learning systems today (Dec 2025) are pure
+Behavior Cloning (BC, also called Imitation Learning) systems. Humans
+provide (near) optimal demonstrations of a task, and machine learning
+models try to imitate those actions. Formally, a policy <img
+style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/5fe7c581bd05a276295e0f2a31c4cbca.png"
+alt="\pi" title="\pi" class="math inline" /> is trained in a supervised
+fashion — given the robot’s state <img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
+title="s" class="math inline" /> (i.e. the camera images, robot joint
+angles, and maybe task description text), predict the demonstrated
+actions <img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/056f3394080f938e7fab34481c4dea41.png" alt="a"
+title="a" class="math inline" /> (often an action <em>chunk</em>,
+e.g. the next second of ~50hz).</p>
+<p>This doc aims to describe the anatomy of a modern BC stack, as well
+as its shortcomings and (incomplete / clunky) workarounds. It then aims
+to explain what other approaches people are considering for the future,
+and the issues preventing them from being the conventional approach.</p>
+<h2 id="the-anatomy-of-a-2025-robot-learning-stack">The Anatomy of a
+2025 Robot Learning Stack</h2>
+<h3 id="collecting-human-expert-demonstrations">Collecting human expert
+demonstrations</h3>
+<p>First and foremost, to do Behavior Cloning you need data to clone.
+These come from human demonstrations, and from a variety of sources.</p>
+<h4 id="leader-follower-gello-aloha">Leader-Follower (GELLO, ALOHA)</h4>
+<p>Humans directly teleoperate a full robot (follower) using a
+controller (leader). This can be done with a full copy of the robot
+setup (ALOHA) or a smaller, lighter scaled down version (GELLO).</p>
+<p>Pros: - Follower robot has the full sensor suite to record all of
+<img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
+title="s" class="math inline" /> - All demonstrations are
+kinodynamically feasible, as they were executed on the robot Cons: -
+Typically <em>much</em> slower than humans performing the task manually
+- Operators require multiple weeks of practice to become proficient
+enough to make data usable for training - Requires a full robot onsite
+to collect data — significant production and capital requirement to
+scale collection</p>
+<h4 id="smart-demo-gloves-universal-manipulation-interface">Smart Demo
+Gloves (Universal Manipulation Interface)</h4>
+<p>Rather than full leader follower, humans hold devices in their hands
+and use these devices to perform the task. The end effectors match the
+robot, along with a cheap version of the sensor suite onboard the robot
+to try to reconstruct <img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
+title="s" class="math inline" />. Devices perform SLAM to get end
+effector pose in task space, such that IK can later be used to estimate
+full joint state.</p>
+<p>Pros: - Faster to learn for operators - Faster demonstrations -
+Cheaper to deploy at scale (e.g. Generalist) Cons: - Noisy
+reconstruction of <img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
+title="s" class="math inline" /> and <img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/056f3394080f938e7fab34481c4dea41.png" alt="a"
+title="a" class="math inline" />, introducing a domain gap that can
+severely harm policy performance - Proprioception and actions need to be
+inferred from the SLAM estimate of end effector pose - Camera images all
+feature human arms holding a device, but at inference time the robot
+sees robot arms instead - No guarantee of kinodynamic feasibility —
+human may reach outside of the workspace as part of the demonstration,
+or use their arms to achieve poses that are impossible with the
+robots</p>
+<h4 id="direct-human-demonstrations">Direct human demonstrations</h4>
+<p>YouTube and other video sources have large scale data of humans
+performing all kinds of tasks. Similarly, many factories feature humans
+performing dexterous tasks, and these workers can be augmented with
+cameras to record their observations, providing an enormous source of
+data.</p>
+<p>Pros: - Easiest data source to acquire - Enormous amounts of diverse
+data - At full human speed Cons: - Enormous gap in reconstructing <img
+style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
+title="s" class="math inline" /> and <img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/056f3394080f938e7fab34481c4dea41.png" alt="a"
+title="a" class="math inline" /> - State may not be from first person
+view, or be from a different angle, introducing a large state gap, -
+Actions must be entirely inferred from the raw data, likely via a
+pseudolabing process from another model (e.g. skeleton trackers / human
+hand trackers) - Without full human DoF, trajectories are likely
+<em>not</em> kinodynamically feasible, due to torso leaning, shifting
+weight, reaching, etc</p>
+<h3 id="the-hard-problem-of-behavior-cloning-ood-states">The hard
+problem of behavior cloning (OOD states)</h3>
+<p>Behavior cloning sounds simple in principle — supervise <img
+style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/994e44ab2c374a71786e289a53129ab0.png"
+alt="\pi(s)" title="\pi(s)" class="math inline" /> to predict <img
+style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/056f3394080f938e7fab34481c4dea41.png" alt="a"
+title="a" class="math inline" /> — especially with Leader-Follower
+data.</p>
+<p>However, even with extremely clean demonstration data these policies
+still wander into <em>out of distribution</em> states. There are several
+reasons for this:</p>
+<ol type="1">
+<li>The world will never perfectly match the training data; even at the
+same station, minor variations in lighting, background scene, or other
+distractors change the information in state <img
+style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
+title="s" class="math inline" />, which in turn can impact the
+prediction of <img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/056f3394080f938e7fab34481c4dea41.png" alt="a"
+title="a" class="math inline" /></li>
+<li>There’s uncertainty inherent in what exactly to do next
+(e.g. unfolding a shirt) —- both due to inherent partial observability
+of <img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
+title="s" class="math inline" /> (e.g. cannot see inside of a crumpled
+shirt to see its internal folds) and inherent multi-modality in the
+action distribution from demonstrators</li>
+<li>Models have prediction error on their actions; because <img
+style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/994e44ab2c374a71786e289a53129ab0.png"
+alt="\pi(s)" title="\pi(s)" class="math inline" /> is making
+<em>sequential</em> decisions about <img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/056f3394080f938e7fab34481c4dea41.png" alt="a"
+title="a" class="math inline" /> that in turn influence the next state
+<img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/bee366ad6109acb71304e8fce39332a3.png"
+alt="s&#39;" title="s&#39;" class="math inline" />, this error compounds
+upon itself as it rolls out recursively</li>
+</ol>
+<p>Tackling these challenges requires design choices, both for the model
+itself and for the data it’s trained on. Modeling choices are important
+—strong, data driven priors (e.g. VLMs) and the right model class to
+handle the multi-modality in the action distribution (either discrete
+autoregression, where the model inherently models the full probability
+distribution over the next token, or continuous denoising, where the
+model is trained to sample from the true target distribution) — but the
+data distribution the model is trained on arguably matters more.</p>
+<p>As discussed in 3), naively training these models on expert human
+demonstrations will result in the accumulation of errors in their
+predictions during inference, leading them to drift out-of-distribution
+into states they’ve never seen before. While the strong visual priors of
+a VLM can help the model generalize to novel states, there will still be
+scenarios where the model fails.</p>
+<h3
+id="tackling-out-of-distribution-state-performance-by-bringing-them-in-distribution">Tackling
+out-of-distribution state performance (by bringing them in
+distribution)</h3>
+<p>This is why it’s important to not just naively train on expert human
+data! In addition to these straightforward task demonstrations, it’s
+critical to train the model how to get out of these failure states — a
+“DAgger” style approach. There’s a bit of nuance to constructing this
+data — you want to train your model to <em>leave</em> these bad states,
+but you do not want to accidentally train to <em>enter</em> these bad
+states, lest it imitate this data and intentionally visit these bad
+states. Doing this right means carefully curating your recovery
+data.</p>
+<p>Building out this DAgger data is an iterative process, and an art at
+that. You train the model for the given task, observe its failure modes,
+concoct a new dataset to try to address those failure modes, retrain,
+and retry. This is a tedious process, requiring many hours of very smart
+and discerning human time to essentially play whack-a-mole with various
+issues. Along the way, you start to develop a touch and feel for the
+policy and its issues. Due to the need for rapid iteration, this is
+typically done as a post-training step atop a base pretrained policy,
+and hopefully that base policy has already seen quite a bit of task data
+such that it already mostly knows what its doing.</p>
+<p>This frustration is compounded by the fact that the touch and feel
+you have developed from your task iteration can be completely wiped out
+by a new pretraining of the base policy, sometimes presenting a new (but
+hopefully much smaller) set of failure modes. This DAgger data can be
+included in a pretraining run, and alongside data scale often results in
+higher quality predictions and fewer failures. With sufficient effort on
+data iteration, policies can be made to be surprisingly robust.</p>
+<h3 id="speeding-up-your-behavior-cloning-policy-its-hard">Speeding up
+your behavior cloning policy (it’s hard!)</h3>
+<p>DAgger addresses robustness issues, and avoiding catastrophic
+failures can speed up your average time to complete a task, but it does
+nothing to improve your speed in best-case-scenario. Given a dataset,
+you can discard all but the fastest demonstrations (losing enormous data
+scale and likely hurting robustness), or condition on speed (see: Eric
+Jang’s “Just Ask For Generalization”), but none of these allow for
+faster than human demonstration performance.</p>
+<p>Another trick is to simply execute the policy actions at faster than
+realtime (e.g. execute 50hz control at 70hz), but this stresses your low
+level control stack and leads to incorrect behavior when interacting
+with world physics (e.g. waiting for a garment to settle flat on a table
+after being flicked in the air).</p>
+<h2 id="beyond-a-behavior-cloning-stack">Beyond a Behavior Cloning
+Stack</h2>
+<p>The 2025 BC stack kind of sucks. It is not just bottlenecked on data
+scale to get generalization, but <em>also</em> the speed of the data
+collectors providing the demonstrations and the hustle (and taste) of
+the data sommelier doing DAgger to address any failures.</p>
+<p>Ideally, we want robot systems that self-improve:</p>
+<ul>
+<li>they collect their own data to learn and improve from</li>
+<li>they may get stuck in bad states, but they can do exploration to
+escape, and then automatically learn to avoid that bad state again</li>
+<li>they can automatically get faster, becoming super-human at the task
+for their embodiment</li>
+</ul>
+<p>Reinforcement Learning seems to fit this bill. RL has been wildly
+successful in the LLM space, and it’s tempting to imagine we can drag
+and drop the same techniques into robotics. Unfortunately, this has yet
+to pan out, despite several different approaches.</p>
+<h3 id="rl-in-llms">RL in LLMs</h3>
+<p>LLMs differ from robotics in two important ways:</p>
+<ul>
+<li>LLMs are able to be rolled out an unlimited number of times from the
+identical state <img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
+title="s" class="math inline" /></li>
+<li>LLMs start with a very strong base policy</li>
+</ul>
+<p>Because of these two factors, online, on-policy RL becomes feasible.
+Either directly, or after a little bit of supervised fine-tuning from a
+few expert demonstrations, the policy can start to achieve a non-zero
+success rate from a given state <img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
+title="s" class="math inline" />. This allows for the LLM to simply be
+rolled out hundreds or thousands of times from <img
+style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
+title="s" class="math inline" /> as a form of exploration, receive
+(sparse) rewards from the environment on how its performed, and directly
+update its policy.</p>
+<p>Importantly, this process avoids having to hallucinate a
+counterfactual. By rolling out many different trajectories from <img
+style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
+title="s" class="math inline" />, it avoids having to hallucinate “what
+if”s and instead directly receives environment feedback from its already
+strong guesses.</p>
+<p>Robotics has none of these luxuries in the real world. Given the
+state <img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
+title="s" class="math inline" /> of a kitchen at the beginning of the
+task, we do not have the ability to easily perfectly replicate the
+clutter in the kitchen hundreds of times, nor do we have strong enough
+base models that we can reliably fully clean the kitchen with some
+nonzero success rate.</p>
+<p>Thus, we either need to leverage simulation, where we can reliably
+reconstruct <img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
+title="s" class="math inline" /> arbitrarily many times (and suffer the
+sim to real gap), or we need to be able to hallucinate good quality
+answers to counterfactuals given only a single real rollout from a real
+state <img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
+title="s" class="math inline" />.</p>
+<h3 id="rl-in-sim">RL in Sim</h3>
+<p>NB: I am not a sim expert.</p>
+<p>In LLMs, there is no sim-to-real gap — the environments it interacts
+with during training are the exact same environments it will see at
+inference. However, in robotics, our simulators are a facsimile for the
+real world, and often a poor one at that. Simulators have naive physics
+models, have to make numerical estimates to handle multiple colliding
+bodies, must select contact models with different tradeoffs, are poor
+models of non-rigid objects, and large visual gaps between sim and
+real.</p>
+<p>For these reasons training policies entirely in simulation performs
+very poorly when transferring to the real world. Domain randomization,
+i.e. significantly varying the parameters of the simulator, helps, as
+does having a highly structured visual input representation (e.g. scan
+dots), but outside of locomotion this has seen limited success on
+robots.</p>
+<p>There is ongoing work in “world models”, which are effectively
+learned simulators. One major reason for hope is, unlike a policy which
+needs to know the optimal action given a state, a world model need only
+simulate the dynamics given a state and action. In domains with
+structure (such as the real world, which has physics composable rules of
+interaction), <em>any</em> state action transition data, be it from an
+optimal or a random policy, seemingly should aid in learning general
+dynamics, hopefully giving us a shot at building a good, general purpose
+world model. That said, as of today, I am unaware of any work that comes
+close to modeling well the sort of environment interaction dynamics that
+we care about for dexterous manipulation.</p>
+<h3 id="rl-in-real">RL In Real</h3>
+<p>Using real-world data avoids any sim to real gap, the same reason we
+were animated to do BC to begin with. However, learning to improve
+directly from your own policy rollouts has a number of hurdles.</p>
+<p>The goal of an RL improvement loop is to relatively good actions and
+downweight relatively bad ones. To know if an action was
+<em>relatively</em> good or not, we need to answer counterfactuals; as
+we discussed in the LLM section, we don’t have the luxury of simply
+running the policy over and over from the same state, trying a bunch of
+semi-reasonable actions to estimate the relative performance of action
+<img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/056f3394080f938e7fab34481c4dea41.png" alt="a"
+title="a" class="math inline" /> vs <img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/07756118754ea044198ecbc8863fd819.png"
+alt="a&#39;" title="a&#39;" class="math inline" />. Instead, we need
+some sort of system to hallucinate this; either a Q function that
+directly estimates discounted reward <img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/6f0f21a61d8d63ead73dc25e5809dafa.png"
+alt="Q(s, a)" title="Q(s, a)" class="math inline" />, or some knowledge
+of the transition dynamics <img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/3f18c1069f07a43ee1dc64dd30068ecd.png"
+alt="(s, a) -&gt; s&#39;" title="(s, a) -&gt; s&#39;"
+class="math inline" /> and then the Value of nearby state <img
+style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/5c8037ddad506a711ee26ab52f4452e3.png"
+alt="V(s&#39;)" title="V(s&#39;)" class="math inline" />.</p>
+<p>Notably, both <img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/e97d64701944887b7908826be6df427e.png" alt="Q"
+title="Q" class="math inline" /> and <img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/a676dc68bc2616d80ba070b05d2e0a9e.png" alt="V"
+title="V" class="math inline" /> are a sort of world model by a
+different name; rather than predicting some future state in its entirety
+as you might imagine out of a learned simulator, its instead baking in a
+bunch of long horizon information about how, under good decision making
+through future interactions with the world, you will ultimately get to
+the goal.</p>
+<p>As you might imagine, this too is quite challenging, and learning
+good Q or V functions is an open area of research. Very recently,
+Physical Intelligence released <img style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/0eb0ce71ca6bac3ad41d428d81475ac0.png"
+alt="\pi_{0.6}^*" title="\pi_{0.6}^*" class="math inline" />, an
+approach that performs advantage weighted regression (BC, but rather
+than weighting every transition equally, weight it by <img
+style="vertical-align:middle"
+src="../img/compiled/state_of_robot_learning_dec_2025/28a0e5014dfb2cd6e50ad60ae3df7b11.png"
+alt="Q(s, a) - V(s)" title="Q(s, a) - V(s)" class="math inline" />),
+where they show minor improvements beyond that of just doing naive BC on
+the same data. However, in many of the tasks, the policy <em>also</em>
+required human DAgger data, and it’s clearly not a silver bullet for
+real world RL. There is much more work to be done in building good,
+reliable Q and V functions such that they work well out of distribution,
+without grossly over or under estimating their true values.</p>
+</body></html>
