@@ -33,44 +33,46 @@ Discrete Space</h2>
 <em>generates</em> the data does not need to be the same policy that you
 are improving using it. In discrete tabular setting, this can be solved
 via simple dynamic programming. <img style="vertical-align:middle"
-src="../../img/compiled/rl_notes/e97d64701944887b7908826be6df427e.png" alt="Q"
-title="Q" class="math inline" /> should tell you the discounted sum of
-rewards, and thus can be framed recursively as a local update.</p>
+class="latex-math" width="12" height="15" src="../../img/compiled/rl_notes/83581cf87e7da3c83aa1a809cf34d817.png"
+alt="Q" title="Q" class="math inline" /> should tell you the discounted
+sum of rewards, and thus can be framed recursively as a local
+update.</p>
 <p>Given state <img style="vertical-align:middle"
-src="../../img/compiled/rl_notes/3e6f6e9b24cbb864176eb9cb391b0d91.png" alt="s_t"
-title="s_t" class="math inline" />, action <img
+class="latex-math" width="11" height="9" src="../../img/compiled/rl_notes/1e69fa255f4f0161638e5441be0c05db.png"
+alt="s_t" title="s_t" class="math inline" />, action <img
 style="vertical-align:middle"
-src="../../img/compiled/rl_notes/e5b8858caa56c71e6be3ef42b85e9a93.png" alt="a_t"
-title="a_t" class="math inline" />, reward <img
+class="latex-math" width="12" height="9" src="../../img/compiled/rl_notes/f2e24572e72b6535af7f785c99517801.png"
+alt="a_t" title="a_t" class="math inline" />, reward <img
 style="vertical-align:middle"
-src="../../img/compiled/rl_notes/4d5533196b6e1ae8563badf5da8e3b79.png"
+class="latex-math" width="25" height="11" src="../../img/compiled/rl_notes/b9a61a7b9c89fe1144379d80ebdd928f.png"
 alt="r_{t+1}" title="r_{t+1}" class="math inline" /> for taking <img
 style="vertical-align:middle"
-src="../../img/compiled/rl_notes/e5b8858caa56c71e6be3ef42b85e9a93.png" alt="a_t"
-title="a_t" class="math inline" /> at <img style="vertical-align:middle"
-src="../../img/compiled/rl_notes/3e6f6e9b24cbb864176eb9cb391b0d91.png" alt="s_t"
-title="s_t" class="math inline" />, discount factor <img
+class="latex-math" width="12" height="9" src="../../img/compiled/rl_notes/f2e24572e72b6535af7f785c99517801.png"
+alt="a_t" title="a_t" class="math inline" /> at <img
 style="vertical-align:middle"
-src="../../img/compiled/rl_notes/ae9147b27842ebb918f69c75d8845dc8.png"
+class="latex-math" width="11" height="9" src="../../img/compiled/rl_notes/1e69fa255f4f0161638e5441be0c05db.png"
+alt="s_t" title="s_t" class="math inline" />, discount factor <img
+style="vertical-align:middle"
+class="latex-math" width="9" height="10" src="../../img/compiled/rl_notes/0a16eb2c3fe3e29dc88309137580c291.png"
 alt="\gamma" title="\gamma" class="math inline" /></p>
 <p><img style="vertical-align:middle"
-src="../../img/compiled/rl_notes/3aedbe61d78b6156922749f321ff7dac.png"
+class="latex-math" width="287" height="30" src="../../img/compiled/rl_notes/5ad0149b139a5c8fdd5f82db45838fed.png"
 alt="Q_{\textup{new}}(s_t, a_t) \gets \left(r_{t+1} + \gamma \max_{a&#39;} Q(s_{t+1}, a&#39;) \right)"
 title="Q_{\textup{new}}(s_t, a_t) \gets \left(r_{t+1} + \gamma \max_{a&#39;} Q(s_{t+1}, a&#39;) \right)"
 class="math display" /></p>
 <p>Thus, written a least squares loss function <img
 style="vertical-align:middle"
-src="../../img/compiled/rl_notes/bd15966954380b8a18a71e79555bbd6e.png" alt="L_Q"
-title="L_Q" class="math inline" /></p>
+class="latex-math" width="19" height="16" src="../../img/compiled/rl_notes/60dcb63363ea7bfa775542024b0ee006.png"
+alt="L_Q" title="L_Q" class="math inline" /></p>
 <p><img style="vertical-align:middle"
-src="../../img/compiled/rl_notes/6e0c88eeb71ec1648f21cce36d3d1b9c.png"
+class="latex-math" width="378" height="33" src="../../img/compiled/rl_notes/772e90b59d3ed18a2354ab4644ac6b8c.png"
 alt="L_Q(s_t, a_t) = \left(Q(s_t, a_t) - \left(r_{t+1} + \gamma \max_{a&#39;} Q(s_{t+1}, a&#39;) \right) \right)^2"
 title="L_Q(s_t, a_t) = \left(Q(s_t, a_t) - \left(r_{t+1} + \gamma \max_{a&#39;} Q(s_{t+1}, a&#39;) \right) \right)^2"
 class="math display" /></p>
 <h2 id="actor-critic-handling-continuious-space">Actor Critic — Handling
 Continuious Space</h2>
 <p>In discrete space, <img style="vertical-align:middle"
-src="../../img/compiled/rl_notes/2d44f499b3fcbdbd747c793a094cd1b1.png"
+class="latex-math" width="38" height="9" src="../../img/compiled/rl_notes/cd9c3a3998d0cc22f97d0d7cce589495.png"
 alt="\max_{a&#39;}" title="\max_{a&#39;}" class="math inline" /> is
 computable as we can enumerate all possible actions. In continuious
 action space, this is not possible. Thus, we must replace this
@@ -80,40 +82,40 @@ function taking the role of “critic”.</p>
 Policy Gradient (DDPG)</h3>
 <p>In DDPG, the actor learns a simple determinstic mapping from state
 <img style="vertical-align:middle"
-src="../../img/compiled/rl_notes/3e6f6e9b24cbb864176eb9cb391b0d91.png" alt="s_t"
-title="s_t" class="math inline" /> to action <img
+class="latex-math" width="11" height="9" src="../../img/compiled/rl_notes/1e69fa255f4f0161638e5441be0c05db.png"
+alt="s_t" title="s_t" class="math inline" /> to action <img
 style="vertical-align:middle"
-src="../../img/compiled/rl_notes/e5b8858caa56c71e6be3ef42b85e9a93.png" alt="a_t"
-title="a_t" class="math inline" />, with noise added for exploration
-during data collection, i.e.</p>
+class="latex-math" width="12" height="9" src="../../img/compiled/rl_notes/f2e24572e72b6535af7f785c99517801.png"
+alt="a_t" title="a_t" class="math inline" />, with noise added for
+exploration during data collection, i.e.</p>
 <p><img style="vertical-align:middle"
-src="../../img/compiled/rl_notes/328f160b9f171ccb711446a2c1bd380b.png"
+class="latex-math" width="155" height="18" src="../../img/compiled/rl_notes/7a4b73a51d18a76028a2ef3ef4e29105.png"
 alt="a_t = \mu_\theta(s_t) +\mathcal{N}(0, \sigma^2)"
 title="a_t = \mu_\theta(s_t) +\mathcal{N}(0, \sigma^2)"
 class="math display" /></p>
 <p>during training and</p>
 <p><img style="vertical-align:middle"
-src="../../img/compiled/rl_notes/8f7f8f1b5153ea4f7cdd07cc15959512.png"
+class="latex-math" width="75" height="16" src="../../img/compiled/rl_notes/829f07b1193b88932f15da08ffe4ef90.png"
 alt="a_t = \mu_\theta(s_t)" title="a_t = \mu_\theta(s_t)"
 class="math display" /></p>
 <p>during inference. Thus, for a given batch of data, the critic can be
 optimized via a modified <img style="vertical-align:middle"
-src="../../img/compiled/rl_notes/e97d64701944887b7908826be6df427e.png" alt="Q"
-title="Q" class="math inline" /> loss, i.e.</p>
+class="latex-math" width="12" height="15" src="../../img/compiled/rl_notes/83581cf87e7da3c83aa1a809cf34d817.png"
+alt="Q" title="Q" class="math inline" /> loss, i.e.</p>
 <p><img style="vertical-align:middle"
-src="../../img/compiled/rl_notes/33c99195397b461417d5f5d41fcd78ce.png"
+class="latex-math" width="372" height="20" src="../../img/compiled/rl_notes/4f1b835876d35733b5b4c777edabbe04.png"
 alt="L_Q(s_t, a_t) = \left(Q(s_t, a_t) - \left(r_{t+1} + \gamma Q(s_{t+1}, \mu_\theta(s_{t+1})) \right) \right)^2"
 title="L_Q(s_t, a_t) = \left(Q(s_t, a_t) - \left(r_{t+1} + \gamma Q(s_{t+1}, \mu_\theta(s_{t+1})) \right) \right)^2"
 class="math display" /></p>
 <p>and then the actor optimized to maximize the <img
 style="vertical-align:middle"
-src="../../img/compiled/rl_notes/e97d64701944887b7908826be6df427e.png" alt="Q"
-title="Q" class="math inline" /> value; this can be done by simply
-minimizing the negative of the <img style="vertical-align:middle"
-src="../../img/compiled/rl_notes/e97d64701944887b7908826be6df427e.png" alt="Q"
-title="Q" class="math inline" /> function, i.e.</p>
+class="latex-math" width="12" height="15" src="../../img/compiled/rl_notes/83581cf87e7da3c83aa1a809cf34d817.png"
+alt="Q" title="Q" class="math inline" /> value; this can be done by
+simply minimizing the negative of the <img style="vertical-align:middle"
+class="latex-math" width="12" height="15" src="../../img/compiled/rl_notes/83581cf87e7da3c83aa1a809cf34d817.png"
+alt="Q" title="Q" class="math inline" /> function, i.e.</p>
 <p><img style="vertical-align:middle"
-src="../../img/compiled/rl_notes/93204f427c0d56e586e220a7fa283d70.png"
+class="latex-math" width="179" height="17" src="../../img/compiled/rl_notes/154ff25056aa1182322da8d577e7e31f.png"
 alt="L_\mu(s_t, \theta) = -Q(s_t, \mu_\theta(s_t))"
 title="L_\mu(s_t, \theta) = -Q(s_t, \mu_\theta(s_t))"
 class="math display" /></p>

@@ -32,13 +32,13 @@ multiplying transform matrices, so I’m writing all this down mostly for
 myself.</p>
 <h2 id="d-rotations">2D Rotations</h2>
 <p>Let <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/baf6f946a5473cf6a517a1211c744b7e.png" alt="v"
-title="v" class="math inline" /> be an array of 2D vectors of shape <img
-style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/7b16b63d2741202708841b45ef842029.png"
+class="latex-math" width="8" height="7" src="../img/compiled/homogeneous_transforms/4d9ac85dd8f8ff0a0379e6111af32271.png"
+alt="v" title="v" class="math inline" /> be an array of 2D vectors of
+shape <img style="vertical-align:middle"
+class="latex-math" width="42" height="11" src="../img/compiled/homogeneous_transforms/fcb37b20eff6cf4fa3b3b9460a12fc8f.png"
 alt="N \times 2" title="N \times 2" class="math inline" />:</p>
 <p><img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/c89feba36d297c70d4fa10d9c4374f19.png"
+class="latex-math" width="102" height="60" src="../img/compiled/homogeneous_transforms/91be8508518684e89ceb3d58b7970690.png"
 alt="v = \begin{bmatrix}
 0.8 &amp; 0 \\
 0.9 &amp; 0.1 \\
@@ -49,13 +49,14 @@ alt="v = \begin{bmatrix}
 1 &amp; 0.2 \\
 \end{bmatrix}" class="math display" /></p>
 <p>Let <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/20d3c5646ba45a6ff77caac9dcb870ea.png" alt="R"
-title="R" class="math inline" /> be a <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/045d285554ddcee38f7975dffa4d2f76.png" alt="K"
-title="K" class="math inline" /> degrees counterclockwise rotation
-matrix:</p>
+class="latex-math" width="12" height="11" src="../img/compiled/homogeneous_transforms/6d81854168a0886d02257f0048e4ba76.png"
+alt="R" title="R" class="math inline" /> be a <img
+style="vertical-align:middle"
+class="latex-math" width="14" height="11" src="../img/compiled/homogeneous_transforms/a288061bc0f21042fbed6ab1ae758647.png"
+alt="K" title="K" class="math inline" /> degrees counterclockwise
+rotation matrix:</p>
 <p><img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/f5cdeed9a354a0805004bd2e178c1ac3.png"
+class="latex-math" width="154" height="40" src="../img/compiled/homogeneous_transforms/9f3788e8e57d53c4f2cac6dab2cb38d5.png"
 alt="R = \begin{bmatrix}
 \cos K &amp; -\sin K \\
 \sin K &amp; \cos K
@@ -66,24 +67,26 @@ alt="R = \begin{bmatrix}
 <h3 id="right-multiplication">Right multiplication</h3>
 <p>Expressed with a right multiply, the rotated <img
 style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/effc03b3ea013a9a81ce4fa176b0d7cd.png"
+class="latex-math" width="12" height="12" src="../img/compiled/homogeneous_transforms/e386163b6a6b52b05abb571ce9512eba.png"
 alt="v&#39;" title="v&#39;" class="math inline" /> would be</p>
 <p><img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/629097b20e6e626733de9cc0ce47a366.png"
+class="latex-math" width="86" height="18" src="../img/compiled/homogeneous_transforms/5bd456c424fec8c724118fd2bb84ff76.png"
 alt="v&#39; = (Rv^T)^T" title="v&#39; = (Rv^T)^T"
 class="math display" /></p>
 <p>Note the shapes: <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/baf6f946a5473cf6a517a1211c744b7e.png" alt="v"
-title="v" class="math inline" /> is <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/7b16b63d2741202708841b45ef842029.png"
+class="latex-math" width="8" height="7" src="../img/compiled/homogeneous_transforms/4d9ac85dd8f8ff0a0379e6111af32271.png"
+alt="v" title="v" class="math inline" /> is <img
+style="vertical-align:middle"
+class="latex-math" width="42" height="11" src="../img/compiled/homogeneous_transforms/fcb37b20eff6cf4fa3b3b9460a12fc8f.png"
 alt="N \times 2" title="N \times 2" class="math inline" /> and <img
 style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/20d3c5646ba45a6ff77caac9dcb870ea.png" alt="R"
-title="R" class="math inline" /> is <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/1cbc23e5668218ead3716d42045c098c.png"
+class="latex-math" width="12" height="11" src="../img/compiled/homogeneous_transforms/6d81854168a0886d02257f0048e4ba76.png"
+alt="R" title="R" class="math inline" /> is <img
+style="vertical-align:middle"
+class="latex-math" width="35" height="11" src="../img/compiled/homogeneous_transforms/8a866dfe8cc1a2377ff75c1696e17e13.png"
 alt="2 \times 2" title="2 \times 2" class="math inline" />, so we end up
 with <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/1be363ea75d4fdd584aeab32552bea92.png"
+class="latex-math" width="200" height="17" src="../img/compiled/homogeneous_transforms/5c8498b8cb3a7969967133c2b489be62.png"
 alt="N \times 2 = ((2 \times 2)(N \times 2)^T)^T"
 title="N \times 2 = ((2 \times 2)(N \times 2)^T)^T"
 class="math inline" />. In numpy for a 30 degree counterclockwise
@@ -101,23 +104,25 @@ result:</p>
 <h3 id="left-multiplication">Left multiplication</h3>
 <p>Expressed with a left multiply, the rotated <img
 style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/effc03b3ea013a9a81ce4fa176b0d7cd.png"
+class="latex-math" width="12" height="12" src="../img/compiled/homogeneous_transforms/e386163b6a6b52b05abb571ce9512eba.png"
 alt="v&#39;" title="v&#39;" class="math inline" /> would be</p>
 <p><img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/64599e80218b7a019492dc056a9ad390.png"
+class="latex-math" width="64" height="14" src="../img/compiled/homogeneous_transforms/5801e41b60a117bb5e0954331085ffda.png"
 alt="v&#39; = vR^T" title="v&#39; = vR^T" class="math display" /></p>
 <p>Note the shapes: <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/baf6f946a5473cf6a517a1211c744b7e.png" alt="v"
-title="v" class="math inline" /> is <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/7b16b63d2741202708841b45ef842029.png"
+class="latex-math" width="8" height="7" src="../img/compiled/homogeneous_transforms/4d9ac85dd8f8ff0a0379e6111af32271.png"
+alt="v" title="v" class="math inline" /> is <img
+style="vertical-align:middle"
+class="latex-math" width="42" height="11" src="../img/compiled/homogeneous_transforms/fcb37b20eff6cf4fa3b3b9460a12fc8f.png"
 alt="N \times 2" title="N \times 2" class="math inline" /> and <img
 style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/20d3c5646ba45a6ff77caac9dcb870ea.png" alt="R"
-title="R" class="math inline" /> is <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/1cbc23e5668218ead3716d42045c098c.png"
+class="latex-math" width="12" height="11" src="../img/compiled/homogeneous_transforms/6d81854168a0886d02257f0048e4ba76.png"
+alt="R" title="R" class="math inline" /> is <img
+style="vertical-align:middle"
+class="latex-math" width="35" height="11" src="../img/compiled/homogeneous_transforms/8a866dfe8cc1a2377ff75c1696e17e13.png"
 alt="2 \times 2" title="2 \times 2" class="math inline" />, so we end up
 with <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/240084cf43406b044c601e395c31df71.png"
+class="latex-math" width="168" height="16" src="../img/compiled/homogeneous_transforms/26f8d79aa8a7889f6b7a1e29c1a3d144.png"
 alt="N \times 2 = (N \times 2)(2 \times 2)"
 title="N \times 2 = (N \times 2)(2 \times 2)" class="math inline" />. In
 numpy:</p>
@@ -128,18 +133,19 @@ result:</p>
 <h2 id="d-homogeneous-transforms">2D Homogeneous Transforms</h2>
 <p>Imagine instead of a simple rotation by <img
 style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/20d3c5646ba45a6ff77caac9dcb870ea.png" alt="R"
-title="R" class="math inline" />, we also wanted to transform the points
-that included a translation <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/80b90e72aa4e8546c83afb1919cb017d.png"
+class="latex-math" width="12" height="11" src="../img/compiled/homogeneous_transforms/6d81854168a0886d02257f0048e4ba76.png"
+alt="R" title="R" class="math inline" />, we also wanted to transform
+the points that included a translation <img
+style="vertical-align:middle"
+class="latex-math" width="101" height="16" src="../img/compiled/homogeneous_transforms/72055f017518f0b38268845e893bbc26.png"
 alt="t = (-1, -0.5)" title="t = (-1, -0.5)" class="math inline" />. We
 could represent this as two separate operations, a rotation and a
 translation, or we could represent it as a single homogeneous transform
 <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/23a9e0c315d3d06295974405c6b7b12c.png" alt="M"
-title="M" class="math inline" />:</p>
+class="latex-math" width="16" height="11" src="../img/compiled/homogeneous_transforms/728dde53ee0849c5e2aec576103e1424.png"
+alt="M" title="M" class="math inline" />:</p>
 <p><img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/3fbee9a199dfdd5f2b8e5d5bac5daf84.png"
+class="latex-math" width="87" height="40" src="../img/compiled/homogeneous_transforms/b9629a069377bbd5c0b39ee63fb065ed.png"
 alt="M = \begin{bmatrix}
 R &amp; t \\
 0 &amp; 1
@@ -148,20 +154,20 @@ R &amp; t \\
 0 &amp; 1
 \end{bmatrix}" class="math display" /></p>
 <p>where <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/20d3c5646ba45a6ff77caac9dcb870ea.png" alt="R"
-title="R" class="math inline" /> is the same rotation matrix as before,
-and <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/3f96401e64d520662c063aba77d31291.png" alt="t"
-title="t" class="math inline" /> is the column version of the
+class="latex-math" width="12" height="11" src="../img/compiled/homogeneous_transforms/6d81854168a0886d02257f0048e4ba76.png"
+alt="R" title="R" class="math inline" /> is the same rotation matrix as
+before, and <img style="vertical-align:middle"
+class="latex-math" width="5" height="10" src="../img/compiled/homogeneous_transforms/a368e72eafac13a376738a18b11ce5fb.png"
+alt="t" title="t" class="math inline" /> is the column version of the
 translation vector (i.e. <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/1009ee81f6e3844b4f1dc4dd94e442df.png"
+class="latex-math" width="14" height="13" src="../img/compiled/homogeneous_transforms/ed5fef3cc7bce868909c379f0a6facd5.png"
 alt="t^T" title="t^T" class="math inline" />). To do this, we augment
 the <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/baf6f946a5473cf6a517a1211c744b7e.png" alt="v"
-title="v" class="math inline" /> vectors with a third column of ones,
-i.e.</p>
+class="latex-math" width="8" height="7" src="../img/compiled/homogeneous_transforms/4d9ac85dd8f8ff0a0379e6111af32271.png"
+alt="v" title="v" class="math inline" /> vectors with a third column of
+ones, i.e.</p>
 <p><img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/3e199e70b11ac36bd3feb14bc8cd65c2.png"
+class="latex-math" width="131" height="60" src="../img/compiled/homogeneous_transforms/154e6873e9f716667da1c334ebd75b33.png"
 alt="v_h = \begin{bmatrix}
 0.8 &amp; 0 &amp; 1 \\
 0.9 &amp; 0.1 &amp; 1 \\
@@ -172,21 +178,22 @@ alt="v_h = \begin{bmatrix}
 1 &amp; 0.2 &amp; 1 \\
 \end{bmatrix}" class="math display" /></p>
 <p>making it an <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/93776cecd7f63d4281c728e5d1357ae9.png"
+class="latex-math" width="42" height="11" src="../img/compiled/homogeneous_transforms/a845edfd55820db5f8be16176c412ba2.png"
 alt="N \times 3" title="N \times 3" class="math inline" /> matrix. The
 homogeneous transform <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/23a9e0c315d3d06295974405c6b7b12c.png" alt="M"
-title="M" class="math inline" /> is a <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/0531529f7dbc8b881abe9f41a411ab47.png"
+class="latex-math" width="16" height="11" src="../img/compiled/homogeneous_transforms/728dde53ee0849c5e2aec576103e1424.png"
+alt="M" title="M" class="math inline" /> is a <img
+style="vertical-align:middle"
+class="latex-math" width="35" height="11" src="../img/compiled/homogeneous_transforms/b7aa72d299df521393886dd4a5fde884.png"
 alt="3 \times 3" title="3 \times 3" class="math inline" /> matrix, so we
 can left multiply it with <img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/baf6f946a5473cf6a517a1211c744b7e.png" alt="v"
-title="v" class="math inline" /> to get the transformed <img
+class="latex-math" width="8" height="7" src="../img/compiled/homogeneous_transforms/4d9ac85dd8f8ff0a0379e6111af32271.png"
+alt="v" title="v" class="math inline" /> to get the transformed <img
 style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/9ac2dd0d0416d4a4eabdbf4ddd341f0e.png"
+class="latex-math" width="14" height="16" src="../img/compiled/homogeneous_transforms/286654aa30421051b69418d781998889.png"
 alt="v_h&#39;" title="v_h&#39;" class="math inline" />:</p>
 <p><img style="vertical-align:middle"
-src="../img/compiled/homogeneous_transforms/0b4eefebb016ee1955968b9bcdbc8101.png"
+class="latex-math" width="78" height="18" src="../img/compiled/homogeneous_transforms/32b764ad81bd6317fc62982b53d8b320.png"
 alt="v_h&#39; = v_hM^T" title="v_h&#39; = v_hM^T"
 class="math display" /></p>
 <p>In numpy</p>

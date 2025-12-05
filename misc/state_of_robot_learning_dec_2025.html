@@ -33,16 +33,16 @@ Behavior Cloning (BC, also called Imitation Learning) systems. Humans
 provide (near) optimal demonstrations of a task, and machine learning
 models try to imitate those actions. Formally, a policy <img
 style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/5fe7c581bd05a276295e0f2a31c4cbca.png"
+class="latex-math" width="9" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/f3ccfbd5480b00d1bc38012903eb4375.png"
 alt="\pi" title="\pi" class="math inline" /> is trained in a supervised
 fashion — given the robot’s state <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
-title="s" class="math inline" /> (i.e. the camera images, robot joint
-angles, and maybe task description text), predict the demonstrated
+class="latex-math" width="6" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/cd00e625ad5fa0990831dd09886fe077.png"
+alt="s" title="s" class="math inline" /> (i.e. the camera images, robot
+joint angles, and maybe task description text), predict the demonstrated
 actions <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/056f3394080f938e7fab34481c4dea41.png" alt="a"
-title="a" class="math inline" /> (often an action <em>chunk</em>,
-e.g. the next second of ~50hz).</p>
+class="latex-math" width="8" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/7fb0675884892e8376989145c015d8ad.png"
+alt="a" title="a" class="math inline" /> (often an action
+<em>chunk</em>, e.g. the next second of ~50hz).</p>
 <p>This doc aims to describe the anatomy of a modern BC stack, as well
 as its shortcomings and (incomplete / clunky) workarounds. It then aims
 to explain what other approaches people are considering for the future,
@@ -61,8 +61,8 @@ setup (ALOHA) or a smaller, lighter scaled down version (GELLO).</p>
 <ul>
 <li>Follower robot has the full sensor suite to record all of <img
 style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
-title="s" class="math inline" /></li>
+class="latex-math" width="6" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/cd00e625ad5fa0990831dd09886fe077.png"
+alt="s" title="s" class="math inline" /></li>
 <li>All demonstrations are kinodynamically feasible, as they were
 executed on the robot</li>
 </ul>
@@ -81,10 +81,10 @@ Gloves (Universal Manipulation Interface)</h4>
 and use these devices to perform the task. The end effectors match the
 robot, along with a cheap version of the sensor suite onboard the robot
 to try to reconstruct <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
-title="s" class="math inline" />. Devices perform SLAM to get end
-effector pose in task space, such that IK can later be used to estimate
-full joint state.</p>
+class="latex-math" width="6" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/cd00e625ad5fa0990831dd09886fe077.png"
+alt="s" title="s" class="math inline" />. Devices perform SLAM to get
+end effector pose in task space, such that IK can later be used to
+estimate full joint state.</p>
 <p>Pros:</p>
 <ul>
 <li>Faster to learn for operators</li>
@@ -94,11 +94,12 @@ full joint state.</p>
 <p>Cons:</p>
 <ul>
 <li>Noisy reconstruction of <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
-title="s" class="math inline" /> and <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/056f3394080f938e7fab34481c4dea41.png" alt="a"
-title="a" class="math inline" />, introducing a domain gap that can
-severely harm policy performance
+class="latex-math" width="6" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/cd00e625ad5fa0990831dd09886fe077.png"
+alt="s" title="s" class="math inline" /> and <img
+style="vertical-align:middle"
+class="latex-math" width="8" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/7fb0675884892e8376989145c015d8ad.png"
+alt="a" title="a" class="math inline" />, introducing a domain gap that
+can severely harm policy performance
 <ul>
 <li>Proprioception and actions need to be inferred from the SLAM
 estimate of end effector pose</li>
@@ -124,10 +125,11 @@ data</li>
 <p>Cons:</p>
 <ul>
 <li>Enormous gap in reconstructing <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
-title="s" class="math inline" /> and <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/056f3394080f938e7fab34481c4dea41.png" alt="a"
-title="a" class="math inline" />
+class="latex-math" width="6" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/cd00e625ad5fa0990831dd09886fe077.png"
+alt="s" title="s" class="math inline" /> and <img
+style="vertical-align:middle"
+class="latex-math" width="8" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/7fb0675884892e8376989145c015d8ad.png"
+alt="a" title="a" class="math inline" />
 <ul>
 <li>State may not be from first person view, or be from a different
 angle, introducing a large state gap,</li>
@@ -143,12 +145,12 @@ reaching, etc</li>
 problem of behavior cloning (OOD states)</h3>
 <p>Behavior cloning sounds simple in principle — supervise <img
 style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/994e44ab2c374a71786e289a53129ab0.png"
+class="latex-math" width="29" height="16" src="../img/compiled/state_of_robot_learning_dec_2025/52d63dd22b5739b208a11f9fb1de9cd6.png"
 alt="\pi(s)" title="\pi(s)" class="math inline" /> to predict <img
 style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/056f3394080f938e7fab34481c4dea41.png" alt="a"
-title="a" class="math inline" /> — especially with Leader-Follower
-data.</p>
+class="latex-math" width="8" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/7fb0675884892e8376989145c015d8ad.png"
+alt="a" title="a" class="math inline" /> — especially with
+Leader-Follower data.</p>
 <p>However, even with extremely clean demonstration data these policies
 still wander into <em>out of distribution</em> states. There are several
 reasons for this:</p>
@@ -157,27 +159,27 @@ reasons for this:</p>
 same station, minor variations in lighting, background scene, or other
 distractors change the information in state <img
 style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
-title="s" class="math inline" />, which in turn can impact the
+class="latex-math" width="6" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/cd00e625ad5fa0990831dd09886fe077.png"
+alt="s" title="s" class="math inline" />, which in turn can impact the
 prediction of <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/056f3394080f938e7fab34481c4dea41.png" alt="a"
-title="a" class="math inline" /></li>
+class="latex-math" width="8" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/7fb0675884892e8376989145c015d8ad.png"
+alt="a" title="a" class="math inline" /></li>
 <li>There’s uncertainty inherent in what exactly to do next
 (e.g. unfolding a shirt) —- both due to inherent partial observability
 of <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
-title="s" class="math inline" /> (e.g. cannot see inside of a crumpled
-shirt to see its internal folds) and inherent multi-modality in the
-action distribution from demonstrators</li>
+class="latex-math" width="6" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/cd00e625ad5fa0990831dd09886fe077.png"
+alt="s" title="s" class="math inline" /> (e.g. cannot see inside of a
+crumpled shirt to see its internal folds) and inherent multi-modality in
+the action distribution from demonstrators</li>
 <li>Models have prediction error on their actions; because <img
 style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/994e44ab2c374a71786e289a53129ab0.png"
+class="latex-math" width="29" height="16" src="../img/compiled/state_of_robot_learning_dec_2025/52d63dd22b5739b208a11f9fb1de9cd6.png"
 alt="\pi(s)" title="\pi(s)" class="math inline" /> is making
 <em>sequential</em> decisions about <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/056f3394080f938e7fab34481c4dea41.png" alt="a"
-title="a" class="math inline" /> that in turn influence the next state
-<img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/bee366ad6109acb71304e8fce39332a3.png"
+class="latex-math" width="8" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/7fb0675884892e8376989145c015d8ad.png"
+alt="a" title="a" class="math inline" /> that in turn influence the next
+state <img style="vertical-align:middle"
+class="latex-math" width="10" height="12" src="../img/compiled/state_of_robot_learning_dec_2025/4ae1caa8e948f51339e1ce166b9e52dd.png"
 alt="s&#39;" title="s&#39;" class="math inline" />, this error compounds
 upon itself as it rolls out recursively</li>
 </ol>
@@ -262,46 +264,46 @@ to pan out, despite several different approaches.</p>
 <ul>
 <li>LLMs are able to be rolled out an unlimited number of times from the
 identical state <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
-title="s" class="math inline" /></li>
+class="latex-math" width="6" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/cd00e625ad5fa0990831dd09886fe077.png"
+alt="s" title="s" class="math inline" /></li>
 <li>LLMs start with a very strong base policy</li>
 </ul>
 <p>Because of these two factors, online, on-policy RL becomes feasible.
 Either directly, or after a little bit of supervised fine-tuning from a
 few expert demonstrations, the policy can start to achieve a non-zero
 success rate from a given state <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
-title="s" class="math inline" />. This allows for the LLM to simply be
-rolled out hundreds or thousands of times from <img
+class="latex-math" width="6" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/cd00e625ad5fa0990831dd09886fe077.png"
+alt="s" title="s" class="math inline" />. This allows for the LLM to
+simply be rolled out hundreds or thousands of times from <img
 style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
-title="s" class="math inline" /> as a form of exploration, receive
-(sparse) rewards from the environment on how its performed, and directly
-update its policy.</p>
+class="latex-math" width="6" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/cd00e625ad5fa0990831dd09886fe077.png"
+alt="s" title="s" class="math inline" /> as a form of exploration,
+receive (sparse) rewards from the environment on how its performed, and
+directly update its policy.</p>
 <p>Importantly, this process avoids having to hallucinate a
 counterfactual. By rolling out many different trajectories from <img
 style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
-title="s" class="math inline" />, it avoids having to hallucinate “what
-if”s and instead directly receives environment feedback from its already
-strong guesses.</p>
+class="latex-math" width="6" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/cd00e625ad5fa0990831dd09886fe077.png"
+alt="s" title="s" class="math inline" />, it avoids having to
+hallucinate “what if”s and instead directly receives environment
+feedback from its already strong guesses.</p>
 <p>Robotics has none of these luxuries in the real world. Given the
 state <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
-title="s" class="math inline" /> of a kitchen at the beginning of the
-task, we do not have the ability to easily perfectly replicate the
-clutter in the kitchen hundreds of times, nor do we have strong enough
-base models that we can reliably fully clean the kitchen with some
-nonzero success rate.</p>
+class="latex-math" width="6" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/cd00e625ad5fa0990831dd09886fe077.png"
+alt="s" title="s" class="math inline" /> of a kitchen at the beginning
+of the task, we do not have the ability to easily perfectly replicate
+the clutter in the kitchen hundreds of times, nor do we have strong
+enough base models that we can reliably fully clean the kitchen with
+some nonzero success rate.</p>
 <p>Thus, we either need to leverage simulation, where we can reliably
 reconstruct <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
-title="s" class="math inline" /> arbitrarily many times (and suffer the
-sim to real gap), or we need to be able to hallucinate good quality
-answers to counterfactuals given only a single real rollout from a real
-state <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/6e1eb29511346fcfbc1bab1edc810313.png" alt="s"
-title="s" class="math inline" />.</p>
+class="latex-math" width="6" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/cd00e625ad5fa0990831dd09886fe077.png"
+alt="s" title="s" class="math inline" /> arbitrarily many times (and
+suffer the sim to real gap), or we need to be able to hallucinate good
+quality answers to counterfactuals given only a single real rollout from
+a real state <img style="vertical-align:middle"
+class="latex-math" width="6" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/cd00e625ad5fa0990831dd09886fe077.png"
+alt="s" title="s" class="math inline" />.</p>
 <h3 id="rl-in-sim">RL in Sim</h3>
 <p><em>NB: I am not a sim expert.</em></p>
 <p>In LLMs, there is no sim-to-real gap — the environments it interacts
@@ -340,26 +342,28 @@ we discussed in the LLM section, we don’t have the luxury of simply
 running the policy over and over from the same state, trying a bunch of
 semi-reasonable actions to estimate the relative performance of action
 <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/056f3394080f938e7fab34481c4dea41.png" alt="a"
-title="a" class="math inline" /> vs <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/07756118754ea044198ecbc8863fd819.png"
+class="latex-math" width="8" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/7fb0675884892e8376989145c015d8ad.png"
+alt="a" title="a" class="math inline" /> vs <img
+style="vertical-align:middle"
+class="latex-math" width="11" height="12" src="../img/compiled/state_of_robot_learning_dec_2025/9f120775680abc4e2d57833984ebd759.png"
 alt="a&#39;" title="a&#39;" class="math inline" />. Instead, we need
 some sort of system to hallucinate this; either a Q function that
 directly estimates discounted reward <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/6f0f21a61d8d63ead73dc25e5809dafa.png"
+class="latex-math" width="47" height="16" src="../img/compiled/state_of_robot_learning_dec_2025/3de78d2c7a5885b9db3bed911bc4b27a.png"
 alt="Q(s, a)" title="Q(s, a)" class="math inline" />, or some knowledge
 of the transition dynamics <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/3f18c1069f07a43ee1dc64dd30068ecd.png"
+class="latex-math" width="80" height="16" src="../img/compiled/state_of_robot_learning_dec_2025/fd9f373e336e9b222073a48fd9da2f09.png"
 alt="(s, a) -&gt; s&#39;" title="(s, a) -&gt; s&#39;"
 class="math inline" /> and then the Value of nearby state <img
 style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/5c8037ddad506a711ee26ab52f4452e3.png"
+class="latex-math" width="35" height="16" src="../img/compiled/state_of_robot_learning_dec_2025/d8389d514831fc4a9a1bfa3e3c4821b4.png"
 alt="V(s&#39;)" title="V(s&#39;)" class="math inline" />.</p>
 <p>Notably, both <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/e97d64701944887b7908826be6df427e.png" alt="Q"
-title="Q" class="math inline" /> and <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/a676dc68bc2616d80ba070b05d2e0a9e.png" alt="V"
-title="V" class="math inline" /> are a sort of world model by a
+class="latex-math" width="12" height="15" src="../img/compiled/state_of_robot_learning_dec_2025/83581cf87e7da3c83aa1a809cf34d817.png"
+alt="Q" title="Q" class="math inline" /> and <img
+style="vertical-align:middle"
+class="latex-math" width="12" height="11" src="../img/compiled/state_of_robot_learning_dec_2025/3328d25cf9bcf6f937ec3f1e737d2af7.png"
+alt="V" title="V" class="math inline" /> are a sort of world model by a
 different name; rather than predicting some future state in its entirety
 as you might imagine out of a learned simulator, its instead baking in a
 bunch of long horizon information about how, under good decision making
@@ -368,12 +372,12 @@ the goal.</p>
 <p>As you might imagine, this too is quite challenging, and learning
 good Q or V functions is an open area of research. Very recently,
 Physical Intelligence released <img style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/0eb0ce71ca6bac3ad41d428d81475ac0.png"
+class="latex-math" width="24" height="15" src="../img/compiled/state_of_robot_learning_dec_2025/2210150b8e026d5b1d73149423aa5dad.png"
 alt="\pi_{0.6}^*" title="\pi_{0.6}^*" class="math inline" />, an
 approach that performs advantage weighted regression (BC, but rather
 than weighting every transition equally, weight it by <img
 style="vertical-align:middle"
-src="../img/compiled/state_of_robot_learning_dec_2025/28a0e5014dfb2cd6e50ad60ae3df7b11.png"
+class="latex-math" width="101" height="16" src="../img/compiled/state_of_robot_learning_dec_2025/586c32e2d9835569f1e04c3b63665be9.png"
 alt="Q(s, a) - V(s)" title="Q(s, a) - V(s)" class="math inline" />),
 where they show minor improvements beyond that of just doing naive BC on
 the same data. However, in many of the tasks, the policy <em>also</em>

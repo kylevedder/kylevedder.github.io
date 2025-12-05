@@ -90,19 +90,19 @@
 
 
 * {
-    font-family: 'univers_lt', sans-serif;
+    font-family: 'cmu', serif;
     background-color: #ffffff;
 }
 
 body {
-    font-family: 'univers_lt', sans-serif;
+    font-family: 'cmu', serif;
 }
 
 h1,
 h2,
 h3 {
-    font-family: 'avant_garde', 'univers_lt', sans-serif;
-    color: #c40000;
+    font-family: 'cmu', serif;
+    color: #000000;
 }
 
 .updates li {
@@ -116,7 +116,7 @@ pre {
 }
 
 code {
-    font-family: 'berkeley_mono', 'cmu_code', monospace;
+    font-family: 'cmu_code', monospace;
 }
 
 pre>code {
@@ -257,3 +257,8 @@ td {
         text-align: center;
     }
 }
+
+/* 
+.latex-math {
+    vertical-align: bottom;
+} */

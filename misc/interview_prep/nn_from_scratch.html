@@ -41,25 +41,25 @@ can find it on my GitHub here</a>.</p>
 Function</h2>
 <p>The forward pass of the binary cross entropy loss function is:</p>
 <p><img style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/26080b4261e597f65d7320226b1e393e.png"
+class="latex-math" width="278" height="16" src="../../img/compiled/nn_from_scratch/033f02f8cc4a8be96f69fe7f2f672d0d.png"
 alt="L(\hat{y}, y) = -y \log(\hat{y}) - (1 - y) \log(1 - \hat{y})"
 title="L(\hat{y}, y) = -y \log(\hat{y}) - (1 - y) \log(1 - \hat{y})"
 class="math display" /></p>
 <p>Intuitively, the ground truth <img style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/c850e8fe933e4a63141aa1f5e84a70d9.png" alt="y"
-title="y" class="math inline" /> is either 0 or 1, and the loss is the
-negative log likelihood of the predicted probability <img
+class="latex-math" width="8" height="10" src="../../img/compiled/nn_from_scratch/accbd9676e74dd68ee2a6a31e07e6c52.png"
+alt="y" title="y" class="math inline" /> is either 0 or 1, and the loss
+is the negative log likelihood of the predicted probability <img
 style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/f3e03e0ca5d256feed657cb0e0c7146c.png"
+class="latex-math" width="8" height="15" src="../../img/compiled/nn_from_scratch/be7f67d2a863b576a60241fcf678585d.png"
 alt="\hat{y}" title="\hat{y}" class="math inline" /> given the ground
 truth. Sometimes this is normalized by the number of samples <img
 style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/ec2f3327c5a428ba12e3931dd82348e1.png"
+class="latex-math" width="28" height="16" src="../../img/compiled/nn_from_scratch/ce334ed8eef6bcaaf927baa859ded357.png"
 alt="1/N" title="1/N" class="math inline" />, but it’s not needed (and
 pytorch drops it).</p>
 <p>Keeping in mind that</p>
 <img style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/3c3181bbfb8dec9392349085e6608c6c.png"
+class="latex-math" width="122" height="44" src="../../img/compiled/nn_from_scratch/d42fe2c3dc8ac3ca63cb9a9ddcec771d.png"
 alt="\begin{array}{rl}
 \frac{\partial{\log(x)}}{\partial{x}} &amp;= \frac{1}{x}\\
 \frac{\partial{\log(1-x)}}{\partial{x}} &amp;= -\frac{1}{1-x}
@@ -68,14 +68,14 @@ alt="\begin{array}{rl}
 \frac{\partial{\log(1-x)}}{\partial{x}} &amp;= -\frac{1}{1-x}
 \end{array}" class="math display" />
 <p>We compute the derivative of <img style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/abeeb8e18a21bb0a1239e09e6ed55132.png" alt="L"
-title="L" class="math inline" /> with respect to <img
+class="latex-math" width="10" height="11" src="../../img/compiled/nn_from_scratch/45f7f8d484109165379093f1dd6fe5a1.png"
+alt="L" title="L" class="math inline" /> with respect to <img
 style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/f3e03e0ca5d256feed657cb0e0c7146c.png"
+class="latex-math" width="8" height="15" src="../../img/compiled/nn_from_scratch/be7f67d2a863b576a60241fcf678585d.png"
 alt="\hat{y}" title="\hat{y}" class="math inline" /> step by step:</p>
 <!-- $$\bar{BCE}(\hat{y}, y) = \frac{\hat{y} - y}{\hat{y}(1 - \hat{y})}$$ -->
 <img style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/c1cf7c783c532f7b9dac0e9d67c3b0f5.png"
+class="latex-math" width="472" height="189" src="../../img/compiled/nn_from_scratch/4a282ecf8f34c6a43004e9575c54355e.png"
 alt="\begin{array}{rl}
 \frac{\partial{L}}{\partial{\hat{y}}} &amp;= -y (\frac{\partial{\log(\hat{y})}}{\partial{\hat{y}}}) - (1 - y)  (\frac{\partial{\log(1-\hat{y})}}{\partial{\hat{y}}})\textup{ ; Substitute in log definitions}\\
 &amp;= -y (\frac{1}{\hat{y}}) - (1 - y)  (- \frac{1}{1  - \hat{y}})\\
@@ -98,12 +98,12 @@ alt="\begin{array}{rl}
 <h2 id="sigmoid-activation-function">Sigmoid Activation Function</h2>
 <p>The forward pass of the sigmoid activation function is:</p>
 <p><img style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/361ec929cd5872dbbacf9eaa47c8e3a9.png"
+class="latex-math" width="107" height="35" src="../../img/compiled/nn_from_scratch/8924a615417f5961c596fed2f67d6de2.png"
 alt="\sigma(x) = \frac{1}{1 + e^{-x}}"
 title="\sigma(x) = \frac{1}{1 + e^{-x}}" class="math display" /></p>
 <p>Keeping in mind that</p>
 <img style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/9b2c2842bb15a4ab055ad96c9228eb11.png"
+class="latex-math" width="110" height="62" src="../../img/compiled/nn_from_scratch/402f6982f0d3d42ee5f313943db70c3c.png"
 alt="\begin{array}{rl}
 \frac{\partial{e^x}}{\partial{x}} &amp;= e^x\\
 \frac{\partial{e^{-x}}}{\partial{x}} &amp;= -e^{-x}\\
@@ -114,13 +114,13 @@ alt="\begin{array}{rl}
 \frac{\partial}{\partial{x}} \left(\frac{1}{x}\right) &amp;= -\frac{1}{x^2}
 \end{array}" class="math display" />
 <p>We compute the derivative of <img style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/aa02476b7b07d1855453d5774e278f22.png"
+class="latex-math" width="9" height="7" src="../../img/compiled/nn_from_scratch/8aa63c118ed18cb77bfee367d3352cea.png"
 alt="\sigma" title="\sigma" class="math inline" /> with respect to <img
 style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/3fc90aaea65b531bc9e47d6af2179647.png" alt="x"
-title="x" class="math inline" /> step by step:</p>
+class="latex-math" width="9" height="7" src="../../img/compiled/nn_from_scratch/358fd8ca356e5efda126b20adfd46ed5.png"
+alt="x" title="x" class="math inline" /> step by step:</p>
 <img style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/d46ecee38fd02fe6febe37fe4f50e075.png"
+class="latex-math" width="395" height="110" src="../../img/compiled/nn_from_scratch/eddeda34c7851ebbd8654f2ec1f36620.png"
 alt="\begin{array}{rl}
 \frac{\partial{\sigma}}{\partial{x}} &amp;= \frac{\partial}{\partial{u}} \cdot \frac{1}{u} \cdot  \frac{\partial{u}}{\partial{x}}; u = 1 + e^{-x} \textup{ ; u substitution} \\
 &amp;= -\frac{1}{u^2} \cdot \frac{\partial{u}}{\partial{x}} \textup{ ; Substitute in fraction derivative} \\
@@ -138,30 +138,31 @@ alt="\begin{array}{rl}
 <p>We will use the following notation for matrix calculus for the
 forward pass</p>
 <p><img style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/d09320f51bfedec97b76f1751da3409c.png"
+class="latex-math" width="84" height="15" src="../../img/compiled/nn_from_scratch/eb66fd12b48afc0130bdc44acecfac60.png"
 alt="y = Wx + b" title="y = Wx + b" class="math display" /></p>
 <p>Where <img style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/b89669db395a729eb581612cc7355346.png" alt="W"
-title="W" class="math inline" /> is the weight matrix, <img
+class="latex-math" width="17" height="11" src="../../img/compiled/nn_from_scratch/3339b92857f9fe51f42647946ee8b527.png"
+alt="W" title="W" class="math inline" /> is the weight matrix, <img
 style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/3fc90aaea65b531bc9e47d6af2179647.png" alt="x"
-title="x" class="math inline" /> is the input, <img
+class="latex-math" width="9" height="7" src="../../img/compiled/nn_from_scratch/358fd8ca356e5efda126b20adfd46ed5.png"
+alt="x" title="x" class="math inline" /> is the input, <img
 style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/0ea4e5f2cbd6c83665da2a873362c058.png" alt="b"
-title="b" class="math inline" /> is the bias, and <img
+class="latex-math" width="6" height="11" src="../../img/compiled/nn_from_scratch/91049a001b0d36333468c046feb03f84.png"
+alt="b" title="b" class="math inline" /> is the bias, and <img
 style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/c850e8fe933e4a63141aa1f5e84a70d9.png" alt="y"
-title="y" class="math inline" /> is the output. The gradient of <img
-style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/c850e8fe933e4a63141aa1f5e84a70d9.png" alt="y"
-title="y" class="math inline" /> with respect to <img
-style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/b89669db395a729eb581612cc7355346.png" alt="W"
-title="W" class="math inline" /> and <img style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/0ea4e5f2cbd6c83665da2a873362c058.png" alt="b"
-title="b" class="math inline" /> is:</p>
+class="latex-math" width="8" height="10" src="../../img/compiled/nn_from_scratch/accbd9676e74dd68ee2a6a31e07e6c52.png"
+alt="y" title="y" class="math inline" /> is the output. The gradient of
 <img style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/2090cd3c9c58d7f91d7dd7c7c1fb7985.png"
+class="latex-math" width="8" height="10" src="../../img/compiled/nn_from_scratch/accbd9676e74dd68ee2a6a31e07e6c52.png"
+alt="y" title="y" class="math inline" /> with respect to <img
+style="vertical-align:middle"
+class="latex-math" width="17" height="11" src="../../img/compiled/nn_from_scratch/3339b92857f9fe51f42647946ee8b527.png"
+alt="W" title="W" class="math inline" /> and <img
+style="vertical-align:middle"
+class="latex-math" width="6" height="11" src="../../img/compiled/nn_from_scratch/91049a001b0d36333468c046feb03f84.png"
+alt="b" title="b" class="math inline" /> is:</p>
+<img style="vertical-align:middle"
+class="latex-math" width="69" height="42" src="../../img/compiled/nn_from_scratch/bc4ddfee290914112db4ec28170bff85.png"
 alt="\begin{array}{rl}
 \frac{\partial{y}}{\partial{W}} &amp;= x^T\\
 \frac{\partial{y}}{\partial{b}} &amp;= 1
@@ -242,7 +243,7 @@ class Sigmoid:
 <p>Unlike PyTorch, we will manually build the graph for our network. We
 will use the following architecture:</p>
 <p><img style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/f21706ad7b93115eeb11e98d1403b852.png"
+class="latex-math" width="157" height="16" src="../../img/compiled/nn_from_scratch/9a9b2260b5c347f36aad766bf1cacf87.png"
 alt="\hat{y} = \textup{Sigmoid}(\textup{Linear}())"
 title="\hat{y} = \textup{Sigmoid}(\textup{Linear}())"
 class="math display" /></p>
@@ -291,22 +292,22 @@ the weights.</p>
 between the partial <code>loss_wrt_linear1</code> and
 <code>linear1_wrt_weight</code> because we are doing matrix
 multiplication. The weight matrix <img style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/b89669db395a729eb581612cc7355346.png" alt="W"
-title="W" class="math inline" /> is of shape
+class="latex-math" width="17" height="11" src="../../img/compiled/nn_from_scratch/3339b92857f9fe51f42647946ee8b527.png"
+alt="W" title="W" class="math inline" /> is of shape
 <code>(out_features, in_features)</code> and the gradient with respect
 to <img style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/b89669db395a729eb581612cc7355346.png" alt="W"
-title="W" class="math inline" /> needs to be the same shape, and this
-shape is formed by the inner product of the input vector <img
+class="latex-math" width="17" height="11" src="../../img/compiled/nn_from_scratch/3339b92857f9fe51f42647946ee8b527.png"
+alt="W" title="W" class="math inline" /> needs to be the same shape, and
+this shape is formed by the inner product of the input vector <img
 style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/3fc90aaea65b531bc9e47d6af2179647.png" alt="x"
-title="x" class="math inline" /> (the derivative of <img
+class="latex-math" width="9" height="7" src="../../img/compiled/nn_from_scratch/358fd8ca356e5efda126b20adfd46ed5.png"
+alt="x" title="x" class="math inline" /> (the derivative of <img
 style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/cda63a0278c6999647dc49c5de7d22c4.png" alt="Wx"
-title="Wx" class="math inline" /> with respect to <img
+class="latex-math" width="26" height="11" src="../../img/compiled/nn_from_scratch/f50507c39fb2c51b2973c17367a780f8.png"
+alt="Wx" title="Wx" class="math inline" /> with respect to <img
 style="vertical-align:middle"
-src="../../img/compiled/nn_from_scratch/b89669db395a729eb581612cc7355346.png" alt="W"
-title="W" class="math inline" />) and the weights.</p>
+class="latex-math" width="17" height="11" src="../../img/compiled/nn_from_scratch/3339b92857f9fe51f42647946ee8b527.png"
+alt="W" title="W" class="math inline" />) and the weights.</p>
 <h2 id="training-the-network">Training the network</h2>
 <p>To train the network, I give it some sample data. Note the rule for
 the data is the first element is an indicator variable for the ground

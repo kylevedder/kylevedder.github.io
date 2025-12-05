@@ -32,7 +32,9 @@ def build_html(file: Path):
 
     html_file = file.parent / file.name.replace(".md", ".html")
     print(f"{file} -> {html_file}")
-    run_command(f"pandoc --citeproc --webtex {tmp_file} -o {html_file}")
+    run_command(
+        f"pandoc --citeproc --webtex='https://latex.codecogs.com/png.latex?\\dpi{{200}}' {tmp_file} -o {html_file}"
+    )
     postprocess(html_file)
     # run_command(f"tidy -i -q -o {html_file} {html_file}")
     Path(tmp_file).unlink()
