@@ -1,4 +1,4 @@
-HEADER State of Robot Learning, December 2025
+HEADER {"page_name": "State of Robot Learning, December 2025", "teaser_img": "https://vedder.io/img/static/state_of_robot_learning_dec_2025.png"}
 
 # State of Robot Learning --- December 2025
 
