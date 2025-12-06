@@ -169,4 +169,4 @@ I think the only solid foundation for the future is: human demonstrations will c
 [^6]: Ross, S., Gordon, G., & Bagnell, J. A. (2011). A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning. AISTATS.
 [^7]: Jang, E. (2021). Just Ask for Generalization. [Blog Post]. Available at: evjang.com/2021/10/23/generalization.html
 [^8]: Kumar, A., Fu, Z., Pathak, D., & Malik, J. (2021). RMA: Rapid Motor Adaptation for Legged Robots. Robotics: Science and Systems (RSS).
-[^9]: Amin, A., et al. (2025). $\pi^*_{0.6}$: a VLA that Learns from Experience. Physical Intelligence. Available at: https://www.physicalintelligence.company/download/pistar06.pdf
+[^9]: Amin, A., et al. (2025). $\pi^*_{0.6}$: a VLA that Learns from Experience. Physical Intelligence.
