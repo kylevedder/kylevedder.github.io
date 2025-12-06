@@ -28,7 +28,7 @@ State of Robot Learning, December 2025
 </head>
 <body><h1 id="state-of-robot-learning-december-2025">State of Robot Learning —
 December 2025</h1>
-<p>Basically all robot learning systems today (Dec 2025) are pure
+<p>Basically all robot learning systems today (December, 2025) are pure
 Behavior Cloning (BC, also called Imitation Learning) systems. Humans
 provide (near) optimal demonstrations of a task, and machine learning
 models try to imitate those actions. Formally, a policy <img
@@ -38,15 +38,21 @@ alt="\pi" title="\pi" class="math inline" /> is trained in a supervised
 fashion — given the robot’s state <img style="vertical-align:middle"
 class="latex-math" width="6" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/cd00e625ad5fa0990831dd09886fe077.png"
 alt="s" title="s" class="math inline" /> (i.e. the camera images, robot
-joint angles, and maybe task description text), predict the demonstrated
-actions <img style="vertical-align:middle"
+joint angles, and maybe task description text), <img
+style="vertical-align:middle"
+class="latex-math" width="29" height="16" src="../img/compiled/state_of_robot_learning_dec_2025/52d63dd22b5739b208a11f9fb1de9cd6.png"
+alt="\pi(s)" title="\pi(s)" class="math inline" /> predicts the
+demonstrated actions <img style="vertical-align:middle"
 class="latex-math" width="8" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/7fb0675884892e8376989145c015d8ad.png"
 alt="a" title="a" class="math inline" /> (often an action
 <em>chunk</em>, e.g. the next second of ~50hz).</p>
 <p>This doc aims to describe the anatomy of a modern BC stack, as well
 as its shortcomings and (incomplete / clunky) workarounds. It then aims
 to explain what other approaches people are considering for the future,
-and the issues preventing them from being the conventional approach.</p>
+and the issues preventing them from being the conventional approach.
+Finally, in concludes with some predictions about the future of robot
+learning, and navigation advice for the “picks and shovels” salesmen in
+the Embodied AI race.</p>
 <h2 id="the-anatomy-of-a-2025-robot-learning-stack">The Anatomy of a
 2025 Robot Learning Stack</h2>
 <h3 id="collecting-human-expert-demonstrations">Collecting human expert
@@ -56,7 +62,10 @@ These come from human demonstrations, and from a variety of sources.</p>
 <h4 id="leader-follower-gello-aloha">Leader-Follower (GELLO, ALOHA)</h4>
 <p>Humans directly teleoperate a full robot (follower) using a
 controller (leader). This can be done with a full copy of the robot
-setup (ALOHA) or a smaller, lighter scaled down version (GELLO).</p>
+setup (ALOHA<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>) or a smaller, lighter scaled down
+version (GELLO<a href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a>).</p>
 <p>Pros:</p>
 <ul>
 <li>Follower robot has the full sensor suite to record all of <img
@@ -68,8 +77,8 @@ executed on the robot</li>
 </ul>
 <p>Cons:</p>
 <ul>
-<li>Typically <em>much</em> slower than humans performing the task
-manually</li>
+<li>Typically <em>much</em> (up to 10x!) slower than humans performing
+the task directly with their hands</li>
 <li>Operators require multiple weeks of practice to become proficient
 enough to make data usable for training</li>
 <li>Requires a full robot onsite to collect data — significant
@@ -77,10 +86,12 @@ production and capital requirement to scale collection</li>
 </ul>
 <h4 id="smart-demo-gloves-universal-manipulation-interface">Smart Demo
 Gloves (Universal Manipulation Interface)</h4>
-<p>Rather than full leader follower, humans hold devices in their hands
-and use these devices to perform the task. The end effectors match the
-robot, along with a cheap version of the sensor suite onboard the robot
-to try to reconstruct <img style="vertical-align:middle"
+<p>Rather than full leader follower, humans hold devices (e.g. Universal
+Manipulation Interface<a href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a>) in their hands and use these
+devices to perform the task. The end effectors match the robot, along
+with a cheap version of the sensor suite onboard the robot to try to
+reconstruct <img style="vertical-align:middle"
 class="latex-math" width="6" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/cd00e625ad5fa0990831dd09886fe077.png"
 alt="s" title="s" class="math inline" />. Devices perform SLAM to get
 end effector pose in task space, such that IK can later be used to
@@ -89,7 +100,10 @@ estimate full joint state.</p>
 <ul>
 <li>Faster to learn for operators</li>
 <li>Faster demonstrations</li>
-<li>Cheaper to deploy at scale (e.g. Generalist)</li>
+<li>Cheaper to deploy at scale (e.g. Generalist<a href="#fn4"
+class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>,
+Sunday<a href="#fn5" class="footnote-ref" id="fnref5"
+role="doc-noteref"><sup>5</sup></a>)</li>
 </ul>
 <p>Cons:</p>
 <ul>
@@ -149,8 +163,7 @@ class="latex-math" width="29" height="16" src="../img/compiled/state_of_robot_le
 alt="\pi(s)" title="\pi(s)" class="math inline" /> to predict <img
 style="vertical-align:middle"
 class="latex-math" width="8" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/7fb0675884892e8376989145c015d8ad.png"
-alt="a" title="a" class="math inline" /> — especially with
-Leader-Follower data.</p>
+alt="a" title="a" class="math inline" />.</p>
 <p>However, even with extremely clean demonstration data these policies
 still wander into <em>out of distribution</em> states. There are several
 reasons for this:</p>
@@ -204,12 +217,13 @@ distribution)</h3>
 <p>This is why it’s important to not just naively train on expert human
 data! In addition to these straightforward task demonstrations, it’s
 critical to train the model how to get out of these failure states — a
-“DAgger” style approach. There’s a bit of nuance to constructing this
-data — you want to train your model to <em>leave</em> these bad states,
-but you do not want to accidentally train to <em>enter</em> these bad
-states, lest it imitate this data and intentionally visit these bad
-states. Doing this right means carefully curating your recovery
-data.</p>
+“DAgger”<a href="#fn6" class="footnote-ref" id="fnref6"
+role="doc-noteref"><sup>6</sup></a> style approach. There’s a bit of
+nuance to constructing this data — you want to train your model to
+<em>leave</em> these bad states, but you do not want to accidentally
+train to <em>enter</em> these bad states, lest it imitate this data and
+intentionally visit these bad states. Doing this right means carefully
+curating your recovery data.</p>
 <p>Building out this DAgger data is an iterative process, and an art at
 that. You train the model for the given task, observe its failure modes,
 concoct a new dataset to try to address those failure modes, retrain,
@@ -227,6 +241,16 @@ hopefully much smaller) set of failure modes. This DAgger data can be
 included in a pretraining run, and alongside data scale often results in
 higher quality predictions and fewer failures. With sufficient effort on
 data iteration, policies can be made to be surprisingly robust.</p>
+<p>As these policies get more robust, they also take more of your time
+to evalaute their performance. If your policy typically fails every 15
+seconds, you only need a few minutes of evals comparing training run A
+vs B to get signal on their performance. If your policy takes minutes to
+hours between failures, you need to spend many hours doing evals to get
+any relative signal. It’s tempting to look for offline metrics (e.g. the
+validation MSE featured in = Generalist’s blogpost<a href="#fn7"
+class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>),
+but emperically there is very poor correlation between these offline
+metrics and on-robot performance.</p>
 <h3 id="speeding-up-your-behavior-cloning-policy-its-hard">Speeding up
 your behavior cloning policy (it’s hard!)</h3>
 <p>DAgger addresses robustness issues, and avoiding catastrophic
@@ -234,8 +258,9 @@ failures can speed up your average time to complete a task, but it does
 nothing to improve your speed in best-case-scenario. Given a dataset,
 you can discard all but the fastest demonstrations (losing enormous data
 scale and likely hurting robustness), or condition on speed (see: Eric
-Jang’s “Just Ask For Generalization”), but none of these allow for
-faster than human demonstration performance.</p>
+Jang’s “Just Ask For Generalization”<a href="#fn8" class="footnote-ref"
+id="fnref8" role="doc-noteref"><sup>8</sup></a>), but none of these
+allow for faster than human demonstration performance.</p>
 <p>Another trick is to simply execute the policy actions at faster than
 realtime (e.g. execute 50hz control at 70hz), but this stresses your low
 level control stack and leads to incorrect behavior when interacting
@@ -290,11 +315,11 @@ feedback from its already strong guesses.</p>
 <p>Robotics has none of these luxuries in the real world. Given the
 state <img style="vertical-align:middle"
 class="latex-math" width="6" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/cd00e625ad5fa0990831dd09886fe077.png"
-alt="s" title="s" class="math inline" /> of a kitchen at the beginning
-of the task, we do not have the ability to easily perfectly replicate
-the clutter in the kitchen hundreds of times, nor do we have strong
-enough base models that we can reliably fully clean the kitchen with
-some nonzero success rate.</p>
+alt="s" title="s" class="math inline" /> of a messy kitchen at the
+beginning of a “clean the kitchen” task, we do not have the ability to
+easily perfectly replicate the clutter in the kitchen hundreds of times,
+nor do we have strong enough base models that we can reliably fully
+clean the kitchen with some nonzero success rate.</p>
 <p>Thus, we either need to leverage simulation, where we can reliably
 reconstruct <img style="vertical-align:middle"
 class="latex-math" width="6" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/cd00e625ad5fa0990831dd09886fe077.png"
@@ -318,8 +343,9 @@ real.</p>
 very poorly when transferring to the real world. Domain randomization,
 i.e. significantly varying the parameters of the simulator, helps, as
 does having a highly structured visual input representation (e.g. scan
-dots), but outside of locomotion this has seen limited success on
-robots.</p>
+dots), but outside of locomotion (e.g. RMA<a href="#fn9"
+class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>)
+this has seen limited success on robots.</p>
 <p>There is ongoing work in “world models”, which are effectively
 learned simulators. One major reason for hope is, unlike a policy which
 needs to know the optimal action given a state, a world model need only
@@ -373,10 +399,11 @@ the goal.</p>
 good Q or V functions is an open area of research. Very recently,
 Physical Intelligence released <img style="vertical-align:middle"
 class="latex-math" width="24" height="15" src="../img/compiled/state_of_robot_learning_dec_2025/2210150b8e026d5b1d73149423aa5dad.png"
-alt="\pi_{0.6}^*" title="\pi_{0.6}^*" class="math inline" />, an
-approach that performs advantage weighted regression (BC, but rather
-than weighting every transition equally, weight it by <img
-style="vertical-align:middle"
+alt="\pi_{0.6}^*" title="\pi_{0.6}^*" class="math inline" /><a
+href="#fn10" class="footnote-ref" id="fnref10"
+role="doc-noteref"><sup>10</sup></a>, an approach that performs
+advantage weighted regression (BC, but rather than weighting every
+transition equally, weight it by <img style="vertical-align:middle"
 class="latex-math" width="101" height="16" src="../img/compiled/state_of_robot_learning_dec_2025/586c32e2d9835569f1e04c3b63665be9.png"
 alt="Q(s, a) - V(s)" title="Q(s, a) - V(s)" class="math inline" />),
 where they show minor improvements beyond that of just doing naive BC on
@@ -385,4 +412,98 @@ required human DAgger data, and it’s clearly not a silver bullet for
 real world RL. There is much more work to be done in building good,
 reliable Q and V functions such that they work well out of distribution,
 without grossly over or under estimating their true values.</p>
+<h2 id="predictions-and-advice">Predictions and Advice</h2>
+<p>Here’s a bunch of predictions about the future of robot learning:</p>
+<ul>
+<li>In (at most) 2 years, VLAs (e.g. <img style="vertical-align:middle"
+class="latex-math" width="14" height="9" src="../img/compiled/state_of_robot_learning_dec_2025/d18bc56750db0255a607a0af5a49d1dc.png"
+alt="\pi_0" title="\pi_0" class="math inline" />) will be replaced by
+video model backbones.</li>
+<li>In (at most) 10 years, world models are going to work well at
+simulating general open world interactions, and we will be doing policy
+extraction within them as part of policy training.
+<ul>
+<li>Traditional sim / video game engines will be data generators for
+World Models, but they will be at their core learned end-to-end.</li>
+</ul></li>
+<li>(Near) expert data collection will still matter for finetuning these
+world models</li>
+<li>Real world rollouts on real robots will still matter for reaching
+superhuman performance on that embodiment</li>
+</ul>
+<p>As part of understanding where the field is going, many people have
+asked me for advice about building “picks and shovels” startups to
+profit from the Embodied AGI race. I think:</p>
+<ul>
+<li>Data labeling is a comodity, and fundamentally a human labor
+arbitrage hustle play, not a tech play. You will need to out-operate
+Scale AI.</li>
+<li>Pretraining data sales is also a hustle play, <em>and</em> requires
+making the case that your data is actually helpful to the customer’s
+model performance. This is an ops question as well as a technical one,
+and we know <em>it’s not simply the case that all robot data
+helps</em>.</li>
+<li>Evals are a bottleneck, but they are so important to the model
+improvement loop that they have to be done in-house. This cannot be
+cleaved off and farmed out to a third party.</li>
+<li>Data platforms were not one-size-fits-all for Autonomous Vehicles, a
+domain where everyone had roughly the same sensors solving the same
+problem. There will not be one for for Embodied AGI.</li>
+</ul>
+<p>I think the only solid foundation for the future is: human
+demonstrations will continue to matter. If you build out a hardware plus
+software stack for demonstration (either GELLO or UMI) that reduces the
+painpoints described above <em>and you can show produces good policies
+by training some</em>, you will be an attractive business partner if not
+outright acquisition target.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Zhao, T. Z., Kumar, V., Levine, S., &amp; Finn, C.
+(2023). Learning Fine-Grained Bimanual Manipulation with Low-Cost
+Hardware. Robotics: Science and Systems (RSS).<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Wu, P., Shentu, Y., Yi, Z., Lin, X., &amp; Abbeel, P.
+(2023). GELLO: A General, Low-Cost, and Intuitive Teleoperation
+Framework for Robot Manipulators. IEEE/RSJ International Conference on
+Intelligent Robots and Systems (IROS).<a href="#fnref2"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Chi, C., Xu, Z., Pan, C., Cousineau, E., Burchfiel, B.,
+Feng, S., Tedrake, R., &amp; Song, S. (2024). Universal Manipulation
+Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots.
+Robotics: Science and Systems (RSS).<a href="#fnref3"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Generalist AI Team. (2025). GEN-0: Embodied Foundation
+Models That Scale with Physical Interaction. Generalist AI Blog.
+Available at: https://generalistai.com/blog/nov-04-2025-GEN-0<a
+href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Sunday Team. (2025). ACT-1: A Robot Foundation Model
+Trained on Zero Robot Data. Sunday AI Journal. Available at:
+https://www.sunday.ai/journal/no-robot-data<a href="#fnref5"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Ross, S., Gordon, G., &amp; Bagnell, J. A. (2011). A
+Reduction of Imitation Learning and Structured Prediction to No-Regret
+Online Learning. AISTATS.<a href="#fnref6" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Generalist AI Team. (2025). GEN-0: Embodied Foundation
+Models That Scale with Physical Interaction. Generalist AI Blog.
+Available at: https://generalistai.com/blog/nov-04-2025-GEN-0<a
+href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Jang, E. (2021). Just Ask for Generalization. [Blog
+Post]. Available at: evjang.com/2021/10/23/generalization.html<a
+href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>Kumar, A., Fu, Z., Pathak, D., &amp; Malik, J. (2021).
+RMA: Rapid Motor Adaptation for Legged Robots. Robotics: Science and
+Systems (RSS).<a href="#fnref9" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>Amin, A., et al. (2025). <img
+style="vertical-align:middle"
+class="latex-math" width="24" height="15" src="../img/compiled/state_of_robot_learning_dec_2025/82c0455e5102951c81ea02ee2f9cb5b5.png"
+alt="\pi^*_{0.6}" title="\pi^*_{0.6}" class="math inline" />: a VLA that
+Learns from Experience. Physical Intelligence. Available at:
+https://www.physicalintelligence.company/download/pistar06.pdf<a
+href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 </body></html>

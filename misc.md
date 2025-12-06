@@ -3,6 +3,7 @@ HEADER Misc: Blog posts, notes, and resources
 ## Blog posts
 
 - State of Robot Learning --- Dec 2025 _(Dec 5th, 2025)_ - [Read](./misc/state_of_robot_learning_dec_2025.html)
+- Overview of my PhD Research _(Feb 10th, 2025)_ — [Read](./overview_of_my_phd.html)
 - Book review: Eric Jang’s “AI is Good for You” _(Dec 4th, 2023)_ — [Read](./misc/review_ai_is_good_for_you.html)
 - Applying to CS/ML PhD programs: what I wish I knew _(Aug 3rd, 2023)_ — [Read](./misc/applying_to_ml_phd.html)
 - DeepMind Internship Application 2022 _(Sep 29th, 2022)_ — [Read](./misc/deep_mind_application_2022.html)
