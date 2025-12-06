@@ -118,8 +118,8 @@ cameras to record their observations, providing an enormous source of
 data.</p>
 <p>Pros:</p>
 <ul>
-<li>Easiest data source to acquire - Enormous amounts of diverse
-data</li>
+<li>Easiest data source to acquire</li>
+<li>Enormous amounts of diverse data</li>
 <li>At full human speed</li>
 </ul>
 <p>Cons:</p>
@@ -132,10 +132,10 @@ class="latex-math" width="8" height="7" src="../img/compiled/state_of_robot_lear
 alt="a" title="a" class="math inline" />
 <ul>
 <li>State may not be from first person view, or be from a different
-angle, introducing a large state gap,</li>
+angle, introducing a large state gap</li>
 <li>Actions must be entirely inferred from the raw data, likely via a
-pseudolabing process from another model (e.g. skeleton trackers / human
-hand trackers)</li>
+pseudolabeling process from another model (e.g. skeleton trackers /
+human hand trackers)</li>
 </ul></li>
 <li>Without full human DoF, trajectories are likely <em>not</em>
 kinodynamically feasible, due to torso leaning, shifting weight,
@@ -165,8 +165,8 @@ prediction of <img style="vertical-align:middle"
 class="latex-math" width="8" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/7fb0675884892e8376989145c015d8ad.png"
 alt="a" title="a" class="math inline" /></li>
 <li>There’s uncertainty inherent in what exactly to do next
-(e.g. unfolding a shirt) —- both due to inherent partial observability
-of <img style="vertical-align:middle"
+(e.g. unfolding a shirt) — both due to inherent partial observability of
+<img style="vertical-align:middle"
 class="latex-math" width="6" height="7" src="../img/compiled/state_of_robot_learning_dec_2025/cd00e625ad5fa0990831dd09886fe077.png"
 alt="s" title="s" class="math inline" /> (e.g. cannot see inside of a
 crumpled shirt to see its internal folds) and inherent multi-modality in
@@ -219,7 +219,7 @@ issues. Along the way, you start to develop a touch and feel for the
 policy and its issues. Due to the need for rapid iteration, this is
 typically done as a post-training step atop a base pretrained policy,
 and hopefully that base policy has already seen quite a bit of task data
-such that it already mostly knows what its doing.</p>
+such that it already mostly knows what it’s doing.</p>
 <p>This frustration is compounded by the fact that the touch and feel
 you have developed from your task iteration can be completely wiped out
 by a new pretraining of the base policy, sometimes presenting a new (but
@@ -312,7 +312,7 @@ inference. However, in robotics, our simulators are a facsimile for the
 real world, and often a poor one at that. Simulators have naive physics
 models, have to make numerical estimates to handle multiple colliding
 bodies, must select contact models with different tradeoffs, are poor
-models of non-rigid objects, and large visual gaps between sim and
+models of non-rigid objects, and have large visual gaps between sim and
 real.</p>
 <p>For these reasons training policies entirely in simulation performs
 very poorly when transferring to the real world. Domain randomization,
@@ -335,8 +335,8 @@ we care about for dexterous manipulation.</p>
 <p>Using real-world data avoids any sim to real gap, the same reason we
 were animated to do BC to begin with. However, learning to improve
 directly from your own policy rollouts has a number of hurdles.</p>
-<p>The goal of an RL improvement loop is to relatively good actions and
-downweight relatively bad ones. To know if an action was
+<p>The goal of an RL improvement loop is to upweight relatively good
+actions and downweight relatively bad ones. To know if an action was
 <em>relatively</em> good or not, we need to answer counterfactuals; as
 we discussed in the LLM section, we don’t have the luxury of simply
 running the policy over and over from the same state, trying a bunch of

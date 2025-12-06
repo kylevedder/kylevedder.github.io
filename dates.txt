@@ -1,0 +1,27 @@
+## Updates
+<div class="updates">
+ - Mar 25th, 2025: Dyna Robotics has come out of stealth!
+ - Feb 10th, 2025: I defended [my thesis!](https://arxiv.org/abs/2503.15666)
+ - Jan 22nd, 2025: [Neural Eulerian Scene Flow Fields](./eulerflow.html) was accepted to ICLR 2025!
+ - Jan 22nd, 2025: [Articulate Anything: Automatic Modeling of Articulated Objects via a Vision-Language Foundation Model](https://articulate-anything.github.io/) was accepted to ICLR 2025!
+ - Nov 20th, 2024: I joined Dyna Robotics as a Researcher!
+ - Jul 1st, 2024: [_I Can't Believe It's Not Scene Flow!_](./trackflow.html) was accepted to ECCV! [(Reviews)](./misc/eccv24_reviews_rebuttal.pdf)
+ - Mar 28th, 2024: [Blog post: On Homogeneous Transforms](./misc/homogeneous_transforms.html)
+ - Jan 29th, 2024: Joined Nvidia as a Research Intern!
+ - Jan 16th, 2024: [_ZeroFlow: Scalable Scene Flow via Distillation_](./zeroflow.html) was accepted to ICLR 2024! [(Reviews)](https://openreview.net/forum?id=FRCHDhbxZF)
+ - Dec 4th, 2023: [Book review: Eric Jang’s book "_AI is Good for You_"](./misc/review_ai_is_good_for_you.html)
+ - Aug 3rd, 2023: [Blog post: Applying to CS PhD programs for Machine Learning: what I wish I knew](https://vedder.io/misc/applying_to_ml_phd.html)
+ - Jul 3rd, 2023: [Blog post: My ML research development environment workflow](misc/research_dev_env.html)
+ - Jun 18th, 2023: [ZeroFlow](./zeroflow.html) was selected as a highlighted method in the CVPR 2023 _Workshop on Autonomous Driving_ Scene Flow Challenge!
+ - Jan 12th, 2023: [_A Domain-Agnostic Approach for Characterization of Lifelong Learning Systems_](./publications/L2M_eval_preprint.pdf) was accepted to Neural Networks.
+ - Jun 30th, 2022: [_Sparse PointPillars_](./sparse_point_pillars.html) was accepted to IROS 2022. [(Reviews)](./misc/SparsePointPillars_IROS_2022_reviews.txt)
+ - Jun 7th, 2022: [Invited talk for _Sparse PointPillars_ at 3D-DLAD](https://www.youtube.com/watch?v=JgcR6cFXR5w)
+ - May 15th, 2022: Joined Argo as a Research Intern!
+ - Apr 27th, 2021: Passed my WPEII qual on _Current Approaches and Future Directions for Point Cloud Object Detection in Intelligent Agents_ [(Document)](misc/KyleVedderWPEII2021.pdf) [(Video)](https://www.youtube.com/watch?v=xFFCQVwYeec)
+ - Feb 11th, 2021: [Blog post: Setting up `mujoco-py` for use with on-screen and off-screen rendering](misc/mujoco_py.html)
+ - Nov 4th, 2020: [_X\*: Anytime Multi-Agent Path Finding for Sparse Domains using Window-Based Iterative Repairs_](./xstar.html) was accepted to Artificial Intelligence Journal!
+ - Jul 23rd, 2020: [Presentation: _From Shapley Values to Explainable AI_](https://www.youtube.com/watch?v=4RkhsIz14Yc)
+ - Jun 29rd, 2020: [Demo: _Penn Service Robots navigating around Levine_](https://www.youtube.com/watch?v=o7WW2cu1h7c)
+ - May 8th, 2020: [Term paper: _An Overview of SHAP-based Feature Importance Measures and Their Applications To Classification_](misc/shap_for_classification.pdf)
+</div>
+

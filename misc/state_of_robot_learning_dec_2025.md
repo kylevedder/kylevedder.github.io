@@ -52,14 +52,15 @@ YouTube and other video sources have large scale data of humans performing all k
 
 Pros:
 
- - Easiest data source to acquire - Enormous	amounts of diverse data
+ - Easiest data source to acquire
+ - Enormous amounts of diverse data
  - At full human speed
 
 Cons:
 
  - Enormous gap in reconstructing $s$ and $a$
-	 - State may not be from first person view, or be from a different angle, introducing a large state gap,
-	 - Actions must be entirely inferred from the raw data, likely via a pseudolabing process from another model (e.g. skeleton trackers / human hand trackers)
+	 - State may not be from first person view, or be from a different angle, introducing a large state gap
+	 - Actions must be entirely inferred from the raw data, likely via a pseudolabeling process from another model (e.g. skeleton trackers / human hand trackers)
  - Without full human DoF, trajectories are likely _not_ kinodynamically feasible, due to torso leaning, shifting weight, reaching, etc
 
 ### The hard problem of behavior cloning (OOD states)
@@ -69,7 +70,7 @@ Behavior cloning sounds simple in principle — supervise $\pi(s)$ to predict $a
 However, even with extremely clean demonstration data these policies still wander into _out of distribution_ states. There are several reasons for this:
 
 1. The world will never perfectly match the training data; even at the same station, minor variations in lighting, background scene, or other distractors change the information in state $s$, which in turn can impact the prediction of $a$
-2. There's uncertainty inherent in what exactly to do next (e.g. unfolding a shirt) —- both due to inherent partial observability of $s$ (e.g. cannot see inside of a crumpled shirt to see its internal folds) and inherent multi-modality in the action distribution from demonstrators
+2. There's uncertainty inherent in what exactly to do next (e.g. unfolding a shirt) — both due to inherent partial observability of $s$ (e.g. cannot see inside of a crumpled shirt to see its internal folds) and inherent multi-modality in the action distribution from demonstrators
 3. Models have prediction error on their actions; because $\pi(s)$ is making _sequential_ decisions about $a$ that in turn influence the next state $s'$, this error compounds upon itself as it rolls out recursively
 
 Tackling these challenges requires design choices, both for the model itself and for the data it's trained on. Modeling choices are important —strong, data driven priors (e.g. VLMs) and the right model class to handle the multi-modality in the action distribution (either discrete autoregression, where the model inherently models the full probability distribution over the next token, or continuous denoising, where the model is trained to sample from the true target distribution) — but the data distribution the model is trained on arguably matters more.
@@ -80,7 +81,7 @@ As discussed in 3), naively training these models on expert human demonstrations
 
 This is why it's important to not just naively train on expert human data! In addition to these straightforward task demonstrations, it's critical to train the model how to get out of these failure states — a "DAgger" style approach. There's a bit of nuance to constructing this data — you want to train your model to _leave_ these bad states, but you do not want to accidentally train to _enter_ these bad states, lest it imitate this data and intentionally visit these bad states. Doing this right means carefully curating your recovery data. 
 
-Building out this DAgger data is an iterative process, and an art at that. You train the model for the given task, observe its failure modes, concoct a new dataset to try to address those failure modes, retrain, and retry. This is a tedious process, requiring many hours of very smart and discerning human time to essentially play whack-a-mole with various issues. Along the way, you start to develop a touch and feel for the policy and its issues. Due to the need for rapid iteration, this is typically done as a post-training step atop a base pretrained policy, and hopefully that base policy has already seen quite a bit of task data such that it already mostly knows what its doing.
+Building out this DAgger data is an iterative process, and an art at that. You train the model for the given task, observe its failure modes, concoct a new dataset to try to address those failure modes, retrain, and retry. This is a tedious process, requiring many hours of very smart and discerning human time to essentially play whack-a-mole with various issues. Along the way, you start to develop a touch and feel for the policy and its issues. Due to the need for rapid iteration, this is typically done as a post-training step atop a base pretrained policy, and hopefully that base policy has already seen quite a bit of task data such that it already mostly knows what it's doing.
 
 This frustration is compounded by the fact that the touch and feel you have developed from your task iteration can be completely wiped out by a new pretraining of the base policy, sometimes presenting a new (but hopefully much smaller) set of failure modes. This DAgger data can be included in a pretraining run, and alongside data scale often results in higher quality predictions and fewer failures. With sufficient effort on data iteration, policies can be made to be surprisingly robust.
 
@@ -110,7 +111,7 @@ LLMs differ from robotics in two important ways:
  - LLMs are able to be rolled out an unlimited number of times from the identical state $s$
  - LLMs start with a very strong base policy
 
-Because of these two factors, online, on-policy RL becomes feasible. Either directly, or after a little bit of supervised fine-tuning from a few expert demonstrations, the policy can start to achieve a non-zero success rate from a given state $s$. This allows for the LLM to simply be rolled out hundreds	or thousands of times from $s$ as a form of exploration, receive (sparse) rewards from the environment on how its performed, and directly update its policy.
+Because of these two factors, online, on-policy RL becomes feasible. Either directly, or after a little bit of supervised fine-tuning from a few expert demonstrations, the policy can start to achieve a non-zero success rate from a given state $s$. This allows for the LLM to simply be rolled out hundreds or thousands of times from $s$ as a form of exploration, receive (sparse) rewards from the environment on how its performed, and directly update its policy.
 
 Importantly, this process avoids having to hallucinate a counterfactual. By rolling out many different trajectories from $s$, it avoids having to hallucinate “what if”s and instead directly receives environment feedback from its already strong guesses.
 
@@ -122,7 +123,7 @@ Thus, we either need to leverage simulation, where we can reliably reconstruct $
 
 _NB: I am not a sim expert._
 
-In LLMs, there is no sim-to-real gap — the environments it interacts with during training are the exact same environments it will see at inference. However, in robotics, our simulators are a facsimile for the real world, and often a poor one at that. Simulators have naive physics models, have to make numerical estimates to handle multiple colliding bodies, must select contact models with different tradeoffs, are poor models of non-rigid objects, and large visual gaps between sim and real.
+In LLMs, there is no sim-to-real gap — the environments it interacts with during training are the exact same environments it will see at inference. However, in robotics, our simulators are a facsimile for the real world, and often a poor one at that. Simulators have naive physics models, have to make numerical estimates to handle multiple colliding bodies, must select contact models with different tradeoffs, are poor models of non-rigid objects, and have large visual gaps between sim and real.
 
 For these reasons training policies entirely in simulation performs very poorly when transferring to the real world. Domain randomization, i.e. significantly varying the parameters of the simulator, helps, as does having a highly structured visual input representation (e.g. scan dots), but outside of locomotion this has seen limited success on robots.
 
@@ -132,7 +133,7 @@ There is ongoing work in “world models”, which are effectively learned simul
 
 Using real-world data avoids any sim to real gap, the same reason we were animated to do BC to begin with. However, learning to improve directly from your own policy rollouts has a number of hurdles.
 
-The goal of an RL improvement loop is to relatively good actions and downweight relatively bad ones. To know if an action was _relatively_ good or not, we need to answer counterfactuals; as we discussed in the LLM section, we don't have the luxury of simply running the policy over and over from the same state, trying a bunch of semi-reasonable actions to estimate the relative performance of action $a$ vs $a'$. Instead, we need some sort of system to hallucinate this; either a Q function that directly estimates discounted reward $Q(s, a)$, or some knowledge of the transition dynamics $(s, a) -> s'$ and then the Value of nearby state $V(s')$.
+The goal of an RL improvement loop is to upweight relatively good actions and downweight relatively bad ones. To know if an action was _relatively_ good or not, we need to answer counterfactuals; as we discussed in the LLM section, we don't have the luxury of simply running the policy over and over from the same state, trying a bunch of semi-reasonable actions to estimate the relative performance of action $a$ vs $a'$. Instead, we need some sort of system to hallucinate this; either a Q function that directly estimates discounted reward $Q(s, a)$, or some knowledge of the transition dynamics $(s, a) -> s'$ and then the Value of nearby state $V(s')$.
 
 Notably, both $Q$ and $V$ are a sort of world model by a different name; rather than predicting some future state in its entirety as you might imagine out of a learned simulator, its instead baking in a bunch of long horizon information about how, under good decision making through future interactions with the world, you will ultimately get to the goal.
 
