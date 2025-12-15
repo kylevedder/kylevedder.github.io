@@ -6,8 +6,8 @@ HEADER Misc: Blog posts, notes, and resources
 - Overview of my PhD Research _(Feb 10th, 2025)_ — [Read](./overview_of_my_phd.html)
 - Book review: Eric Jang’s “AI is Good for You” _(Dec 4th, 2023)_ — [Read](./misc/review_ai_is_good_for_you.html)
 - Applying to CS/ML PhD programs: what I wish I knew _(Aug 3rd, 2023)_ — [Read](./misc/applying_to_ml_phd.html)
-- Predictions on the next 5–10 years of AI _(Jun 27th, 2022)_ — [Read](./misc/writings/next_5_to_10_years_2022.html)
-- Advice for entering undergrads _(Jun 23rd, 2020)_ — [Read](./misc/writings/advice_entering_undergrad.html)
+- Predictions on the next 5–10 years of AI _(Jun 27th, 2022)_ — [Read](./misc/next_5_to_10_years_2022.html)
+- Advice for entering undergrads _(Jun 23rd, 2020)_ — [Read](./misc/advice_entering_undergrad.html)
 
 
 ## Technical notes
@@ -17,7 +17,6 @@ HEADER Misc: Blog posts, notes, and resources
 - My ML research development environment _(Jul 3rd, 2023)_ — [Read](./misc/research_dev_env.html)
 - Screen/tmux cheatsheet _(May 26th, 2021)_ — [Read](./misc/screen.html)
 - Setting up `mujoco-py` for rendering _(Feb 11th, 2021)_ — [Read](./misc/mujoco_py.html)
-- From Shapley Values to Explainable AI (Slides) _(Jul 23rd, 2020)_ — [PDF](./misc/FromShapleyValuesToExplainableAISlides.pdf)
 
 
 ## Interview prep

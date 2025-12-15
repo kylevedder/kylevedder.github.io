@@ -75,7 +75,7 @@ def build_resume(resume_md: Path, resume_pdf: Path):
 resume_md = "resume.md"
 resume_pdf = "KyleVedderResume.pdf"
 
-ignore_files = [resume_md, "README.md", "LICENSE.md"]
+ignore_files = [resume_md, "README.md", "LICENSE.md", "AGENTS.md"]
 
 # grab all .md files recursively
 md_files = list(Path(".").glob("**/*.md"))
