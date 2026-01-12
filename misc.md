@@ -2,6 +2,7 @@ HEADER Misc: Blog posts, notes, and resources
 
 ## Blog posts
 
+- A Love Letter to CVPR _(Jan 12th, 2026)_ — [Read](./misc/lover_letter_to_cvpr.html)
 - State of Robot Learning --- Dec 2025 _(Dec 5th, 2025)_ - [Read](./misc/state_of_robot_learning_dec_2025.html)
 - Overview of my PhD Research _(Feb 10th, 2025)_ — [Read](./overview_of_my_phd.html)
 - Book review: Eric Jang’s “AI is Good for You” _(Dec 4th, 2023)_ — [Read](./misc/review_ai_is_good_for_you.html)
