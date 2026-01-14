@@ -4,7 +4,7 @@ HEADER {"page_name": "A Love Letter to CVPR", "teaser_img": "https://vedder.io/i
 
 <img src="../img/static/love_letter_to_cvpr.png" class="centered" style="max-width:100%; height:auto;">
 
-I just finished my reviews for CVPR 2026, and it caused me to reflect on how special the CVPR community has been. Despite never having authored a paper at CVPR (yet, fingers crossed on our current submission!), I've gone every year since 2023 to host or participate in workshops, and it feels like my home conference. It's very different from the venues I have published in (mostly ICLR and ECCV), which I attribute to the type of attendees and the academic stewardship of its industrial and corporate participants.
+I just finished my reviews for CVPR 2026, and it caused me to reflect on how special the CVPR community has been. Despite having not authored a paper at CVPR (yet, fingers crossed on our current submission!), I've gone every year since 2023 to host or participate in workshops, and it feels like my home conference. It's very different from the venues I have published in (mostly ICLR and ECCV), which I attribute to the type of attendees and the academic stewardship of its industrial and corporate participants.
 
 ## A trip down memory lane
 
