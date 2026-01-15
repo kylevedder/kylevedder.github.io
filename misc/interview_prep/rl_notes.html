@@ -1,4 +1,4 @@
-<head>
+<!DOCTYPE html><html><head>
 <meta charset="utf-8">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9NWBV84HB2"></script>
@@ -26,53 +26,53 @@ RL Notes
 <link href="../../css/style.css" rel="stylesheet"> <!-- JavaScript -->
 <script type="text/javascript" src="../../js/utils.js"></script>
 </head>
-<h1 id="reinforcement-learning">Reinforcement Learning</h1>
+<body><h1 id="reinforcement-learning">Reinforcement Learning</h1>
 <h2 id="standard-q-learning-discrete-space">Standard Q Learning —
 Discrete Space</h2>
 <p>Q Learning is an off-policy RL method — the policy that
 <em>generates</em> the data does not need to be the same policy that you
 are improving using it. In discrete tabular setting, this can be solved
 via simple dynamic programming. <img style="vertical-align:middle"
-src="https://latex.codecogs.com/png.latex?\dpi{200}%5Ctextstyle%20Q"
+class="latex-math" width="12" height="15" src="../../img/compiled/rl_notes/83581cf87e7da3c83aa1a809cf34d817.png"
 alt="Q" title="Q" class="math inline" /> should tell you the discounted
 sum of rewards, and thus can be framed recursively as a local
 update.</p>
 <p>Given state <img style="vertical-align:middle"
-src="https://latex.codecogs.com/png.latex?\dpi{200}%5Ctextstyle%20s_t"
+class="latex-math" width="11" height="9" src="../../img/compiled/rl_notes/1e69fa255f4f0161638e5441be0c05db.png"
 alt="s_t" title="s_t" class="math inline" />, action <img
 style="vertical-align:middle"
-src="https://latex.codecogs.com/png.latex?\dpi{200}%5Ctextstyle%20a_t"
+class="latex-math" width="12" height="9" src="../../img/compiled/rl_notes/f2e24572e72b6535af7f785c99517801.png"
 alt="a_t" title="a_t" class="math inline" />, reward <img
 style="vertical-align:middle"
-src="https://latex.codecogs.com/png.latex?\dpi{200}%5Ctextstyle%20r_%7Bt%2B1%7D"
+class="latex-math" width="25" height="11" src="../../img/compiled/rl_notes/b9a61a7b9c89fe1144379d80ebdd928f.png"
 alt="r_{t+1}" title="r_{t+1}" class="math inline" /> for taking <img
 style="vertical-align:middle"
-src="https://latex.codecogs.com/png.latex?\dpi{200}%5Ctextstyle%20a_t"
+class="latex-math" width="12" height="9" src="../../img/compiled/rl_notes/f2e24572e72b6535af7f785c99517801.png"
 alt="a_t" title="a_t" class="math inline" /> at <img
 style="vertical-align:middle"
-src="https://latex.codecogs.com/png.latex?\dpi{200}%5Ctextstyle%20s_t"
+class="latex-math" width="11" height="9" src="../../img/compiled/rl_notes/1e69fa255f4f0161638e5441be0c05db.png"
 alt="s_t" title="s_t" class="math inline" />, discount factor <img
 style="vertical-align:middle"
-src="https://latex.codecogs.com/png.latex?\dpi{200}%5Ctextstyle%20%5Cgamma"
+class="latex-math" width="9" height="10" src="../../img/compiled/rl_notes/0a16eb2c3fe3e29dc88309137580c291.png"
 alt="\gamma" title="\gamma" class="math inline" /></p>
 <p><img style="vertical-align:middle"
-src="https://latex.codecogs.com/png.latex?\dpi{200}%5Cdisplaystyle%20Q_%7B%5Ctextup%7Bnew%7D%7D%28s_t%2C%20a_t%29%20%5Cgets%20%5Cleft%28r_%7Bt%2B1%7D%20%2B%20%5Cgamma%20%5Cmax_%7Ba%27%7D%20Q%28s_%7Bt%2B1%7D%2C%20a%27%29%20%5Cright%29"
+class="latex-math" width="287" height="30" src="../../img/compiled/rl_notes/5ad0149b139a5c8fdd5f82db45838fed.png"
 alt="Q_{\textup{new}}(s_t, a_t) \gets \left(r_{t+1} + \gamma \max_{a&#39;} Q(s_{t+1}, a&#39;) \right)"
 title="Q_{\textup{new}}(s_t, a_t) \gets \left(r_{t+1} + \gamma \max_{a&#39;} Q(s_{t+1}, a&#39;) \right)"
 class="math display" /></p>
 <p>Thus, written a least squares loss function <img
 style="vertical-align:middle"
-src="https://latex.codecogs.com/png.latex?\dpi{200}%5Ctextstyle%20L_Q"
+class="latex-math" width="19" height="16" src="../../img/compiled/rl_notes/60dcb63363ea7bfa775542024b0ee006.png"
 alt="L_Q" title="L_Q" class="math inline" /></p>
 <p><img style="vertical-align:middle"
-src="https://latex.codecogs.com/png.latex?\dpi{200}%5Cdisplaystyle%20L_Q%28s_t%2C%20a_t%29%20%3D%20%5Cleft%28Q%28s_t%2C%20a_t%29%20-%20%5Cleft%28r_%7Bt%2B1%7D%20%2B%20%5Cgamma%20%5Cmax_%7Ba%27%7D%20Q%28s_%7Bt%2B1%7D%2C%20a%27%29%20%5Cright%29%20%5Cright%29%5E2"
+class="latex-math" width="378" height="33" src="../../img/compiled/rl_notes/772e90b59d3ed18a2354ab4644ac6b8c.png"
 alt="L_Q(s_t, a_t) = \left(Q(s_t, a_t) - \left(r_{t+1} + \gamma \max_{a&#39;} Q(s_{t+1}, a&#39;) \right) \right)^2"
 title="L_Q(s_t, a_t) = \left(Q(s_t, a_t) - \left(r_{t+1} + \gamma \max_{a&#39;} Q(s_{t+1}, a&#39;) \right) \right)^2"
 class="math display" /></p>
 <h2 id="actor-critic-handling-continuious-space">Actor Critic — Handling
 Continuious Space</h2>
 <p>In discrete space, <img style="vertical-align:middle"
-src="https://latex.codecogs.com/png.latex?\dpi{200}%5Ctextstyle%20%5Cmax_%7Ba%27%7D"
+class="latex-math" width="38" height="9" src="../../img/compiled/rl_notes/cd9c3a3998d0cc22f97d0d7cce589495.png"
 alt="\max_{a&#39;}" title="\max_{a&#39;}" class="math inline" /> is
 computable as we can enumerate all possible actions. In continuious
 action space, this is not possible. Thus, we must replace this
@@ -82,41 +82,42 @@ function taking the role of “critic”.</p>
 Policy Gradient (DDPG)</h3>
 <p>In DDPG, the actor learns a simple determinstic mapping from state
 <img style="vertical-align:middle"
-src="https://latex.codecogs.com/png.latex?\dpi{200}%5Ctextstyle%20s_t"
+class="latex-math" width="11" height="9" src="../../img/compiled/rl_notes/1e69fa255f4f0161638e5441be0c05db.png"
 alt="s_t" title="s_t" class="math inline" /> to action <img
 style="vertical-align:middle"
-src="https://latex.codecogs.com/png.latex?\dpi{200}%5Ctextstyle%20a_t"
+class="latex-math" width="12" height="9" src="../../img/compiled/rl_notes/f2e24572e72b6535af7f785c99517801.png"
 alt="a_t" title="a_t" class="math inline" />, with noise added for
 exploration during data collection, i.e.</p>
 <p><img style="vertical-align:middle"
-src="https://latex.codecogs.com/png.latex?\dpi{200}%5Cdisplaystyle%20a_t%20%3D%20%5Cmu_%5Ctheta%28s_t%29%20%2B%5Cmathcal%7BN%7D%280%2C%20%5Csigma%5E2%29"
+class="latex-math" width="155" height="18" src="../../img/compiled/rl_notes/7a4b73a51d18a76028a2ef3ef4e29105.png"
 alt="a_t = \mu_\theta(s_t) +\mathcal{N}(0, \sigma^2)"
 title="a_t = \mu_\theta(s_t) +\mathcal{N}(0, \sigma^2)"
 class="math display" /></p>
 <p>during training and</p>
 <p><img style="vertical-align:middle"
-src="https://latex.codecogs.com/png.latex?\dpi{200}%5Cdisplaystyle%20a_t%20%3D%20%5Cmu_%5Ctheta%28s_t%29"
+class="latex-math" width="75" height="16" src="../../img/compiled/rl_notes/829f07b1193b88932f15da08ffe4ef90.png"
 alt="a_t = \mu_\theta(s_t)" title="a_t = \mu_\theta(s_t)"
 class="math display" /></p>
 <p>during inference. Thus, for a given batch of data, the critic can be
 optimized via a modified <img style="vertical-align:middle"
-src="https://latex.codecogs.com/png.latex?\dpi{200}%5Ctextstyle%20Q"
+class="latex-math" width="12" height="15" src="../../img/compiled/rl_notes/83581cf87e7da3c83aa1a809cf34d817.png"
 alt="Q" title="Q" class="math inline" /> loss, i.e.</p>
 <p><img style="vertical-align:middle"
-src="https://latex.codecogs.com/png.latex?\dpi{200}%5Cdisplaystyle%20L_Q%28s_t%2C%20a_t%29%20%3D%20%5Cleft%28Q%28s_t%2C%20a_t%29%20-%20%5Cleft%28r_%7Bt%2B1%7D%20%2B%20%5Cgamma%20Q%28s_%7Bt%2B1%7D%2C%20%5Cmu_%5Ctheta%28s_%7Bt%2B1%7D%29%29%20%5Cright%29%20%5Cright%29%5E2"
+class="latex-math" width="372" height="20" src="../../img/compiled/rl_notes/4f1b835876d35733b5b4c777edabbe04.png"
 alt="L_Q(s_t, a_t) = \left(Q(s_t, a_t) - \left(r_{t+1} + \gamma Q(s_{t+1}, \mu_\theta(s_{t+1})) \right) \right)^2"
 title="L_Q(s_t, a_t) = \left(Q(s_t, a_t) - \left(r_{t+1} + \gamma Q(s_{t+1}, \mu_\theta(s_{t+1})) \right) \right)^2"
 class="math display" /></p>
 <p>and then the actor optimized to maximize the <img
 style="vertical-align:middle"
-src="https://latex.codecogs.com/png.latex?\dpi{200}%5Ctextstyle%20Q"
+class="latex-math" width="12" height="15" src="../../img/compiled/rl_notes/83581cf87e7da3c83aa1a809cf34d817.png"
 alt="Q" title="Q" class="math inline" /> value; this can be done by
 simply minimizing the negative of the <img style="vertical-align:middle"
-src="https://latex.codecogs.com/png.latex?\dpi{200}%5Ctextstyle%20Q"
+class="latex-math" width="12" height="15" src="../../img/compiled/rl_notes/83581cf87e7da3c83aa1a809cf34d817.png"
 alt="Q" title="Q" class="math inline" /> function, i.e.</p>
 <p><img style="vertical-align:middle"
-src="https://latex.codecogs.com/png.latex?\dpi{200}%5Cdisplaystyle%20L_%5Cmu%28s_t%2C%20%5Ctheta%29%20%3D%20-Q%28s_t%2C%20%5Cmu_%5Ctheta%28s_t%29%29"
+class="latex-math" width="179" height="17" src="../../img/compiled/rl_notes/154ff25056aa1182322da8d577e7e31f.png"
 alt="L_\mu(s_t, \theta) = -Q(s_t, \mu_\theta(s_t))"
 title="L_\mu(s_t, \theta) = -Q(s_t, \mu_\theta(s_t))"
 class="math display" /></p>
 <!--This actor is often paramaterized as a Gaussian policy --- the network emits an $n$ dimensional mean $\mu$ and variance $\Sigma$ characterizing a distribution actions are then drawn from. While $\Sigma$ could be a full $n \times n$ matrix, it's often diagonal, i.e. each dimension is sampled independently, to form a _diagonal Gaussian policy_.-->
+</body></html>
