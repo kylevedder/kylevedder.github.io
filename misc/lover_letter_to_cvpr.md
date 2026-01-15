@@ -4,7 +4,9 @@ HEADER {"page_name": "A Love Letter to CVPR", "teaser_img": "https://vedder.io/i
 
 <img src="../img/static/love_letter_to_cvpr.png" class="centered" style="max-width:100%; height:auto;">
 
-I just finished my reviews for CVPR 2026, and it caused me to reflect on how special the CVPR community has been. Despite not having authored a paper at CVPR (yet, fingers crossed on our current submission!), I've gone every year since 2023 to host or participate in workshops, and it feels like my home conference. It's very different from the venues I have published in (mostly ICLR and ECCV), which I attribute to the type of attendees and the academic stewardship of its industrial and corporate participants. Unfortunately, I think these corporate stewards are dying off, and a new wave of companies that leverage academia for their ideas and not just as a hiring pool needs to emerge. 
+I finished my reviews for CVPR 2026 over the weekend, and it caused me to reflect on how special the CVPR community has been. Despite not having authored a paper at CVPR (yet, fingers crossed on our current submission!), I've gone every year since 2023 to host or participate in workshops, and it feels like my home conference. It's very different from the venues I have published in (mostly ICLR and ECCV), which I attribute to the type of attendees and the academic stewardship of its industrial and corporate participants.
+
+Unfortunately, between AV consolidation and the end of serious publishing by frontier labs, these corporate stewards appear to have recently died off. I hope a new wave of companies who view academia as an ideas engine and not as just a hiring pool emerge as new stewards who preserve CVPR's special culture.
 
 ## A trip down memory lane
 
