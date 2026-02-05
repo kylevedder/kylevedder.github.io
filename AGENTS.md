@@ -1,20 +1,41 @@
 # Repo Architecture for Agents
 
-This repository uses a custom build system to generate HTML files from Markdown and other sources.
+This repository uses a custom build system to generate HTML files from Markdown.
 
-**IMPORTANT:** Do not edit HTML files directly. They are generated artifacts.
+## Important: Source vs Generated Files
+
+- **Source files:** `*.md`, `_header.html`, `/build/*`, `/bibs/*`
+- **Generated files:** Everything in `_site/` (never edit, never commit)
+- **Static assets:** `/css/`, `/js/`, `/fonts/`, `/img/`, `/publications/`
 
 ## Build System
 
-To build the site, run the following command from the root of the repository:
-
+### Local Development
 ```bash
-./build.sh
+./preview.sh    # Build and serve at http://localhost:8000
 ```
 
-This script handles:
-- Pre-processing of content
-- Conversion of Markdown to HTML
-- Post-processing (e.g., headers, footers, includes)
+### Build Only
+```bash
+./build.sh      # Build to _site/
+```
 
-Always run `./build.sh` after making changes to source files (e.g., `.md`, `_header.html`, python scripts) to ensure the HTML is up to date.
+### Deployment
+Push to `master` branch. GitHub Actions automatically builds and deploys.
+
+## File Structure
+```
+/                     # Source markdown files
+/build/               # Build system (Python + preprocessors)
+/bibs/                # BibTeX bibliography files
+/css/, /js/, /fonts/  # Static assets (copied to _site/)
+/img/                 # Images (copied to _site/)
+/publications/        # PDFs (copied to _site/)
+/_site/               # BUILD OUTPUT (gitignored)
+```
+
+## Adding New Pages
+1. Create `pagename.md` in appropriate directory
+2. Add HEADER preprocessor directive at top
+3. Run `./preview.sh` to test locally
+4. Commit the `.md` file only

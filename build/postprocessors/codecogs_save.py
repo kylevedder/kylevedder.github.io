@@ -4,10 +4,10 @@ from pathlib import Path
 import subprocess
 
 
-def _download_image_locally(url: str, filename: str) -> Path:
+def _download_image_locally(url: str, filename: str, output_dir: Path) -> Path:
     # Generate the MD5 hash of the URL to use as the file name
     url_hash = hashlib.md5(url.encode("utf-8")).hexdigest()
-    local_path = Path("img") / "compiled" / filename / f"{url_hash}.png"
+    local_path = output_dir / "img" / "compiled" / filename / f"{url_hash}.png"
 
     # Ensure the directory exists
     local_path.parent.mkdir(parents=True, exist_ok=True)
@@ -66,7 +66,7 @@ def get_image_size(path: Path) -> tuple[int, int] | None:
     return None
 
 
-def process_codecogs_line(line: str, file: Path, root_dir: Path) -> str:
+def process_codecogs_line(line: str, file: Path, root_dir: Path, output_dir: Path) -> str:
     if "latex.codecogs.com" not in line:
         return line
 
@@ -79,15 +79,19 @@ def process_codecogs_line(line: str, file: Path, root_dir: Path) -> str:
         # Fallback if src format is different
         return line
 
-    # Download the image locally
-    image_disk_path = _download_image_locally(codecogs_url, file.stem)
+    # Download the image locally to output_dir
+    image_disk_path = _download_image_locally(codecogs_url, file.stem, output_dir)
 
     # Get image size
     size = get_image_size(image_disk_path)
 
+    # Compute relative path from file location to image
+    # file is relative to root (e.g., misc/foo.html)
+    # image is at img/compiled/{stem}/{hash}.png relative to output root
     file_num_parents = len(list(file.parents)) - 1
+    image_relative_to_output = image_disk_path.relative_to(output_dir)
     current_file_to_root_relative = (
-        Path(*[".." for _ in range(file_num_parents)]) / image_disk_path
+        Path(*[".." for _ in range(file_num_parents)]) / image_relative_to_output
     )
 
     # Replace the URL with the local path

@@ -19,7 +19,7 @@ class HeadTagCounter(HTMLParser):
 
 
 def process_document_into_html(
-    lines: list[str], file: Path, root_dir: Path
+    lines: list[str], file: Path, root_dir: Path, output_dir: Path
 ) -> list[str]:
     # Expect document to start with <head> tag, and have a single <head> and </head> tag
 

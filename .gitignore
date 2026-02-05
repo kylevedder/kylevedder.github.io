@@ -3,6 +3,16 @@
 .vscode/
 **/__pycache__/
 
+# Build output
+_site/
+img/compiled/
+
+# Development
+.venv/
+node_modules/
+package.json
+package-lock.json
+
 # macOS metadata
 .DS_Store
 **/.DS_Store
