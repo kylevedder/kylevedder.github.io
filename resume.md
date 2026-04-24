@@ -81,8 +81,6 @@ output:
 PUBS bibs/in_submission.bib physicalintelligence2026pi07
 PUBS bibs/in_submission.bib torne2026mem
 PUBS bibs/conferences.bib le2024articulate
-PUBS bibs/conferences.bib Soltoggio2024
-PUBS bibs/conferences.bib BAKER2023274
 
 \vspacebefore{}
 
@@ -110,6 +108,16 @@ PUBS bibs/conferences.bib vedder2019x
 PUBS bibs/tech_reports.bib vedder2018minutebots
 PUBS bibs/workshops.bib lane2017augmenting
 PUBS bibs/tech_reports.bib vedder2017minutebots
+
+\vspacebefore{}
+
+## Other
+
+\vspaceafter{}
+
+PUBS bibs/conferences.bib Soltoggio2024
+PUBS bibs/conferences.bib BAKER2023274
+PUBS bibs/tech_reports.bib vedder2020shap
 
 \vspacebefore{}
 
