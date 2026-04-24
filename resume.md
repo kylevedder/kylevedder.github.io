@@ -74,45 +74,44 @@ output:
 
 \vspaceafter{}
 
-## Preprints
+## Robot Learning
 
  \vspaceafter{}
 
-PUBS bibs/in_submission.bib
+PUBS bibs/in_submission.bib physicalintelligence2026pi07
+PUBS bibs/in_submission.bib torne2026mem
+PUBS bibs/conferences.bib le2024articulate
+PUBS bibs/conferences.bib Soltoggio2024
+PUBS bibs/conferences.bib BAKER2023274
 
 \vspacebefore{}
 
-## Conferences/Journals
+## 3D Vision / Scene Flow
 
 \vspaceafter{}
 
-PUBS bibs/conferences.bib
+PUBS bibs/in_submission.bib li2025uniflow
+PUBS bibs/conferences.bib vedder2025
+PUBS bibs/conferences.bib vedder2025eulerflow
+PUBS bibs/conferences.bib khatri2024trackflow
+PUBS bibs/conferences.bib vedder2024zeroflow
+PUBS bibs/challenges.bib vedder2024av2challenge
+PUBS bibs/conferences.bib vedder2022sparse
 
 \vspacebefore{}
 
 
-## Challenges
+## Multi-Agent Robotics and Path Planning
 
 \vspaceafter{}
 
-PUBS bibs/challenges.bib
+PUBS bibs/conferences.bib vedder2021x
+PUBS bibs/conferences.bib vedder2019x
+PUBS bibs/tech_reports.bib vedder2018minutebots
+PUBS bibs/workshops.bib lane2017augmenting
+PUBS bibs/tech_reports.bib vedder2017minutebots
 
 \vspacebefore{}
-<!-- ## Workshops
-
-\vspaceafter{}
-
-PUBS bibs/workshops.bib
-
-\vspacebefore{} -->
-
-<!-- ## Tech Reports
-
-\vspaceafter{}
-
-PUBS bibs/tech_reports.bib
-
-\vspacebefore{} -->
 
 
 
