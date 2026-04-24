@@ -18,9 +18,10 @@ def load_bibtex(file: Path):
 def extract_names(names_str):
     names = names_str.split(" and ")
     names = [name.strip() for name in names]
-    # Flip first and last name
+    # Flip "Last, First" names while preserving "First Last" and corporate names.
+    names = [name.strip("{}") for name in names]
     names = [name.split(", ") for name in names]
-    names = [f"{name[1]} {name[0]}" for name in names]
+    names = [f"{name[1]} {name[0]}" if len(name) == 2 else name[0] for name in names]
     names = [f"**{n}**" if "Kyle Vedder" in n else n for n in names]
     if len(names) > 10:
         names = [names[0] + " et al"]

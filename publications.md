@@ -2,13 +2,13 @@ HEADER Kyle Vedder's Publications
 
 # Publications
 
+## Preprints
+
+PUBS bibs/in_submission.bib
+
 ## Conferences/Journals
 
 PUBS bibs/conferences.bib
-
-## In Submission
-
-PUBS bibs/in_submission.bib
 
 ## Workshops
 

@@ -74,21 +74,21 @@ output:
 
 \vspaceafter{}
 
-## Conferences/Journals
+## Preprints
 
  \vspaceafter{}
+
+PUBS bibs/in_submission.bib
+
+\vspacebefore{}
+
+## Conferences/Journals
+
+\vspaceafter{}
 
 PUBS bibs/conferences.bib
 
 \vspacebefore{}
-
-<!-- ## In Submission
-
-\vspaceafter{}
-
-PUBS bibs/in_submission.bib
-
-\vspacebefore{} -->
 
 
 ## Challenges
