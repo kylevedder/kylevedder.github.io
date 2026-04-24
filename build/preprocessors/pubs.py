@@ -28,6 +28,19 @@ def extract_names(names_str):
     return names
 
 
+def strip_bibtex_braces(value: str) -> str:
+    stripped = []
+    in_math = False
+    escaped = False
+    for char in value:
+        if char == "$" and not escaped:
+            in_math = not in_math
+        if in_math or char not in "{}":
+            stripped.append(char)
+        escaped = char == "\\" and not escaped
+    return "".join(stripped)
+
+
 def entry_to_markdown(entries_wrapper):
 
     entries = {e.key: e.value for e in entries_wrapper.fields}
@@ -38,8 +51,7 @@ def entry_to_markdown(entries_wrapper):
         authors = authors_lst[0]
     else:
         authors = ", ".join(authors_lst)
-    title = entries["title"].replace("{", "").replace("}",
-                                                      "").replace("*", "\*")
+    title = strip_bibtex_braces(entries["title"]).replace("*", "\\*")
 
     markdown = f"- {authors}. _{title}_. "
 
