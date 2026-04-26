@@ -25,28 +25,28 @@ Proponents of dexterous hands will handwave about economies of scale driving dow
 
 But does this logic hold for relatively small mechanical devices with lots of moving parts? It seems the answer is no. I selected two imperfect surrogate products:
 
- - **Mechanical watch movements** --- finger-sized, ~100-part, micron-tolerance assemblies.
+ - **Mechanical watch movements** --- finger-sized, roughly 100-part, micron-tolerance assemblies.
  - **Hard disk drives** --- mid-sized electromechanical assemblies produced at enormous volumes.
 
 Unlike smartphones --- a favorite but inappropriate comparison --- these devices have many mechanical moving parts but are sealed and free of active contact wear. That makes them merely surrogates, an optimistic benchmark for the cost savings multiples we can expect out of complex mechanical hands.
 
-Both devices show the same shape: real unit prices fall **~87%** (watches) and **~99%** (HDDs) from launch to the modern floor, with most of the decline in the first decade or two, after which the floor is set by physics and prices track industry structure.
+Both devices show the same shape: real unit prices fall **roughly 87%** (watches) and **roughly 99.5%** (HDDs) from launch to the modern floor, with most of the decline in the first decade or two, after which the floor is set by physics and prices track industry structure.
 
 #### Pricing Mechanical Watch Movements
 
 <img src="../img/static/the_argument_against_human_hands/movement_prices.png" class="centered" height=400 style="max-width:100%; height:auto;">
 
-A Miyota 8215 --- ~100-part, micron-tolerance, fully mechanical --- wholesales for **$15 -- 25** in packs of 300, produced at >1M units/year. In real terms it fell from **~$162 (2026 dollars) at launch in 1977 to ~$21 today**, an 87% decline, most of it taken by the late 1980s. The Seiko NH35 runs $40 -- 80 and is roughly flat in real terms. The Swiss ETA 2824-2 went the *other* way, climbing ~30% to $200 -- 300 as Swatch restricted supply through the 2010s. The floor was hit a generation ago; price now responds to industry structure, not process improvement. [Dataset.](../img/static/the_argument_against_human_hands/mech_movement_prices.md)
+A Miyota 8215 --- roughly 100-part, micron-tolerance, fully mechanical --- wholesales for **$15 -- 25** in packs of 300, produced at >1M units/year. In real terms it fell from **approximately $162 (2026 dollars) at launch in 1977 to approximately $21 today**, an 87% decline, most of it taken by the late 1980s. The Seiko NH35 runs $40 -- 80 and is roughly flat in real terms. The Swiss ETA 2824-2 went the *other* way, climbing roughly 30% to $200 -- 300 as Swatch restricted supply through the 2010s. The floor was hit a generation ago; price now responds to industry structure, not process improvement. [Dataset.](../img/static/the_argument_against_human_hands/mech_movement_prices.md)
 
 #### Pricing HDDs
 
 <img src="../img/static/the_argument_against_human_hands/hdd_prices.png" class="centered" height=400 style="max-width:100%; height:auto;">
 
-A complete HDD fell from **~$16,500 (2026 dollars) in 1980 to $70 -- 100 today**, a ~99% decline. As with watches, most of it came early: the cheap-drive floor was already in the low hundreds by the early 2000s and has lived in the $50 -- 200 real band for two decades. The famous price-per-byte collapse came from packing more data into the same mechanism --- the *mechanism* itself did not get seven orders cheaper. [Dataset.](../img/static/the_argument_against_human_hands/hdd_prices.md)
+A complete HDD fell from **approximately $16,500 (2026 dollars) in 1980 to $70 -- 100 today**, a roughly 99.5% decline. As with watches, most of it came early: the cheap-drive floor was already in the low hundreds by the early 2000s and has lived in the $50 -- 200 real band for two decades. The famous price-per-byte collapse came from packing more data into the same mechanism --- the *mechanism* itself did not get seven orders cheaper. [Dataset.](../img/static/the_argument_against_human_hands/hdd_prices.md)
 
 #### Pricing mechanical hands
 
-The low-cost commercial five-finger hand floor is around **$5,000 -- 7,500**: an Inspire RH56F1 is **$5,062.50**, a tactile RH56F1 variant is **$6,294**, and an RH56E2 is **$7,500**. A Schunk SVH is **~$54,000**. A Shadow Dexterous Hand is **>$60,000**. The hand floor sits two orders of magnitude above the small-precision-mechanism floor, the ceiling three --- and that proxy floor is for *sealed* devices that never see contact wear.
+The low-cost commercial five-finger hand floor is around **$5,000 -- 7,500**: an Inspire RH56F1 is **$5,062.50**, a tactile RH56F1 variant is **$6,294**, and an RH56E2 is **$7,500**. A Schunk SVH is **approximately $54,000**. A Shadow Dexterous Hand is **>$60,000**. The hand floor sits two orders of magnitude above the small-precision-mechanism floor, the ceiling three --- and that proxy floor is for *sealed* devices that never see contact wear.
 
 #### Pricing actuators
 
@@ -54,8 +54,8 @@ Big actuators are comparatively cheap. Teknic ClearPath integrated servos start 
 
 Stack the two configurations on the same robot:
 
- - *Two arms, two hands.* Using YAM/PiPER-class arms, **~$4 -- 6k** of arm plus **$10k -- $120k** of hands. **$14 -- 126k**, dominated by the hands. Many small actuators, joints, sensors, and cables routed through the wrists; failure modes everywhere.
- - *Three arms, three parallel jaws.* Three YAM/PiPER-class arms with simple grippers are **~$6 -- 9k** retail.
+ - *Two arms, two hands.* Using YAM/PiPER-class arms, **roughly $4 -- 6k** of arm plus **$10k -- $120k** of hands. **$14 -- 126k**, dominated by the hands. Many small actuators, joints, sensors, and cables routed through the wrists; failure modes everywhere.
+ - *Three arms, three parallel jaws.* Three YAM/PiPER-class arms with simple grippers are **roughly $6 -- 9k** retail.
 
 A third arm with a parallel jaw costs less than putting fingers on either of the first two. The ratio is set by the gap between watch-class parts and motor-class parts, and the watch-class side is not catching up.
 
