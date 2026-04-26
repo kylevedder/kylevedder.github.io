@@ -2,6 +2,7 @@ HEADER Misc: Blog posts, notes, and resources
 
 ## Blog posts
 
+- The Case Against Human Hands _(Apr 26th, 2026)_ — [Read](./misc/the_case_against_human_hands.html)
 - A Love Letter to CVPR _(Jan 14th, 2026)_ — [Read](./misc/lover_letter_to_cvpr.html)
 - State of Robot Learning --- Dec 2025 _(Dec 5th, 2025)_ - [Read](./misc/state_of_robot_learning_dec_2025.html)
 - Overview of my PhD Research _(Feb 10th, 2025)_ — [Read](./overview_of_my_phd.html)
