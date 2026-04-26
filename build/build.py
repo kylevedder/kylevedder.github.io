@@ -126,8 +126,21 @@ resume_pdf = "KyleVedderResume.pdf"
 
 ignore_files = [resume_md, "README.md", "LICENSE.md", "AGENTS.md"]
 
-# Directories to exclude from globbing
-exclude_dirs = [".venv", "_site", ".git", "node_modules", "build"]
+# Directories to exclude from page compilation. Static asset directories are
+# copied wholesale above; markdown notes inside them are not standalone pages.
+exclude_dirs = [
+    ".venv",
+    "_site",
+    ".git",
+    "node_modules",
+    "build",
+    "css",
+    "js",
+    "fonts",
+    "img",
+    "publications",
+    "bibs",
+]
 
 # grab all .md files recursively
 md_files = list(Path(".").glob("**/*.md"))

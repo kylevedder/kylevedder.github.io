@@ -1,18 +1,22 @@
 FROM ubuntu:focal
 SHELL ["/bin/bash", "-c"]
-# Set the timezone info because otherwise tzinfo blocks install 
-# flow and ignores the non-interactive frontend command 🤬🤬🤬
-RUN ln -snf /usr/share/zoneinfo/America/New_York /etc/localtime && echo "/usr/share/zoneinfo/America/New_York" > /etc/timezone
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Set timezone info up front so tzdata does not block package installs.
+RUN ln -snf /usr/share/zoneinfo/America/New_York /etc/localtime && \
+    echo "/usr/share/zoneinfo/America/New_York" > /etc/timezone
+
 RUN apt update -y
 RUN apt install wget exiftool texlive-latex-extra -y
-RUN wget https://github.com/jgm/pandoc/releases/download/3.1.11.1/pandoc-3.1.11.1-1-amd64.deb -O /tmp/pandoc.deb
+RUN wget https://github.com/jgm/pandoc/releases/download/3.1.11.1/pandoc-3.1.11.1-1-arm64.deb -O /tmp/pandoc.deb
 RUN apt install /tmp/pandoc.deb -y
 RUN apt install git curl wget nano -y
 
 # Install miniconda to /miniconda
-RUN curl -LO http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-RUN bash Miniconda3-latest-Linux-x86_64.sh -p /miniconda -b
-RUN rm Miniconda3-latest-Linux-x86_64.sh
+RUN curl -LO http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-aarch64.sh
+RUN bash Miniconda3-latest-Linux-aarch64.sh -p /miniconda -b
+RUN rm Miniconda3-latest-Linux-aarch64.sh
 ENV PATH=/miniconda/bin:${PATH}
 RUN conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
 RUN conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
