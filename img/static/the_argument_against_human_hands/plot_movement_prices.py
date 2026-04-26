@@ -97,10 +97,6 @@ for name, points, color, marker in series:
     ax.plot(xs, ys, marker=marker, color=color, markersize=8,
             markeredgecolor="white", markeredgewidth=1.2,
             linestyle="None", label=name)
-    last_year, last_price = points[-1]
-    ax.annotate(f" ${last_price}", xy=(last_year, last_price),
-                color=color, fontsize=10, fontweight="semibold",
-                va="center", ha="left")
 
 # --- Era shading + consistently-placed labels --------------------------
 ERA_LABEL_Y = YLIM_TOP * 0.94
