@@ -18,6 +18,7 @@ STATIC_ASSETS = [
     "publications/",
     "bibs/",
     "CNAME",
+    "favicon.ico",
 ]
 
 
