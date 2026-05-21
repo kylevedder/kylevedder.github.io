@@ -14,6 +14,7 @@ HEADER Misc: Blog posts, notes, and resources
 
 ## Technical notes
 
+- The runbook -- a shared memory for me and my coding agents _(May 21st, 2026)_ — [Read](./misc/agent_runbook.html)
 - On homogeneous transforms _(Mar 28th, 2024)_ — [Read](./misc/homogeneous_transforms.html)
 - GStreamer in-browser visualization _(Oct 3rd, 2023)_ — [Read](./misc/gstreamer_browser_vis.html)
 - My ML research development environment _(Jul 3rd, 2023)_ — [Read](./misc/research_dev_env.html)
