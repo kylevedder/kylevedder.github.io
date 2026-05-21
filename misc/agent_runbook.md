@@ -1,6 +1,6 @@
-HEADER {"page_name": "The runbook -- a shared memory for me and my coding agents", "teaser_img": "https://vedder.io/img/static/agent_runbook/header.png"}
+HEADER {"page_name": "My research memory system", "teaser_img": "https://vedder.io/img/static/agent_runbook/header.png"}
 
-# The runbook -- a shared memory for me and my coding agents
+# My research memory system
 
 _TL;DR: A plain directory of markdown files, indexed by hand and written to by both me and my coding agents. Cheap, scrutable, survives across sessions._
 
