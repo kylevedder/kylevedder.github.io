@@ -137,6 +137,19 @@ li {
     line-height: 1.15em;
 }
 
+blockquote {
+    margin: 1em 0 1em 1.5em;
+    padding-left: 1em;
+    border-left: 3px solid #d0d7de;
+    font-style: italic;
+}
+
+blockquote p {
+    font-style: italic;
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .figure_box {
     /* Add a 1 pixel boarder with rounded corners and two pixels of padding to the content on the inside */
     padding: 1px;
@@ -185,6 +198,11 @@ td {
         max-width: 800px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    blockquote {
+        margin-left: 1.5em;
+        margin-right: 0;
     }
 }
 
