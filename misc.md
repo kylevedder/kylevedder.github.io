@@ -2,7 +2,7 @@ HEADER Misc: Blog posts, notes, and resources
 
 ## Blog posts
 
-- The Novelty Pump _(Jun 14th, 2026)_ — [Read](./misc/novelty_pump.html)
+- Cargo Cults, Data Flywheels, and Novelty Pumps _(Jun 14th, 2026)_ — [Read](./misc/novelty_pump.html)
 - The Case Against Human Hands _(Apr 26th, 2026)_ — [Read](./misc/the_case_against_human_hands.html)
 - A Love Letter to CVPR _(Jan 14th, 2026)_ — [Read](./misc/lover_letter_to_cvpr.html)
 - State of Robot Learning --- Dec 2025 _(Dec 5th, 2025)_ - [Read](./misc/state_of_robot_learning_dec_2025.html)

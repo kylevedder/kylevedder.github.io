@@ -1,4 +1,4 @@
-HEADER {"page_name": "The Novelty Pump", "teaser_img": "https://vedder.io/img/static/novelty_pump/novelty_flywheel_teaser.png"}
+HEADER {"page_name": "Cargo Cults, Data Flywheels, and Novelty Pumps", "teaser_img": "https://vedder.io/img/static/novelty_pump/novelty_flywheel_teaser.png"}
 
 # Cargo Cults, Data Flywheels, and Novelty Pumps
 
