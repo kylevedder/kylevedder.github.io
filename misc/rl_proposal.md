@@ -2,6 +2,8 @@ HEADER Densifying RL Proposal
 
 # Densifying RL Proposal
 
+Real world RL does not work well for long horizon robot learning tasks.
+
 I think the problem with most robotics RL approaches is that straightforward, end-of-episode reward models provide insufficiently dense signal -- the signal becomes so diluted when stretched over long time horizons that modeling it with a network becomes difficult. This is why today, to get RL to work well we have to either hand-craft heuristic reward functions or select an artificially short-horizon task.
 
 To try to address this horizon issue in general, I propose a three-part approach:
@@ -9,6 +11,8 @@ To try to address this horizon issue in general, I propose a three-part approach
  - break down long-horizon tasks into short, coherent subtasks using human annotators and/or a pseudolabeler
  - use those posed subtasks to train a general subtask language-conditioned short-horizon reward model
  - use that reward model to do offline or online RL
+
+Early evidence from similar approaches (without scaling up) like [ReWiND](https://arxiv.org/abs/2505.10911) and [REDS](https://arxiv.org/abs/2502.20630) indicate that good subtask densification leads to better, more robust policies.
 
 ## Premises and priors
 
@@ -28,7 +32,7 @@ To try to address this horizon issue in general, I propose a three-part approach
      - Value and Progress estimation from video ([VIP](https://arxiv.org/abs/2210.00030))
      - Language conditioned reward learning ([LIV](https://arxiv.org/abs/2306.00958))
      - VLM for reward modeling ([RoboCLIP](https://arxiv.org/abs/2310.07899))
-     - Subtask reward learning ([ReWiND](https://arxiv.org/abs/2505.10911) and [REDS](https://arxiv.org/abs/2502.20630))
+     - Low-data subtask reward learning ([ReWiND](https://arxiv.org/abs/2505.10911) and [REDS](https://arxiv.org/abs/2502.20630))
 
 
 ## Execution Plan
