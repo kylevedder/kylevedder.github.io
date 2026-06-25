@@ -22,8 +22,8 @@ To try to address this horizon issue in general, I propose a three-part approach
          - good policy extraction gets harder when it needs to be sensitive to minor changes in value but ignore noise
              - advantage estimates get diluted because the scale of the advantage is smaller
              - NNs are not optimal Bayesian updaters, and so the scale of these changes seems to have weird interactions with learning dynamics
-     - [RLT](https://www.pi.website/research/rlt) ([arXiv](https://arxiv.org/abs/2604.23073)) worked on tasks shorter than 5 seconds
-     - [RECAP](https://www.pi.website/blog/pistar06) ([arXiv](https://arxiv.org/abs/2511.14759)) struggled to work even with per-task human advantage thresholding and subtask creation because each subtask was still 15+ seconds
+     - [RLT](https://www.pi.website/research/rlt) worked on tasks shorter than 5 seconds
+     - [RECAP](https://www.pi.website/blog/pistar06) struggled to work even with per-task human advantage thresholding and subtask creation because each subtask was still 15+ seconds
  - Pieces of the puzzle exist in the literature, but they have not been put together in a scaled up package
      - Value and Progress estimation from video ([VIP](https://arxiv.org/abs/2210.00030))
      - Language conditioned reward learning ([LIV](https://arxiv.org/abs/2306.00958))
