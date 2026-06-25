@@ -5,6 +5,7 @@ HEADER Densifying RL Proposal
 I think the problem with most robotics RL approaches is that straightforward, end-of-episode reward models provide insufficiently dense signal -- the signal becomes so diluted when stretched over long time horizons that modeling it with a network becomes difficult. This is why today, to get RL to work well we have to either hand-craft heuristic reward functions or select an artificially short-horizon task.
 
 To try to address this horizon issue in general, I propose a three-part approach:
+
  - break down long-horizon tasks into short, coherent subtasks using human annotators and/or a pseudolabeler
  - use those posed subtasks to train a general subtask language-conditioned short-horizon reward model
  - use that reward model to do offline or online RL
@@ -63,12 +64,14 @@ If we have action labels, we can also train a Q function $Q(x_t, a, z)$
 The details of the training objective are an open research question.
 
 For value estimation I want to try:
+
  - Bootstrapping
      - N-step SARSA
  - Progress estimation
      - Monte Carlo
 
 For state representation $x_t$ I want to try:
+
  - single observation Markovian
  - multi-observation Markovian
  - fully non-causal value estimation across an entire window of states
@@ -80,10 +83,12 @@ But at scale this ought to produce a general, short-horizon reward model.
 ### Step 3: Offline and Online RL with short-horizon tasks
 
 Given that we now have
+
  - A model to break down arbitrary tasks into short tasks (the Step 1 pseudolabeler)
  - A reward model / value function for those short tasks (Step 2 model)
 
 We can explore offline algorithms first that we can incorporate into large-scale policy or world model training. In terms of likelihood to work and add value:
+
  - Advantage conditioning
  - Advantage weighting
  - Advantage filtering
