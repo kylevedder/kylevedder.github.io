@@ -21,8 +21,14 @@ To try to address this horizon issue in general, I propose a three-part approach
          - good policy extraction gets harder when it needs to be sensitive to minor changes in value but ignore noise
              - advantage estimates get diluted because the scale of the advantage is smaller
              - NNs are not optimal Bayesian updaters, and so the scale of these changes seems to have weird interactions with learning dynamics
-     - [RLT](https://www.pi.website/research/rlt) worked on tasks shorter than 5 seconds
-     - [RECAP](https://www.pi.website/blog/pistar06) struggled to work even with per-task human advantage thresholding and subtask creation because each subtask was still 15+ seconds
+     - [RLT](https://www.pi.website/research/rlt) ([arXiv](https://arxiv.org/abs/2604.23073)) worked on tasks shorter than 5 seconds
+     - [RECAP](https://www.pi.website/blog/pistar06) ([arXiv](https://arxiv.org/abs/2511.14759)) struggled to work even with per-task human advantage thresholding and subtask creation because each subtask was still 15+ seconds
+ - Pieces of the puzzle exist in the literature, but they have not been put together in a scaled up package
+     - Value and Progress estimation from video ([VIP](https://arxiv.org/abs/2210.00030))
+     - Language conditioned reward learning ([LIV](https://arxiv.org/abs/2306.00958))
+     - VLM for reward modeling ([RoboCLIP](https://arxiv.org/abs/2310.07899))
+     - Subtask reward learning ([ReWiND](https://arxiv.org/abs/2505.10911) and [REDS](https://arxiv.org/abs/2502.20630))
+
 
 ## Execution Plan
 
@@ -40,7 +46,7 @@ Importantly, we want demonstrations to contain both successes and failures for g
 
 I think this is mostly an execution question.
 
-We need mixed-quality data that has subtasks that are both successes and failures.
+We need mixed-quality data that has subtasks that are both successes and failures. I think [ReWiND](https://rewind-reward.github.io/) style mislabeling is a hack to get started, but truly disastrous trajectories are still out of distribution.
 
 These annotations can be sourced from human annotation, or potentially from a sufficiently strong embodied video understanding model (e.g. a better version of [Perceptron](https://www.perceptron.inc/) may be able to do this). If an existing video understanding model cannot do this, we should do a [SAM](https://arxiv.org/abs/2304.02643)-style human-plus-pseudolabel bootstrapping approach to produce a model that can.
 
