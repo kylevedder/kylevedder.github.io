@@ -12,7 +12,7 @@ To try to address this horizon issue in general, I propose a three-part approach
  - use those posed subtasks to train a general subtask language-conditioned short-horizon reward model
  - use that reward model to do offline or online RL
 
-Early evidence from similar approaches (without scaling up) like [ReWiND](https://arxiv.org/abs/2505.10911) and [REDS](https://arxiv.org/abs/2502.20630) indicate that good subtask densification leads to better, more robust policies.
+Early evidence from similar approaches (without scaling up) like [ReWiND](https://arxiv.org/abs/2505.10911) and [REDS](https://arxiv.org/abs/2502.20630) indicate that good subtask reward densification can lead to better, more robust policies.
 
 ## Premises and priors
 
