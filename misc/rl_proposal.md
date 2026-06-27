@@ -1,6 +1,6 @@
-HEADER Densifying RL Proposal
+HEADER Reward Anything
 
-# Densifying RL Proposal
+# Reward Anything
 
 Real world RL does not work well for long horizon robot learning tasks.
 
@@ -12,7 +12,7 @@ To try to address this horizon issue in general, I propose a three-part approach
  - use those posed subtasks to train a general subtask language-conditioned short-horizon reward model
  - use that reward model to do offline or online RL
 
-Early evidence from similar approaches (without scaling up) like [ReWiND](https://arxiv.org/abs/2505.10911) and [REDS](https://arxiv.org/abs/2502.20630) indicate that good subtask reward densification can lead to better, more robust policies.
+Early evidence from similar approaches (without scaling up) like [ReWiND](https://arxiv.org/abs/2505.10911), [REDS](https://arxiv.org/abs/2502.20630), [SARM](https://arxiv.org/abs/2509.25358), and [SARM2](https://arxiv.org/abs/2606.10305) indicate that good subtask reward densification can lead to better, more robust policies.
 
 ## Premises and priors
 
@@ -33,6 +33,10 @@ Early evidence from similar approaches (without scaling up) like [ReWiND](https:
      - Language conditioned reward learning ([LIV](https://arxiv.org/abs/2306.00958))
      - VLM for reward modeling ([RoboCLIP](https://arxiv.org/abs/2310.07899))
      - Low-data subtask reward learning ([ReWiND](https://arxiv.org/abs/2505.10911) and [REDS](https://arxiv.org/abs/2502.20630))
+     - Stage-aware reward modeling ([SARM](https://arxiv.org/abs/2509.25358) and [SARM2](https://arxiv.org/abs/2606.10305))
+         - SARM: task-specific stages / per-task annotations
+         - SARM2: multi-task action primitive stages
+         - This: open-vocabulary subtasks from arbitrary long-horizon data
 
 
 ## Execution Plan
